@@ -1,0 +1,62 @@
+<main>
+  <header class="repair-show-header-section">
+    <h1 class="repair-show-header">Repair Details</h1>
+    <%= link_to 'Back', :back %>
+    <% if @repair.complete == false %>
+    <%= link_to "Edit Repair", controller: "repairs", action: "edit", id: @repair.id %>
+    <%= button_to "Close Ticket", :method => "get", controller: "repairs", action: "complete", id: @repair.id %>
+    <% end %>
+  </header>
+  <section class="repair-show-info">  
+    <article>
+      <header>
+        <h2 class="repair-sub-header">Repair Details</h2>
+      </header>
+      <article class="repair-show-grid">  
+        <div class="repair-info-col-left">
+          <h3>Customer Name:</h3> 
+          <p><%= @repair.customer.first_name %></p>
+          <h3>Created By:</h3>
+          <p><%= @repair.user.full_name%></p>
+          <h3>Completion status: </h3>
+          <p><%= @repair.complete %></p>
+        </div>
+        <div class="repair-info-col-right">
+          <h3 class="repair-description">Description: </h3>
+          <p><%= @repair.description %></p>
+        </div>  
+      </article>  
+    </article>
+    <article>
+      <% if @repair.images[0] %>
+        <header>
+          <h2 class="repair-sub-header">Photos of repair</h2>
+        </header>
+        <article class="repair-img-display">  
+          <% @repair.images.each do |image| %>
+            <%= image_tag(image.photo.url, :class => "repair-img") %>
+          <% end %>
+        </article>  
+      <% end %>
+    </article>
+  </section>
+  <% if @repair.complete == false %>
+    <section class="repair-add-photo-section"> 
+      <header> 
+        <h2 class="repair-sub-header">Add Photo</h2>
+      </header>
+      <article class="repair-img-form">  
+        <%= form_for(@image) do |f| %>
+          <div class="repair-img-input">
+            <%= f.label :photo, "Photo: "%>
+            <%= f.file_field :photo %>
+          </div>
+            <%= f.hidden_field :repair_id, :value => params[:id] %>
+          <div class="repair-img-submit">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </article>  
+    </section>
+  <% end %>
+</main>

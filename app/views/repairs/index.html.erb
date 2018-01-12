@@ -1,0 +1,63 @@
+<main>
+  <header>
+    <h1 class="repair-main-header">Repairs</h1>
+    <div>
+      <button id="open-repair-switch" class="active-repair-tab">Open Repairs</button>
+      <button id="repair-history-switch">Repair History</button>
+    </div>
+  </header>
+  <section id="open-repairs"> 
+    <article> 
+      <% if @open_repairs[0] %>
+        <table class="repair-table">
+          <caption class="repair-table-headers">Open Repairs</caption>
+          <thead class="repair-thead">
+            <tr>
+              <th>Name</th>
+              <th>Header</th>
+              <th>Created By</th>
+              <th>Completed</th>
+            </tr>
+          </thead>
+          <tbody class="repair-tbody">
+            <% @open_repairs.each do |repair| %>
+              <tr>
+                <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
+                <td><%= link_to repair.title,repair_path(repair) %></td>
+                <td><%= repair.user.first_name %></td>
+                <td><%= button_to "Complete Visit", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </article>
+  </section>
+  <section id="finished-repairs">
+    <article>
+      <% if @finished_repairs[0] %>
+        <table class="repair-table">
+          <caption class="repair-table-headers">Completed Repairs Log</caption>
+            <thead class="repair-thead">
+              <tr>
+                <th>Name</th>
+                <th>Header</th>
+                <th>Created By</th>
+                <th>Show Details</th>
+              </tr>
+            </thead>
+            <tbody class="repair-tbody">
+            <% @finished_repairs.each do |repair| %>
+              <tr>
+                <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
+                <td><%= link_to repair.title,repair_path(repair) %></td>
+                <td><%= repair.user.first_name %></td>
+                <td><%= link_to "Visit Details",repair_path(repair) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </article>
+  </section>
+</main>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @business.business_name %>'s weekly Report</h1>
+    <h2>Unfinihsed Pools</h2>
+    <ul>
+    <% @unfinished_pools.each do |pool| %>
+      <li><%= pool.full_address%> beloning to <%= pool.user.first_name %></li>
+      <% end %>
+    </ul>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

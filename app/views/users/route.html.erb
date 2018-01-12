@@ -1,0 +1,62 @@
+<main>
+  <header>
+    <h1 class="routes-main-header"><%= @user.first_name %>'s Route</h1>
+    <h2 class="routes-date"><%= DateTime.now.strftime('%D') %></h2>
+  </header>
+  <section>
+    <article>  
+      <% if @unfinished_route[0] %>
+        <table class="routes-table">
+          <caption class="routes-headers">Pools Incomplete</caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Street Address</th>
+              <th>Phone Number</th>
+              <th>Finish</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @unfinished_route.each do |customer| %>
+              <tr>
+                <td><%= link_to customer.full_name, customer_path(customer) %></td>
+                <td><%= customer.street_address%></td>
+                <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+                <td><%= link_to "Complete", controller: "visits", action: "new", id: customer.id %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </article>
+    <article>  
+      <% if @finished_route[0] %>
+        <table class="routes-table">
+          <caption class="routes-headers">Finished Pools</caption>
+          <thead class="routes-thead">
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody class="routes-tbody">
+            <% @finished_route.each do |customer| %>
+              <tr>
+                <td><%= link_to customer.full_name, customer_path(customer) %></td>
+                <td><%= customer.street_address%></td>
+                <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+                <td><%= link_to "Show Visit", controller: "visits", action: "show", id: customer.visits.last.id %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </article>
+  </section>
+</main>
+
+
+
+

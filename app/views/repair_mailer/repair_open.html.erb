@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>A new repair ticket was open for your pool on <%= @repair.created_at %></h1>
+    <p>
+      We will be in touch soon to schedule a time to fix the repair.<br>
+    </p>
+    <p>
+      If you have any questions, react out to <%= @repair.user.business.owners_first_name %> at <%= @repair.user.business.phone %>.
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

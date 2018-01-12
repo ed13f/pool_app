@@ -1,0 +1,40 @@
+<main>
+  <header>
+    <h1 class="new-user-header">Register New User</h1>
+  </header>
+  <section> 
+    <article class="new-user-form"> 
+      <%= form_for(@user) do |f| %>
+        <div class="field">
+          <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
+        </div>
+
+        <div class="new-user-bottom">
+          <div class="new-user-check">
+            <%= f.label :admin %>
+            <%= f.check_box :admin, :style => "width: 50px; height: 50px;" %>
+          </div>
+          <div class="new-user-submit">
+            <%= f.submit %>
+          </div>
+        </div>
+      <% end %>
+    </article>
+  </section>  
+</main>

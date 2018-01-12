@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome <%= @user.first_name %>!</h1>
+    <p>
+      You have successfully been added to the <%= @user.business.business_name %> employee roster and will have access to your route soon.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.<br>
+      If you have any questions about the app react out to <%= @user.business.owners_first_name %> at <%= @user.business.phone %>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

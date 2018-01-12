@@ -1,0 +1,43 @@
+<script>
+$( document ).ready(function() {
+    console.log( "ready!" );
+    function loadMainMap(){
+      handler = Gmaps.build('Google');
+      handler.buildMap({
+      provider: {
+        disableDefaultUI: false,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        // zoom: 10,
+        center: {lat: 26.7153, lng: -80.0534},
+        // gestureHandling: 'cooperative'
+        // maxZoom:20,
+        minZoom:8
+        // pass in other Google Maps API options here
+      },
+      internal: {
+        id: 'map'
+      }
+    },
+    function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>)
+      handler.bounds.extendWith(markers);
+      // handler.fitMapToBounds();
+
+    }
+    );
+  }
+  loadMainMap()
+});
+</script>
+
+<section id="pool-maps">
+	<div class="main-map">
+	  <div id="map"></div>
+	</div>
+  <div class="direction-map">
+    <div id="directions"></div>
+    <div id="right-panel"></div>
+    <button id="complete-trip">Complete Trip</button>
+  </div>
+</section>

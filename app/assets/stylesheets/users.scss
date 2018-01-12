@@ -1,0 +1,186 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/********************/
+/*User New*/
+/********************/
+
+.new-user-form{
+	margin: 10% 15%;
+}
+.new_user input{
+	width:89%;
+	font-size:35px;
+	margin: 3% 0;
+	padding: 2% 4%;
+}
+.new-user-header{
+	font-size:60px;
+	margin:13% 2% 5%;
+}
+.new-user-submit{
+	flex:1;
+	display:inline-block;
+	text-align: right;
+	margin: 0 2%;
+}
+.new-user-check{
+	flex:1;
+    margin: 15px 0;
+}
+.new-user-check label{
+	font-size: 50px;
+    margin: 0 5% 0 0;
+}
+.new-user-bottom{
+	display:flex;
+
+}
+
+.new-user-submit input{
+	background-color: grey;
+    font-size: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Kanit', sans-serif;
+    /*margin: 66px 10px;*/
+}
+
+/********************/
+/*User Show*/
+/********************/
+
+.user-show-header{
+	font-size:60px;
+	margin:0 2% 0%;
+}
+.user-show-table{
+  width:95vw;
+  padding:2%;
+  border-collapse: collapse;
+  margin:2.5vw;
+  text-align:center;
+  font-size:2rem;
+}
+.user-show-table-headers{
+	text-align:left;
+	margin: 2% 0;
+	font-size: 50px;
+}
+.user-show-thead,
+.user-show-tbody,
+.user-show-table-headers{
+	display:block;
+}
+.user-show-thead th,
+.user-show-tbody td{
+	width:24vw;
+}
+.user-show-tbody{
+	max-height:800px;
+	overflow:scroll;
+}
+.green{
+	color:darkgreen;
+}
+.red{
+	color:red;
+}
+#unfinished-pools{
+	display:none;
+}
+#finished-pools{
+	display:none;
+}
+#master-sheet{
+	display:none;
+}
+.switch{
+	/*margin:2% 2% 2% 1%;*/
+	display:inline-block;
+	border:none;
+	float:left;
+	margin-bottom:2%;
+	/*background-color:transparent;*/
+	background: lightgrey;
+	padding: 0 10px;
+	font-size: 25px;
+}
+.active-switch{
+	background-color: grey;
+}
+.profile-views{
+	margin-left: 2%;
+	display:inline-block;
+}
+.user-show-edit-button{
+	margin-right: 2%;
+    background-color: lightgrey;
+    text-decoration: none;
+    float: right;
+    padding: 0 10px;
+    font-size: 25px;
+}
+
+/********************/
+/*User edit*/
+/********************/
+.edit_user input {
+    width: 89%;
+    font-size: 35px;
+    margin: 3% 0;
+    padding: 2% 4%;
+    font-family: 'Kanit', sans-serif;
+}
+
+/********************/
+/*User Index*/
+/********************/
+.landing-options{
+	margin:50% auto;
+}
+
+
+
+
+.map-customer-name{
+	margin:3% 0;
+	font-size:35px;
+}
+.map-customer-address{
+	margin:0;
+	font-size:20px;
+}
+.map-customer-gate{
+	margin:0;
+	font-size:20px;
+}
+.main-map{
+	width: 96%;
+  z-index: -1;
+  margin: 2% 2% 3%;
+}
+#map{
+	width: 100%;
+	height: 71vh;
+}
+.direction-map{
+	display:none;
+	width: 96%;
+  	margin: 0 2% 3%;
+}
+#directions{
+	width: 100%;
+	height: 50vh;
+}
+.adp-placemark{
+  display:none;
+}
+#right-panel{
+  font-size:33px;
+  height: 300px;
+  overflow: scroll;
+  margin-top: 2%;
+}
+

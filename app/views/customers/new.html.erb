@@ -1,0 +1,57 @@
+<main>
+  <header class="header">
+    <div class="header-overlay">
+    </div>
+    <h3 class="header-text new-customer-header">Create new Customer</h3>
+  </header>
+  <section>  
+    <%= form_for(@customer) do |f| %>
+      <%= field_set_tag "Customer Info", class: "new-customer-info" do %>
+        <div class="new-customer-name">
+          <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
+          <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
+        </div>
+        <div class="new-customer-address">
+          <%= f.text_field :street_address, :placeholder => "Street Address", :autocomplete => :off %>
+          <%= f.text_field :city, :placeholder => "City", :autocomplete => :off %>
+          <%= f.text_field :state, :placeholder => "State", :autocomplete => :off %>
+          <%= f.text_field :zip_code, :placeholder => "Zip Code", :autocomplete => :off %>
+        </div>
+        <div class="new-customer-contact">
+          <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
+          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+          <%= f.text_field :gate_code, :placeholder => "Gate Code", :autocomplete => :off %>
+        </div>
+      <% end %>
+      <%= field_set_tag "Pool Info", class: "new-customer-pool" do %>
+        <div class="equipment-type">
+          <%= f.text_field :filter_type, :placeholder => "Filter Type", :autocomplete => :off %>
+          <%= f.text_field :pump_type, :placeholder => "Pump Type", :autocomplete => :off %>
+          <% if User.find(session[:user_id]).admin == true %>
+          <%= f.label "Employee",:user_id%>
+            <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+          <% end %>  
+        </div>
+        <div class="scheduling">
+          <span class="day">  
+            <%= f.label :service_day %>
+            <%= f.select( :service_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], {}, { :class => 'customer-new-select' }) %>
+          </span> 
+          <span> 
+            <%= f.label :visit_per_week %>
+            <%= f.select( :visit_per_week, ['1', '2'], {}, { :class => 'customer-new-select' }) %>
+          </span>
+          <span class="customer-checkbox">
+            <%= f.label :spa %>
+            <%= f.check_box :spa %>
+          </span>
+        </div>
+      <% end %>
+    
+      <div class="customer-submit">
+        <%= f.submit 'Create New Customer', :class => 'customer-new-submit' %>
+        <%= link_to 'Cancel', :back %>
+      </div>        
+    <% end %>
+  </section>
+</main>

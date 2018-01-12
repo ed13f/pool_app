@@ -1,0 +1,64 @@
+<main>
+  <header>
+    <h1 class="new-visit-header">Complete Visit  Information</h1>
+  </header>
+  <article>  
+    <%= form_for(@visit) do |f| %>
+      <%= field_set_tag "Chemistry Readings", class: "new-visit-chemistry" do %>
+        <div class="chem-flex">
+          <div class="chem-column-left">
+            <%= f.label :chlorine %>
+            <%= f.number_field :chlorine, :placeholder => " Level"  %><br>
+            <%= f.label :ph %>
+            <%= f.number_field :ph, :placeholder => " Level" %><br>
+            <%= f.label :alkalinity %>
+            <%= f.number_field :alkalinity, :placeholder => " Level"  %>
+          </div>
+          <div class="chem-column-right">
+            <%= f.label :stabilizer %>
+            <%= f.number_field :stabilizer, :placeholder => " Level"  %>
+            <%= f.label :salt  %>
+            <%= f.number_field :salt, :placeholder => " Level"  %>
+          </div>
+        </div>
+      <% end %>
+      <%= field_set_tag "Duties", class: "new-visit-duties" do %>
+        <div class="duties-flex">
+          <div class="duties-left">
+            <%= f.label :clean_tile %>
+            <%= f.check_box :clean_tile  %><br>
+            <%= f.label :leaf_net %>
+            <%= f.check_box :leaf_net %><br>
+            <%= f.label :vacuum %>
+            <%= f.check_box :vacuum %><br>
+            <%= f.label :brush %>
+            <%= f.check_box :brush %><br>
+            <%= f.label :skimmer_basket %>
+            <%= f.check_box :skimmer_basket %><br>
+            <%= f.label :pump_basket %>
+            <%= f.check_box :pump_basket %><br>
+            <%= f.label :clean_filters %>
+            <%= f.check_box :clean_filters %><br>
+          </div>
+          <div class="duties-right">  
+            <%= f.label :new_filters %>
+            <%= f.check_box :new_filters %><br>
+            <%= f.label :add_chlorine %>
+            <%= f.check_box :add_chlorine %><br>
+            <%= f.label :add_acid %>
+            <%= f.check_box :add_acid %><br>
+            <%= f.label :add_bicarb %>
+            <%= f.check_box :add_bicarb %><br>
+            <%= f.label :add_stabilizer %>
+            <%= f.check_box :add_stabilizer %><br>
+            <%= f.label :add_chlorine_tab %>
+            <%= f.check_box :add_chlorine_tab %><br>
+            <%= f.hidden_field :customer_id, :value => params[:id] %>
+          </div> 
+        </div>  
+      <% end %> 
+      <%= f.submit 'Complete Visit', :class => 'submit-visit' %>  
+      <%= link_to 'Cancel', :back %>
+    <% end %>
+  </article>
+</main>

@@ -1,0 +1,288 @@
+// Place all the styles related to the Customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/***************************/
+/*New Customer*/
+/***************************/
+
+.new-customer-info input,
+.new-customer-pool input{
+  height:50px;
+  font-size:30px;
+}
+.new-customer-pool,
+.new-customer-info{
+  margin: 3% 2%;
+  padding: 3% 2%;
+}
+.new-customer-name,
+.new-customer-address,
+.new-customer-contact{
+  display:flex;
+  width:100%;
+}
+.new-customer-name input,
+.new-customer-address input,
+.new-customer-contact input{
+  flex:1;
+  margin: 0.5%;
+  width: 100%; 
+}
+.new-customer-pool label{
+  font-size:30px;
+}
+.new-customer-pool legend,
+.new-customer-info legend{
+  font-size:40px;
+}
+.equipment-type,
+.scheduling{
+  display:flex;
+  width:100%;
+}
+.equipment-type input,
+.scheduling input{
+  flex:1;
+  width:100%;
+  margin:0.5%;
+}
+/*.scheduling input{
+  width:32.25%;
+}*/
+.customer-checkbox input{
+  width: 40px;
+}
+.customer-new-select{
+  font-size: 2rem;
+  background-color: grey;
+  border-radius: 10px;
+  /*padding: 1.5%;*/
+}
+.new-customer-pool input[type="checkbox"]{
+  height:28px !important;
+}
+.scheduling span{
+  flex:1;
+  margin: 0.5%;
+}
+.customer-new-submit{
+  font-size: 30px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 30px;
+  background-color: grey;
+}
+.customer-submit{
+  text-align: center;
+  padding: 1% 0 4%;
+}
+.new-customer-header{
+  font-size:50px;
+  margin:0;
+  padding-left: 2%;
+}
+.day{
+  flex:1.5 !important;
+}
+select option{
+  text-align:center;
+}
+
+.header{
+  background-image: url('/assets/water-crop.jpg')
+}
+.header-overlay{
+    background-color: black;
+    height: 100px;
+    width: 100%;
+    opacity: 0.2;
+}
+.header-text{
+      z-index: 2;
+    position: absolute;
+    top: 100px;
+    color: white;
+}
+
+/***************************/
+/*Customer Show*/
+/***************************/
+.show-header{
+margin-left:2.5vw;
+}
+.customer-show-section{
+  display:flex;
+  width:95vw;
+  padding:0.8vh 2.5vw;
+  font-size:2rem;
+  background-color: grey;
+}
+.show-section p{
+  margin:1vh 0 0 0;
+  padding:0.5vh;
+}
+.customer-links{
+  width: 90%;
+  display:inline-block;
+  padding:1% 2%;
+}
+.customer-links a{
+  display:inline-block;
+  font-size: 25px;
+  margin: 0 10px 0 0;
+  background-color: grey;
+  padding:5px 15px;
+  text-decoration: none;
+  border-radius:10px;
+}
+.user-show-header{
+  font-size: 60px;
+  margin:0 2vw;
+}
+.customer-show-address{
+  line-height: 0px;
+  margin: 0% 2% 5%;
+}
+.customer-show-address p{
+  margin:0;
+  font-size:30px;
+}
+.notes-section{
+  width:95vw;
+  padding:2.5vh 2.5vw;
+  font-size:2rem;
+  background-color: lightgrey;
+  height:100%;
+}
+.note-header{
+  margin:0 2.5vw;
+}
+.customer-show-label{
+  font-size:40px;
+  margin:0;
+}
+.customer-show-info{
+  line-height: 15px;
+  font-size: 30px;
+  margin: 0 0 6% 0px;
+}
+.user-display-info{
+  flex:1;
+}
+.customer-display-notes{
+  flex:1.5;
+}
+.add-note-header{
+  margin:0
+  ;
+}
+.new-note-form{
+  display:flex;
+}
+.new-note-input {
+  flex:5;
+  margin-right:2%;
+}
+.new-note-input textarea{
+  width:100%;
+  height: 50px;
+  resize: none;
+  font-size: 35px;
+}
+.note-submit{
+  flex:1;
+  font-size:40px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius:5px;
+  background-color: grey;
+  margin: 32% 0;
+  padding: 5px 10px;
+}
+
+/***************************/
+/*User Routes*/
+/***************************/
+
+.routes-headers{
+	text-align:left;
+	font-size:1.25em;
+	margin:2% 0;
+}
+.routes-main-header{
+	font-size:3em;
+	margin: 3% 2% 0;
+	padding:0;
+	line-height: 35px;
+}
+.routes-date{
+	margin: 0 2%;
+    font-size: 2em;
+}
+.routes-table{
+  width:95vw;
+  padding:2%;
+  border-collapse: collapse;
+  margin:2.5vw;
+  font-size:2rem;
+  text-align:center;
+}
+.routes-thead,
+.routes-tbody,
+.routes-table-headers{
+	display:block;
+}
+.routes-thead th,
+.routes-tbody td{
+	width:24vw;
+}
+.routes-tbody{
+	max-height:300px;
+	overflow:scroll;
+}
+/***************************/
+/* Customer History */
+/***************************/
+.history-header{
+  font-size: 50px;
+  margin: 0 2%;
+}
+.history-visit-sub-header,
+.history-repair-sub-header{
+  text-align: left;
+  font-size: 40px;
+}
+.history-visit-thead,
+.history-visit-tbody,
+.history-visit-sub-header,
+.history-repair-sub-header,
+.history-repair-thead,
+.history-repair-tbody{
+  display: block;
+
+}
+.history-visit-thead th,
+.history-visit-tbody td{
+  width:17%;
+}
+.history-repair-tbody td,
+.history-repair-thead th{
+  width:16%;
+}
+
+.history-visit-table,
+.history-repair-table{
+  width:95vw;
+  padding:2%;
+  border-collapse: collapse;
+  margin:2.5vw;
+  font-size:2rem;
+  text-align:center;
+}
+.history-repair-tbody,
+.history-visit-tbody{
+  max-height:200px;
+  overflow:scroll;
+}

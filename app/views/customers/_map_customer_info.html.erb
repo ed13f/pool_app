@@ -1,0 +1,12 @@
+<section>
+	<header>
+		<h2 class="map-customer-name"><%= object.full_name %></h2>
+		<h3 class="map-customer-address"><%= object.full_address %></h3>
+		<% if object.gate_code %>
+			<h3 class="map-customer-gate">Gate Code: <%= object.gate_code %></h3>
+		<% end %>	
+	</header>
+	<article>
+		<button type="button" onClick="getDirections(<%= object.coordinates %>)">Get Directions</button>
+	</article>
+</section>

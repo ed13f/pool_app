@@ -1,0 +1,9 @@
+<%= @business.business_name %>'s weekly Report
+===============================================
+ 
+Unfinihsed Pools
+<%= @unfinished_pools.each do |pool| %>
+   <%= pool.full_address%> beloning to <%= pool.user.first_name %>
+<% end %>
+ 
+Thanks for joining and have a great day!

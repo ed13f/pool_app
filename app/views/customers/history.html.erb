@@ -1,0 +1,62 @@
+<main>
+  <header>
+    <h1 class="history-header"><%= @customer.full_name%>'s History</h1>
+    <%= link_to 'Back', :back %>
+  </header>
+  <section>
+    <table class="history-visit-table">
+      <caption class="history-visit-sub-header">Visits</caption>
+      <% if @visit_history[0] %>
+        <thead class="history-visit-thead">
+          <tr>
+            <th>Serviced At</th> 
+            <th>Vacuum</th>
+            <th>Filters</th>
+            <th>View More</th>
+          </tr>
+        </thead>
+        <tbody class="history-visit-tbody">
+          <% @visit_history.each do |visit| %>
+            <tr>
+              <td><%= visit.eastern_standard_time %></td> 
+              <td><%= visit.vacuum %></td>
+              <td><%= visit.clean_filters %></td>
+              <td><%= link_to "Visit", controller: "visits", action: "show", id: visit.id %></td>
+            </tr>
+          <% end %>
+        </tbody> 
+      <% else %>
+        <tr>
+        <th>This Customer Has No Visits</th>
+        </tr>   
+      <% end %>
+    </table>
+  </section>  
+  <section>
+    <table class="history-repair-table">
+      <caption class="history-repair-sub-header">Repairs</caption>
+      <% if @repair_history[0] %>
+        <thead class="history-repair-thead">
+          <tr>
+            <th>Serviced At</th>
+            <th>Description</th>
+            <th>View More</th>
+          </tr>
+        </thead>
+        <tbody class="history-repair-tbody">
+          <% @repair_history.each do |repair| %>
+            <tr>
+              <td><%= repair.eastern_standard_time %></td>
+              <td><%= repair.title %></td>
+              <td><%= link_to "Repair", controller: "repairs", action: "show", id: repair.id %></td>
+            </tr>
+          <% end %>  
+        </tbody>
+      <% else%>
+        <tr>
+          <th>This Customer Has No Repairs</th>
+        </tr>    
+      <% end %>  
+    </table>
+  </section>
+</main>
