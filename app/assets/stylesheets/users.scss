@@ -61,12 +61,12 @@
   border-collapse: collapse;
   margin:2.5vw;
   text-align:center;
-  font-size:2rem;
+  font-size:1.5rem;
 }
 .user-show-table-headers{
 	text-align:left;
 	margin: 2% 0;
-	font-size: 50px;
+	font-size: 1.25em;
 }
 .user-show-thead,
 .user-show-tbody,
@@ -138,9 +138,21 @@
 /*User Index*/
 /********************/
 .landing-options{
-	margin:50% auto;
+	margin:30vh 17vw;
 }
-
+.user-signin-button,
+.user-register-button{
+  width:100%;
+  background-color:grey;
+  font-size:40px;
+  text-align:center;
+  margin:5vh 0;
+}
+.user-signin-button a,
+.user-register-button a{
+  text-decoration: none;
+  color:black;
+}
 
 
 
@@ -183,4 +195,19 @@
   overflow: scroll;
   margin-top: 2%;
 }
+/*new owner*/
+.new-owner-header{
+  font-size: 60px;
+  margin: 13% 2%;
+}
+.new-owner-form{
+  margin: 9vh 17vw;
+}
+.new-owner-form input[type="submit"]{
+  background-color:grey;
+  width:98%;
 
+}
+.new-owner-submit{
+
+}

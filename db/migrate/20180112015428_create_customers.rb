@@ -16,9 +16,14 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       		t.float :latitude
       		t.float :longitude
       		t.integer :user_id, null: false
-      		t.integer :visit_per_week, :default => 1
       		t.boolean :weekly_complete, :default => false
-      		t.boolean :spa
+      		t.string :weekly_visit_str, :default => ""
+      		t.boolean :monday
+          t.boolean :tuesday
+          t.boolean :wednesday
+          t.boolean :thursday
+          t.boolean :friday
+          t.boolean :spa
       		t.timestamps
       		t.timestamps
     	end

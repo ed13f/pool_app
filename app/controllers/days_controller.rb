@@ -1,9 +1,9 @@
 class DaysController < ApplicationController
 	def	create
 		@day = Day.new(day_params)
+		binding.pry
 		if @day.save
-			redirect_back fallback_location: "http://localhost:3000/"
-		end	
+		end
 
 	end
 

@@ -35,5 +35,8 @@ Rails.application.routes.draw do
   resources :repairs, only: [ :create, :show, :edit, :update, :index ]
   post '/repairs/complete/:id' => 'repairs#complete'
   get 'customers/repairs/:id' => 'repairs#new'
-  
+
+  #days
+  post '/days' => 'days#new'
+
 end

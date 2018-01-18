@@ -26,9 +26,12 @@
 	font-size: 1.25em;
 }
 .repair-main-header{
-	font-size:3rem;
-	margin:0 2%;
-	padding: 0 2%;
+	margin:0 ;
+	padding:0;
+}
+.repair-main-header h1{
+  font-size:3rem;
+  margin:2%;
 }
 .repair-thead,
 .repair-tbody,
@@ -48,6 +51,15 @@
 }
 .active-repair-tab{
 	background-color:grey;
+}
+.table-empty{
+  width:100vw !important;
+}
+.open-switch{
+  background-color:lightgrey;
+}
+.open-switch button{
+  font-size:30px;
 }
 /***************************/
 /*Repair show*/

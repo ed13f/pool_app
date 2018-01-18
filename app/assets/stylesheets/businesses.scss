@@ -55,3 +55,47 @@
 	max-height:450px;
 	overflow:scroll;
 }
+/**********************/
+/*business new*/
+/**********************/
+.new_business{
+	width: 91%;
+}
+.new_business input{
+	width: 100%;
+  padding: 2% 4%;
+  font-size: 35px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+.new-business-header{
+	font-size: 60px;
+  margin: 9% 2%;
+}
+.new-business-form{
+	margin: 12vh 17vw;
+}
+.new-business-options{
+	width:109%;
+	display:flex;
+}
+.new-business-options a{
+	background-color: grey;
+    font-size: 35px;
+    flex: 1;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration:none;
+    color:darkred;
+    margin: 2% 0 2% 2%;
+    padding: 2%;
+    font-family: 'Kanit', sans-serif;
+}
+.new-business-options input[type="submit"]{
+	background-color:grey;
+	font-size: 35px;
+	font-family: 'Kanit', sans-serif;
+	flex: 2;
+}
+
+

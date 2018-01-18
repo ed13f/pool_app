@@ -9,4 +9,13 @@ class User < ApplicationRecord
   	def full_name
     	self.first_name + " " + self.last_name
   	end
+
+    def finished_pools
+      # binding.pry
+
+      # scheduled_days = self.customers.select do |customer|
+      #   customer.days.days_list.count < 0
+      # end
+      # scheduled_days
+    end
 end

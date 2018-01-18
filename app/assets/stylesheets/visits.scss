@@ -11,18 +11,21 @@
 }
 .new-visit-chemistry label{
 	width:100px;
-	font-size:40px;
+	font-size:35px;
+	line-height: 50px;
+	/*display:inline-block;*/
 }
 .new-visit-chemistry input{
-	font-size: 40px;
-    width: 180px;
+	font-size: 35px;
+  width: 175px;
 	display:inline-block;
-	margin:auto;
+	margin:5px 10px;
+	text-align:center;
 	border-radius: 5px;
 }
 .new-visit-chemistry legend,
 .new-visit-duties legend{
-	font-size:50px;
+	font-size:40px;
 }
 .chem-column-left{
 	text-align:right;
@@ -55,11 +58,11 @@
 	margin: 1% 5%;
 }
 .new-visit-duties label{
-	font-size:40px;
+	font-size:35px;
 }
 .new-visit-header{
-	font-size: 60px;
-    margin: 3% 2%;
+	font-size: 50px;
+    margin: 5% 2%;
 }
 .submit-visit{
 	font-size: 40px;
@@ -70,6 +73,38 @@
     border-radius: 5px;
     padding: 5px 30px;
     background-color: grey;
+}
+.visit-options{
+	display:flex;
+	width: 80vw;
+  margin: 2% 10%;
+}
+.visit-options input{
+	/*margin:initial !important;*/
+	background-color: grey;
+  font-size: 35px;
+  padding: 5px 40px;
+  margin: 2% 1% 2% 0 !important;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.visit-options a{
+	flex:1;
+	background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 2% 2% 2% 1%;
+  padding: 1% 2%;
+  font-family: 'Kanit', sans-serif;
 }
 /******************/
 /*Visit Show*/

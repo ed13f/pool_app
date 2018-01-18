@@ -1,6 +1,7 @@
 class BusinessesController < ApplicationController
   def new
     @business = Business.new
+    @user = User.new
   end
 
   def create
@@ -50,6 +51,7 @@ class BusinessesController < ApplicationController
     BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
     @customers.map do |customer|
       customer.weekly_complete = false
+      customer.weekly_visit_str = ""
       customer.save
     end
     redirect_to action: 'show', :id => @business.id
@@ -57,6 +59,6 @@ class BusinessesController < ApplicationController
 
   private
     def business_params
-      params.require(:business).permit(:owners_first_name, :owners_last_name, :business_name, :email, :phone, :id)
+      params.require(:business).permit(:owners_first_name, :owners_last_name, :business_name, :email, :phone, :id, :password)
     end
 end

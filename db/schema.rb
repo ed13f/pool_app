@@ -41,8 +41,13 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.float "latitude"
     t.float "longitude"
     t.integer "user_id", null: false
-    t.integer "visit_per_week", default: 1
     t.boolean "weekly_complete", default: false
+    t.string "weekly_visit_str", default: ""
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
     t.boolean "spa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,11 +58,11 @@ ActiveRecord::Schema.define(version: 20180112054410) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.string "monday"
-    t.string "tuesday"
-    t.string "wednesday"
-    t.string "thursday"
-    t.string "friday"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
     t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
