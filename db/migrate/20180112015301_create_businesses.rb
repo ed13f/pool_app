@@ -6,6 +6,7 @@ class CreateBusinesses < ActiveRecord::Migration[5.1]
       		t.string :business_name
       		t.string :phone, null: false
       		t.string :email, null: false
+          t.string :password
       		t.timestamps
     	end
   	end

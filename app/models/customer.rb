@@ -46,10 +46,10 @@ class Customer < ApplicationRecord
       list.push("Wednesday")
     end
     if self.thursday
-      list.push("Saturday")
+      list.push("Thursday")
     end
     if self.friday
-      list.push("Sunday")
+      list.push("Friday")
     end
     list
   end

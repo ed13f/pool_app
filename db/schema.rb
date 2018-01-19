@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "business_name"
     t.string "phone", null: false
     t.string "email", null: false
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "state", null: false
     t.string "zip_code", null: false
     t.string "gate_code"
-    t.string "service_day"
     t.string "filter_type"
     t.string "pump_type"
     t.float "latitude"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.boolean "wednesday"
     t.boolean "thursday"
     t.boolean "friday"
-    t.boolean "spa"
+    t.boolean "receive_emails"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"

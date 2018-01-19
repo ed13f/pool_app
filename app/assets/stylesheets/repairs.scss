@@ -15,9 +15,11 @@
   width:95vw;
   padding:2%;
   border-collapse: collapse;
-  margin:2.5vw;
+  margin:0 2.5vw;
   text-align:center;
   font-size:2rem;
+  border-spacing: 0px;
+  /*display: block;*/
 }
 
 .repair-table-headers{
@@ -28,6 +30,7 @@
 .repair-main-header{
 	margin:0 ;
 	padding:0;
+  /*9*/
 }
 .repair-main-header h1{
   font-size:3rem;
@@ -41,6 +44,7 @@
 .repair-thead th,
 .repair-tbody td{
 	width:24vw;
+  border-style:none;
 }
 .repair-tbody{
 	max-height:900px;
@@ -56,10 +60,14 @@
   width:100vw !important;
 }
 .open-switch{
-  background-color:lightgrey;
+  /*background-color:grey;*/
+  margin: 0 2.4%;
 }
 .open-switch button{
-  font-size:30px;
+  font-family: 'Kanit', sans-serif;
+  font-size:28px;
+  border:none;
+  margin: 0 -7px 0 1px;
 }
 /***************************/
 /*Repair show*/

@@ -10,7 +10,6 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       		t.string :state, null: false
       		t.string :zip_code, null: false
       		t.string :gate_code
-      		t.string :service_day
       		t.string :filter_type
       		t.string :pump_type
       		t.float :latitude
@@ -23,7 +22,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
           t.boolean :wednesday
           t.boolean :thursday
           t.boolean :friday
-          t.boolean :spa
+          t.boolean :receive_emails
       		t.timestamps
       		t.timestamps
     	end

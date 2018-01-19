@@ -1,18 +1,17 @@
 <main>
-  <header>
+  <header class="user-profile-header">
     <h1 class="user-show-header"><%= @user.first_name %>'s Profile</h1>
-    <%= link_to "Edit User", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
+    <%= link_to "Edit", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
     <div class="profile-views">
       <a class="switch active-switch" id="map-switch">Map</a>
-      <a class="switch" id="master-switch">Master</a>
-      <a class="switch" id="incomplete-switch">Incomplete</a>
-      <a class="switch" id="complete-switch">Complete</a>
+      <a class="switch" id="master-switch">Master Route</a>
+      <a class="switch" id="incomplete-switch">Incomplete Route</a>
+      <a class="switch" id="complete-switch">Complete Route</a>
     </div>
   </header>
   <section id="master-sheet">
     <article>
       <table class="user-show-table">
-        <caption class="user-show-table-headers">Master Route Sheet</caption>
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
@@ -43,7 +42,6 @@
   <section id="unfinished-pools">
     <article>
       <table class="user-show-table">
-        <caption class="user-show-table-headers">Pools Incomplete</caption>
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
@@ -74,7 +72,6 @@
   <section id="finished-pools">
     <article>
       <table class="user-show-table">
-        <caption class="user-show-table-headers">Finished Pools</caption>
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>

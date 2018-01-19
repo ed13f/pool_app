@@ -2,7 +2,7 @@
   <header>
     <h3 class="new-customer-header">Edit Customer</h3>
   </header>
-  <section>  
+  <section>
     <%= form_for(@customer) do |f| %>
       <%= field_set_tag "Customer Info", class: "new-customer-info" do %>
         <div class="new-customer-name">
@@ -25,30 +25,47 @@
         <div class="equipment-type">
           <%= f.text_field :filter_type, :placeholder => "Filter Type", :autocomplete => :off %>
           <%= f.text_field :pump_type, :placeholder => "Pump Type", :autocomplete => :off %>
-          <% if User.find(session[:user_id]).admin %>
-          <%= f.label "Employee",:user_id%>
-            <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id]}, :selected => f.object.user_id), :include_blank => "Choose Employee" %>
-          <% end %>  
-        </div>
-        <div class="scheduling">
-          <span class="day">  
-            <%= f.label :service_day %>
-            <%= f.select( :service_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], {}, { :class => 'customer-new-select' }) %>
-          </span> 
-          <span> 
-            <%= f.label :visit_per_week %>
-            <%= f.select( :visit_per_week, ['1', '2'], {}, { :class => 'customer-new-select' }) %>
-          </span>
           <span class="customer-checkbox">
-            <%= f.label :spa %>
-            <%= f.check_box :spa %>
+            <%= f.label :receive_emails %>
+            <%= f.check_box :receive_emails %>
           </span>
+        </div>
+        <h2 class="days-header">Service Day</h2>
+        <div class="scheduling">
+          <div class="scheduling-days">
+            <div class="day-input">
+              <%= f.label :monday %>
+              <%= f.check_box :monday %>
+            </div>
+            <div class="day-input">
+              <%= f.label :tuesday %>
+              <%= f.check_box :tuesday %>
+            </div>
+            <div class="day-input">
+              <%= f.label :wednesday %>
+              <%= f.check_box :wednesday %>
+            </div>
+            <div class="day-input">
+              <%= f.label :thursday %>
+              <%= f.check_box :thursday %>
+            </div>
+            <div class="day-input">
+              <%= f.label :friday %>
+              <%= f.check_box :friday %>
+            </div>
+          </div>
+          <% if User.find(session[:user_id]).admin == true %>
+            <div class="misc-scheduling">
+              <%= f.label :user_id, "Employee" %>
+              <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+            </div>
+          <% end %>
         </div>
       <% end %>
       <div class="customer-submit">
         <%= f.submit 'Update Customer', :class => 'customer-new-submit' %>
         <%= link_to 'Cancel', :back %>
-      </div>        
+      </div>
     <% end %>
   </section>
 </main>

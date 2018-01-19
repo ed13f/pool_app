@@ -2,28 +2,15 @@
   <header>
     <h1 class="new-user-header">Edit Business</h1>
   </header>
-  <section> 
-    <article class="new-user-form"> 
+  <section>
+    <article class="new-user-form">
       <%= form_for(@business) do |f| %>
-        <div class="field">
           <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>
-        </div>
-        <div class="field">
           <%= f.text_field :business_name, :placeholder => "Business Name", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-        </div>
-
+          <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
         <div class="new-user-bottom">
           <div class="new-user-submit">
             <%= f.submit %>
@@ -32,5 +19,5 @@
         </div>
       <% end %>
     </article>
-  </section>  
+  </section>
 </main>

@@ -13,7 +13,6 @@ class VisitsController < ApplicationController
           if customer.days_list.count == customer.days_visited_list.count
       		  @visit.customer.weekly_complete = true
           end
-          binding.pry
       		@visit.customer.save
       		redirect_to controller: 'customers', action: 'show', id: customer.id
     	else

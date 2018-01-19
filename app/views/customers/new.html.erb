@@ -28,8 +28,8 @@
           <%= f.text_field :filter_type, :placeholder => "Filter Type", :autocomplete => :off %>
           <%= f.text_field :pump_type, :placeholder => "Pump Type", :autocomplete => :off %>
           <span class="customer-checkbox">
-            <%= f.label :spa %>
-            <%= f.check_box :spa %>
+            <%= f.label :receive_emails %>
+            <%= f.check_box :receive_emails %>
           </span>
         </div>
         <h2 class="days-header">Service Day</h2>
@@ -59,13 +59,11 @@
           <% if User.find(session[:user_id]).admin == true %>
             <div class="misc-scheduling">
               <%= f.label :user_id, "Employee" %>
-                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
-              <% end %>
+              <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
             </div>
-          </div>
-        <% end %>
-
-
+          <% end %>
+        </div>
+      <% end %>
       <div class="customer-submit">
         <%= f.submit 'Create New Customer', :class => 'customer-new-submit' %>
         <%= link_to 'Cancel', :back %>
