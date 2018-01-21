@@ -1,6 +1,7 @@
 class BusinessesController < ApplicationController
   def new
     @business = Business.new
+    @user = User.new
   end
 
   def create
@@ -8,7 +9,7 @@ class BusinessesController < ApplicationController
     if @business.save
       session[:business_id] = @business.id
       @user = User.new
-      redirect_to controller: 'users', action: 'new_owner'
+      redirect_to business_path(@business)
     else
       @errors = @business.errors.full_messages
       render 'new'
@@ -19,8 +20,7 @@ class BusinessesController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
-    @business = @user.business
+    @business = Business.find(session[:business_id])
     @employees = @business.users
     @customers = @business.customers
     @repairs = @business.repairs
@@ -50,6 +50,7 @@ class BusinessesController < ApplicationController
     BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
     @customers.map do |customer|
       customer.weekly_complete = false
+      customer.weekly_visit_str = ""
       customer.save
     end
     redirect_to action: 'show', :id => @business.id
@@ -57,6 +58,6 @@ class BusinessesController < ApplicationController
 
   private
     def business_params
-      params.require(:business).permit(:owners_first_name, :owners_last_name, :business_name, :email, :phone, :id)
+      params.require(:business).permit(:owners_first_name, :owners_last_name, :business_name, :email, :phone, :id, :password)
     end
 end

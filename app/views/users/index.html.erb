@@ -1,10 +1,10 @@
 <main>
   <section class="landing-options">
-    <div>
+    <div class="user-signin-button">
       <%= link_to "Sign in", {:controller => "sessions", :action=> "new"}, :method => :get %>
     </div>
-    <div>
+    <div class="user-register-button">
       <%= link_to "Register Business", {:controller => "businesses", :action=> "new"}, :method => :get %>
-    </div>  
+    </div>
   </section>
 </main>

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "business_name"
     t.string "phone", null: false
     t.string "email", null: false
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,15 +36,19 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "state", null: false
     t.string "zip_code", null: false
     t.string "gate_code"
-    t.string "service_day"
     t.string "filter_type"
     t.string "pump_type"
     t.float "latitude"
     t.float "longitude"
     t.integer "user_id", null: false
-    t.integer "visit_per_week", default: 1
     t.boolean "weekly_complete", default: false
-    t.boolean "spa"
+    t.string "weekly_visit_str", default: ""
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "receive_emails"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
@@ -53,11 +58,11 @@ ActiveRecord::Schema.define(version: 20180112054410) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.string "monday"
-    t.string "tuesday"
-    t.string "wednesday"
-    t.string "thursday"
-    t.string "friday"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
     t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,7 +106,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "phone", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.boolean "admin", null: false
+    t.boolean "admin", default: false, null: false
     t.integer "business_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

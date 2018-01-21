@@ -14,6 +14,7 @@
 	font-size:35px;
 	margin: 3% 0;
 	padding: 2% 4%;
+  font-family: 'Kanit', sans-serif;
 }
 .new-user-header{
 	font-size:60px;
@@ -21,9 +22,25 @@
 }
 .new-user-submit{
 	flex:1;
-	display:inline-block;
+  display:flex;
+	/*display:inline-block;*/
 	text-align: right;
 	margin: 0 2%;
+}
+.new-user-submit a{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
+  font-family: 'Kanit', sans-serif;
 }
 .new-user-check{
 	flex:1;
@@ -40,8 +57,9 @@
 
 .new-user-submit input{
 	background-color: grey;
-    font-size: 40px;
-    padding: 5px 10px;
+    font-size: 35px;
+    flex:2;
+    padding:1% 2%;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
     /*margin: 66px 10px;*/
@@ -56,17 +74,17 @@
 	margin:0 2% 0%;
 }
 .user-show-table{
-  width:95vw;
+  width:96vw;
   padding:2%;
   border-collapse: collapse;
-  margin:2.5vw;
+  margin:0 2vw;
   text-align:center;
-  font-size:2rem;
+  font-size:1.5rem;
 }
 .user-show-table-headers{
 	text-align:left;
 	margin: 2% 0;
-	font-size: 50px;
+	font-size: 1.25em;
 }
 .user-show-thead,
 .user-show-tbody,
@@ -101,26 +119,32 @@
 	display:inline-block;
 	border:none;
 	float:left;
-	margin-bottom:2%;
+	margin-bottom:0;
 	/*background-color:transparent;*/
 	background: lightgrey;
 	padding: 0 10px;
-	font-size: 25px;
+	font-size: 30px;
 }
 .active-switch{
-	background-color: grey;
+	background-color: grey !important;
+  color:white;
 }
 .profile-views{
-	margin-left: 2%;
-	display:inline-block;
+	margin: 5% 0 0 2%;
+	display:block;
 }
 .user-show-edit-button{
+  margin: 5% 2% 0 2%;
 	margin-right: 2%;
-    background-color: lightgrey;
-    text-decoration: none;
-    float: right;
-    padding: 0 10px;
-    font-size: 25px;
+  background-color: lightgrey;
+  text-decoration: none;
+  float: right;
+  padding: 0 10px;
+  font-size: 30px;
+  color:black;
+}
+.user-profile-header{
+margin:0 0 -35px 0;
 }
 
 /********************/
@@ -129,18 +153,60 @@
 .edit_user input {
     width: 89%;
     font-size: 35px;
+    flex:2;
     margin: 3% 0;
     padding: 2% 4%;
     font-family: 'Kanit', sans-serif;
+}
+.edit-user-submit{
+  flex:1;
+  display:flex;
+  /*display:inline-block;*/
+  text-align: right;
+  margin: 0 2%;
+}
+.edit-user-submit input{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.edit-user-submit a{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
+  font-family: 'Kanit', sans-serif;
 }
 
 /********************/
 /*User Index*/
 /********************/
 .landing-options{
-	margin:50% auto;
+	margin:30vh 17vw;
 }
-
+.user-signin-button,
+.user-register-button{
+  width:100%;
+  background-color:grey;
+  font-size:40px;
+  text-align:center;
+  margin:5vh 0;
+}
+.user-signin-button a,
+.user-register-button a{
+  text-decoration: none;
+  color:black;
+}
 
 
 
@@ -159,7 +225,7 @@
 .main-map{
 	width: 96%;
   z-index: -1;
-  margin: 2% 2% 3%;
+  margin: 0 2% 3%;
 }
 #map{
 	width: 100%;
@@ -183,4 +249,81 @@
   overflow: scroll;
   margin-top: 2%;
 }
+/*new owner*/
+.new-owner-header{
+  font-size: 60px;
+  margin: 13% 2%;
+}
+.new-owner-form{
+  margin: 9vh 17vw;
+}
+.new-owner-form input[type="submit"]{
+  background-color:grey;
+  width:98%;
 
+}
+/********************/
+/*Forgot Form*/
+/********************/
+.forgot-form{
+  margin:10% 15%;
+}
+.forgot-password-header{
+  font-size: 60px;
+  margin: 13% 2% 5%;
+}
+.forgot-pass-submit{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+    margin: 0 2%;
+}
+.forgot-pass-submit input{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  flex:2;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.forgot-pass-submit a{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
+  font-family: 'Kanit', sans-serif;
+}
+/********************/
+/*request password/
+/********************/
+.message-container{
+  margin: 13% 2% 5%;
+}
+
+/********************/
+/*reset password/
+/********************/
+.reset-password-form{
+  margin: 10% 15%;
+}
+.reset-password-form input[type="submit"]{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  margin:0 5%;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.reset-password-header{
+  font-size: 60px;
+  margin: 13% 2% 5%;
+}

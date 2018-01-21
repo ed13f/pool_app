@@ -6,14 +6,18 @@ class VisitsController < ApplicationController
   	def create
     	@visit = Visit.new(visit_params)
     	@visit.user_id = session[:user_id]
+      customer = @visit.customer
     	if @visit.save
       		VisitMailer.visit_complete(@visit).deliver
-      		@visit.customer.weekly_complete = true
+          customer.weekly_visit_str += Time.now.strftime("%A") + " "
+          if customer.days_list.count == customer.days_visited_list.count
+      		  @visit.customer.weekly_complete = true
+          end
       		@visit.customer.save
-      		redirect_to controller: 'users', action: 'route'
+      		redirect_to controller: 'customers', action: 'show', id: customer.id
     	else
       		@errors = @user.errors.full_messages
-      		redirect_back
+      		redirect_to controller: 'customers', action: 'show', id: customer.id
     	end
   	end
 

@@ -1,11 +1,11 @@
 class CreateDays < ActiveRecord::Migration[5.1]
   	def change
     	create_table :days do |t|
-    		t.string :monday
-    		t.string :tuesday
-    		t.string :wednesday
-    		t.string :thursday
-    		t.string :friday
+    		t.boolean :monday
+    		t.boolean :tuesday
+    		t.boolean :wednesday
+    		t.boolean :thursday
+    		t.boolean :friday
     		t.integer :customer_id
     		t.timestamps
     	end

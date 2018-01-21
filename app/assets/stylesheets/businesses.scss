@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .business-header{
-	font-size: 50px;
-	margin:0 2%;
+	font-size: 60px;
+	margin:8% 2% 0;
 	line-height: 55px;
 }
 .business-sub-header{
-	margin:3% 2%;
+	margin:0 2% 0 0;
 	font-size:35px;
 	width: 100%;
 	line-height: 40px;
@@ -20,7 +20,7 @@
 }
 .business-info{
 	display:flex;
-	margin: 0 2%;
+	margin: 1% 2%;
 	justify-content:space-between;
 }
 .business-employees-sub-header,
@@ -29,29 +29,143 @@
 	margin: 0;
 }
 .business-customers-list{
-	max-height:900px;
+	height:875px;
 	overflow:scroll;
+  margin-bottom:5%;
+  border-radius:10px;
+  width:100% !important;
+  background-color: #cce6ff
+}
+.business-customers-list li,
+.business-employee-section li,
+.business-repairs-section li{
+padding: 3% 0;
+line-height:30px;
 }
 .business-customers-list a,
 .business-employee-section a,
 .business-repairs-section a{
-	font-size:25px;
+	font-size:30px;
 	color:black;
+  margin:5% 0;
+  text-decoration:none;
+}
+.biz-customer-list{
+  flex:1;
+  padding: 0 2.5% 0 5%;
+}
+.biz-new-employee{
+  background-color: grey;
+  font-size: 35px !important;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin: 0 6.6% !important;
+  padding: 1% 6%;
+  font-family: 'Kanit', sans-serif;
+}
+.biz-new-customer{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin: 0 7% !important;
+  padding: 1% 6%;
+  font-family: 'Kanit', sans-serif;
+}
+.biz-header-section form{
+  position:absolute;
+  top:10%;
+  right:2%;
+  padding: 0 3%;
+}
+.biz-header-section form input{
+  font-size: 35px !important;
+  background-color: darkred;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: 'Kanit', sans-serif;
 }
 .business-right-container{
 	height: 100%;
 	display:flex;
+  margin:0 5% 0 2.5%;
+  flex:1;
 	flex-direction: column;
 }
 .business-employee-section,
 .business-repairs-section{
 	flex:1;
 }
+.business-repairs-section{
+  margin-top:0;
+}
 .business-employee-list{
-	max-height:375px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  background-color: #cce6ff;
+	height:407px;
 	overflow:scroll;
 }
 .business-repair-list{
-	max-height:450px;
+  /*margin-bottom: 5%;*/
+  border-radius: 10px;
+  width: 100% !important;
+  background-color: #cce6ff;
+	height:400px;
 	overflow:scroll;
 }
+/**********************/
+/*business new*/
+/**********************/
+.new_business{
+	width: 91%;
+}
+.new_business input{
+	width: 100%;
+  padding: 2% 4%;
+  font-size: 35px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+.new-business-header{
+	font-size: 60px;
+  margin: 9% 2%;
+}
+.new-business-form{
+	margin: 12vh 17vw;
+}
+.new-business-options{
+	width:109%;
+	display:flex;
+}
+.new-business-options a{
+	background-color: grey;
+    font-size: 35px;
+    flex: 1;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration:none;
+    color:darkred;
+    margin: 2% 0 2% 2%;
+    padding: 2%;
+    font-family: 'Kanit', sans-serif;
+}
+.new-business-options input[type="submit"]{
+	background-color:grey;
+	font-size: 35px;
+	font-family: 'Kanit', sans-serif;
+	flex: 2;
+}
+
+

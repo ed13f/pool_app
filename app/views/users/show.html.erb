@@ -1,33 +1,38 @@
 <main>
-  <header>
+  <header class="user-profile-header">
     <h1 class="user-show-header"><%= @user.first_name %>'s Profile</h1>
-    <%= link_to "Edit User", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
+    <%= link_to "Edit", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
     <div class="profile-views">
       <a class="switch active-switch" id="map-switch">Map</a>
-      <a class="switch" id="master-switch">Master</a>
-      <a class="switch" id="incomplete-switch">Incomplete</a>
-      <a class="switch" id="complete-switch">Complete</a>
+      <a class="switch" id="master-switch">Master Route</a>
+      <a class="switch" id="incomplete-switch">Incomplete Route</a>
+      <a class="switch" id="complete-switch">Complete Route</a>
     </div>
   </header>
   <section id="master-sheet">
     <article>
       <table class="user-show-table">
-        <caption class="user-show-table-headers">Master Route Sheet</caption>
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
             <th>Address</th>
             <th>Phone</th>
-            <th>Scheduled Day</th>
+            <th>Day</th>
           </tr>
         </thead>
         <tbody class="user-show-tbody">
-          <% @pools.each do |pool| %>
+          <% if @unfinished_route[0] %>
+            <% @pools.each do |pool| %>
+              <tr>
+                <td><%= link_to pool.full_name, customer_path(pool) %></td>
+                <td><%= pool.street_address%></td>
+                <td><a href="tel:<%= pool.phone %>"><%= pool.phone%></a></td>
+                <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
+              </tr>
+            <% end %>
+          <% else %>
             <tr>
-              <td><%= link_to pool.full_name, customer_path(pool) %></td>
-              <td><%= pool.street_address%></td>
-              <td><a href="tel:<%= pool.phone %>"><%= pool.phone%></a></td>
-              <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.service_day%></td>
+              <td class="table-empty">You Have No Current Customers.</td>
             </tr>
           <% end %>
         </tbody>
@@ -35,46 +40,48 @@
     </article>
   </section>
   <section id="unfinished-pools">
-    <article>  
-      <% if @unfinished_route[0] %>
-        <table class="routes-table">
-          <caption class="routes-headers">Pools Incomplete</caption>
-          <thead>
+    <article>
+      <table class="user-show-table">
+        <thead class="user-show-thead">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Number</th>
+            <th>Finish</th>
+          </tr>
+        </thead>
+        <tbody class="user-show-tbody">
+          <% if @unfinished_route[0] %>
+          <% @unfinished_route.each do |customer| %>
             <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Number</th>
-              <th>Finish</th>
+              <td><%= link_to customer.full_name, customer_path(customer) %></td>
+              <td><%=link_to customer.street_address, controller: "customers", action: "directions", id: customer.id%></td>
+              <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+              <td><%= link_to "Complete", controller: "visits", action: "new", id: customer.id %></td>
             </tr>
-          </thead>
-          <tbody>
-            <% @unfinished_route.each do |customer| %>
-              <tr>
-                <td><%= link_to customer.full_name, customer_path(customer) %></td>
-                <td><%=link_to customer.street_address, controller: "customers", action: "directions", id: customer.id%></td>
-                <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
-                <td><%= link_to "Complete", controller: "visits", action: "new", id: customer.id %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% end %>
+          <% end %>
+        <% else %>
+          <tr>
+            <td class="table-empty">No Unfinished Pools on Today's Route.</td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     </article>
   </section>
-  <section id="finished-pools">  
-    <article>  
-      <% if @finished_route[0] %>
-        <table class="routes-table">
-          <caption class="routes-headers">Finished Pools</caption>
-          <thead class="routes-thead">
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone</th>
-              <th>Details</th>
-            </tr>
-          </thead>
-          <tbody class="routes-tbody">
+  <section id="finished-pools">
+    <article>
+      <table class="user-show-table">
+        <thead class="user-show-thead">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody class="user-show-tbody">
+          <% if @finished_route[0] %>
             <% @finished_route.each do |customer| %>
               <tr>
                 <td><%= link_to customer.full_name, customer_path(customer) %></td>
@@ -83,9 +90,13 @@
                 <td><%= link_to "Show Visit", controller: "visits", action: "show", id: customer.visits.last.id %></td>
               </tr>
             <% end %>
-          </tbody>
-        </table>
-      <% end %>
+          <% else %>
+            <tr>
+              <td class="table-empty">No Pools Completed on Today's Route.</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </article>
   </section>
   <%= render :partial => "user_route_map" %>

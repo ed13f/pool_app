@@ -1,36 +1,19 @@
 <main>
   <header>
-    <h1 class="new-user-header">Register New Owner</h1>
+    <h1 class="new-owner-header">Register New Owner</h1>
   </header>
-  <section> 
-    <article class="new-user-form"> 
+  <section>
+    <article class="new-owner-form">
       <%= form_for @user, :url => url_for(:controller => 'users', :action => 'owner_create') do |f| %>
-        <div class="field">
           <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off, :value => @business.owners_first_name  %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off, :value => @business.owners_last_name %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off, :value => @business.phone %>
-        </div>
-
-        <div class="field">
           <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off, :value => @business.email %>
-        </div>
-
-        <div class="field">
           <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
-        </div>
-
-        <div class="new-user-bottom">
-          <div class="new-user-submit">
-            <%= f.submit %>
-          </div>
+        <div class="new-owner-submit">
+          <%= f.submit "Create Owner"%>
         </div>
       <% end %>
     </article>
-  </section>  
+  </section>
 </main>
