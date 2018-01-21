@@ -106,5 +106,19 @@ $( document ).ready(function() {
 			$("#finished-repairs").css("display", "inline-block");
 			$("#open-repairs").css("display", "none");
 		})
+		$("#history-visit-switch").on("click",
+			function(){
+				$("#history-visit-switch").addClass("active-switch");
+				$("#history-repair-switch").removeClass("active-switch");
+				$("#history-visit-section").css("display", "inline-block");
+				$("#history-repair-section").css("display", "none");
+		})
+		$("#history-repair-switch").on("click",
+			function(){
+				$("#history-repair-switch").addClass("active-switch");
+				$("#history-visit-switch").removeClass("active-switch");
+				$("#history-repair-section").css("display", "inline-block");
+				$("#history-visit-section").css("display", "none");
+		})
 	});
 })

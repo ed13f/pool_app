@@ -82,11 +82,13 @@
 }
 .repair-show-info{
 	margin:0 2%;
+  padding: 2% 2%;
+  background-color:lightgrey;
 }
 .repair-show-info h3{
 	margin:0;
-	line-height: 35px;
-	font-size:30px;
+	line-height: 45px;
+	font-size:40px;
 }
 .repair-show-info p{
 	margin: 0 0 15px 0;
@@ -98,13 +100,13 @@
 }
 .repair-show-grid{
 	display:flex;
-  	padding: 0 5%;
+  /*padding: 0 5%;*/
 }
 .repair-info-col-left{
 	flex:1;
 }
 .repair-info-col-right{
-	flex:2;
+	flex:1;
 }
 .repair-description{
 	grid-column:2;
@@ -112,10 +114,12 @@
 }
 .repair-sub-header{
 	margin:0 0 1%;
-	font-size:40px;
+	font-size:35px;
 }
 .repair-add-photo-section{
 	margin:0 2% 5%;
+  padding:0 2%;
+  background-color:lightgrey;
 }
 .repair-img-display{
 	padding: 0 5%;
@@ -154,26 +158,30 @@
 }
 .repair-show-header-section{
 	display:flex;
+  padding:1% 2%;
 }
 .repair-show-header-section form {
 	flex:1;
-	margin: 20px 50px 0 0;
 }
 .repair-show-header-section form input{
-	background-color: red;
-    font-size: 30px;
+	background-color: darkred;
+    font-size: 25px;
     padding: 1px 8px;
-    margin: 1% 0;
+    margin: 0;
+    color:white;
+    float:right;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
 }
 .repair-show-header-section a{
-	background-color: grey;
+    display: inline-block;
     font-size: 25px;
-    padding: 3px 10px;
+    color: black;
+    margin: 0 10px 0 0;
+    background-color: grey;
+    padding: 0 15px;
+    text-decoration: none;
     border-radius: 5px;
-    font-family: 'Kanit', sans-serif;
-    margin: 24px 20px;
 }
 /***************************/
 /*Repair New*/

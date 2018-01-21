@@ -9,36 +9,39 @@
   <%= link_to "Edit Customer", controller: "customers", action: "edit", id: params[:id] %>
   <%= link_to "View History", controller: "customers", action: "history", id: @customer.id %>
   <%= link_to "Create Repair Ticket", controller: "repairs", action: "new", id: @customer.id %>
-  <%= link_to 'Back', :back %>
   </section>
   <section class="customer-show-section">
     <article class="user-display-info">
-      <h2 class="customer-show-label">Gate Code:</h2>
-      <p class="customer-show-info"> <%= @customer.gate_code %></p>
-      <h2 class="customer-show-label">Phone Number:</h2>
-      <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone %></a></p>
-      <h2 class="customer-show-label">Email:</h2>
-      <p class="customer-show-info"><a href="mailto:<%= @customer.email %>?subject=Pool Care"> <%= @customer.email %></a></p>
-      <h2 class="customer-show-label">Scheduled Days:</h2>
-      <p class="customer-show-info"> <%= @customer.print_days %></p>
-      <h2 class="customer-show-label">Filter Type:</h2>
-      <p class="customer-show-info"> <%= @customer.filter_type %></p>
-      <h2 class="customer-show-label">Pump Type:</h2>
-      <p class="customer-show-info"><%= @customer.pump_type %></p>
-      <h2 class="customer-show-label">Receive Emails:</h2>
-      <p class="customer-show-info"><%= @customer.receive_emails %></p>
-      <h2 class="customer-show-label">Serviced By</h2>
-      <p class="customer-show-info"><%= @customer.user.first_name %></p>
+      <div class="user-info-left">
+        <h2 class="customer-show-label">Gate Code:</h2>
+        <p class="customer-show-info"> <%= @customer.gate_code %></p>
+        <h2 class="customer-show-label">Phone Number:</h2>
+        <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone %></a></p>
+        <h2 class="customer-show-label">Email:</h2>
+        <p class="customer-show-info"><a href="mailto:<%= @customer.email %>?subject=Pool Care"> <%= @customer.email %></a></p>
+        <h2 class="customer-show-label">Scheduled Days:</h2>
+        <p class="customer-show-info"> <%= @customer.print_days %></p>
+      </div>
+      <div class="user-info-right">
+        <h2 class="customer-show-label">Filter Type:</h2>
+        <p class="customer-show-info"> <%= @customer.filter_type %></p>
+        <h2 class="customer-show-label">Pump Type:</h2>
+        <p class="customer-show-info"><%= @customer.pump_type %></p>
+        <h2 class="customer-show-label">Receive Emails:</h2>
+        <p class="customer-show-info"><%= @customer.receive_emails %></p>
+        <h2 class="customer-show-label">Serviced By</h2>
+        <p class="customer-show-info"><%= @customer.user.first_name %></p>
+      </div>
     </article>
     <article class="customer-display-notes">
       <header>
         <h2 class="note-header">Notes</h2>
       </header>
-      <article>
+      <article class="customer-notes-list">
         <% if @notes[0] %>
           <ul>
               <% @notes.each do |note| %>
-                <li><%= note.description %> - <%= link_to "Delete", note, method: :delete %></li>
+                <li><%= link_to "X", note, method: :delete %> <%= note.description %></li>
               <% end %>
             </ul>
         <% end %>

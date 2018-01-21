@@ -14,6 +14,7 @@
 	font-size:35px;
 	margin: 3% 0;
 	padding: 2% 4%;
+  font-family: 'Kanit', sans-serif;
 }
 .new-user-header{
 	font-size:60px;
@@ -36,8 +37,9 @@
   text-align: center;
   text-decoration: none;
   color: darkred;
-  margin: 2% 0 2% 2%;
-  padding: 1% 2%;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
   font-family: 'Kanit', sans-serif;
 }
 .new-user-check{
@@ -55,8 +57,9 @@
 
 .new-user-submit input{
 	background-color: grey;
-    font-size: 40px;
-    padding: 5px 10px;
+    font-size: 35px;
+    flex:2;
+    padding:1% 2%;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
     /*margin: 66px 10px;*/
@@ -123,7 +126,7 @@
 	font-size: 30px;
 }
 .active-switch{
-	background-color: grey;
+	background-color: grey !important;
   color:white;
 }
 .profile-views{
@@ -150,9 +153,39 @@ margin:0 0 -35px 0;
 .edit_user input {
     width: 89%;
     font-size: 35px;
+    flex:2;
     margin: 3% 0;
     padding: 2% 4%;
     font-family: 'Kanit', sans-serif;
+}
+.edit-user-submit{
+  flex:1;
+  display:flex;
+  /*display:inline-block;*/
+  text-align: right;
+  margin: 0 2%;
+}
+.edit-user-submit input{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.edit-user-submit a{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
+  font-family: 'Kanit', sans-serif;
 }
 
 /********************/
@@ -229,6 +262,68 @@ margin:0 0 -35px 0;
   width:98%;
 
 }
-.new-owner-submit{
+/********************/
+/*Forgot Form*/
+/********************/
+.forgot-form{
+  margin:10% 15%;
+}
+.forgot-password-header{
+  font-size: 60px;
+  margin: 13% 2% 5%;
+}
+.forgot-pass-submit{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+    margin: 0 2%;
+}
+.forgot-pass-submit input{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  flex:2;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.forgot-pass-submit a{
+  background-color: grey;
+  font-size: 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 3% 2% 2% 2%;
+  line-height: 65px;
+  height: 68px;
+  font-family: 'Kanit', sans-serif;
+}
+/********************/
+/*request password/
+/********************/
+.message-container{
+  margin: 13% 2% 5%;
+}
 
+/********************/
+/*reset password/
+/********************/
+.reset-password-form{
+  margin: 10% 15%;
+}
+.reset-password-form input[type="submit"]{
+  background-color: grey;
+  font-size: 35px;
+  padding: 1% 2%;
+  margin:0 5%;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+.reset-password-header{
+  font-size: 60px;
+  margin: 13% 2% 5%;
 }

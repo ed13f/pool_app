@@ -9,7 +9,7 @@ class BusinessesController < ApplicationController
     if @business.save
       session[:business_id] = @business.id
       @user = User.new
-      redirect_to controller: 'users', action: 'new_owner'
+      redirect_to business_path(@business)
     else
       @errors = @business.errors.full_messages
       render 'new'
@@ -20,8 +20,7 @@ class BusinessesController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
-    @business = @user.business
+    @business = Business.find(session[:business_id])
     @employees = @business.users
     @customers = @business.customers
     @repairs = @business.repairs

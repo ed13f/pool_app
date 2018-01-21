@@ -14,6 +14,8 @@ class Business < ApplicationRecord
 	end
 
 	def customer_to_employee_ratio
-		number_of_customers / number_of_employees
+		if number_of_customers > 0 && number_of_employees > 0
+			number_of_customers / number_of_employees
+		end
 	end
 end

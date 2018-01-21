@@ -93,7 +93,9 @@ class UsersController < ApplicationController
 
   	def request_password
     	@user = User.find_by(email: user_params[:email])
-    	UserMailer.reset_password(@user).deliver
+      if @user
+    	 UserMailer.reset_password(@user).deliver
+      end
   	end
 
   	def reset_password

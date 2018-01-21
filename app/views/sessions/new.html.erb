@@ -15,7 +15,7 @@
 
 			  <div class="new-session-submit">
 			    <%= submit_tag 'Login' %>
-			    <%= link_to 'Register', :back %>
+			    <%= link_to 'Register', {:controller => "businesses", :action=> "new"}, :method => :get %>
 			  </div>
 			<% end %>
 		</article>

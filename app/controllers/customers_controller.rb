@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
 	def new
     @customer = Customer.new
     @customer.days.build
-    @employees = User.find(session[:user_id]).business.users
+    @employees = Business.find(session[:business_id]).users
   end
 
   def create
@@ -13,8 +13,8 @@ class CustomersController < ApplicationController
     	@customer.user_id = session[:user_id]
     end
     if @customer.save
-      redirect_to customer_path(@customer)
       CustomerMailer.new_customer(@customer).deliver
+      redirect_to customer_path(@customer)
     else
       @employees = User.find(session[:user_id]).business.users
       @errors = @customer.errors.full_messages
