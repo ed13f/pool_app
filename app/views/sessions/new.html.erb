@@ -12,7 +12,17 @@
 			  	<%= link_to "Forgot Password?", {controller: "users", action: "forgot_password"}, class: "forgot-password" %>
 			    <%= password_field_tag :password, nil, :placeholder => "Password", :autocomplete => :off %>
 			  </div>
-
+			  <div class="sesion-type">
+		    	<div class="sesion-type-title">
+			    <%= label_tag "Type of account?" %>
+			    </div>
+			    <div class="sesion-type-options">
+				    <%= label_tag "user" %>
+				    <%= radio_button_tag 'type', 'user', true %>
+				    <%= label_tag "business" %>
+				    <%= radio_button_tag 'type', 'business' %>
+				  </div>
+			  </div>
 			  <div class="new-session-submit">
 			    <%= submit_tag 'Login' %>
 			    <%= link_to 'Register', {:controller => "businesses", :action=> "new"}, :method => :get %>

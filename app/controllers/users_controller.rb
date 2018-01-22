@@ -28,7 +28,10 @@ class UsersController < ApplicationController
 
   	def show
     	@user = User.find(params[:id])
-    	if @user.id == session[:user_id] || User.find(session[:user_id]).admin == true
+      if session[:user_id]
+        @user_admin = User.find(session[:user_id]).admin
+      end
+    	if @user.id == session[:user_id] || @user_admin == true || session[:business_id]
       		@pools = @user.customers
           @finished_route = @user.customers.select do |customer|
             customer.days_list.include?(Time.now.strftime("%A")) && customer.days_visited_list.include?(Time.now.strftime("%A"))

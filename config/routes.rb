@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :customers, only: [:new, :create, :show, :edit, :update]
-  resources :sessions, only: [ :new, :create ]
+  resources :sessions, only: [ :index, :new, :create ]
   resources :images, only: [:new, :create]
   resources :notes, only: [:new, :create, :destroy]
   resources :businesses, only: [:new, :create, :show, :edit, :update]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post '/request_password' => 'users#request_password'
   get '/reset_password/:id' => 'users#reset_password'
   patch '/update_password/:id' => 'users#update_password'
-  root "users#index"
+  root "sessions#index"
 
   #customers
   get '/customers/:id/history' => 'customers#history'

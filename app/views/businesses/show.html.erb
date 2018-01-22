@@ -1,18 +1,20 @@
 <main>
 	<header class="biz-header-section">
-		<h1 class="business-header"><%=  @business.business_name %></h1>
-		<%= form_tag(controller: "businesses", action: "reset_weekely_visit") do %>
-			<%= hidden_field_tag "id", @business.id %>
-			<%= submit_tag("Reset All Pool Visits") %>
-		<% end %>
-	</header>
-	<section class="business-info">
 		<div>
-			<h2 class="business-sub-header"><%= @business.email %></h2>
-			<h2 class="business-sub-header"><%= @business.phone %></h2>
+			<h1 class="business-header"><%=  @business.business_name %></h1>
+			<div>
+				<h2 class="business-sub-header"><%= @business.email %></h2>
+				<h2 class="business-sub-header"><%= @business.phone %></h2>
+			</div>
 		</div>
-
-	</section>
+		<div class="biz-options">
+			<%= form_tag(controller: "businesses", action: "reset_weekely_visit") do %>
+				<%= hidden_field_tag "id", @business.id %>
+				<%= submit_tag("Reset All Pool Visits") %>
+			<% end %>
+			<%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
+		</div>
+	</header>
 	<section class="business-lists-container">
 		<section class="biz-customer-list">
 			<header>

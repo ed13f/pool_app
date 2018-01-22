@@ -59,4 +59,24 @@
     margin: 0px 3%;
     font-size: 25px;
 }
+.sesion-type{
+    display:flex;
+}
+.sesion-type-title{
+    flex:2;
+    font-size:35px;
+}
+.sesion-type-options{
+    display:flex;
+    flex:1;
+    font-size:30px;
+    margin-right:2%;
+}
+.sesion-type-options input{
+    height: 40px;
+    width: 28px;
+}
+.sesion-type-options label{
+    margin: 0 5px 0 25px;
+}
 

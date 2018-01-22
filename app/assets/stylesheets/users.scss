@@ -71,7 +71,7 @@
 
 .user-show-header{
 	font-size:60px;
-	margin:0 2% 0%;
+	margin:0 2% 5%;
 }
 .user-show-table{
   width:96vw;
@@ -96,7 +96,7 @@
 	width:24vw;
 }
 .user-show-tbody{
-	max-height:800px;
+	max-height:1000px;
 	overflow:scroll;
 }
 .green{
@@ -115,11 +115,12 @@
 	display:none;
 }
 .switch{
-	/*margin:2% 2% 2% 1%;*/
+	margin: 0 1% 0 0;
 	display:inline-block;
 	border:none;
 	float:left;
 	margin-bottom:0;
+  border-radius: 10px;
 	/*background-color:transparent;*/
 	background: lightgrey;
 	padding: 0 10px;
@@ -130,21 +131,22 @@
   color:white;
 }
 .profile-views{
-	margin: 5% 0 0 2%;
+	margin: 0 0 0 2%;
 	display:block;
 }
 .user-show-edit-button{
-  margin: 5% 2% 0 2%;
+  margin: 0 2% 1% 0;
 	margin-right: 2%;
-  background-color: lightgrey;
+  background-color:grey;
   text-decoration: none;
   float: right;
+  border-radius:10px;
   padding: 0 10px;
   font-size: 30px;
   color:black;
 }
 .user-profile-header{
-margin:0 0 -35px 0;
+margin:0;
 }
 
 /********************/
@@ -229,7 +231,7 @@ margin:0 0 -35px 0;
 }
 #map{
 	width: 100%;
-	height: 71vh;
+	height: 79vh;
 }
 .direction-map{
 	display:none;

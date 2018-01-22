@@ -5,7 +5,7 @@
     <div class="history-views">
       <a class="repair-switch active-switch" id="history-visit-switch">Visit History</a>
       <a class="repair-switch" id="history-repair-switch">Repair History</a>
-      <%= link_to 'Back', :back, :class => "history-back-link" %>
+      <%= link_to 'Back',{ controller: "customers", action: "show", id: params[:id]}, :class => "history-back-link" %>
     </div>
   </header>
   </header>

@@ -1,21 +1,19 @@
 <main>
   <header>
-    <h1 class="new-user-header">Edit Business</h1>
+    <h1 class="new-business-header">Edit Business</h1>
   </header>
   <section>
-    <article class="new-user-form">
+    <article class="new-business-form">
       <%= form_for(@business) do |f| %>
-          <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
-          <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>
-          <%= f.text_field :business_name, :placeholder => "Business Name", :autocomplete => :off %>
-          <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-          <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
-        <div class="new-user-bottom">
-          <div class="new-user-submit">
-            <%= f.submit %>
-            <%= link_to 'Cancel', :back %>
-          </div>
+        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
+        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>
+        <%= f.text_field :business_name, :placeholder => "Business Name", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+        <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <div class="new-business-options">
+          <%= f.submit "Update" %>
+          <%= link_to 'Cancel', controller: "businesses", action: "show", id: params[:id] %>
         </div>
       <% end %>
     </article>

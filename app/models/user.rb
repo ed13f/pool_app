@@ -3,8 +3,9 @@ class User < ApplicationRecord
   	has_many :customers
   	has_many :routes
   	has_many :customer_visits, through: :visits, source: :customer
-  	has_secure_password
   	belongs_to :business
+    has_many :repairs, through: :business, source: :repairs
+    has_secure_password
 
   	def full_name
     	self.first_name + " " + self.last_name

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "business_name"
     t.string "phone", null: false
     t.string "email", null: false
-    t.string "password"
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180112054410) do
     t.string "title", null: false
     t.string "description", null: false
     t.boolean "complete", default: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
