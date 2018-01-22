@@ -16,7 +16,7 @@ class Day < ApplicationRecord
       list.push("Thursday")
     end
     if self.friday
-      list.push("Friday")
+      list.push("Sunday")
     end
     list
   end

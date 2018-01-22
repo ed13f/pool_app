@@ -1,14 +1,17 @@
 class CustomersController < ApplicationController
+  include ApplicationHelper
 	def new
     @customer = Customer.new
+    require_logged_in_user
     @customer.days.build
-    @employees = Business.find(session[:business_id]).users
+    if session[:business_id]
+      @employees = Business.find_by_id(session[:business_id]).users
+    end
   end
 
   def create
+    require_logged_in_user
     @customer = Customer.new(customer_params)
-    # @days = Day.new(customer_params[:days_attributes]["0"])
-    # @days.save
     if customer_params[:user_id] = ""
     	@customer.user_id = session[:user_id]
     end
@@ -16,41 +19,77 @@ class CustomersController < ApplicationController
       CustomerMailer.new_customer(@customer).deliver
       redirect_to customer_path(@customer)
     else
-      @employees = User.find(session[:user_id]).business.users
       @errors = @customer.errors.full_messages
-      render 'new'
+      redirect_to 'new'
     end
   end
 
   def show
-    @customer = Customer.find(params[:id])
-    @notes = @customer.notes
-    @note = Note.new
-    render 'show'
+    require_logged_in_user
+    @customer = Customer.find_by_id(params[:id])
+    if @customer
+      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+        @notes = @customer.notes
+        @note = Note.new
+        render 'show'
+      elsif session[:business_id] || session[:user_id]
+        redirect_to "/"
+      end
+    elsif session[:business_id] || session[:user_id]
+      redirect_to "/"
+    end
   end
 
   def edit
-    @customer = Customer.find(params[:id])
-    @customer.days.build
-    @employees = User.find(session[:user_id]).business.users
+    require_logged_in_user
+    @customer = Customer.find_by_id(params[:id])
+    if @customer
+      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+        @customer.days.build
+        @employees = @customer.user.business.users
+      elsif session[:business_id] || session[:user_id]
+      redirect_to "/"
+      end
+    elsif session[:business_id] || session[:user_id]
+      redirect_to "/"
+    end
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    @customer.update_attributes(customer_params)
-    redirect_to action:'show', :id => @customer.id
+    require_logged_in_user
+    @customer = Customer.find_by_id(params[:id])
+    if @customer
+      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+        @customer.update_attributes(customer_params)
+        redirect_to action:'show', :id => @customer.id
+      elsif session[:business_id] || session[:user_id]
+        redirect_to "/"
+      end
+    elsif session[:business_id] || session[:user_id]
+      redirect_to "/"
+    end
   end
 
   def history
-    @customer = Customer.find(params[:id])
-    @visit_history = @customer.visits
-    @repair_history = @customer.repairs
+    require_logged_in_user
+    @customer = Customer.find_by_id(params[:id])
+    if @customer
+      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+        @customer = Customer.find(params[:id])
+        @visit_history = @customer.visits
+        @repair_history = @customer.repairs
+      elsif session[:business_id] || session[:user_id]
+        redirect_to "/"
+      end
+    elsif session[:business_id] || session[:user_id]
+      redirect_to "/"
+    end
   end
 
-  def directions
-    @customer = Customer.find(params[:id])
-    @customer
-  end
+  # def directions
+  #   @customer = Customer.find(params[:id])
+  #   @customer
+  # end
 
   private
   def customer_params

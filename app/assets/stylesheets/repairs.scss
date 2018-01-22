@@ -47,27 +47,33 @@
   border-style:none;
 }
 .repair-tbody{
-	max-height:900px;
+	max-height:1000px;
 	overflow:scroll;
 }
 #finished-repairs{
 	display:none;
 }
 .active-repair-tab{
-	background-color:grey;
+	background-color:grey !important;
+  color:white !important;
 }
 .table-empty{
   width:100vw !important;
 }
 .open-switch{
   /*background-color:grey;*/
-  margin: 0 2.4%;
+  margin: 1% 2.4%;
 }
 .open-switch button{
   font-family: 'Kanit', sans-serif;
-  font-size:28px;
-  border:none;
-  margin: 0 -7px 0 1px;
+  display: inline-block;
+  font-size: 25px;
+  color: black;
+  margin: 0 10px 0 0;
+  background-color: lightgrey;
+  padding: 5px 15px;
+  text-decoration: none;
+  border-radius: 10px;
 }
 /***************************/
 /*Repair show*/
@@ -137,7 +143,7 @@
 }
 .repair-img-input input{
   	font-size: 25px;
-    background-color: grey;
+    background-color: white;
     width: 95%;
     font-family: 'Kanit', sans-serif;
     margin: 7px 0;
@@ -188,10 +194,12 @@
 /***************************/
 .new-repair-header{
 	font-size:60px;
-	margin:0 2%;
+	margin:5% 2%;
 }
 .new-repair-form{
 	margin:0 2%;
+  background-color: lightgrey;
+  border-radius: 10px;
 }
 .new_repair{
 	margin:0 5%;
@@ -211,11 +219,12 @@
 	display:flex;
 }
 .new-repair-img{
-	flex:1;
+	flex:1.5;
+  margin: 5% 0;
 }
 .new-repair-img input{
 	font-size: 25px;
-    background-color: grey;
+    background-color: white;
     width: 95%;
     font-family: 'Kanit', sans-serif;
     margin: 7px 0;
@@ -224,14 +233,25 @@
 }
 .new-repair-submit{
 	flex:1;
+  margin: 9.25% 0 0 0;
 }
 .new-repair-submit input{
 	background-color: grey;
     font-size: 25px;
-    padding: 5px 10px;
+    padding:1% 4%;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
     margin: 30px 10px;
+}
+.new-repair-submit a{
+background-color: grey;
+  font-size: 25px;
+  color:darkred;
+  text-decoration:none;
+  padding:1% 4%;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+  margin: 3% 0;
 }
 .repair-title input{
  width:97%;
@@ -239,5 +259,14 @@
  border-radius: 5px;
  font-size: 25px;
  padding: 5px 10px;
+}
+/********************/
+/*Edit Repair*/
+/********************/
+.edit_repair{
+  margin: 0 5%;
+}
+.edit_repair label{
+  font-size: 40px;
 }
 

@@ -1,9 +1,11 @@
-<main> 
+<main>
     <header class="visit-show-main-header">
-        <h1 class="visit-show-header"><%= @visit.customer.full_name %> Visit Details</h1>
+        <h1 class="visit-show-header">Visit Details: <%= @visit.customer.full_name %></h1>
         <h2 class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %>
-        <%= link_to "Back", controller: "users", action: "route", id: @visit.customer.id %>  
     </header>
+        <section class="visit-show-links">
+            <%= link_to "Back", :back %>
+        </section>
       <section class="visit-show-details-section">
           <article class="chemistry-article">
             <header>
@@ -20,8 +22,8 @@
                     <p>Salt Level: <span class="chem-dis"><%= @visit.salt ? @visit.salt : "N/A"%></span></p>
                     <p>Sericed By: <span class="chem-dis"><%= @visit.user.first_name ? @visit.user.first_name : "N/A" %></span></p>
                 </div>
-            </article>    
-          </article> 
+            </article>
+          </article>
           <article class="duties-preformed-article-section">
             <header>
                 <h3 class="show-subheader">Duties Preformed</h3>
@@ -44,7 +46,7 @@
                     <p>Add Stabilizer: <span class="duty-dis"><%= @visit.add_stabilizer ? raw("&#10004") : raw("&#x2716;") %></span></p>
                     <p>Add Chlorine Tab: <span class="duty-dis"><%= @visit.add_chlorine_tab ? raw("&#10004") : raw("&#x2716;") %></span></p>
                 </div>
-            </article>    
+            </article>
           </article>
       </section>
-</main>    
+</main>

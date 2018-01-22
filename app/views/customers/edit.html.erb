@@ -1,6 +1,8 @@
 <main>
-  <header>
-    <h3 class="new-customer-header">Edit Customer</h3>
+  <header class="header">
+    <div class="header-overlay">
+    </div>
+    <h3 class="header-text new-customer-header">Edit Customer</h3>
   </header>
   <section>
     <%= form_for(@customer) do |f| %>
@@ -17,18 +19,14 @@
         </div>
         <div class="new-customer-contact">
           <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off%>
-          <%= f.text_field :gate_code, :placeholder => "Gate Code", :autocomplete => :off  %>
+          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+          <%= f.text_field :gate_code, :placeholder => "Gate Code", :autocomplete => :off %>
         </div>
       <% end %>
       <%= field_set_tag "Pool Info", class: "new-customer-pool" do %>
         <div class="equipment-type">
           <%= f.text_field :filter_type, :placeholder => "Filter Type", :autocomplete => :off %>
           <%= f.text_field :pump_type, :placeholder => "Pump Type", :autocomplete => :off %>
-          <span class="customer-checkbox">
-            <%= f.label :receive_emails %>
-            <%= f.check_box :receive_emails %>
-          </span>
         </div>
         <h2 class="days-header">Service Day</h2>
         <div class="scheduling">
@@ -54,17 +52,25 @@
               <%= f.check_box :friday %>
             </div>
           </div>
-          <% if User.find(session[:user_id]).admin == true %>
-            <div class="misc-scheduling">
-              <%= f.label :user_id, "Employee" %>
-              <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+          <div class="misc-container">
+            <% if session[:user_id] %>
+              <% @user_admin = User.find(session[:user_id]).admin %>
+            <% end %>
+            <% if @user_admin || session[:business_id] %>
+              <div class="misc-scheduling">
+                <%= f.label :user_id, "Employee" %>
+                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+              </div>
+            <% end %>
+            <div class="customer-checkbox">
+              <%= f.label :receive_emails %>
+              <%= f.check_box :receive_emails %>
             </div>
           <% end %>
         </div>
-      <% end %>
       <div class="customer-submit">
-        <%= f.submit 'Update Customer', :class => 'customer-new-submit' %>
-        <%= link_to 'Cancel', :back %>
+        <%= f.submit 'Create New Customer', :class => 'customer-new-submit' %>
+        <%= link_to 'Cancel', controller: "customers", action: "show", id: params[:id] %>
       </div>
     <% end %>
   </section>

@@ -2,6 +2,7 @@ class Business < ApplicationRecord
 	has_many :users
 	has_many :customers, through: :users
 	has_many :repairs, through: :customers, source: :repairs
+	has_secure_password
 
 	accepts_nested_attributes_for :users
 

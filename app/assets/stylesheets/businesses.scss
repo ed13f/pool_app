@@ -4,7 +4,7 @@
 
 .business-header{
 	font-size: 60px;
-	margin:8% 2% 0;
+	margin:3% 0 0 0;
 	line-height: 55px;
 }
 .business-sub-header{
@@ -82,11 +82,26 @@ line-height:30px;
   padding: 1% 6%;
   font-family: 'Kanit', sans-serif;
 }
+.biz-header-section{
+  display:flex;
+  justify-content: space-between;
+  margin: 0 2%;
+}
 .biz-header-section form{
-  position:absolute;
-  top:10%;
-  right:2%;
-  padding: 0 3%;
+  /*position:absolute;
+  top:6%;
+  right:2%;*/
+  /*padding: 0 3%;*/
+}
+.biz-header-section a{
+  font-size: 35px;
+  color: black;
+  background-color: grey;
+  border-radius: 5px;
+  float:right;
+  margin: 5% 0;
+  padding:0 5%;
+  text-decoration: none;
 }
 .biz-header-section form input{
   font-size: 35px !important;
@@ -167,5 +182,19 @@ line-height:30px;
 	font-family: 'Kanit', sans-serif;
 	flex: 2;
 }
-
-
+.biz-options{
+  margin:3% 0 0 0;
+}
+/**********************/
+/*business edit*/
+/**********************/
+.edit_business{
+  width: 91%;
+}
+.edit_business input{
+  width: 100%;
+  padding: 2% 4%;
+  font-size: 35px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}

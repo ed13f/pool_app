@@ -16,44 +16,72 @@ class BusinessesController < ApplicationController
     end
   end
 
-  def sign_id
-  end
-
   def show
-    @business = Business.find(session[:business_id])
-    @employees = @business.users
-    @customers = @business.customers
-    @repairs = @business.repairs
-    # @business = Business.find(params[:id])
-    if @business.id == session[:business_id]
+    @business = Business.find_by_id(params[:id])
+    if @business && @business.id == session[:business_id]
+      @employees = @business.users
+      @customers = @business.customers
+      @repairs = @business.repairs
       render 'show'
     else
-      redirect_to 'new'
+      puts "YESSSSSSSSSSSSSSSS"
+      redirect_to '/businesses/new'
     end
   end
 
   def edit
-    @business = Business.find(params[:id])
-
+    @business = Business.find_by_id(params[:id])
+    if @business && @business.id == session[:business_id]
+      render 'edit'
+    else
+      if session[:business_id]
+        redirect_to :controller => 'businesses', :action => 'show', :id => session[:business_id]
+      elsif session[:business_id]
+        redirect_to :controller => 'users', :action => 'show', :id => session[:users_id]
+      else
+        redirect_to '/'
+      end
+    end
   end
 
   def update
-    @business = Business.find(params[:id])
-    @business.update_attributes(business_params)
-    redirect_to action:'show', :id => @business.id
+    @business = Business.find_by_id(params[:id])
+    if @business && @business.id == session[:business_id]
+        @business.update_attributes(business_params)
+        redirect_to @business
+    else
+      if session[:business_id]
+        redirect_to :controller => 'businesses', :action => 'show', :id => session[:business_id]
+      elsif session[:business_id]
+        redirect_to :controller => 'users', :action => 'show', :id => session[:users_id]
+      else
+        redirect_to '/'
+      end
+    end
   end
 
   def reset_weekely_visit
-    @business = Business.find(params[:id])
-    @customers = @business.customers
-    @unfinished_pools = @customers.select{ |customer| customer.weekly_complete == false }
-    BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
-    @customers.map do |customer|
-      customer.weekly_complete = false
-      customer.weekly_visit_str = ""
-      customer.save
+    @business = Business.find_by_id(params[:id])
+    if @business && @business.id == session[:business_id]
+      @customers = @business.customers
+      @unfinished_pools = @customers.select{ |customer| customer.weekly_complete == false }
+      BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
+      @customers.map do |customer|
+        customer.weekly_complete = false
+        customer.weekly_visit_str = ""
+        customer.save
+      end
+      redirect_to action: 'show', :id => @business.id
+    else
+      if session[:business_id]
+        redirect_to :controller => 'businesses', :action => 'show', :id => session[:business_id]
+      elsif session[:business_id]
+        redirect_to :controller => 'users', :action => 'show', :id => session[:users_id]
+      else
+        redirect_to '/'
+      end
     end
-    redirect_to action: 'show', :id => @business.id
+
   end
 
   private

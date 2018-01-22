@@ -2,7 +2,7 @@
   <header>
     <h1 class="new-repair-header">New Repair</h1>
   </header>
-  <section class="new-repair-form">  
+  <section class="new-repair-form">
     <%= form_for(@repair) do |f| %>
       <div class="repair-title">
         <%= f.label :title, "Title:" %><br>
@@ -20,7 +20,7 @@
           <%= f.hidden_field :customer_id, :value => params[:id] %>
         <div class="new-repair-submit">
           <%= f.submit %>
-          <%= link_to 'Cancel', :back %>
+          <%= link_to 'Cancel', controller: "customers", action: "show", id: params[:id] %>
         </div>
       </div>
     <% end %>

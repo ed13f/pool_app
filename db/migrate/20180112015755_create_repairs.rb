@@ -5,7 +5,7 @@ class CreateRepairs < ActiveRecord::Migration[5.1]
       		t.string :title, null: false
       		t.string :description, null: false
       		t.boolean :complete, :default => false
-      		t.integer :user_id, null: false
+      		t.integer :user_id
       		t.timestamps
     	end
   	end

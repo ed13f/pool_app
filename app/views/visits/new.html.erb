@@ -63,7 +63,7 @@
       <% end %>
       <div class="visit-options">
         <%= f.submit 'Complete Visit', :class => 'submit-visit' %>
-        <%= link_to 'Cancel', :back %>
+        <%= link_to 'Cancel', controller: "users", action: "show", id: @customer.user.id %>
       </div>
     <% end %>
   </article>

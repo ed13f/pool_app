@@ -1,7 +1,16 @@
 class VisitsController < ApplicationController
 	def new
-    	@visit = Visit.new
-  	end
+    @customer = Customer.find_by_id(params[:id])
+    if @customer
+      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+    	   @visit = Visit.new
+      else
+        redirect_to "/"
+      end
+    else
+      redirect_to "/"
+    end
+  end
 
   	def create
     	@visit = Visit.new(visit_params)
@@ -22,7 +31,17 @@ class VisitsController < ApplicationController
   	end
 
   	def show
-    	@visit = Visit.find(params[:id])
+      @visit = Visit.find_by_id(params[:id])
+      @customer = @visit.customer
+      if @customer
+        if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+    	    render "show"
+        else
+          redirect_to "/"
+        end
+      else
+        redirect_to "/"
+      end
   	end
 
   	private
