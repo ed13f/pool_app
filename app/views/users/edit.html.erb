@@ -26,7 +26,7 @@
         </div>
         <div class="edit-user-submit">
           <%= f.submit %>
-          <%= link_to 'Cancel', :back %>
+          <%= link_to 'Cancel', :controller => "users", :action => "show", :id => params[:id] %>
         </div>
       <% end %>
     </article>

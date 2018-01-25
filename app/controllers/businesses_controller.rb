@@ -1,31 +1,39 @@
 class BusinessesController < ApplicationController
   def new
-    @business = Business.new
-    @user = User.new
+    if !session[:user_id] && !session[:business_id]
+      @business = Business.new
+      @user = User.new
+    else
+      redirect_to "/"
+    end
   end
 
   def create
-    @business = Business.new(business_params)
-    if @business.save
-      session[:business_id] = @business.id
-      @user = User.new
-      redirect_to business_path(@business)
+    if !session[:user_id] && !session[:business_id]
+      @business = Business.new(business_params)
+      if @business.save
+        session[:business_id] = @business.id
+        @user = User.new
+        redirect_to business_path(@business)
+      else
+        @errors = @business.errors.full_messages
+        render 'new'
+      end
     else
-      @errors = @business.errors.full_messages
-      render 'new'
+      redirect_to "/"
     end
   end
 
   def show
     @business = Business.find_by_id(params[:id])
-    if @business && @business.id == session[:business_id]
+    @user = User.find_by_id(session[:user_id])
+    if @business && @business.id == session[:business_id] || @user && @user.admin
       @employees = @business.users
       @customers = @business.customers
       @repairs = @business.repairs
       render 'show'
     else
-      puts "YESSSSSSSSSSSSSSSS"
-      redirect_to '/businesses/new'
+      redirect_to '/'
     end
   end
 
@@ -62,7 +70,8 @@ class BusinessesController < ApplicationController
 
   def reset_weekely_visit
     @business = Business.find_by_id(params[:id])
-    if @business && @business.id == session[:business_id]
+    @user = User.find_by_id(session[:user_id])
+    if @business && @business.id == session[:business_id] || @user && @user.admin
       @customers = @business.customers
       @unfinished_pools = @customers.select{ |customer| customer.weekly_complete == false }
       BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
@@ -75,7 +84,7 @@ class BusinessesController < ApplicationController
     else
       if session[:business_id]
         redirect_to :controller => 'businesses', :action => 'show', :id => session[:business_id]
-      elsif session[:business_id]
+      elsif session[:users_id]
         redirect_to :controller => 'users', :action => 'show', :id => session[:users_id]
       else
         redirect_to '/'

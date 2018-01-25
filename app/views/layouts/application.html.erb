@@ -13,32 +13,39 @@
   <body>
     <nav class="nav-container">
       <ul id="nav-main">
-        <li>
-        <% if session[:user_id] || session[:business_id]%>
+        <% if session[:user_id] || session[:business_id] %>
           <% if session[:user_id] %>
-            <% @user = User.find(session[:user_id] ) %>
+            <% @user = User.find_by_id(session[:user_id] ) %>
+            <% @user_business = @user.business %>
             <li>
               <%= link_to "Profile",user_path(@user) %>
             </li>
             <% if @user.admin == true %>
-              <% @user_business = @user.business %>
               <li>
                 <%= link_to "Business",business_path(@user_business) %>
               </li>
+              <li>
+                <%= link_to "Repairs", {:controller => "repairs", :action=> "index"}, :method => :get %>
+              </li>
             <% end %>
           <% elsif session[:business_id] %>
-            <% @business = Business.find(session[:business_id] ) %>
-              <li>
-                <%= link_to "Business",business_path(@business) %>
-              </li>
+            <% @business = Business.find_by_id(session[:business_id] ) %>
+            <li>
+              <%= link_to "Business",business_path(@business) %>
+            </li>
+            <li>
+            <%= link_to "Repairs", {:controller => "repairs", :action=> "index"}, :method => :get %>
+          </li>
           <% end %>
           <li>
             <%= link_to "New Customer", {:controller => "customers", :action=> "new"}, :method => :get %>
           </li>
-          <li>
-            <%= link_to "Repairs", {:controller => "repairs", :action=> "index"}, :method => :get %>
-          </li>
         <% end %>
+
+
+
+
+
       </ul>
       <ul id="nav-user">
         <% if session[:user_id] || session[:business_id] %>

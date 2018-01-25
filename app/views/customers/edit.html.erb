@@ -59,7 +59,7 @@
             <% if @user_admin || session[:business_id] %>
               <div class="misc-scheduling">
                 <%= f.label :user_id, "Employee" %>
-                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }, :selected => f.object.user_id), :include_blank => "Choose Employee" %>
               </div>
             <% end %>
             <div class="customer-checkbox">

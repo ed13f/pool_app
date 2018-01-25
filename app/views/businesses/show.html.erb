@@ -12,7 +12,9 @@
 				<%= hidden_field_tag "id", @business.id %>
 				<%= submit_tag("Reset All Pool Visits") %>
 			<% end %>
-			<%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
+			<% if session[:business_id] %>
+				<%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
+			<% end %>
 		</div>
 	</header>
 	<section class="business-lists-container">

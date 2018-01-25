@@ -1,0 +1,25 @@
+<main>
+  <header>
+    <h1 class="forgot-password-header">Request Password Change</h1>
+  </header>
+  <article class="forgot-form">
+    <%= form_for @reset do |f| %>
+      <%= f.text_field :email, :placeholder => "Enter Your Email Address", :autocomplete => :off %>
+      <div class="sesion-type reset-type">
+        <div class="sesion-type-title">
+        <%= label_tag "Type of account?" %>
+        </div>
+        <div class="sesion-type-options">
+          <%= label :reset_type, 'User' %>
+          <%= f.radio_button :reset_type, 'User', :class => "reset-radio-button" %>
+          <%= label :type, 'Business' %>
+          <%= f.radio_button :reset_type, 'Business', :class => "reset-radio-button" %>
+        </div>
+      </div>
+      <div class="forgot-pass-submit">
+        <%= submit_tag 'Reset Password ' %>
+        <%= link_to 'Cancel', :controller => "sessions", :action => "index" %>
+      </div>
+    <% end %>
+  </article>
+</main>

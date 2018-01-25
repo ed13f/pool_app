@@ -17,7 +17,6 @@
           <%= f.label :photo, "Photo: "%><br>
           <%= f.file_field :photo %>
         </div>
-          <%= f.hidden_field :customer_id, :value => params[:id] %>
         <div class="new-repair-submit">
           <%= f.submit %>
           <%= link_to 'Cancel', controller: "repairs", action: "show", id: @repair.id%>

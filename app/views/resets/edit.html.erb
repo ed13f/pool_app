@@ -1,0 +1,14 @@
+<main>
+  <header>
+    <h1 class="reset-password-header">Reset Password</h1>
+  </header>
+  <article class="reset-password-form">
+    <%= form_for @reset, :url => url_for(:controller => 'resets', :action => 'update', :id => @user.id)  do |f| %>
+    <%= f.text_field :temp_pass, :placeholder => "Temperary Password", :autocomplete => :off %>
+
+    <%= f.text_field :password_digest, :placeholder => "New Password", :autocomplete => :off %>
+
+    <%= submit_tag 'Reset Password' %>
+    <% end %>
+  </article>
+</main>

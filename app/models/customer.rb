@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
   has_many :repairs
   has_many :notes
   has_many :days, dependent: :destroy
+  has_one :business, through: :user, source: :business
   accepts_nested_attributes_for :days, allow_destroy: true, reject_if: :all_blank
 
   	geocoded_by :full_address

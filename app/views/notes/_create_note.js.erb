@@ -1,0 +1,5 @@
+$( document ).ready(function() {
+  $("#no-notes").remove();
+  $(".new-note-input textarea").val("");
+  $(".customer-notes-list").prepend("<%= j render partial: 'note_item', locals: {note: @note} %>")
+});

@@ -53,9 +53,6 @@
             </div>
           </div>
           <div class="misc-container">
-            <% if session[:user_id] %>
-              <% @user_admin = User.find(session[:user_id]).admin %>
-            <% end %>
             <% if @user_admin || session[:business_id] %>
               <div class="misc-scheduling">
                 <%= f.label :user_id, "Employee" %>
