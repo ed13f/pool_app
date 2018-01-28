@@ -36,15 +36,24 @@
     <article class="customer-display-notes">
       <header>
         <h2 class="note-header">Notes</h2>
+        <% if flash[:notice] %>
+          <ul>
+            <% flash[:notice].each do |message| %>
+              <li><%= message%></li>
+            <% end %>
+          </ul>
+        <% end %>
       </header>
       <article class="customer-notes-list">
+        <ul>
         <% if @notes[0] %>
-          <ul>
-              <% @notes.each do |note| %>
-                <li><%= link_to "X", note, method: :delete %> <%= note.description %></li>
-              <% end %>
-            </ul>
+          <% @notes.each do |note| %>
+            <li id="note-<%= note.id %>"><%= link_to "X", note, method: :delete, remote: true %> <%= note.description %></li>
+          <% end %>
+        <% else %>
+        <li id="no-notes">This Customer Has No Notes.</li>
         <% end %>
+        </ul>
       </article>
     </article>
   </section>
@@ -52,7 +61,7 @@
     <header>
         <h2 class="add-note-header">Add Notes</h2>
       </header>
-    <%= form_for(@note, :html => { :class => "new-note-form" }) do |f| %>
+    <%= form_for @note, :html => { :class => "new-note-form" }, remote: true  do |f| %>
       <div class="new-note-input">
         <%= f.label :description %><br>
         <%= f.text_area :description %>

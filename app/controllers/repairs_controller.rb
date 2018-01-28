@@ -1,106 +1,85 @@
 class RepairsController < ApplicationController
   include ApplicationHelper
+  include RepairsHelper
+  include CustomersHelper
 	def index
-    if session[:user_id]
-      @session = User.find_by_id(session[:user_id])
-      @open_repairs = @session.repairs.where(complete: false)
-      @finished_repairs = @session.repairs.where(complete: true)
+    @session = User.find_by_id(session[:user_id])
+    if @session && @session.admin
+      @open_repairs = pool_completion_select(false)
+      @finished_repairs = pool_completion_select(true)
     elsif session[:business_id]
       @session = Business.find_by_id(session[:business_id])
-      @open_repairs = @session.repairs.where(complete: false)
-      @finished_repairs = @session.repairs.where(complete: true)
+      @open_repairs = pool_completion_select(false)
+      @finished_repairs = pool_completion_select(true)
     else
-      redirect_to "/"
+      root_redirect_path
     end
   end
 
     def new
-      require_logged_in_user
       @customer = Customer.find_by_id(params[:id])
-      if @customer
-        if @customer.id == session[:user_id] || @customer.user.business.id == session[:business_id]
-      	@repair = Repair.new
-        else
-          redirect_to "/"
-        end
-      end
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+    	  @repair = Repair.new
     end
 
   	def create
-      require_logged_in_user
-    	@repair = Repair.new(repair_params)
-      if session[:user_id]
-    	   @repair.user_id = session[:user_id]
-      end
-    	if @repair.save
-        	RepairMailer.repair_open(@repair).deliver
-        	redirect_to repair_path(@repair)
-    	else
-        	@errors = @repair.errors.full_messages
-      		render 'new'
-    	end
+      @customer = Customer.find_by_id(repair_params[:customer_id])
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+      	@repair = Repair.new(repair_params)
+        if session[:user_id]
+      	@repair.user_id = session[:user_id]
+        end
+      	if @repair.save
+          RepairMailer.repair_open(@repair).deliver
+          redirect_to repair_path(@repair)
+      	else
+          flash[:notice] = @repair.errors.full_messages
+          redirect_to "/customers/repairs/" + repair_params[:customer_id].to_s
+      	end
     end
 
     def show
-    	@repair = Repair.find_by_id(params[:id])
-      if @repair
-        @business = @repair.customer.user.business
-        if @business.id == session[:business_id] || @business.users.find_by_id(session[:user_id])
-          @image = Image.new
-          render "show"
-        else
-          redirect_to "/"
-        end
-      else
-        redirect_to "/"
-      end
+      @repair = Repair.find_by_id(params[:id])
+      @customer = find_repairs_customer
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+      @image = Image.new
   	end
 
   	def edit
-    	@repair = Repair.find_by_id(params[:id])
-      if @repair
-        @business = @repair.customer.user.business
-        if @business.id == session[:business_id] || @business.users.find_by_id(session[:user_id])
-          @image = Image.new
-          render "edit"
-        else
-          redirect_to "/"
-        end
-      else
-        redirect_to "/"
-      end
+      @repair = Repair.find_by_id(params[:id])
+      @customer = find_repairs_customer
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+      @image = Image.new
   	end
 
   	def update
-    	@repair = Repair.find_by_id(params[:id])
-      if @repair
-        @business = @repair.customer.user.business
-        if @business.id == session[:business_id] || @business.users.find_by_id(session[:user_id])
-    	     @repair.update_attributes(repair_params)
-           redirect_to action:'show', :id => @repair.id
+      @repair = Repair.find_by_id(params[:id])
+      @customer = find_repairs_customer
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+        if @repair.update_attributes(repair_params)
+          redirect_to @repair
         else
-          redirect_to "/"
+          flash[:notice] = @repair.errors.full_messages
+          redirect_to "/repairs/" + @repair.id.to_s + "/edit"
         end
-      else
-        redirect_to "/"
-      end
   	end
 
   	def complete
-    	@repair = Repair.find_by_id(params[:id])
-      if @repair
-        @business = @repair.customer.user.business
-        if @business.id == session[:business_id] || @business.users.find_by_id(session[:user_id])
-  	      RepairMailer.repair_complete(@repair).deliver
-  	      @repair.complete = true
- 		      @repair.save
-          redirect_back(fallback_location: root_path)
-        else
-          redirect_to "/"
+      @repair = Repair.find_by_id(params[:id])
+      @customer = find_repairs_customer
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+        RepairMailer.repair_complete(@repair).deliver
+        @repair.complete = true
+        @repair.save
+        respond_to do |format|
+          format.js { render partial: "complete_repair", locals: {repair: @repair} }
         end
-      else
-        redirect_to "/"
-      end
   	end
 
   	private

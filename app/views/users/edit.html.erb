@@ -3,6 +3,13 @@
     <h1 class="new-user-header">Edit User</h1>
   </header>
   <section>
+    <% if flash[:notice] %>
+      <ul>
+        <% flash[:notice].each do |message| %>
+          <li><%= message%></li>
+        <% end %>
+      </ul>
+    <% end %>
     <article class="new-user-form">
       <%= form_for(@user) do |f| %>
         <div class="field">
@@ -26,7 +33,7 @@
         </div>
         <div class="edit-user-submit">
           <%= f.submit %>
-          <%= link_to 'Cancel', :back %>
+          <%= link_to 'Cancel', :controller => "users", :action => "show", :id => params[:id] %>
         </div>
       <% end %>
     </article>

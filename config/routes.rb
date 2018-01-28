@@ -21,8 +21,14 @@ Rails.application.routes.draw do
   get '/forgot_password' => 'users#forgot_password'
   post '/request_password' => 'users#request_password'
   get '/reset_password/:id' => 'users#reset_password'
-  patch '/update_password/:id' => 'users#update_password'
+  post '/update_password/:id' => 'users#update_password'
   root "sessions#index"
+
+  # resets
+  get '/resets' => 'resets#new'
+  post '/resets' => 'resets#create'
+  get '/resets/:id' => 'resets#edit'
+  post '/resets/:id' => 'resets#update'
 
   #customers
   get '/customers/:id/history' => 'customers#history'

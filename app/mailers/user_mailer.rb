@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
     	mail(to: @user.email, subject: 'Welcome to the Team!')
   	end
 
-  	def reset_password(user)
+  	def reset_password(user, reset)
   		@user = user
+      @reset = reset
     	@url  = 'http://localhost:3000/reset_password/' + @user.id.to_s
     	mail(to: @user.email, subject: 'Password Reset')
-  	end	
+  	end
 end

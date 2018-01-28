@@ -1,47 +1,40 @@
 class VisitsController < ApplicationController
+  include CustomersHelper
 	def new
     @customer = Customer.find_by_id(params[:id])
-    if @customer
-      if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
+    @logged_in_user = User.find_by_id(session[:user_id])
+    allow_only_user_and_admin
     	   @visit = Visit.new
-      else
-        redirect_to "/"
-      end
-    else
-      redirect_to "/"
-    end
   end
 
-  	def create
-    	@visit = Visit.new(visit_params)
-    	@visit.user_id = session[:user_id]
-      customer = @visit.customer
-    	if @visit.save
-      		VisitMailer.visit_complete(@visit).deliver
-          customer.weekly_visit_str += Time.now.strftime("%A") + " "
-          if customer.days_list.count == customer.days_visited_list.count
-      		  @visit.customer.weekly_complete = true
-          end
-      		@visit.customer.save
-      		redirect_to controller: 'customers', action: 'show', id: customer.id
-    	else
-      		@errors = @user.errors.full_messages
-      		redirect_to controller: 'customers', action: 'show', id: customer.id
-    	end
-  	end
+	def create
+    session[:user_id] ? @customer = Customer.find_by_id(visit_params[:customer_id]) : nil
+    @logged_in_user = User.find_by_id(session[:user_id])
+    allow_only_user_and_admin
+    @visit = Visit.new(visit_params)
+    @visit.user_id = session[:user_id]
+    customer = @visit.customer
+    if @visit.save
+        customer.receive_emails ? VisitMailer.visit_complete(@visit).deliver : nil
+        # end
+        customer.weekly_visit_str += Time.now.strftime("%A") + " "
+        if customer.days_list.count == customer.days_visited_list.count
+          @visit.customer.weekly_complete = true
+        end
+        @visit.customer.save
+        redirect_to @customer
+    else
+        flash[:notice] = @visit.errors.full_messages
+        redirect_to "/customers/visits/" + @customer.id.to_s
+    end
+	end
 
   	def show
       @visit = Visit.find_by_id(params[:id])
-      @customer = @visit.customer
-      if @customer
-        if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
-    	    render "show"
-        else
-          redirect_to "/"
-        end
-      else
-        redirect_to "/"
-      end
+      @visit ? @customer = @visit.customer : nil
+      binding.pry
+      @logged_in_user = User.find_by_id(session[:user_id])
+        customer_allow_user_business_or_admin
   	end
 
   	private

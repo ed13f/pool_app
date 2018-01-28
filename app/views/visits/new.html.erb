@@ -2,6 +2,13 @@
   <header>
     <h1 class="new-visit-header">Complete Visit</h1>
   </header>
+  <% if flash[:notice] %>
+    <ul>
+      <% flash[:notice].each do |message| %>
+        <li><%= message%></li>
+      <% end %>
+    </ul>
+  <% end %>
   <article>
     <%= form_for(@visit) do |f| %>
       <%= field_set_tag "Chemistry Readings", class: "new-visit-chemistry" do %>

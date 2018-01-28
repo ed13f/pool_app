@@ -4,6 +4,13 @@
   </header>
   <section>
     <article class="new-business-form">
+      <% if flash[:notice] %>
+        <ul>
+          <% flash[:notice].each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_for(@business) do |f| %>
         <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
         <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>

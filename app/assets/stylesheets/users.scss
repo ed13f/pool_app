@@ -64,14 +64,24 @@
     font-family: 'Kanit', sans-serif;
     /*margin: 66px 10px;*/
 }
-
+.admin-input{
+}
+.admin-input label{
+  font-size:35px;
+}
+.admin-input input{
+  width:28px !important;
+  height:35px;
+  margin:0;
+  vertical-align: -7px
+}
 /********************/
 /*User Show*/
 /********************/
 
 .user-show-header{
-	font-size:60px;
-	margin:0 2% 5%;
+	font-size:45px;
+	margin:0 2% 3%;
 }
 .user-show-table{
   width:96vw;
@@ -96,7 +106,7 @@
 	width:24vw;
 }
 .user-show-tbody{
-	max-height:1000px;
+	max-height:76vh;
 	overflow:scroll;
 }
 .green{
@@ -120,11 +130,11 @@
 	border:none;
 	float:left;
 	margin-bottom:0;
-  border-radius: 10px;
+  border-radius: 5px;
 	/*background-color:transparent;*/
 	background: lightgrey;
 	padding: 0 10px;
-	font-size: 30px;
+	font-size: 20px;
 }
 .active-switch{
 	background-color: grey !important;
@@ -140,9 +150,9 @@
   background-color:grey;
   text-decoration: none;
   float: right;
-  border-radius:10px;
+  border-radius:5px;
   padding: 0 10px;
-  font-size: 30px;
+  font-size: 20px;
   color:black;
 }
 .user-profile-header{
@@ -284,7 +294,7 @@ margin:0;
 .forgot-pass-submit input{
   background-color: grey;
   font-size: 35px;
-  padding: 1% 2%;
+  padding: 1% 2% !important;
   flex:2;
   border-radius: 5px;
   font-family: 'Kanit', sans-serif;
@@ -308,7 +318,28 @@ margin:0;
 /*request password/
 /********************/
 .message-container{
-  margin: 13% 2% 5%;
+  margin: 12% 6% 5%;
+  background-color: lightgrey;
+  padding: 2%;
+  border-radius: 10px;
+}
+.message-container h1{
+  font-size:40px;
+  text-align:center;
+}
+.message-container p{
+  font-size:30px;
+}
+.request_pass_link{
+  background-color: grey;
+    font-size: 35px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin: 2% 38%;
+    padding: 1% 6%;
+    font-family: 'Kanit', sans-serif;
 }
 
 /********************/
@@ -328,4 +359,14 @@ margin:0;
 .reset-password-header{
   font-size: 60px;
   margin: 13% 2% 5%;
+}
+.new_reset input{
+  width: 89%;
+    font-size: 35px;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    margin: 3% 0;
+    padding: 2% 4%;
+    font-family: 'Kanit', sans-serif;
 }

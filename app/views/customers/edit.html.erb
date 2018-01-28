@@ -5,6 +5,13 @@
     <h3 class="header-text new-customer-header">Edit Customer</h3>
   </header>
   <section>
+    <% if flash[:notice] %>
+      <ul>
+        <% flash[:notice].each do |message| %>
+          <li><%= message%></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= form_for(@customer) do |f| %>
       <%= field_set_tag "Customer Info", class: "new-customer-info" do %>
         <div class="new-customer-name">
@@ -59,7 +66,7 @@
             <% if @user_admin || session[:business_id] %>
               <div class="misc-scheduling">
                 <%= f.label :user_id, "Employee" %>
-                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }), :include_blank => "Choose Employee" %>
+                <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.first_name + " " + employee.customers.count.to_s, employee.id] }, :selected => f.object.user_id), :include_blank => "Choose Employee" %>
               </div>
             <% end %>
             <div class="customer-checkbox">

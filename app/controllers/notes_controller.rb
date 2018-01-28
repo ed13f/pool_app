@@ -1,25 +1,30 @@
 class NotesController < ApplicationController
-	# def new
-	#     @note = Note.new
-	# end
-
+  include CustomersHelper
     def create
-      require_logged_in_user
-	    @note = Note.new(note_params)
+      @customer = Customer.find_by_id(note_params[:customer_id])
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+  	    @note = Note.new(note_params)
 	    if @note.save
-	    	redirect_back(fallback_location: root_path)
+        respond_to do |format|
+          format.js { render partial: "create_note" }
+        end
 	    else
-	    	@errors = @note.errors.full_messages
-	    	render 'new'
+        flash[:notice] = @note.errors.full_messages
+        redirect_to "/customers/" + @customer.id.to_s
 	    end
     end
 
     def destroy
-      require_logged_in_user
-	  	@note = Note.find(params[:id])
-	  	@note.destroy
-	  	redirect_back(fallback_location: root_path)
-	end
+      @note = Note.find(params[:id])
+      @customer = Customer.find_by_id(@note.customer_id)
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+  	  @note.destroy
+      respond_to do |format|
+        format.js { render partial: "delete_note" }
+      end
+	  end
 
     private
     def note_params

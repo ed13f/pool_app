@@ -3,6 +3,13 @@
     <h1 class="new-business-header">New Business</h1>
   </header>
   <section>
+    <% if flash[:notice] %>
+      <ul>
+      <% flash[:notice].each do |message| %>
+        <li><%= message%></li>
+      <% end %>
+    </ul>
+    <% end %>
     <article class="new-business-form">
       <%= form_for(@business) do |f| %>
         <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>

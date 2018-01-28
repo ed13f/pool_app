@@ -1,13 +1,7 @@
 class SessionsController < ApplicationController
 	include SessionsHelper
     def index
-      if session[:bussiness_id]
-        redirect_to :controller => 'businesses', :action => 'show', id: session[:business_id]
-      elsif session[:user_id]
-        redirect_to :controller => 'users', :action => 'show', id: session[:user_id]
-      else
-        redirect_to :controller => 'sessions', :action => 'new'
-      end
+      root_redirect_path
     end
 
   	def new
@@ -16,31 +10,17 @@ class SessionsController < ApplicationController
 
   	def create
       if params[:type] == "user"
-      	@user = User.find_by(email: params[:email])
-      	if @user && @user.authenticate(params[:password])
-        		log_in @user
-        		redirect_to @user
-      	else
-        		flash.now[:danger] = 'Invalid email/password combination'
-        		render 'new'
-      	end
+        authenticate_signin(@user, User, :user_id)
       elsif params[:type] == "business"
-        @business = Business.find_by(email: params[:email])
-        if @business && @business.authenticate(params[:password])
-          session[:business_id] = @business.id
-            redirect_to @business
-        else
-            flash.now[:danger] = 'Invalid email/password combination'
-            render 'new'
-        end
+        authenticate_signin(@business, Business, :business_id)
       else
-        render 'new'
+        flash[:notice] = "Please Select An Account Type"
+        redirect_to '/new'
       end
-
   	end
 
   	def destroy
     	log_out
-    	redirect_to '/'
+    	root_redirect_path
   	end
 end

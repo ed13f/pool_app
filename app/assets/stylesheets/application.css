@@ -145,5 +145,13 @@ input[type=file]{
 
 
 /***********************/
-/*Revised*/
+/*Media Queries*/
 /***********************/
+@media screen and (orientation: landscape) {
+  body{
+    color:red;
+  }
+  .user-show-header{
+    margin: 0 2% 0%;
+  }
+}

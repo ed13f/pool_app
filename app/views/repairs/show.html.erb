@@ -6,8 +6,8 @@
   <section class="repair-show-header-section">
     <%= link_to 'Back', :back %>
     <% if @repair.complete == false %>
-    <%= link_to "Edit Repair", controller: "repairs", action: "edit", id: @repair.id %>
-    <%= button_to "Close Ticket", :method => "get", controller: "repairs", action: "complete", id: @repair.id %>
+    <%= link_to "Edit Repair", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
+    <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket" %>
     <% end %>
   </section>
   <section class="repair-show-info">
