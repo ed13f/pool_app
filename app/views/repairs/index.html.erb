@@ -20,11 +20,11 @@
         <tbody class="repair-tbody">
           <% if @open_repairs[0] %>
             <% @open_repairs.each do |repair| %>
-              <tr>
+              <tr id="repair-entry-<%= repair.id %>">
                 <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
                 <td><%= link_to repair.title,repair_path(repair) %></td>
                 <td><%= repair.user.first_name %></td>
-                <td><%= button_to "Complete Visit", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form" %></td>
+                <td><%= button_to "Complete Visit", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true %></td>
               </tr>
             <% end %>
           <% else %>

@@ -1,10 +1,9 @@
 class CustomersController < ApplicationController
-  # @customer.days.build
-  # require_logged_in_user
   include ApplicationHelper
+  include CustomersHelper
 	def new
     @customer = Customer.new
-    if session[:business_id] || session[:user_id]
+    user_or_business_logged_in
       if session[:user_id]
         @logged_in_user = User.find_by_id(session[:user_id])
           if @logged_in_user.admin
@@ -14,47 +13,35 @@ class CustomersController < ApplicationController
       elsif session[:business_id]
         @employees = Business.find_by_id(session[:business_id]).users
       end
-    else
-      redirect_to "/"
-    end
   end
 
   def create
-    if session[:business_id] || session[:user_id]
+      user_or_business_logged_in
       @customer = Customer.new(customer_params)
-      if customer_params[:user_id] == "" || customer_params[:user_id] == nil
-      	@customer.user_id = session[:user_id]
-      end
+      @customer.user_id = assign_user_id
       if @customer.save
         CustomerMailer.new_customer(@customer).deliver
         redirect_to customer_path(@customer)
       else
-        @errors = @customer.errors.full_messages
-        redirect_to 'customers/new'
+        flash[:notice] = @customer.errors.full_messages
+        redirect_to '/customers/new'
       end
-    else
-      redirect_to "/"
-    end
   end
 
   def show
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
+    customer_allow_user_business_or_admin
+    if @customer
       @notes = @customer.notes
       @note = Note.new
-      render 'show'
-    elsif session[:business_id] || session[:user_id]
-      redirect_to "/"
-    else
-      redirect_to "/"
     end
   end
 
   def edit
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
+    customer_allow_user_business_or_admin
       if session[:user_id]
         @logged_in_user = User.find_by_id(session[:user_id])
         if @logged_in_user.admin
@@ -64,61 +51,30 @@ class CustomersController < ApplicationController
       elsif session[:business_id]
         @employees = Business.find_by_id(session[:business_id]).users
       end
-    elsif session[:business_id] || session[:user_id]
-      redirect_to "/"
-    else
-      redirect_to "/"
-    end
   end
 
   def update
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
-      if customer_params[:user_id] == "" || customer_params[:user_id] == nil
-        @customer.user_id = session[:user_id]
+    customer_allow_user_business_or_admin
+    @customer.user_id = assign_user_id
+      if @customer.update_attributes(customer_params)
+        redirect_to action:'show', :id => @customer.id
+      else
+        flash[:notice] = @customer.errors.full_messages
+        redirect_to '/customers/' + @customer.id.to_s + "/edit"
       end
-      @customer.update_attributes(customer_params)
-      redirect_to action:'show', :id => @customer.id
-    elsif session[:business_id] || session[:user_id]
-      redirect_to "/"
-    else
-      redirect_to "/"
-    end
   end
 
   def history
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
+    customer_allow_user_business_or_admin
+    if @customer
       @visit_history = @customer.visits
       @repair_history = @customer.repairs
-    elsif session[:business_id] || session[:user_id]
-      redirect_to "/"
-    else
-      redirect_to "/"
     end
-
-
-
-    # @customer = Customer.find_by_id(params[:id])
-    # if @customer
-    #   if @customer.user.business.id == session[:business_id] || @customer.user.id == session[:user_id]
-    #     @customer = Customer.find(params[:id])
-    #     @visit_history = @customer.visits
-    #     @repair_history = @customer.repairs
-    #   elsif session[:business_id] || session[:user_id]
-    #     redirect_to "/"
-    #   end
-    # elsif session[:business_id] || session[:user_id]
-    #   redirect_to "/"
-    # end
   end
-
-  # def directions
-  #   @customer = Customer.find(params[:id])
-  #   @customer
-  # end
 
   private
   def customer_params

@@ -5,6 +5,13 @@
     <h3 class="header-text new-customer-header">Create new Customer</h3>
   </header>
   <section>
+    <% if flash[:notice] %>
+      <ul>
+        <% flash[:notice].each do |message| %>
+          <li><%= message%></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= form_for(@customer) do |f| %>
       <%= field_set_tag "Customer Info", class: "new-customer-info" do %>
         <div class="new-customer-name">

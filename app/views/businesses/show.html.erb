@@ -7,8 +7,11 @@
 				<h2 class="business-sub-header"><%= @business.phone %></h2>
 			</div>
 		</div>
+		<% if flash[:notice] %>
+	    <p><%= flash[:notice] %></p>
+	  <% end %>
 		<div class="biz-options">
-			<%= form_tag(controller: "businesses", action: "reset_weekely_visit") do %>
+			<%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true ) do %>
 				<%= hidden_field_tag "id", @business.id %>
 				<%= submit_tag("Reset All Pool Visits") %>
 			<% end %>

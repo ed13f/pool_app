@@ -2,8 +2,11 @@
   <header>
     <h1 class="forgot-password-header">Request Password Change</h1>
   </header>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
   <article class="forgot-form">
-    <%= form_for @reset do |f| %>
+    <%= form_for @reset, remote: true do |f| %>
       <%= f.text_field :email, :placeholder => "Enter Your Email Address", :autocomplete => :off %>
       <div class="sesion-type reset-type">
         <div class="sesion-type-title">
@@ -11,7 +14,7 @@
         </div>
         <div class="sesion-type-options">
           <%= label :reset_type, 'User' %>
-          <%= f.radio_button :reset_type, 'User', :class => "reset-radio-button" %>
+          <%= f.radio_button :reset_type, 'User', :class => "reset-radio-button", checked: true %>
           <%= label :type, 'Business' %>
           <%= f.radio_button :reset_type, 'Business', :class => "reset-radio-button" %>
         </div>
@@ -21,5 +24,10 @@
         <%= link_to 'Cancel', :controller => "sessions", :action => "index" %>
       </div>
     <% end %>
+  </article>
+  <article id="rest-password-container" class="message-container">
+    <h1>Your Request Has Been Submitted</h1>
+    <p>You should recieve an email with directins to reset your password if your email is in our records.</p>
+    <p>If you do not receive the email within 24 hours please try again.</p>
   </article>
 </main>

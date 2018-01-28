@@ -1,4 +1,5 @@
 class ResetsController < ApplicationController
+  include ResetsHelper
   def new
     @reset = Reset.new
   end
@@ -12,37 +13,25 @@ class ResetsController < ApplicationController
       @reset = Reset.find_by(email: @reset_person.email)
     end
     if @reset
-      @reset.email = reset_params[:email]
-      @reset.temp_pass = rand_password=('a'..'z').to_a.shuffle.first(8).join
-      @reset.person_id_num = @reset_person.id
-      @reset.reset_type = reset_params[:reset_type]
-      @reset.save
+      prepare_reset
     else
       @reset = Reset.new
-      @reset.email = reset_params[:email]
-      @reset.temp_pass = rand_password=('a'..'z').to_a.shuffle.first(8).join
-      @reset.person_id_num = @reset_person.id
-      @reset.reset_type = reset_params[:reset_type]
-      @reset.save
+      prepare_reset
      end
-    if @reset_person
-     ResetMailer.reset_password(@reset_person, @reset).deliver
+     @reset_person ? ResetMailer.reset_password(@reset_person, @reset).deliver : nil
+    respond_to do |format|
+      format.js { render partial: "reset_message" }
     end
   end
 
   def edit
     @user = User.find_by_id(params[:id])
     @reset = Reset.new
-    # @reset = Reset.find_by(email: @user.email)
   end
 
   def update
     @reset = Reset.find_by(temp_pass: reset_params[:temp_pass])
-    if @reset.reset_type == "User"
-      @reset_person = User.find_by_id(params[:id])
-    elsif  @reset.reset_type == "Business"
-      @reset_person = Business.find_by_id(params[:id])
-    end
+    @reset_person = find_reset_person
     if @reset.email == @reset_person.email
       if @reset.reset_type == "User"
         session[:user_id] = @reset_person.id
@@ -51,7 +40,7 @@ class ResetsController < ApplicationController
       end
       @reset_person.update_attributes({:password => reset_params[:password_digest]})
       @reset.destroy
-      redirect_to controller: "users", action:'show', :id => @reset_person.id
+      redirect_to @reset_person
     else
       redirect_to "/"
     end

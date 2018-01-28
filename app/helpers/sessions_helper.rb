@@ -15,10 +15,11 @@ module SessionsHelper
     def authenticate_signin(person, object_type, session_type)
       person = object_type.find_by(email: params[:email])
       if person && person.authenticate(params[:password])
-          session[session_type] = person.id
-          redirect_to person
+        session[session_type] = person.id
+        redirect_to person
       else
-          render 'new'
+        flash[:notice] = "No User with those Credentials"
+        redirect_to '/sessions/new'
       end
     end
 end

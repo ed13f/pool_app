@@ -1,52 +1,40 @@
 class VisitsController < ApplicationController
+  include CustomersHelper
 	def new
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.id == session[:user_id] || @logged_in_user && @logged_in_user.admin && @customer.business == @logged_in_user.business
+    allow_only_user_and_admin
     	   @visit = Visit.new
-    else
-      redirect_to "/"
-    end
   end
 
 	def create
-    if session[:user_id]
-      @customer = Customer.find_by_id(visit_params[:customer_id])
-    end
+    session[:user_id] ? @customer = Customer.find_by_id(visit_params[:customer_id]) : nil
     @logged_in_user = User.find_by_id(session[:user_id])
-    if @customer && @customer.user.id == session[:user_id] || @logged_in_user && @logged_in_user.admin && @customer.business == @logged_in_user.business
-      @visit = Visit.new(visit_params)
-      @visit.user_id = session[:user_id]
-      customer = @visit.customer
-      if @visit.save
-          VisitMailer.visit_complete(@visit).deliver
-          customer.weekly_visit_str += Time.now.strftime("%A") + " "
-          if customer.days_list.count == customer.days_visited_list.count
-            @visit.customer.weekly_complete = true
-          end
-          @visit.customer.save
-          redirect_to controller: 'customers', action: 'show', id: customer.id
-      else
-          @errors = @user.errors.full_messages
-          redirect_to controller: 'customers', action: 'show', id: customer.id
-      end
+    allow_only_user_and_admin
+    @visit = Visit.new(visit_params)
+    @visit.user_id = session[:user_id]
+    customer = @visit.customer
+    if @visit.save
+        customer.receive_emails ? VisitMailer.visit_complete(@visit).deliver : nil
+        # end
+        customer.weekly_visit_str += Time.now.strftime("%A") + " "
+        if customer.days_list.count == customer.days_visited_list.count
+          @visit.customer.weekly_complete = true
+        end
+        @visit.customer.save
+        redirect_to @customer
     else
-      binding.pry
-      redirect_to "/"
+        flash[:notice] = @visit.errors.full_messages
+        redirect_to "/customers/visits/" + @customer.id.to_s
     end
 	end
 
   	def show
       @visit = Visit.find_by_id(params[:id])
-      if @visit
-        @customer = @visit.customer
-      end
+      @visit ? @customer = @visit.customer : nil
+      binding.pry
       @logged_in_user = User.find_by_id(session[:user_id])
-        if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @logged_in_user && @customer && @logged_in_user.admin && @customer.business == @logged_in_user.business
-    	    render "show"
-        else
-          redirect_to "/"
-        end
+        customer_allow_user_business_or_admin
   	end
 
   	private

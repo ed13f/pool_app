@@ -1,40 +1,28 @@
 class NotesController < ApplicationController
-	# def new
-	#     @note = Note.new
-	# end
-
+  include CustomersHelper
     def create
       @customer = Customer.find_by_id(note_params[:customer_id])
       @logged_in_user = User.find_by_id(session[:user_id])
-      if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
+      customer_allow_user_business_or_admin
   	    @note = Note.new(note_params)
-  	    if @note.save
-          respond_to do |format|
-            format.js { render partial: "create_note" }
-          end
-  	    	# redirect_back(fallback_location: root_path)
-  	    else
-  	    	@errors = @note.errors.full_messages
-  	    	render 'new'
-  	    end
-      elsif session[:business_id] || session[:user_id]
-        redirect_to "/"
-      else
-        redirect_to "/"
-      end
+	    if @note.save
+        respond_to do |format|
+          format.js { render partial: "create_note" }
+        end
+	    else
+        flash[:notice] = @note.errors.full_messages
+        redirect_to "/customers/" + @customer.id.to_s
+	    end
     end
 
     def destroy
       @note = Note.find(params[:id])
       @customer = Customer.find_by_id(@note.customer_id)
       @logged_in_user = User.find_by_id(session[:user_id])
-      if @customer && @customer.user.business.id == session[:business_id] || @customer && @customer.user.id == session[:user_id] || @customer && @logged_in_user && @logged_in_user.admin && @logged_in_user.business == @customer.business
-	  	  @note.destroy
-	  	  redirect_back(fallback_location: root_path)
-      elsif session[:business_id] || session[:user_id]
-        redirect_to "/"
-      else
-        redirect_to "/"
+      customer_allow_user_business_or_admin
+  	  @note.destroy
+      respond_to do |format|
+        format.js { render partial: "delete_note" }
       end
 	  end
 

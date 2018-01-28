@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       elsif params[:type] == "business"
         authenticate_signin(@business, Business, :business_id)
       else
-        render 'new'
+        flash[:notice] = "Please Select An Account Type"
+        redirect_to '/new'
       end
   	end
 

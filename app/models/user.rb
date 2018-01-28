@@ -7,6 +7,8 @@ class User < ApplicationRecord
     has_many :repairs, through: :business, source: :repairs
     has_secure_password
 
+    validates :email, :presence => true
+
   	def full_name
     	self.first_name + " " + self.last_name
   	end

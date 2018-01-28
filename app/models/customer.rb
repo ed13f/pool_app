@@ -13,6 +13,11 @@ class Customer < ApplicationRecord
   	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+    validates :first_name, :presence => true
+    validates :last_name, :presence => true
+    validates :phone, :presence => true
+    validates :email, :presence => true
+
   	def full_name
     	self.first_name + " " + self.last_name
   	end
@@ -50,7 +55,7 @@ class Customer < ApplicationRecord
       list.push("Thursday")
     end
     if self.friday
-      list.push("Sunday")
+      list.push("Saturday")
     end
     list
   end

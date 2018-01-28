@@ -3,8 +3,12 @@ class Business < ApplicationRecord
 	has_many :customers, through: :users
 	has_many :repairs, through: :customers, source: :repairs
 	has_secure_password
-
 	accepts_nested_attributes_for :users
+	validates :owners_first_name, :presence => true
+	validates :owners_last_name, :presence => true
+	validates :business_name, :presence => true
+	validates :phone, :presence => true
+	validates :email, :presence => true
 
 	def number_of_customers
 		self.customers.count

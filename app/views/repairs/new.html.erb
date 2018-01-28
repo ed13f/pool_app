@@ -2,6 +2,13 @@
   <header>
     <h1 class="new-repair-header">New Repair</h1>
   </header>
+  <% if flash[:notice] %>
+      <ul>
+      <% flash[:notice].each do |message| %>
+        <li><%= message%></li>
+      <% end %>
+    </ul>
+  <% end %>
   <section class="new-repair-form">
     <%= form_for(@repair) do |f| %>
       <div class="repair-title">
