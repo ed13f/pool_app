@@ -1,5 +1,6 @@
 <main>
-  <header class="header">
+  <header class="customer-edit-header">
+    <div class="center-column"></div>
     <div class="header-overlay">
     </div>
     <h3 class="header-text new-customer-header">Edit Customer</h3>
@@ -39,23 +40,28 @@
         <div class="scheduling">
           <div class="scheduling-days">
             <div class="day-input">
-              <%= f.label :monday %>
+              <%= f.label :monday, "Mon", :class => "small-days" %>
+              <%= f.label :monday, "Monday", :class => "large-days" %>
               <%= f.check_box :monday %>
             </div>
             <div class="day-input">
-              <%= f.label :tuesday %>
+              <%= f.label :tuesday, "Tues", :class => "small-days" %>
+              <%= f.label :tuesday, "Tuesday", :class => "large-days" %>
               <%= f.check_box :tuesday %>
             </div>
             <div class="day-input">
-              <%= f.label :wednesday %>
+              <%= f.label :wednesday, "Weds", :class => "small-days" %>
+              <%= f.label :wednesday, "Wednesday", :class => "large-days" %>
               <%= f.check_box :wednesday %>
             </div>
             <div class="day-input">
-              <%= f.label :thursday %>
+              <%= f.label :thursday, "Thurs", :class => "small-days" %>
+              <%= f.label :thursday, "Thursday", :class => "large-days" %>
               <%= f.check_box :thursday %>
             </div>
             <div class="day-input">
-              <%= f.label :friday %>
+              <%= f.label :friday, "Fri", :class => "small-days" %>
+              <%= f.label :friday, "Friday", :class => "large-days" %>
               <%= f.check_box :friday %>
             </div>
           </div>
@@ -76,7 +82,7 @@
           <% end %>
         </div>
       <div class="customer-submit">
-        <%= f.submit 'Create New Customer', :class => 'customer-new-submit' %>
+        <%= f.submit 'Create', :class => 'customer-new-submit' %>
         <%= link_to 'Cancel', controller: "customers", action: "show", id: params[:id] %>
       </div>
     <% end %>

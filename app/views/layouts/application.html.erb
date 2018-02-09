@@ -3,6 +3,7 @@
   <head>
     <title>PoolApp</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width" />
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -37,15 +38,7 @@
             <%= link_to "Repairs", {:controller => "repairs", :action=> "index"}, :method => :get %>
           </li>
           <% end %>
-          <li>
-            <%= link_to "New Customer", {:controller => "customers", :action=> "new"}, :method => :get %>
-          </li>
         <% end %>
-
-
-
-
-
       </ul>
       <ul id="nav-user">
         <% if session[:user_id] || session[:business_id] %>

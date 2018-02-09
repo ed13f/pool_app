@@ -33,7 +33,7 @@ class BusinessesController < ApplicationController
     allow_business_and_admin_access
     if @business
       @employees = @business.users
-      @customers = @business.customers
+      @customers = @business.customer_alphabetical_sort
       @repairs = @business.repairs
     end
   end

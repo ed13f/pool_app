@@ -32,7 +32,6 @@ class VisitsController < ApplicationController
   	def show
       @visit = Visit.find_by_id(params[:id])
       @visit ? @customer = @visit.customer : nil
-      binding.pry
       @logged_in_user = User.find_by_id(session[:user_id])
         customer_allow_user_business_or_admin
   	end

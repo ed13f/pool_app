@@ -1,6 +1,9 @@
 <main>
-  <header>
-    <h1 class="new-repair-header">Edit Repair</h1>
+  <header class="repair-edit-main-header">
+    <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <h1 class="new-repair-header repair-header-edit">Edit Repair</h1>
   </header>
   <% if flash[:notice] %>
       <ul>
@@ -12,12 +15,10 @@
   <section class="new-repair-form">
     <%= form_for(@repair) do |f| %>
       <div class="repair-title">
-        <%= f.label :title, "Title:" %><br>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, :placeholder => "Title:", :autocomplete => :off %>
       </div>
       <div class="repair-textarea">
-        <%= f.label :description, "Description:" %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :placeholder => "Description:", :autocomplete => :off %>
       </div>
       <div class="repair-new-bottom">
         <div class="new-repair-img">
@@ -25,7 +26,7 @@
           <%= f.file_field :photo %>
         </div>
         <div class="new-repair-submit">
-          <%= f.submit %>
+          <%= f.submit "Update" %>
           <%= link_to 'Cancel', controller: "repairs", action: "show", id: @repair.id%>
         </div>
       </div>

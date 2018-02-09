@@ -119,5 +119,10 @@ $( document ).ready(function() {
 				$("#history-repair-section").css("display", "inline-block");
 				$("#history-visit-section").css("display", "none");
 		})
+		$(".repair-img-zoom-container").on("click", function(){
+			console.log("hiii")
+			$(this).addClass("repair-image-enlarge-container");
+			$(this).find("img").addClass("repair-image-enlarge")
+		})
 	});
 })

@@ -1,11 +1,13 @@
 <main>
     <header class="visit-show-main-header">
+        <div class="header-filter-container"></div>
+        <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
         <h1 class="visit-show-header">Visit Details: <%= @visit.customer.full_name %></h1>
         <h2 class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %>
-    </header>
-        <section class="visit-show-links">
+        <article class="visit-show-links">
             <%= link_to "Back", :back %>
-        </section>
+        </article>
+    </header>
       <section class="visit-show-details-section">
           <article class="chemistry-article">
             <header>
@@ -44,7 +46,7 @@
                     <p>Add Acid: <span class="duty-dis"><%= @visit.add_acid ? raw("&#10004") : raw("&#x2716;") %></span></p>
                     <p>Add Bicarb: <span class="duty-dis"><%= @visit.add_bicarb ? raw("&#10004") : raw("&#x2716;") %></span></p>
                     <p>Add Stabilizer: <span class="duty-dis"><%= @visit.add_stabilizer ? raw("&#10004") : raw("&#x2716;") %></span></p>
-                    <p>Add Chlorine Tab: <span class="duty-dis"><%= @visit.add_chlorine_tab ? raw("&#10004") : raw("&#x2716;") %></span></p>
+                    <p>Chlorine Tab: <span class="duty-dis"><%= @visit.add_chlorine_tab ? raw("&#10004") : raw("&#x2716;") %></span></p>
                 </div>
             </article>
           </article>

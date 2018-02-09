@@ -1,8 +1,9 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+   # - %l:%M%P
 
   def eastern_standard_time
-    self.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%y - %l:%M%P")
+    self.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%y")
   end
 
   def coordinates
@@ -24,5 +25,4 @@ class ApplicationRecord < ActiveRecord::Base
       end
     end
   end
-
 end

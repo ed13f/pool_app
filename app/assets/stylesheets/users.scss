@@ -7,39 +7,54 @@
 /********************/
 
 .new-user-form{
-	margin: 10% 15%;
+	/*margin: 10% 15%;*/
+}
+.new_user{
+  max-width:450px;
+  margin: 5vh 10vw;
+  padding:2rem;
 }
 .new_user input{
-	width:89%;
-	font-size:35px;
-	margin: 3% 0;
-	padding: 2% 4%;
+	width:96%;
+	font-size:2rem;
+  /*height: 2rem;*/
+  border-radius: 5px;
+	margin: 0.5rem 0;
+	padding:0 0.5rem;
   font-family: 'Kanit', sans-serif;
 }
 .new-user-header{
-	font-size:60px;
-	margin:13% 2% 5%;
+  position: relative;
+  padding:0 0 3rem 0;
+	/*background-color: #8FC1E3;*/
+	/*padding:1rem 2% 3rem;*/
+}
+.new-user-header h1{
+  font-size:3.5rem;
+  margin: 0 2%;
 }
 .new-user-submit{
 	flex:1;
   display:flex;
 	/*display:inline-block;*/
 	text-align: right;
-	margin: 0 2%;
+	margin:2rem 2% 1rem;
 }
 .new-user-submit a{
   background-color: grey;
-  font-size: 35px;
+  font-size: 2rem;
+  border: 1px solid #4d4d4d;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  /*padding-top: 0.65rem;*/
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
   color: darkred;
-  margin: 3% 2% 2% 2%;
+  /*margin: 3% 2% 2% 2%;
   line-height: 65px;
-  height: 68px;
+  height: 68px;*/
   font-family: 'Kanit', sans-serif;
 }
 .new-user-check{
@@ -57,31 +72,37 @@
 
 .new-user-submit input{
 	background-color: grey;
-    font-size: 35px;
+    font-size: 2rem;
     flex:2;
-    padding:1% 2%;
+    border-color: #4d4d4d;
+    /*padding:1% 2%;*/
+    margin:0;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
+    margin: 0px 2% 0 0 !important;
     /*margin: 66px 10px;*/
 }
 .admin-input{
 }
 .admin-input label{
-  font-size:35px;
+  font-size:2rem;
 }
 .admin-input input{
-  width:28px !important;
-  height:35px;
+  width:2rem !important;
+  height:2rem;
   margin:0;
-  vertical-align: -7px
+  padding-left: 6rem;
+  vertical-align: -4px;
 }
 /********************/
 /*User Show*/
 /********************/
-
+.user-large-days{
+  display:none;
+}
 .user-show-header{
-	font-size:45px;
-	margin:0 2% 3%;
+	font-size:3.5rem,;
+	padding:1rem 2% 0;
 }
 .user-show-table{
   width:96vw;
@@ -123,6 +144,8 @@
 }
 #master-sheet{
 	display:none;
+  margin-bottom:1rem
+  ;
 }
 .switch{
 	margin: 0 1% 0 0;
@@ -134,11 +157,11 @@
 	/*background-color:transparent;*/
 	background: lightgrey;
 	padding: 0 10px;
-	font-size: 20px;
+	font-size: 1.25rem;
 }
 .active-switch{
 	background-color: grey !important;
-  color:white;
+  color:white !important;
 }
 .profile-views{
 	margin: 0 0 0 2%;
@@ -152,22 +175,28 @@
   float: right;
   border-radius:5px;
   padding: 0 10px;
-  font-size: 20px;
+  font-size: 1.25rem;
   color:black;
 }
 .user-profile-header{
-margin:0;
+margin:-5px 0;
 }
 
 /********************/
 /*User edit*/
 /********************/
+.edit_user{
+  max-width:450px;
+  margin:5vh 10vw;
+  padding: 2rem;
+}
 .edit_user input {
-    width: 89%;
-    font-size: 35px;
+    width: 98%;
+    font-size: 2rem;
     flex:2;
-    margin: 3% 0;
-    padding: 2% 4%;
+    border-radius:5px;
+    margin:0.5rem 0;
+    /*padding: 0 0.5rem;*/
     font-family: 'Kanit', sans-serif;
 }
 .edit-user-submit{
@@ -175,28 +204,34 @@ margin:0;
   display:flex;
   /*display:inline-block;*/
   text-align: right;
-  margin: 0 2%;
+  margin: 2rem 2% 1rem;
 }
 .edit-user-submit input{
   background-color: grey;
-  font-size: 35px;
-  padding: 1% 2%;
+  font-size: 2rem;
+ /* padding: 1% 2%;*/
   border-radius: 5px;
   font-family: 'Kanit', sans-serif;
+  border-color: #4d4d4d;
+  margin: 0 0.5rem;
 }
 .edit-user-submit a{
   background-color: grey;
-  font-size: 35px;
+  font-size: 2rem;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  border: 1px solid #4d4d4d;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
   color: darkred;
-  margin: 3% 2% 2% 2%;
-  line-height: 65px;
-  height: 68px;
+  /*margin: 0.55rem;*/
+  /*padding-top: 0.5rem;*/
+  /*margin: 3% 2% 2% 2%;*/
+  /*line-height: 65px;
+  height: 68px;*/
+  /*padding-top: 0.6rem;*/
   font-family: 'Kanit', sans-serif;
 }
 
@@ -220,19 +255,17 @@ margin:0;
   color:black;
 }
 
-
-
 .map-customer-name{
 	margin:3% 0;
-	font-size:35px;
+	font-size:1.5rem;
 }
 .map-customer-address{
 	margin:0;
-	font-size:20px;
+	font-size:1rem;
 }
 .map-customer-gate{
 	margin:0;
-	font-size:20px;
+	font-size:1rem;
 }
 .main-map{
 	width: 96%;
@@ -242,6 +275,18 @@ margin:0;
 #map{
 	width: 100%;
 	height: 79vh;
+}
+#complete-trip{
+  background-color:grey;
+  padding: 0.25rem 2.5rem;
+  font-size: 2rem;
+  width: 55vw;
+  margin: 7px 21vw;
+  font-family: 'Kanit', sans-serif;
+  border-radius:5px;
+}
+.adp-directions{
+  width:100%;
 }
 .direction-map{
 	display:none;
@@ -256,8 +301,8 @@ margin:0;
   display:none;
 }
 #right-panel{
-  font-size:33px;
-  height: 300px;
+  font-size:1.5rem;
+  height: 21vh;
   overflow: scroll;
   margin-top: 2%;
 }
@@ -278,11 +323,16 @@ margin:0;
 /*Forgot Form*/
 /********************/
 .forgot-form{
-  margin:10% 15%;
+  max-width: 625px;
+  margin: 7% auto 0;
 }
 .forgot-password-header{
-  font-size: 60px;
-  margin: 13% 2% 5%;
+  /*padding: 1rem 0 1rem;
+  background-color: #8FC1E3;*/
+}
+.forgot-password-header h1{
+  font-size: 3.5rem;
+  margin: 0 0 0 2%;
 }
 .forgot-pass-submit{
     display: -webkit-box;
@@ -294,24 +344,28 @@ margin:0;
 .forgot-pass-submit input{
   background-color: grey;
   font-size: 35px;
-  padding: 1% 2% !important;
+  padding:0 !important;
   flex:2;
   border-radius: 5px;
+  border-color: #4d4d4d;
+  height: 3.5rem;
   font-family: 'Kanit', sans-serif;
 }
 .forgot-pass-submit a{
   background-color: grey;
-  font-size: 35px;
+  font-size: 2rem;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  border:solid 1px #4d4d4d;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
   color: darkred;
-  margin: 3% 2% 2% 2%;
-  line-height: 65px;
-  height: 68px;
+  margin: 1rem 1%;
+  /*padding-top: 0.25rem;*/
+  /*line-height: 65px;
+  height: 68px;*/
   font-family: 'Kanit', sans-serif;
 }
 /********************/
@@ -324,11 +378,12 @@ margin:0;
   border-radius: 10px;
 }
 .message-container h1{
-  font-size:40px;
+  font-size:3rem;
   text-align:center;
 }
 .message-container p{
-  font-size:30px;
+  font-size: 1.5rem;
+  text-align: center;
 }
 .request_pass_link{
   background-color: grey;
@@ -346,27 +401,41 @@ margin:0;
 /*reset password/
 /********************/
 .reset-password-form{
-  margin: 10% 15%;
+  margin: 3rem 0;
 }
 .reset-password-form input[type="submit"]{
   background-color: grey;
-  font-size: 35px;
-  padding: 1% 2%;
-  margin:0 5%;
+  border-color: #4d4d4d;
+  font-size: 2rem;
+  padding:0;
+  margin: 1rem 2% 0;
+  height:3.5rem;
+  width:94%;
   border-radius: 5px;
   font-family: 'Kanit', sans-serif;
 }
 .reset-password-header{
-  font-size: 60px;
-  margin: 13% 2% 5%;
+  font-size: 3rem;
+  margin: 0 0 0 2%;
+  /*padding:3rem 2% 3rem;*/
+  /*background-color: #8FC1E3;*/
 }
 .new_reset input{
-  width: 89%;
-    font-size: 35px;
-    -webkit-box-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
-    margin: 3% 0;
-    padding: 2% 4%;
-    font-family: 'Kanit', sans-serif;
+  /*width: 99%;*/
+  font-size: 2rem;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  border-radius:5px;
+  margin: 1rem auto;
+  padding: 0 2%;
+  font-family: 'Kanit', sans-serif;
+}
+.new_reset{
+  padding: 0 5% 0 4%;
+  max-width: 450px;
+  margin: auto;
+}
+.reset-edit-input{
+    width:93%;
 }

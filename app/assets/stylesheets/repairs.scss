@@ -12,14 +12,18 @@
   width:100%;
 }
 .repair-table{
-  width:95vw;
+  width:96vw;
   padding:2%;
   border-collapse: collapse;
-  margin:0 2.5vw;
+  margin:0 2vw 2rem;
   text-align:center;
-  font-size:2rem;
-  border-spacing: 0px;
+  font-size:1.5rem;
+  /*border-spacing: 0px;*/
   /*display: block;*/
+}
+.button_to input{
+  background: transparent;
+  border: none;
 }
 
 .repair-table-headers{
@@ -28,13 +32,14 @@
 	font-size: 1.25em;
 }
 .repair-main-header{
+  /*background-color:#8FC1E3;*/
 	margin:0 ;
 	padding:0;
   /*9*/
 }
 .repair-main-header h1{
   font-size:3rem;
-  margin:2%;
+  margin:1% 2%;
 }
 .repair-thead,
 .repair-tbody,
@@ -43,12 +48,21 @@
 }
 .repair-thead th,
 .repair-tbody td{
-	width:24vw;
+	width:33vw;
   border-style:none;
+  /*padding: 0px 1.25%;*/
 }
+.repair-thead{
+  font-size:1.4rem;
+}
+
 .repair-tbody{
-	max-height:1000px;
+	max-height:80vh;
 	overflow:scroll;
+  font-size:1.1rem;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
 }
 #finished-repairs{
 	display:none;
@@ -62,50 +76,68 @@
 }
 .open-switch{
   /*background-color:grey;*/
-  margin: 1% 2.4%;
+  margin: 0.5rem 2.4%;
 }
 .open-switch button{
   font-family: 'Kanit', sans-serif;
   display: inline-block;
-  font-size: 25px;
+  font-size: 1rem;
   color: black;
-  margin: 0 10px 0 0;
+  margin: 0 0.25rem 0 0;
   background-color: lightgrey;
-  padding: 5px 15px;
+  /*padding: 5px 15px;*/
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+.repair-small-hide{
+  display:none ;
+}
+.repair-tbody td,
+.repair-tbody th{
+  max-width:33vw;
 }
 /***************************/
 /*Repair show*/
 /***************************/
 .repair-img{
-	width:200px;
+	width:250px;
+  max-height:180px;
+}
+.repair-show-main-header{
+  /*background-color: #8FC1E3;*/
+  padding:0;
+  position:relative;
 }
 .repair-show-header {
 	margin:0 2% 2%;
-	font-size:50px;
+	font-size:3rem;
 	flex: 2;
 }
 .repair-show-info{
-	margin:0 2%;
-  padding: 2% 2%;
-  background-color:lightgrey;
+	margin:0;
 }
 .repair-show-info h3{
 	margin:0;
-	line-height: 45px;
-	font-size:40px;
+	line-height: 2rem;
+	font-size:2rem;
 }
 .repair-show-info p{
-	margin: 0 0 15px 0;
-    line-height: 30px;
-    font-size: 30px;
+	margin: 0 auto 2.5rem;
+  line-height: 1.75rem;
+  font-size: 1.75rem;
+  padding:0 5%;
+  max-width: 500px;
 }
 .repair-show-info article{
-	margin:0 0 2% 0;
+	/*background-color: lightgrey;*/
+  margin: 0 auto;
+  padding:0 2%;
+  max-width:625px;
+  /*border-radius: 5px;*/
 }
 .repair-show-grid{
 	display:flex;
+  /*flex-direction:column;*/
   /*padding: 0 5%;*/
 }
 .repair-info-col-left{
@@ -117,61 +149,80 @@
 .repair-description{
 	grid-column:2;
 	grid-row: 1 / span 3;
+  font-size: 2.5rem;
+  margin: 0;
 }
 .repair-sub-header{
-	margin:0 0 1%;
-	font-size:35px;
+	margin:0 2% 1%;
+	font-size:2.5rem;
 }
 .repair-add-photo-section{
-	margin:0 2% 5%;
+	/*margin:0 0 5%;*/
+  margin:auto;
+  max-width: 625px;
   padding:0 2%;
-  background-color:lightgrey;
+  /*background-color:lightgrey;*/
 }
 .repair-img-display{
 	padding: 0 5%;
+  max-width: 500px !important;
 }
 .repair-img-form form{
 	padding: 0 5%;
 	display:flex;
+  max-width:500px;
+  margin:0 auto;
+  flex-direction:column;
 }
 .repair-img-input{
 	flex:3;
 }
 .repair-img-input label{
 	width:15%;
-	font-size:30px;
+	font-size:2rem;
 }
 .repair-img-input input{
-  	font-size: 25px;
+  	font-size: 1.25rem;
     background-color: white;
     width: 95%;
     font-family: 'Kanit', sans-serif;
     margin: 7px 0;
-    padding: 5px 10px;
+    padding: 5px 2%;
     border-radius: 5px;
+}
+.repair-img-zoom-container{
+  text-align: center;
+ /* max-width:43%;
+  display: inline-block;*/
 }
 .repair-img-submit{
 	flex:1;
-	margin: 15px 0;
+	margin: 1rem auto 3rem;
+  width: 100%;
 }
 .repair-img-submit input{
 	background-color: grey;
-    font-size: 25px;
-    padding: 5px 10px;
+    font-size: 1.5rem;
+    width:100%;
+    border:none;
+    max-width:450px;
+    padding: 3.5px 10px;
     border-radius: 5px;
     font-family: 'Kanit', sans-serif;
-    margin: 36px 0;
+    margin:1px auto;
 }
 .repair-show-header-section{
 	display:flex;
-  padding:1% 2%;
+  padding:6% 2% 1%;
+  /*max-width: 655px;*/
+  margin:auto;
 }
 .repair-show-header-section form {
 	flex:1;
 }
 .repair-show-header-section form input{
 	background-color: darkred;
-    font-size: 25px;
+    font-size: 1.25rem;
     padding: 1px 8px;
     margin: 0;
     color:white;
@@ -181,92 +232,171 @@
 }
 .repair-show-header-section a{
     display: inline-block;
-    font-size: 25px;
+    font-size: 1.25rem;
     color: black;
-    margin: 0 10px 0 0;
+    margin: 0 0.5rem 0 0;
     background-color: grey;
-    padding: 0 15px;
+    padding: 0 1rem;
     text-decoration: none;
     border-radius: 5px;
+}
+.repair-info-center{
+  max-width: 200px;
+  margin: 0 auto;
+}
+.repair-info-header-section{
+  margin:0 2%;
+  font-size:2.5rem;
+}
+.repair-image-enlarge-container{
+  padding: 0;
+  position: fixed;
+  background-color: grey;
+  width: 100vw;
+  max-width:100vw !important;
+  top: 0;
+  left: 0;
+  opacity: 0.98;
+  height: 100vh;
+}
+.repair-image-enlarge{
+    z-index: 12;
+    position: absolute;
+    top: 25%;
+    right: 13%;
+    margin: 0 auto;
+    height: 300px;
+    /* margin: 26%; */
+    z-index: 20;
+    vertical-align: 41px;
 }
 /***************************/
 /*Repair New*/
 /***************************/
 .new-repair-header{
-	font-size:60px;
-	margin:5% 2%;
+	font-size:3.5rem;
+  padding:0 0 2rem 0;
+	margin:0 2% 2%;
+}
+.new-repair-main-header{
+  /*background-color: #8FC1E3;*/
+  position:relative;
 }
 .new-repair-form{
-	margin:0 2%;
-  background-color: lightgrey;
-  border-radius: 10px;
+	margin:auto;
+  max-width:625px;
+  /*background-color: lightgrey;*/
+  border-radius: 5px;
 }
 .new_repair{
-	margin:0 5%;
+	max-width: 450px;
+  /*background-color: lightgrey;*/
+ /*margin:0 auto;*/
+ margin: 5vh 5vw;
+  padding:0 4%;
+  border-radius:5px;
 }
 .new_repair label{
-	font-size:40px;
+	font-size:2.5rem;
 }
 .repair-textarea textarea{
 	width: 99%;
-	font-size:30px;
+	font-size:2rem;
+  line-height:2.25rem;
 	font-family: 'Kanit', sans-serif;
 	resize: none;
 	height:200px;
+  border:none;
+  /*border: 1px solid #4d4d4d;*/
+  /*border:initial;*/
+  padding:1%;
 	border-radius: 5px;
 }
 .repair-new-bottom{
 	display:flex;
+  flex-direction:column;
 }
 .new-repair-img{
 	flex:1.5;
-  margin: 5% 0;
+  margin: 0;
 }
 .new-repair-img input{
-	font-size: 25px;
-    background-color: white;
-    width: 95%;
-    font-family: 'Kanit', sans-serif;
-    margin: 7px 0;
-    padding: 5px 10px;
-    border-radius: 5px;
+  /*border: 1px solid #4d4d4d;*/
+  border:none;
+	font-size: 1.5rem;
+  line-height:2rem;
+  background-color: white;
+  width: 100%;
+  font-family: 'Kanit', sans-serif;
+  margin:0;
+  /*margin: 7px 0;*/
+  padding: 5px 2px;
+  border-radius: 5px;
 }
 .new-repair-submit{
 	flex:1;
-  margin: 9.25% 0 0 0;
+ /*width:198px;*/
+  text-align: center;
+  display:flex;
+  width:101%;
+  /*margin: auto;*/
+  padding: 15px 0 30px;
 }
 .new-repair-submit input{
 	background-color: grey;
-    font-size: 25px;
-    padding:1% 4%;
-    border-radius: 5px;
-    font-family: 'Kanit', sans-serif;
-    margin: 30px 10px;
+  font-size: 2rem;
+  /*padding:1% 13%;*/
+  flex:2;
+  border-color: #4d4d4d;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+  /*margin: 30px 0;*/
 }
 .new-repair-submit a{
 background-color: grey;
-  font-size: 25px;
+  font-size: 2rem;
   color:darkred;
   text-decoration:none;
-  padding:1% 4%;
+  padding: 2px 0 0 0;
+  /*padding:0 4%;*/
   border-radius: 5px;
   font-family: 'Kanit', sans-serif;
-  margin: 3% 0;
+  flex: 1;
+  /*border: 1px solid #4d4d4d;*/
+  border:none;
+  margin: 0 0 0 0.5rem;
+  /*margin: 3% 0;*/
 }
 .repair-title input{
- width:97%;
+ width:99%;
  font-family: 'Kanit', sans-serif;
  border-radius: 5px;
- font-size: 25px;
- padding: 5px 10px;
+ font-size: 2rem;
+ margin:1rem 0;
+ /* margin: 0 0.5rem;*/
+ padding: 0 1%;
+ border-color:#4d4d4d;
 }
 /********************/
 /*Edit Repair*/
 /********************/
 .edit_repair{
   margin: 0 5%;
+  margin: 5vh 10vw;
+  /*margin: auto;*/
+  padding:0 4%;
+  max-width: 625px;
 }
 .edit_repair label{
-  font-size: 40px;
+  font-size: 2.5rem;
 }
-
+/*.repair-header-edit{
+  background-color:#8FC1E3;
+}*/
+/*.body-background-color{
+  height: 98vh;
+  background-color: #8FC1E3;
+}*/
+.repair-edit-main-header{
+  position:relative;
+}

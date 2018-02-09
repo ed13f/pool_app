@@ -1,5 +1,7 @@
-<main>
+<main class="body-background-color">
   <header class="repair-main-header">
+    <div class="header-full-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
     <h1>Repairs</h1>
     <div class="open-switch">
       <button id="open-repair-switch" class="active-repair-tab">Open Repairs</button>
@@ -13,8 +15,8 @@
           <tr>
             <th>Name</th>
             <th>Header</th>
-            <th>Created By</th>
-            <th>Completed</th>
+            <th class="repair-small-hide">Creator</th>
+            <th>Complete</th>
           </tr>
         </thead>
         <tbody class="repair-tbody">
@@ -23,8 +25,8 @@
               <tr id="repair-entry-<%= repair.id %>">
                 <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
                 <td><%= link_to repair.title,repair_path(repair) %></td>
-                <td><%= repair.user.first_name %></td>
-                <td><%= button_to "Complete Visit", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true %></td>
+                <td class="repair-small-hide"><%= repair.user.first_name %></td>
+                <td><%= button_to "Finish", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true %></td>
               </tr>
             <% end %>
           <% else %>
@@ -43,8 +45,8 @@
           <tr>
             <th>Name</th>
             <th>Header</th>
-            <th>Created By</th>
-            <th>Show Details</th>
+            <th class="repair-small-hide">Creator</th>
+            <th>Completed On</th>
           </tr>
         </thead>
         <tbody class="repair-tbody">
@@ -53,8 +55,8 @@
               <tr>
                 <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
                 <td><%= link_to repair.title,repair_path(repair) %></td>
-                <td><%= repair.user.first_name %></td>
-                <td><%= link_to "Visit Details",repair_path(repair) %></td>
+                <td class="repair-small-hide"><%= repair.user.first_name %></td>
+                <td><%= repair.print_updated_date %></td>
               </tr>
             <% end %>
           <% else %>

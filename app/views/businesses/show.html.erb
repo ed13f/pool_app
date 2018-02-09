@@ -1,69 +1,69 @@
 <main>
-	<header class="biz-header-section">
-		<div>
-			<h1 class="business-header"><%=  @business.business_name %></h1>
-			<div>
-				<h2 class="business-sub-header"><%= @business.email %></h2>
-				<h2 class="business-sub-header"><%= @business.phone %></h2>
-			</div>
-		</div>
-		<% if flash[:notice] %>
-	    <p><%= flash[:notice] %></p>
-	  <% end %>
-		<div class="biz-options">
-			<%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true ) do %>
-				<%= hidden_field_tag "id", @business.id %>
-				<%= submit_tag("Reset All Pool Visits") %>
-			<% end %>
-			<% if session[:business_id] %>
-				<%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
-			<% end %>
-		</div>
-	</header>
-	<section class="business-lists-container">
-		<section class="biz-customer-list">
-			<header>
-				<h2 class="business-customer-sub-header">Customers: <%= @customers.count %> </h2>
-			</header>
-			<article>
-				<div class="business-customers-list">
-					<ul>
-						<% @customers.each do |customer| %>
-				            	<li><%= link_to customer.full_name, controller: "customers", action: "show", id: customer.id %></li>
-				    <% end %>
-			    </ul>
-			  </div>
-			  <%= link_to "Add New Customer", {:controller => "customers", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
-			</article>
-		</section>
-		<section class="business-right-container">
-			<article class="business-repairs-section">
-				<header>
-					<h2 class="business-employees-sub-header">Open Repairs: <%= @repairs.count %></h2>
-				</header>
-				<article class="business-repair-list">
-					<ul>
-						<% @repairs.each do |repair| %>
-			        <li><%= link_to repair.title, controller: "repairs", action: "show", id: repair.id %></li>
-			      <% end %>
-			    </ul>
-				</article>
-			</article>
-			<article class="business-employee-section">
-				<header>
-					<h2 class="business-employees-sub-header">Employees: <%= @employees.count %></h2>
-				</header>
-				<article>
-					<div class="business-employee-list">
-						<ul>
-							<% @employees.each do |employee| %>
-				        <li><%= link_to employee. full_name, controller: "users", action: "show", id: employee.id %></li>
-				      <% end %>
-				    </ul>
-				  </div>
-			    <%= link_to "Add New Employee", {:controller => "users", :action=> "new"}, :method => :get, :class => "biz-new-employee" %>
-				</article>
-			</article>
-		</section>
-	</section>
+  <header class="biz-header-section">
+    <div>
+      <h1 class="business-header"><%=  @business.business_name %></h1>
+      <div>
+        <h2 class="business-sub-header"><%= @business.email %></h2>
+        <h2 class="business-sub-header"><%= @business.phone %></h2>
+      </div>
+    </div>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+    <div class="biz-options">
+      <%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true ) do %>
+        <%= hidden_field_tag "id", @business.id %>
+        <%= submit_tag("Reset All Pool Visits") %>
+      <% end %>
+      <% if session[:business_id] %>
+        <%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
+      <% end %>
+    </div>
+  </header>
+  <section class="business-lists-container">
+    <section class="biz-customer-list">
+      <header class="biz-show-section-head-flex">
+        <h2 class="business-customer-sub-header">Customers: <%= @customers.count %> </h2>
+          <%= link_to "+", {:controller => "customers", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
+      </header>
+      <article>
+        <div class="business-customers-list">
+          <ul>
+            <% @customers.each do |customer| %>
+                      <li><%= link_to customer.display_customer_name_by_last, controller: "customers", action: "show", id: customer.id %></li>
+            <% end %>
+          </ul>
+        </div>
+      </article>
+    </section>
+    <section class="business-right-container">
+      <article class="business-repairs-section">
+        <header>
+          <h2 class="business-employees-sub-header">Open Repairs: <%= @repairs.count %></h2>
+        </header>
+        <article class="business-repair-list">
+          <ul>
+            <% @repairs.each do |repair| %>
+              <li><%= link_to repair.customer.full_name, controller: "repairs", action: "show", id: repair.id %></li>
+            <% end %>
+          </ul>
+        </article>
+      </article>
+      <article class="business-employee-section">
+        <header class="biz-show-section-head-flex">
+          <h2 class="business-employees-sub-header">Employees: <%= @employees.count %></h2>
+          <%= link_to "+", {:controller => "users", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
+        </header>
+        <article>
+          <div class="business-employee-list">
+            <ul>
+              <% @employees.each do |employee| %>
+                <li><%= link_to employee. full_name, controller: "users", action: "show", id: employee.id %></li>
+              <% end %>
+            </ul>
+          </div>
+        </article>
+      </article>
+    </section>
+  </section>
 </main>

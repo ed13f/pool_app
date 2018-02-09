@@ -1,7 +1,8 @@
 <main>
   <header class="history-header-section">
+     <div class="header-full-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
     <h1 class="history-header"><%= @customer.full_name%>'s History</h1>
-
     <div class="history-views">
       <a class="repair-switch active-switch" id="history-visit-switch">Visit History</a>
       <a class="repair-switch" id="history-repair-switch">Repair History</a>

@@ -1,15 +1,17 @@
 <main>
   <header class="user-profile-header">
-    <h1 class="user-show-header"><%= @user.first_name %>'s Profile</h1>
+    <div class="header-full-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
+    <h1 class="user-show-header"><%= @user.first_name %>'s Route</h1>
   </header>
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
   <section class="profile-views">
     <a class="switch active-switch" id="map-switch">Map</a>
-    <a class="switch" id="master-switch">Master Route</a>
-    <a class="switch" id="incomplete-switch">Incomplete Route</a>
-    <a class="switch" id="complete-switch">Complete Route</a>
+    <a class="switch" id="master-switch">Master</a>
+    <a class="switch" id="incomplete-switch">Incomplete</a>
+    <a class="switch" id="complete-switch">Complete</a>
     <%= link_to "Edit", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
   </section>
   <section id="master-sheet">
@@ -20,7 +22,7 @@
             <th>Name</th>
             <th>Address</th>
             <th>Phone</th>
-            <th>Day</th>
+            <th class="user-large-days">Day</th>
           </tr>
         </thead>
         <tbody class="user-show-tbody">
@@ -30,7 +32,7 @@
                 <td><%= link_to pool.full_name, customer_path(pool) %></td>
                 <td><%= pool.street_address%></td>
                 <td><a href="tel:<%= pool.phone %>"><%= pool.phone%></a></td>
-                <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
+                <td class='user-large-days <%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
               </tr>
             <% end %>
           <% else %>

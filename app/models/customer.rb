@@ -52,10 +52,10 @@ class Customer < ApplicationRecord
       list.push("Wednesday")
     end
     if self.thursday
-      list.push("Thursday")
+      list.push("Saturday")
     end
     if self.friday
-      list.push("Saturday")
+      list.push("Sunday")
     end
     list
   end
@@ -67,4 +67,8 @@ class Customer < ApplicationRecord
   def print_days
     day_string = self.days_list.join(" ")
   end
+
+  def display_customer_name_by_last
+    self.last_name + ", " + self.first_name
+  end 
 end
