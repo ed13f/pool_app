@@ -20,9 +20,9 @@
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
-            <th>Address</th>
+            <th class="user-large-days">Address</th>
             <th>Phone</th>
-            <th class="user-large-days">Day</th>
+            <th>Day</th>
           </tr>
         </thead>
         <tbody class="user-show-tbody">
@@ -30,9 +30,9 @@
             <% @pools.each do |pool| %>
               <tr>
                 <td><%= link_to pool.full_name, customer_path(pool) %></td>
-                <td><%= pool.street_address%></td>
+                <td class="user-large-days"><%= pool.street_address%></td>
                 <td><a href="tel:<%= pool.phone %>"><%= pool.phone%></a></td>
-                <td class='user-large-days <%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
+                <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
               </tr>
             <% end %>
           <% else %>
@@ -51,8 +51,8 @@
           <tr>
             <th>Name</th>
             <th>Address</th>
-            <th>Number</th>
-            <th>Finish</th>
+            <th class="user-large-days">Number</th>
+            <th><%= session[:business_id] ? "Gate Code" : "Finish" %></th>
           </tr>
         </thead>
         <tbody class="user-show-tbody">
@@ -60,9 +60,9 @@
           <% @unfinished_route.each do |customer| %>
             <tr>
               <td><%= link_to customer.full_name, customer_path(customer) %></td>
-              <td><%=link_to customer.street_address, controller: "customers", action: "directions", id: customer.id%></td>
-              <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
-              <td><%= link_to "Complete", controller: "visits", action: "new", id: customer.id %></td>
+              <td><%= customer.street_address %></td>
+              <td class="user-large-days"><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+              <td><%= session[:business_id] ? customer.gate_code : (link_to "Complete", controller: "visits", action: "new", id: customer.id) %></td>
             </tr>
           <% end %>
         <% else %>
@@ -81,7 +81,7 @@
           <tr>
             <th>Name</th>
             <th>Address</th>
-            <th>Phone</th>
+            <th class="user-large-days">Phone</th>
             <th>Details</th>
           </tr>
         </thead>
@@ -91,7 +91,7 @@
               <tr>
                 <td><%= link_to customer.full_name, customer_path(customer) %></td>
                 <td><%= customer.street_address%></td>
-                <td><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+                <td class="user-large-days"><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
                 <td><%= link_to "Show Visit", controller: "visits", action: "show", id: customer.visits.last.id %></td>
               </tr>
             <% end %>

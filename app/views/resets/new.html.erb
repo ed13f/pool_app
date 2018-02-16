@@ -1,12 +1,17 @@
 <main>
   <header class="forgot-password-header">
     <div class="header-full-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
+    <%= image_tag("Pool-Water-Desktop-8x10.jpg",class: "header-full-background")  %>
     <h1>Password Change</h1>
   </header>
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
+  <article id="rest-password-container" class="message-container">
+    <h1>Your Request Has Been Submitted</h1>
+    <p>You should recieve an email with directins to reset your password if your email is in our records.</p>
+    <p>If you do not receive the email within 24 hours please try again.</p>
+  </article>
   <article class="forgot-form">
     <%= form_for @reset, remote: true do |f| %>
       <%= f.text_field :email, :placeholder => "Enter Your Email Address", :autocomplete => :off, :class =>"session-email-reset" %>
@@ -22,14 +27,10 @@
         </div>
       </div>
       <div class="forgot-pass-submit">
-        <%= submit_tag 'Reset Password ' %>
+        <%= submit_tag 'Reset' %>
         <%= link_to 'Cancel', :controller => "sessions", :action => "index" %>
       </div>
     <% end %>
   </article>
-  <article id="rest-password-container" class="message-container">
-    <h1>Your Request Has Been Submitted</h1>
-    <p>You should recieve an email with directins to reset your password if your email is in our records.</p>
-    <p>If you do not receive the email within 24 hours please try again.</p>
-  </article>
+  
 </main>

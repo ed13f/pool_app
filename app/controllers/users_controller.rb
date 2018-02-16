@@ -43,16 +43,27 @@ class UsersController < ApplicationController
   	end
 
   	def update
-      @user = User.find_by_id(params[:id])
+      @user  = User.find_by_id(params[:id])
       @logged_in_user = User.find_by_id(session[:user_id])
       user_allow_user_business_and_admin
   	  if @user.update_attributes(user_params)
         redirect_to action:'show', :id => @user.id
       else
-        flash[:notice] = @user.errors.full_messages
+        flash[:notice] = "Fill in all required fields"
         redirect_to '/users/new'
       end
   	end
+
+   def destroy
+    @user = User.find_by_id(params[:id])
+    if session[:business_id] && @user.customers.length == 0
+      @user.destroy
+      redirect_to "/"
+    else
+      flash[:notice] = "Not authorized / Transfer remaining customers"
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   	private
   	def user_params

@@ -11,8 +11,10 @@
 }
 .new-customer-info input,
 .new-customer-pool input{
-  height:2rem;
-  font-size:1.5rem;
+  /*height:2rem;*/
+  border-radius:2px;
+  padding: 0 2%;
+  font-size:2rem;
 }
 .new-customer-pool,
 .new-customer-info{
@@ -29,6 +31,8 @@
 .new-customer-address input,
 .new-customer-contact input{
   flex:1;
+  padding:0 2%;
+  font-family: 'Kanit', sans-serif;
   margin: 0.5%;
   width: 100%;
 }
@@ -53,6 +57,7 @@
   flex:1;
   width:100%;
   margin:0.5%;
+  font-family: 'Kanit', sans-serif;
 }
 /*.scheduling input{
   width:32.25%;
@@ -68,6 +73,7 @@
 }
 .new-customer-pool input[type="checkbox"]{
   height:1.25rem !important;
+  vertical-align: -2px;
 }
 .scheduling div{
   /*flex:1;*/
@@ -91,6 +97,7 @@
 .misc-scheduling select{
   background-color:grey;
   font-size: 1.25rem;
+  font-family: 'Kanit', sans-serif;
 }
 .scheduling-days label{
   font-size:1.5rem;
@@ -123,11 +130,12 @@
 .customer-new-submit{
   font-size: 2rem;
   /*height: 70px;*/
-  margin: 2% 0;
+  margin: 3% 0;
+  border: 1px solid #666666;
   flex:2;
   font-family: 'Kanit', sans-serif;
   text-align: center;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-radius: 5px;
   /*padding: 15px 30px;*/
   background-color: grey;
@@ -139,6 +147,7 @@
   margin: 2% 10%;
 }
 .customer-submit a{
+  border: 1px solid #666666;
   background-color: grey;
   font-size: 2rem;
   -webkit-box-flex: 1;
@@ -148,8 +157,8 @@
   text-align: center;
   text-decoration: none;
   color: darkred;
-  margin: 2% 0 2% 2%;
-  padding:1% 2%;
+  margin: 3% 0 3% 1%;
+  padding:0 2%;
   font-family: 'Kanit', sans-serif;
   /*font-size: 30px;
   text-align: center;
@@ -160,11 +169,11 @@
   text-decoration: none;
   color: darkred;*/
 }
-.new-customer-header{
+/*.new-customer-header{
   font-size:3.5rem;
   margin:0;
   padding-left: 2%;
-}
+}*/
 .day{
   flex:1.5 !important;
 }
@@ -173,8 +182,15 @@ select option{
 }
 
 .customer-edit-header{
-  background-color:#8FC1E3;
-  padding: 2rem 0;
+  position:relative;
+  margin: -4px 0 2rem;
+  padding: 0 0 1rem;
+  /*background-color:#8FC1E3;*/
+  /*padding: 2rem 0;*/
+}
+.customer-edit-header h1{
+  font-size:3.5rem;
+  padding-left: 2%;
 }
 .edit_customer{
   max-width: 625px;
@@ -193,8 +209,16 @@ select option{
     color: white;
 }*/
 .new-customer-header{
-  background-color:#8FC1E3;
-  padding: 2rem 1rem;
+  /*background-color:#8FC1E3;*/
+  padding:0 0 1rem;
+  margin:0;
+  /*padding-left: 2%;*/
+  margin: -4px 0 2rem;
+  position: relative;
+}
+.new-customer-header h1{
+  padding-left: 2%;
+  font-size:3.5rem;
 }
 /***************************/
 /*Customer Show*/
@@ -229,6 +253,7 @@ margin-left:2.5vw;
   padding:0.5rem 2%;
 }
 .customer-links a{
+  border: 1px solid #666666;
   display:inline-block;
   font-size: 1.25rem;
   color:black;
@@ -240,15 +265,17 @@ margin-left:2.5vw;
 }
 .user-show-header-user{
   font-size: 2.5rem;
+  line-height:2.5rem;
   margin:0 2%;
+  padding-top: 1rem;
 }
 .customer-show-address{
-  line-height: 0px;
+  line-height: 1.5rem;
   margin:0 2% 3rem;
 }
 .customer-show-address p{
   margin:0;
-  font-size:1rem;
+  font-size:1.5rem;
 }
 .notes-section{
   /*width:95vw;*/
@@ -276,6 +303,9 @@ margin-left:2.5vw;
   font-size: 1.4rem;
   max-width: 200px;
   margin: 0 auto 1rem;
+}
+.customer-show-info a{
+  color:black;
 }
 .user-display-info{
   flex:1;
@@ -315,14 +345,16 @@ margin-left:2.5vw;
   overflow:scroll;
   margin:auto;
   background-color:#f2f2f2;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .customer-notes-list ul{
   margin:0;
   padding:0 2rem;
 }
 .add-note-header{
-  margin:0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 575px;
   font-size:2.5rem;
 }
 .new-note-form{
@@ -332,14 +364,18 @@ margin-left:2.5vw;
 }
 .new-note-input {
   flex:5;
-  margin-right:1rem;
+  /*overflow:hidden;*/
+  margin-right:3%;
 }
 .new-note-input textarea{
   width:100%;
   height: 2.3rem;
-  border-radius: 5px;
+  border-radius: 3px;
   font-family: 'Kanit', sans-serif;
   resize: none;
+  border: 1px solid #666666;
+  /*border:none;*/
+  margin-top:3px;
   font-size: 1.4rem;
 }
 .note-submit{
@@ -347,10 +383,10 @@ margin-left:2.5vw;
   font-family: 'Kanit', sans-serif;
   font-size:1.5rem;
   text-align: center;
-  border: 1px solid #4d4d4d;
-  border-radius:5px;
+  border: 1px solid #666666;
+  border-radius:3px;
   background-color: grey;
-  margin: 48% 0 0 0;
+  margin:0;
   /*padding: 0 15%;*/
 }
 #no-notes{
@@ -362,6 +398,9 @@ margin-left:2.5vw;
 }
 .customer-show-column-margin{
  width:200px;
+}
+.customer-notes-container{
+  flex:1;
 }
 
 /***************************/
@@ -412,7 +451,7 @@ margin-left:2.5vw;
   /*background-color:#8FC1E3;*/
 }
 .history-header{
-  font-size: 2rem;
+  font-size: 3rem;
   margin:0 2%;
 }
 .history-visit-sub-header,
@@ -438,6 +477,10 @@ margin-left:2.5vw;
 .history-repair-thead th{
   /*width:8%;*/
   width:1%;
+}
+.history-repair-tbody a, 
+.history-visit-tbody a{
+  color:black;
 }
 
 .history-visit-table,
@@ -468,7 +511,7 @@ margin-left:2.5vw;
     background-color: lightgrey;
     padding: 0 0.5rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 2px;
   /*background-color: lightgrey;
   margin: 0 -2% 0 0;
   padding: 0 3%;*/

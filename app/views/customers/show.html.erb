@@ -14,7 +14,7 @@
     </article>
   </header>
   <section class="customer-show-section">
-    <h2 class="add-note-header">Info</h2>
+    <h2 class="add-note-header">Details</h2>
     <article class="user-display-info">
       <div class="user-info-left">
         <h2 class="customer-show-label">Gate Code:</h2>
@@ -34,7 +34,7 @@
         <h2 class="customer-show-label">Notifications:</h2>
         <p class="customer-show-info"><%= @customer.receive_emails ? "Approved" : "Denied"%></p>
         <h2 class="customer-show-label">Serviced By</h2>
-        <p class="customer-show-info"><%= @customer.user.first_name %></p>
+        <p class="customer-show-info"><%= @customer.user.full_name %></p>
       </div>
     </article>
     <article class="customer-display-notes">
@@ -67,12 +67,10 @@
       </header>
     <%= form_for @note, :html => { :class => "new-note-form" }, remote: true  do |f| %>
       <div class="new-note-input">
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :placeholder => "Description" %>
         <%= f.hidden_field :customer_id, :value => params[:id] %>
       </div>
-
-      <div>
+      <div class="customer-notes-container">
         <%= f.submit "Submit", :class =>"note-submit" %>
       </div>
     <% end %>

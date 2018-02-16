@@ -4,38 +4,31 @@
     <div class="header-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1>Edit User</h1>
+    <% if session[:business_id] %>
+      <%= link_to "Delete", {controller: :users, action: :destroy, id: params[:id]}, data: {confirm: "Are your sure? This will permanently delete the employee. Make sure all employee customers have been reassigned before deleting "}, method: :delete, :class =>"trash-button" %>
+    <% end %>  
   </header>
   <section>
     <% if flash[:notice] %>
-      <ul>
-        <% flash[:notice].each do |message| %>
-          <li><%= message%></li>
-        <% end %>
-      </ul>
+      <article class="flash">
+        <p><%= flash[:notice] %></p>
+      </article>  
     <% end %>
     <article class="new-user-form">
       <%= form_for(@user) do |f| %>
-        <div class="field">
-          <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
-        </div>
+        <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
+        <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+        <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <% if session[:business_id] %>
+          <div class="admin-input">
+              <%= f.label "Made User an Admin?" %>
+              <%= f.check_box :admin %>
+          </div>
+        <% end %>
         <div class="edit-user-submit">
-          <%= f.submit %>
+          <%= f.submit 'Update' %>
           <%= link_to 'Cancel', :controller => "users", :action => "show", :id => params[:id] %>
         </div>
       <% end %>

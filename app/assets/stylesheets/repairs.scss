@@ -10,6 +10,7 @@
   font-size:1em;
   text-align: center;
   width:100%;
+  font-family: 'Kanit', sans-serif;
 }
 .repair-table{
   width:96vw;
@@ -70,6 +71,7 @@
 .active-repair-tab{
 	background-color:grey !important;
   color:white !important;
+  border: 1px solid #666666 !important;
 }
 .table-empty{
   width:100vw !important;
@@ -83,11 +85,12 @@
   display: inline-block;
   font-size: 1rem;
   color: black;
+  border: 1px solid #999999;
   margin: 0 0.25rem 0 0;
   background-color: lightgrey;
   /*padding: 5px 15px;*/
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .repair-small-hide{
   display:none ;
@@ -109,8 +112,8 @@
   position:relative;
 }
 .repair-show-header {
-	margin:0 2% 2%;
-	font-size:3rem;
+	margin:2rem 2% 0;
+	font-size:3.5rem;
 	flex: 2;
 }
 .repair-show-info{
@@ -188,7 +191,7 @@
     font-family: 'Kanit', sans-serif;
     margin: 7px 0;
     padding: 5px 2%;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .repair-img-zoom-container{
   text-align: center;
@@ -203,11 +206,11 @@
 .repair-img-submit input{
 	background-color: grey;
     font-size: 1.5rem;
-    width:100%;
-    border:none;
+    width:99%;
+    border: 1px solid #666666;
     max-width:450px;
-    padding: 3.5px 10px;
-    border-radius: 5px;
+    padding: 2.5px 10px;
+    border-radius: 3px;
     font-family: 'Kanit', sans-serif;
     margin:1px auto;
 }
@@ -227,7 +230,7 @@
     margin: 0;
     color:white;
     float:right;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: 'Kanit', sans-serif;
 }
 .repair-show-header-section a{
@@ -238,7 +241,8 @@
     background-color: grey;
     padding: 0 1rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid #666666;
 }
 .repair-info-center{
   max-width: 200px;
@@ -275,7 +279,7 @@
 /***************************/
 .new-repair-header{
 	font-size:3.5rem;
-  padding:0 0 2rem 0;
+  padding:0 0 3rem 0;
 	margin:0 2% 2%;
 }
 .new-repair-main-header{
@@ -292,7 +296,7 @@
 	max-width: 450px;
   /*background-color: lightgrey;*/
  /*margin:0 auto;*/
- margin: 5vh 5vw;
+ margin: 5vh 2vw;
   padding:0 4%;
   border-radius:5px;
 }
@@ -300,7 +304,7 @@
 	font-size:2.5rem;
 }
 .repair-textarea textarea{
-	width: 99%;
+	width: 97%;
 	font-size:2rem;
   line-height:2.25rem;
 	font-family: 'Kanit', sans-serif;
@@ -309,7 +313,7 @@
   border:none;
   /*border: 1px solid #4d4d4d;*/
   /*border:initial;*/
-  padding:1%;
+  padding: 0.5rem 2%;
 	border-radius: 5px;
 }
 .repair-new-bottom{
@@ -331,7 +335,7 @@
   margin:0;
   /*margin: 7px 0;*/
   padding: 5px 2px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .new-repair-submit{
 	flex:1;
@@ -347,8 +351,8 @@
   font-size: 2rem;
   /*padding:1% 13%;*/
   flex:2;
-  border-color: #4d4d4d;
-  border-radius: 5px;
+  border: 1px solid #666666;
+  border-radius: 3px;
   font-family: 'Kanit', sans-serif;
   /*margin: 30px 0;*/
 }
@@ -357,24 +361,24 @@ background-color: grey;
   font-size: 2rem;
   color:darkred;
   text-decoration:none;
+  border: 1px solid #666666;
   padding: 2px 0 0 0;
   /*padding:0 4%;*/
-  border-radius: 5px;
+  border-radius: 3px;
   font-family: 'Kanit', sans-serif;
   flex: 1;
   /*border: 1px solid #4d4d4d;*/
-  border:none;
   margin: 0 0 0 0.5rem;
   /*margin: 3% 0;*/
 }
 .repair-title input{
- width:99%;
+ width:97%;
  font-family: 'Kanit', sans-serif;
- border-radius: 5px;
+ border-radius: 3px;
  font-size: 2rem;
  margin:1rem 0;
  /* margin: 0 0.5rem;*/
- padding: 0 1%;
+ padding: 0 2%;
  border-color:#4d4d4d;
 }
 /********************/
@@ -382,10 +386,10 @@ background-color: grey;
 /********************/
 .edit_repair{
   margin: 0 5%;
-  margin: 5vh 10vw;
+  margin: 5vh 2vw;
   /*margin: auto;*/
   padding:0 4%;
-  max-width: 625px;
+  max-width: 450px;
 }
 .edit_repair label{
   font-size: 2.5rem;

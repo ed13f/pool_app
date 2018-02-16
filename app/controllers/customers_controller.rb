@@ -76,6 +76,14 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @customer = Customer.find_by_id(params[:id])
+    @logged_in_user = User.find_by_id(session[:user_id])
+    customer_allow_user_business_or_admin
+    @customer.destroy
+    redirect_to "/"
+  end
+
   private
   def customer_params
     params.require(:customer).permit(:first_name, :last_name,:phone, :email, :street_address, :city, :state, :zip_code, :gate_code, :filter_type, :pump_type, :receive_emails, :visit_per_week, :user_id, :monday, :tuesday, :wednesday, :thursday, :friday)

@@ -82,6 +82,14 @@ class RepairsController < ApplicationController
         end
   	end
 
+    def destroy
+      @repair = Repair.find_by_id(params[:id])
+      @logged_in_user = User.find_by_id(session[:user_id])
+      customer_allow_user_business_or_admin
+      @repair.destroy
+      # redirect_to "/"
+    end
+
   	private
   	def repair_params
     	params.require(:repair).permit(:description, :customer_id, :title, :complete)

@@ -33,18 +33,18 @@ width:93%;
     margin-right: 2%;
 }
 .new-session-submit a{
-    border: 1px solid #4d4d4d;
+    border: 1px solid #666666;
     background-color: grey;
     font-size: 2rem;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    height:3rem;
-    border-radius: 5px;
+    height:2.9rem;
+    border-radius: 3px;
     text-align: center;
     text-decoration: none;
     color: black;
-    margin:2rem 2% 0 1%;
+    margin:2.1rem 2% 0 1%;
     padding:0 2%;
     font-family: 'Kanit', sans-serif;
 }
@@ -61,7 +61,8 @@ width:93%;
     /*height: 3rem;*/
     /*margin:0;*/
     flex:2;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid #666666;
     font-family: 'Kanit', sans-serif;
 }
 .forgot-password{
@@ -81,11 +82,11 @@ width:93%;
     display:flex;
     flex:1;
     font-size:1.5rem;
-    margin-right:2%;
+    margin-right:3%;
 }
 .sesion-type-options input{
     height: 1.25rem;
-    margin-top: 1rem !important;
+    margin-top: 0.75rem !important;
     width: 1.25rem !important;
 }
 .sesion-type-options label{

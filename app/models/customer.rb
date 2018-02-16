@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
 	belongs_to :user
-  has_many :visits
-  has_many :repairs
-  has_many :notes
+  has_many :visits, dependent: :destroy
+  has_many :repairs, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_many :days, dependent: :destroy
   has_one :business, through: :user, source: :business
   accepts_nested_attributes_for :days, allow_destroy: true, reject_if: :all_blank
@@ -52,10 +52,10 @@ class Customer < ApplicationRecord
       list.push("Wednesday")
     end
     if self.thursday
-      list.push("Saturday")
+      list.push("Thursday")
     end
     if self.friday
-      list.push("Sunday")
+      list.push("Friday")
     end
     list
   end

@@ -1,6 +1,9 @@
 <main>
   <header class="biz-header-section">
-    <div>
+    <div class="biz-show-grey-overlay"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <div class="biz-header-left">
       <h1 class="business-header"><%=  @business.business_name %></h1>
       <div>
         <h2 class="business-sub-header"><%= @business.email %></h2>
@@ -13,11 +16,16 @@
     <div class="biz-options">
       <%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true ) do %>
         <%= hidden_field_tag "id", @business.id %>
-        <%= submit_tag("Reset All Pool Visits") %>
+        <%= submit_tag("Reset All Visits") %>
       <% end %>
       <% if session[:business_id] %>
         <%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
       <% end %>
+    </div>
+    <div class="business-button-section">
+      <button id="bix-customer-button" class="active-switch">Customers</button>
+      <button id="bix-repair-button">Open Repairs</button>
+      <button id="bix-employee-button">Employees</button>
     </div>
   </header>
   <section class="business-lists-container">
@@ -26,14 +34,12 @@
         <h2 class="business-customer-sub-header">Customers: <%= @customers.count %> </h2>
           <%= link_to "+", {:controller => "customers", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
       </header>
-      <article>
-        <div class="business-customers-list">
-          <ul>
-            <% @customers.each do |customer| %>
-                      <li><%= link_to customer.display_customer_name_by_last, controller: "customers", action: "show", id: customer.id %></li>
-            <% end %>
-          </ul>
-        </div>
+      <article class="business-customers-list">
+        <ul>
+          <% @customers.each do |customer| %>
+                    <li><%= link_to customer.display_customer_name_by_last, controller: "customers", action: "show", id: customer.id %></li>
+          <% end %>
+        </ul>
       </article>
     </section>
     <section class="business-right-container">
@@ -54,14 +60,12 @@
           <h2 class="business-employees-sub-header">Employees: <%= @employees.count %></h2>
           <%= link_to "+", {:controller => "users", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
         </header>
-        <article>
-          <div class="business-employee-list">
-            <ul>
-              <% @employees.each do |employee| %>
-                <li><%= link_to employee. full_name, controller: "users", action: "show", id: employee.id %></li>
-              <% end %>
-            </ul>
-          </div>
+        <article class="business-employee-list">
+          <ul>
+            <% @employees.each do |employee| %>
+              <li><%= link_to employee. full_name, controller: "users", action: "show", id: employee.id %></li>
+            <% end %>
+          </ul>
         </article>
       </article>
     </section>

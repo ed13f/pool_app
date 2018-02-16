@@ -1,5 +1,6 @@
 <main>
   <header class="new-visit-header">
+    <div class="center-column"></div>
     <div class="header-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1>Complete Visit</h1>
@@ -103,7 +104,7 @@
         </div>
       <% end %>
       <div class="visit-options">
-        <%= f.submit 'Complete Visit', :class => 'submit-visit' %>
+        <%= f.submit 'Complete', :class => 'submit-visit' %>
         <%= link_to 'Cancel', controller: "users", action: "show", id: @customer.user.id %>
       </div>
     <% end %>

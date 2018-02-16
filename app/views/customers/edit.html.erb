@@ -1,9 +1,15 @@
+<!-- image_tag("trash.png", :class => 'trash-button') -->
+
 <main>
   <header class="customer-edit-header">
     <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <div class="center-column"></div>
     <div class="header-overlay">
     </div>
-    <h3 class="header-text new-customer-header">Edit Customer</h3>
+    <h1 class="header-text">Edit Customer</h1>
+    <%= link_to "Delete", {controller: :customers, action: :destroy, id: params[:id]}, data: {confirm: "Are Your Sure? This Will Permanently Delete The Customer."}, method: :delete, :class =>"trash-button" %>
   </header>
   <section>
     <% if flash[:notice] %>

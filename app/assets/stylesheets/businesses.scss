@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .business-header{
-	font-size: 4rem;
+	font-size: 3.5rem;
 	margin:2vh 0 0 0;
 	line-height: 3rem;
 }
@@ -43,7 +43,7 @@
 	height:250px;
 	overflow:scroll;
   margin-bottom: 2vh;
-  border-radius:5px;
+  border-radius:3px;
   width:100% !important;
   background-color: #f2f2f2
 }
@@ -67,6 +67,7 @@ line-height:1.25rem;
 .biz-customer-list{
   flex:1;
   margin: auto;
+  /*height:78vh;*/
   max-width: 345px;
   padding: 0 5vw;
 }
@@ -103,8 +104,9 @@ line-height:1.25rem;
 .biz-header-section{
   display:flex;
   justify-content: space-between;
-  padding: 1rem 2%;
-  background-color:#8FC1E3;
+  position:relative;
+  /*padding: 1rem 2%;*/
+  /*background-color:#8FC1E3;*/
 }
 .biz-header-section form{
   /*position:absolute;
@@ -125,13 +127,13 @@ line-height:1.25rem;
 .biz-header-section form input{
   font-size: 1.3rem !important;
   background-color: darkred;
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   color: white;
   font-family: 'Kanit', sans-serif;
 }
 .business-right-container{
-	height: 100%;
+	height: 78vh;
 	display:flex;
   max-width: 400px;
   padding: 0 5vw 2vh;
@@ -148,14 +150,14 @@ line-height:1.25rem;
 }
 .business-employee-list{
   margin-bottom: 2vh;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #f2f2f2;
 	height:250px;
 	overflow:scroll;
 }
 .business-repair-list{
   /*margin-bottom: 5%;*/
-  border-radius: 5px;
+  border-radius: 3px;
   /*width: 100% !important;*/
   background-color: #f2f2f2;
   height:250px;
@@ -169,6 +171,19 @@ line-height:1.25rem;
 }
 .biz-show-section-head-flex{
   display:flex;
+}
+.biz-header-left{
+  padding:1rem 0 4rem 2%;
+}
+.biz-show-grey-overlay{
+      background: linear-gradient(to right, #bfbfbf,#cccccc,#bfbfbf);
+    position: fixed;
+    height: 100vh;
+    opacity: 0.5;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 /*************************/
 /*************************/
@@ -217,6 +232,18 @@ line-height:1.25rem;
   margin: 5% 0 0 0;
   text-align: center;
 }
+.business-button-section{
+  position:absolute;
+  bottom: 0.5rem;
+  left: 2%;
+}
+.business-button-section button{
+  background-color:lightgrey;
+  font-size:1.3rem;
+  border:none;
+  border-radius:3px;
+  font-family: 'Kanit', sans-serif;
+}
 /**********************/
 /*business new*/
 /**********************/
@@ -224,17 +251,17 @@ line-height:1.25rem;
 	width: 100%;
 }
 .new_business input{
-	width: 93%;
-  padding: 0.5% 2%;
+	width: 96%;
+  padding: 0 2%;
   font-size: 2rem;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 0.5rem 0px;
   font-family: 'Kanit', sans-serif;
 }
 .new-business-header{
   position: relative;
   padding: 0 0 1rem;
-  margin: -1rem 0 2rem;
+  margin:-4px 0 2rem;
  /* padding: 2vh 5vw 2vh;
   background-color:#8FC1E3;*/
 }
@@ -243,19 +270,19 @@ line-height:1.25rem;
   padding-left:2%;
 }
 .new-business-form{
-	margin: 5vh 10vw;
+	margin: 5vh 6vw;
   max-width: 450px;
 }
 .new-business-options{
-	width:105%;
+	width:104%;
 	display:flex;
 }
 .new-business-options a{
 	background-color: grey;
     font-size: 2rem;
     flex: 1;
-    border: 1px solid darkred;
-    border-radius: 5px;
+    border: 1px solid #666666;
+    border-radius: 3px;
     text-align: center;
     text-decoration:none;
     color:darkred;
@@ -268,25 +295,26 @@ line-height:1.25rem;
 	font-size: 2rem;
   height: 3.5rem;
   border-color:black;
-  border-radius: 5px;
+  border: 1px solid #666666;
+  border-radius: 3px;
   margin: 2% 0px;
 	font-family: 'Kanit', sans-serif;
 	flex: 2;
 }
 .biz-options{
-  margin:3vh 0 0 0;
+  margin:3vh 2% 0 0;
 }
 /**********************/
 /*business edit*/
 /**********************/
 .edit_business{
-  width: 91%;
+  width: 96%;
 }
 .edit_business input{
   width: 100%;
-  padding: 0.5% 2%;
+  padding: 0 2%;
   font-size: 2rem;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 0.5rem 0px;
   font-family: 'Kanit', sans-serif;
 }

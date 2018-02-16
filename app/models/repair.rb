@@ -1,5 +1,5 @@
 class Repair < ApplicationRecord
-	has_many :images
+	has_many :images, dependent: :destroy
 	belongs_to :customer
 	has_one :user, through: :customer, source: :user
 
