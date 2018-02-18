@@ -199,7 +199,7 @@ fieldset {
     width: 768px;
     height: 100vh;
     opacity: 0.5;
-    z-index: -2;
+    z-index: -3;
     left: 0;
     right: 0;
     margin: auto;
@@ -219,7 +219,8 @@ fieldset {
   position:absolute;
   width: 80vw;
   text-align: center;
-  margin: 0rem 10vw;
+  font-size:1.5rem;
+  margin: -3rem 10vw;
   color:darkred;
 }
 /***********************/
@@ -289,11 +290,15 @@ fieldset {
     margin-top: 0 !important;
   }
   .business-employee-list {
-    height: 29.25vh !important;
+    height: 28.5vh !important;
+    /*height: 29.25vh !important;*/
   }
   .business-right-container,
   .biz-customer-list{
     height: 74vh;
+  }
+  .new-customer-pool input[type="checkbox"]{
+    vertical-align: 0;
   }
 }
 @media screen and (orientation: landscape)and (max-width: 1024px) {
@@ -375,9 +380,11 @@ fieldset {
     .biz-options{
       margin: 1.5vh 2% 0 0 !important;
     }
-    .business-employee-list{
-      width: 340px;
-      height:72vh;
+    .business-employee-list,
+    .business-repair-list,
+    .business-customers-list{
+      width: 340px !important;
+      height:67vh;
     }
 
  }
@@ -389,7 +396,7 @@ fieldset {
     display:none;
   }
   .biz-header-left{
-    padding: 1rem 0 3rem 2%;
+    padding: 0.5rem 0 3rem 2%;
   }
   .business-lists-container{
     flex-direction:row;
@@ -407,14 +414,12 @@ fieldset {
     margin:0;
    /* max-height:42vh;*/
   }
-  .business-repair-list{
-    height: 35vh;
-  }
+  .business-repair-list,
   .business-employee-list{
-    height: 35.5vh;
+    height: 36.6vh;
   }
   .business-customers-list{
-    height:75vh;
+    height:78vh;
   }
   .business-employee-section{
     margin-top:1vh;
@@ -438,14 +443,10 @@ fieldset {
     margin: 1vh 2% 0 0;
   }
   .biz-header-section form input{
-    font-size:2rem !important;
+    font-size:1.5rem !important;
   }
   .biz-header-section a{
-    font-size:2rem !important;
-  }
-  .customer-show-address p{
-    font-size:2.25rem;
-    line-height:2rem;
+    font-size:1.5rem !important;
   }
   .visit-show-header{
     font-size:3rem;
@@ -472,19 +473,12 @@ fieldset {
     max-width: 43%; 
     display: inline-block; 
   }
-  .customer-show-label{
-    font-size:2.5rem;
-    line-height:2.5rem;
-  }
   .customer-show-info{
     font-size:2rem;
     line-height:2rem;
   }
   .add-note-header{
     font-size:3rem;
-  }
-  .user-show-header-user{
-    font-size:3.5rem;
   }
   .customer-display-notes li{
     line-height: 2rem;
@@ -500,7 +494,7 @@ fieldset {
     font-size:2rem;
   }
   .history-views a{
-    font-size:2rem;
+    font-size:1.5rem;
   }
   #no-notes{
     width:225px;
@@ -522,7 +516,7 @@ fieldset {
     font-size: 1.5rem;
   } 
   .new-note-input textarea{
-    height: 2.6rem;
+    height: 2.8rem;
     line-height:2.6rem;
     padding:0 1%;
     font-size:2rem;
@@ -561,6 +555,12 @@ fieldset {
   .business-repairs-section{
     display:initial !important;
   }
+  .user-display-info{
+    padding:0;
+  }
+  /*.customer-display-notes{
+    padding:1% 0;
+  }*/
 
 }
 @media screen and (max-width: 668px) and (orientation: landscape){
@@ -573,13 +573,25 @@ fieldset {
     padding-top:0;
   }
   .business-customers-list{
-    height:48vh !important;
+    height:56vh !important;
   }
-  .business-repair-list{
-    height:18.5vh !important;
+  .business-employees-sub-header,
+  .business-customer-sub-header{
+    font-size: 2.5rem;
   }
+  .business-customers-list a, 
+  .business-employee-section a, 
+  .business-repairs-section a{
+    font-size: 2rem;
+  }
+  .business-customers-list li, 
+  .business-employee-section li, 
+  .business-repairs-section li{
+    line-height: 1rem;
+  }
+  .business-repair-list,
   .business-employee-list{
-    height:18.5vh !important;
+    height:23vh !important;
   }
   .biz-customer-list,
   .business-right-container{
@@ -593,7 +605,7 @@ fieldset {
 }
 @media screen and (max-height: 380px) and (orientation: landscape){
   .business-customers-list{
-    height: 45vh !important;
+    height: 52vh !important;
   }
   .biz-customer-list, 
   .business-right-container{
@@ -601,7 +613,7 @@ fieldset {
   }
   .business-repair-list,
   .business-employee-list{
-    height: 16.5vh !important;
+    height: 20.5vh !important;
   }
   
 }
@@ -717,6 +729,17 @@ fieldset {
   }
   .user-show-edit-button{
     font-size:1.5rem;
+  }
+  .customer-show-label{
+    font-size:2.5rem;
+    line-height:2.5rem;
+  }
+  .user-show-header-user{
+    font-size:3.5rem;
+  }
+  .customer-show-address p{
+    font-size:2.25rem;
+    line-height:2rem;
   }
 }
 @media screen and (min-width: 465px) {

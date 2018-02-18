@@ -13,6 +13,10 @@ class ApplicationRecord < ActiveRecord::Base
   	puts coordinates_obj
   	coordinates_obj.to_json
   end
+  
+  def display_customer_name_by_last
+    self.last_name + ", " + self.first_name
+  end 
 
   def require_logged_in_user
     if !session[:business_id] && !session[:user_id]
@@ -25,4 +29,15 @@ class ApplicationRecord < ActiveRecord::Base
       end
     end
   end
+
+  def phone_format
+    phone_num = self.phone
+    if phone_num.length == 11
+      formatted_phone_num = phone_num.insert(1, '(').insert(5, ')').insert(9, '-')
+    elsif phone_num.length== 10
+      formatted_phone_num = phone_num.insert(0, '(').insert(4, ')').insert(8, '-')
+    elsif phone_num.length == 7
+      formatted_phone_num = phone_num.insert(3, '-')
+    end  
+  end  
 end

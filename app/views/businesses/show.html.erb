@@ -6,15 +6,17 @@
     <div class="biz-header-left">
       <h1 class="business-header"><%=  @business.business_name %></h1>
       <div>
-        <h2 class="business-sub-header"><%= @business.email %></h2>
-        <h2 class="business-sub-header"><%= @business.phone %></h2>
+        <!-- h2 class="business-sub-header"><%= @business.email %></h2>
+        <h2 class="business-sub-header"><%= @business.phone %></h2> -->
+        <h2 class="business-sub-header"><%= Date.today.to_s(:long) %></h2>
+
       </div>
     </div>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
     <div class="biz-options">
-      <%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true ) do %>
+      <%= form_tag(controller: "businesses", action: "reset_weekely_visit", format: :js, remote: true, data: {confirm: "Are your sure? This will reset all routes for the week."} ) do %>
         <%= hidden_field_tag "id", @business.id %>
         <%= submit_tag("Reset All Visits") %>
       <% end %>
@@ -50,7 +52,7 @@
         <article class="business-repair-list">
           <ul>
             <% @repairs.each do |repair| %>
-              <li><%= link_to repair.customer.full_name, controller: "repairs", action: "show", id: repair.id %></li>
+              <li><%= link_to repair.customer.display_customer_name_by_last, controller: "repairs", action: "show", id: repair.id %></li>
             <% end %>
           </ul>
         </article>
@@ -63,7 +65,7 @@
         <article class="business-employee-list">
           <ul>
             <% @employees.each do |employee| %>
-              <li><%= link_to employee. full_name, controller: "users", action: "show", id: employee.id %></li>
+              <li><%= link_to employee.display_customer_name_by_last, controller: "users", action: "show", id: employee.id %></li>
             <% end %>
           </ul>
         </article>

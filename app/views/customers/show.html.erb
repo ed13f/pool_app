@@ -5,7 +5,7 @@
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1 class="user-show-header-user"><%= @customer.full_name %></h1>
     <article class="customer-show-address">
-      <p><span><%= @customer.full_address %></span></p>
+      <p><span><%= @customer.short_address %></span></p>
     </article>
     <article class="customer-links">
       <%= link_to "Edit", controller: "customers", action: "edit", id: params[:id] %>
@@ -20,7 +20,7 @@
         <h2 class="customer-show-label">Gate Code:</h2>
         <p class="customer-show-info"> <%= @customer.gate_code %></p>
         <h2 class="customer-show-label">Phone:</h2>
-        <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone %></a></p>
+        <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone_format %></a></p>
         <h2 class="customer-show-label">Email:</h2>
         <p class="customer-show-info"><a href="mailto:<%= @customer.email %>?subject=Pool Care"> <%= @customer.email %></a></p>
         <h2 class="customer-show-label">Days:</h2>
@@ -52,7 +52,7 @@
         <ul>
         <% if @notes[0] %>
           <% @notes.each do |note| %>
-            <li id="note-<%= note.id %>"><%= link_to "X", note, method: :delete, remote: true %> <%= note.description %></li>
+            <li id="note-<%= note.id %>"><%= link_to "X", note, method: :delete, remote: true, data: {confirm: "Are Your Sure?"} %> <%= note.description %></li>
           <% end %>
         <% else %>
         <li id="no-notes">Customer Has No Notes.</li>

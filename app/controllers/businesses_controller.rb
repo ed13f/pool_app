@@ -32,9 +32,9 @@ class BusinessesController < ApplicationController
     @logged_in_user = User.find_by_id(session[:user_id])
     allow_business_and_admin_access
     if @business
-      @employees = @business.users
-      @customers = @business.customer_alphabetical_sort
-      @repairs = @business.repairs
+      @employees = @business.users.where(:active_employee => true).order(:last_name)
+      @customers = @business.customers.order(:last_name)
+      @repairs = @business.repairs.where(:complete => false).order(:created_at)
     end
   end
 

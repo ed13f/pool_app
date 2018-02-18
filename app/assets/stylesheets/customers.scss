@@ -98,6 +98,8 @@
   background-color:grey;
   font-size: 1.25rem;
   font-family: 'Kanit', sans-serif;
+  border: 1px solid #666666;
+  border-radius: 3px;
 }
 .scheduling-days label{
   font-size:1.5rem;
@@ -136,7 +138,7 @@
   font-family: 'Kanit', sans-serif;
   text-align: center;
   /*border: 1px solid black;*/
-  border-radius: 5px;
+  border-radius: 3px;
   /*padding: 15px 30px;*/
   background-color: grey;
 }
@@ -153,7 +155,7 @@
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   text-decoration: none;
   color: darkred;
@@ -261,7 +263,7 @@ margin-left:2.5vw;
   background-color: grey;
   padding: 0 1rem;
   text-decoration: none;
-  border-radius:5px;
+  border-radius:3px;
 }
 .user-show-header-user{
   font-size: 2.5rem;
@@ -309,6 +311,7 @@ margin-left:2.5vw;
 }
 .user-display-info{
   flex:1;
+  padding:0 4%;
   display:flex;
 }
 .user-info-right{
@@ -321,10 +324,10 @@ margin-left:2.5vw;
 }
 .customer-display-notes{
   flex:1.5;
-  width:100%;
+  width:92%;
   max-width: 525px;
   margin: auto;
-  padding: 1% 0;
+  padding: 1rem 4%;
 }
 .customer-display-notes li{
   line-height: 1.5rem;
@@ -345,7 +348,7 @@ margin-left:2.5vw;
   overflow:scroll;
   margin:auto;
   background-color:#f2f2f2;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 .customer-notes-list ul{
   margin:0;
@@ -360,6 +363,7 @@ margin-left:2.5vw;
 .new-note-form{
   display:flex;
   max-width: 525px;
+  padding:0 4%;
   margin: auto;
 }
 .new-note-input {
@@ -373,8 +377,8 @@ margin-left:2.5vw;
   border-radius: 3px;
   font-family: 'Kanit', sans-serif;
   resize: none;
-  border: 1px solid #666666;
-  /*border:none;*/
+  /*border: 1px solid #666666;*/
+  border:none;
   margin-top:3px;
   font-size: 1.4rem;
 }
@@ -504,14 +508,15 @@ margin-left:2.5vw;
 }
 .history-views a{
   font-family: 'Kanit', sans-serif;
-    display: inline-block;
-    font-size: 1.25rem;
-    color: black;
-    margin: 0 1% 0 0;
-    background-color: lightgrey;
-    padding: 0 0.5rem;
-    text-decoration: none;
-    border-radius: 2px;
+  display: inline-block;
+  font-size: 1.25rem;
+  color: black;
+  margin:0;
+  background-color: lightgrey;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid #999999;
   /*background-color: lightgrey;
   margin: 0 -2% 0 0;
   padding: 0 3%;*/
@@ -525,4 +530,5 @@ margin-left:2.5vw;
   background-color:grey !important;
   float:right;
   margin:0 !important;
+  border: 1px solid #666666 !important;
 }

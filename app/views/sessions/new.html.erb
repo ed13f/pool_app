@@ -5,10 +5,12 @@
 		<h1 class="new-session-header">Pool Service Pro</h1>
 	</header>
 	<section>
-		<article class="new-session-form">
-			<% if flash[:notice] %>
-    		<div class="notice"><%= flash[:notice] %></div>
+		<% if flash[:notice] %>
+			<article class="flash">
+    			<p class="notice"><%= flash[:notice] %></p>
+    		</article>	
   		<% end %>
+		<article class="new-session-form">
   		<h2 class="sign-in-header">Sign In</h2>
 			<%= form_tag :action => :create, local: true do |f| %>
 			  <div class="session-email">

@@ -14,7 +14,10 @@ module SessionsHelper
 
     def authenticate_signin(person, object_type, session_type)
       person = object_type.find_by(email: params[:email])
-      if person && person.authenticate(params[:password])
+      if person.class == User && person.active_employee == false
+        flash[:notice] = "Employee is no longer active."
+        redirect_to '/sessions/new' 
+      elsif person && person.authenticate(params[:password])
         session[session_type] = person.id
         redirect_to person
       else

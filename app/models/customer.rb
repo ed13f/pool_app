@@ -39,6 +39,9 @@ class Customer < ApplicationRecord
   	def full_address
     	self.street_address + " " + self.city + ", " + self.state + " " + self.zip_code
   	end
+    def short_address
+      self.street_address + " " + self.city + ", " + self.state
+    end
 
     def days_list
     list = []
@@ -67,8 +70,4 @@ class Customer < ApplicationRecord
   def print_days
     day_string = self.days_list.join(" ")
   end
-
-  def display_customer_name_by_last
-    self.last_name + ", " + self.first_name
-  end 
 end

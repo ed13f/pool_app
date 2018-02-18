@@ -21,7 +21,7 @@
         <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
         <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
         <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
-        <div class="new-business-options">
+        <div class="new-business-options edit-business-options-width">
           <%= f.submit "Update" %>
           <%= link_to 'Cancel', controller: "businesses", action: "show", id: params[:id] %>
         </div>

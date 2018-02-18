@@ -57,7 +57,9 @@ class UsersController < ApplicationController
    def destroy
     @user = User.find_by_id(params[:id])
     if session[:business_id] && @user.customers.length == 0
-      @user.destroy
+      # @user.destroy
+      @user.active_employee = false
+      @user.save
       redirect_to "/"
     else
       flash[:notice] = "Not authorized / Transfer remaining customers"

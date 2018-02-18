@@ -44,11 +44,11 @@
       <ul id="nav-user">
         <% if session[:user_id] || session[:business_id] %>
           <li>
-            <%= link_to "logout", {:controller => "sessions", :action=> "destroy"}, :method => :delete %>
+            <%= link_to "Logout", {:controller => "sessions", :action=> "destroy"}, :method => :delete %>
           </li>
         <% else %>
           <li>
-            <%= link_to "Sign in", {:controller => "sessions", :action=> "new"}, :method => :get %>
+            <%= link_to "Sign In", {:controller => "sessions", :action=> "new"}, :method => :get %>
           </li>
         <% end %>
       </ul>
