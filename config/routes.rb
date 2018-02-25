@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :businesses, only: [:new, :create, :show, :edit, :update]
 
   # visit
-  get 'customers/visits/:id' => 'visits#new'
+  get 'customers/:id/visits' => 'visits#new'
   post '/visits/' => 'visits#create'
   get '/visits/:id' => 'visits#show'
 
@@ -39,8 +39,8 @@ Rails.application.routes.draw do
 
   #repairs
   resources :repairs, only: [ :create, :show, :edit, :update, :index, :destroy ]
-  post '/repairs/complete/:id' => 'repairs#complete'
-  get 'customers/repairs/:id' => 'repairs#new'
+  post '/repairs/:id/complete' => 'repairs#complete'
+  get 'customers/:id/repairs' => 'repairs#new'
 
   #days
   post '/days' => 'days#new'

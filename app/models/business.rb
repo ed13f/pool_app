@@ -9,6 +9,7 @@ class Business < ApplicationRecord
 	validates :business_name, :presence => true
 	validates :phone, :presence => true
 	validates :email, :presence => true
+	validates :password_digest, :presence => true
 
 	def number_of_customers
 		self.customers.count

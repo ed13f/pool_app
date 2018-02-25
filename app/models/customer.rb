@@ -17,6 +17,10 @@ class Customer < ApplicationRecord
     validates :last_name, :presence => true
     validates :phone, :presence => true
     validates :email, :presence => true
+    validates :street_address, :presence => true
+    validates :city, :presence => true
+    validates :state, :presence => true
+    validates :zip_code, :presence => true
 
   	def full_name
     	self.first_name + " " + self.last_name
@@ -39,9 +43,14 @@ class Customer < ApplicationRecord
   	def full_address
     	self.street_address + " " + self.city + ", " + self.state + " " + self.zip_code
   	end
+
     def short_address
       self.street_address + " " + self.city + ", " + self.state
     end
+
+    def address_street_city
+      self.street_address + ", " + self.city
+    end 
 
     def days_list
     list = []
@@ -58,7 +67,7 @@ class Customer < ApplicationRecord
       list.push("Thursday")
     end
     if self.friday
-      list.push("Friday")
+      list.push("Saturday")
     end
     list
   end

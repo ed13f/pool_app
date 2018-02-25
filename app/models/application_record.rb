@@ -5,6 +5,9 @@ class ApplicationRecord < ActiveRecord::Base
   def eastern_standard_time
     self.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%y")
   end
+  def updated_eastern_standard_time
+    self.updated_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%y")
+  end
 
   def coordinates
   	coordinates_obj = {:latitude => self.latitude, :longitude => self.longitude}

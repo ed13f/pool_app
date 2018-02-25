@@ -3,10 +3,10 @@
     <div class="header-full-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
     <h1>Repairs</h1>
-    <div class="open-switch">
+    <nav class="open-switch">
       <button id="open-repair-switch" class="active-repair-tab">Open Repairs</button>
       <button id="repair-history-switch">Repair History</button>
-    </div>
+    </nav>
   </header>
   <section id="open-repairs">
     <article>
@@ -26,11 +26,11 @@
                 <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
                 <td><%= link_to repair.title,repair_path(repair) %></td>
                 <td class="repair-small-hide"><%= repair.user.first_name %></td>
-                <td><%= button_to "Finish", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true %></td>
+                <td><%= button_to "Finish", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true, data: {confirm: "Are Your Sure?"} %></td>
               </tr>
             <% end %>
           <% else %>
-            <tr>
+            <tr class="table-empty-container">
               <td class="table-empty">No Open Repairs</td>
             </tr>
           <% end %>
@@ -46,7 +46,7 @@
             <th>Name</th>
             <th>Header</th>
             <th class="repair-small-hide">Creator</th>
-            <th>Completed On</th>
+            <th>Completed</th>
           </tr>
         </thead>
         <tbody class="repair-tbody">

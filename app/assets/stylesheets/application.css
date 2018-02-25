@@ -217,11 +217,16 @@ fieldset {
 }
 .flash{
   position:absolute;
+  max-width:440px;
   width: 80vw;
   text-align: center;
-  font-size:1.5rem;
-  margin: -3rem 10vw;
+  font-size:2rem;
+  margin: -8rem auto;
   color:darkred;
+}
+.repairs-image-flash{
+  margin: -5.5rem 12%;
+  max-width:initial;
 }
 /***********************/
 /*Media Queries*/
@@ -310,16 +315,15 @@ fieldset {
   }
 }
 @media screen and (min-width: 737px) {
-  /*.repair-new-bottom{
-    flex-direction:row;
-  }*/
   .new-repair-img input{
     width:100%;
     padding: 3px 2px;
   }
-  /*.new-repair-submit input{
-    margin: 7.6rem 0 2rem 0;
-  }*/
+}
+@media screen and (min-height: 737px) {
+  .repair-tbody {
+    max-height: 78vh !important;
+  }
 }
 /*ipad landscape*/
 @media screen and (orientation: landscape) and (min-width: 737px) {
@@ -386,7 +390,68 @@ fieldset {
       width: 340px !important;
       height:67vh;
     }
-
+    .repair-description-container{
+      padding:0 2%;
+    }
+ }
+/*@media screen and (min-width: 1150px) {
+  .history-visit-thead th, 
+  .history-visit-tbody td {
+    width: 20rem !important;
+  }
+}*/
+@media screen and (min-height: 680px) and (orientation: portrait) {
+  .repair-tbody,
+  .user-show-tbody{
+    max-height: 81vh;
+  }
+  #map{
+    height: 84vh;
+  }
+} 
+@media screen and (max-height: 450px) and (orientation: landscape) {
+  .repair-tbody,
+  .user-show-tbody{
+    max-height: 61vh!important;
+  }
+  #map{
+    height: 67vh !important;
+  }
+}
+@media screen and (max-height: 720px) and (orientation: landscape) {
+  .repair-tbody,
+  .user-show-tbody{
+    max-height: 68vh;
+  }
+  #map{
+    height: 73vh;
+}
+}@media screen and (max-width: 812px) and (orientation: landscape) {
+  .main-session-container{
+    margin:0;
+  }
+}
+/*@media screen and (max-height: 500px) and (orientation: landscape) {
+  .main-session-container{
+    margin:10vh 0 !important;
+  }
+}*/
+@media screen and (max-height: 800px) and (orientation: landscape) {
+  .repair-tbody,
+  .user-show-tbody{
+    max-height: 75vh;
+  }
+  #map{
+    height: 78vh;
+  }
+}
+ @media screen and (min-height: 800px) and (orientation: portrait) {
+  .repair-tbody{
+    max-height: 83vh !important;
+  }
+  #map{
+    height: 86vh;
+  }
  }
 @media screen and (min-width: 600px) {
   .repair-tbody{
@@ -457,7 +522,7 @@ fieldset {
   }
   .visit-show-links a{
     font-size:2rem;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
   }
   .show-subheader{
     font-size:3rem;
@@ -470,7 +535,7 @@ fieldset {
     padding:0;
   }
   .repair-img-zoom-container{
-    max-width: 43%; 
+    max-width: 49%; 
     display: inline-block; 
   }
   .customer-show-info{
@@ -490,21 +555,27 @@ fieldset {
   .history-header{
     font-size:3rem;
   }
+  
   .history-visit-table, .history-repair-table{
     font-size:2rem;
+  }
+
+  .history-visit-thead th, 
+  .history-visit-tbody td{
+    width: 20rem;
   }
   .history-views a{
     font-size:1.5rem;
   }
-  #no-notes{
-    width:225px;
-  }
+  /*#no-notes{
+    width:275px;
+  }*/
   .repair-show-info h3{
     font-size:2.5rem;
   }
   .repair-show-info p{
     font-size:2.25rem;
-    line-height: 2.5rem;
+    line-height: 2rem;
   }
   .repair-info-header-section,
   .repair-description,
@@ -563,10 +634,20 @@ fieldset {
   }*/
 
 }
-@media screen and (max-width: 668px) and (orientation: landscape){
-  .repair-tbody {
-      /*max-height: 57vh; iphone-view*/
-  }
+@media screen and (max-width: 800px){
+  .small-hide{
+      display:none;
+    }
+}
+@media screen and (max-width: 1000px){
+  .medium-hide{
+      display:none;
+    }
+}
+@media screen and (max-width: 1200px){
+  .large-hide{
+      display:none;
+    }
 }
 @media screen and (max-height: 420px) and (orientation: landscape){
   .business-lists-container{
@@ -653,6 +734,11 @@ fieldset {
     display:block;
   }
 }
+@media screen and (min-height: 700px) {
+  .repair-textarea textarea{
+    height:40vh;
+  }
+}
 @media screen and (min-width: 520px) {
   .repair-img-form form{
     flex-direction:row;
@@ -710,7 +796,7 @@ fieldset {
     display:none;
   }
   .user-show-tbody tr{
-    display:inline-block;
+    display:block;
   }
 }
 @media screen and (min-width: 530px) {
@@ -727,29 +813,29 @@ fieldset {
   .customer-links a{
     font-size:1.5rem;
   }
-  .user-show-edit-button{
+  .user-show-edit-button,
+  .users-new-customer{
     font-size:1.5rem;
   }
   .customer-show-label{
     font-size:2.5rem;
     line-height:2.5rem;
   }
-  .user-show-header-user{
-    font-size:3.5rem;
+  .user-show-header-user,{
+    font-size:3rem;
   }
-  .customer-show-address p{
+  .customer-show-address{
     font-size:2.25rem;
-    line-height:2rem;
+    line-height:0.5rem;
   }
 }
 @media screen and (min-width: 465px) {
   .repair-show-grid{
     flex-direction:row;
   }
-  /*.repair-show-info h3{
-    line-height: 2.25rem;
-    font-size: 2.25rem;
-  }*/
+  .repair-show-info-padding {
+    padding: 0px 0% !important;
+  }
   .sesion-type-options{
     font-size:2rem;
   }

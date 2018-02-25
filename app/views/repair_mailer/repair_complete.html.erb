@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your pool repair was completed on <%= @repair.updated_at %></h1>
+    <h1>Your pool repair was completed on <%= @repair.updated_eastern_standard_time %>.</h1>
     <p>
       We will be reaching out to you soon to discuss the repair in more detail.<br>
-      If you have any questions, react out to <%= @repair.user.business.owners_first_name %> at <%= @repair.user.business.phone %>
+      In the meantime, if you have any questions, react out to <%= @repair.user.first_name %> at <%= @repair.user.phone_format %>.
     </p>
     <p>Have a great day!</p>
   </body>

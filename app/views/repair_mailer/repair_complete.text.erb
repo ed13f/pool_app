@@ -1,7 +1,8 @@
-Your pool repair was completed on <%= @repair.updated_at %>
+Your pool repair was completed on <%= @repair.updated_eastern_standard_time %>.
 ===============================================
  
-We will be reaching out to you soon to discuss the repair in more detail.<br>
-If you have any questions, react out to <%= @repair.user.business.owners_first_name %> at <%= @repair.user.business.phone %>
+We will be reaching out to you soon to discuss the repair in more detail.
+
+In the meantime, if you have any questions, react out to <%= @repair.user.first_name %> at <%= @repair.user.phone_format %>.
  
 Have a great day!

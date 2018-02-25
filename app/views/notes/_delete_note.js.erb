@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   $("#note-<%= @note.id%>").remove();
   if ( $.trim($(".customer-notes-list ul").text()).length == 0){
-    $(".customer-notes-list ul").prepend("<li id='no-notes'>This Customer Has No Notes.</li>");
+    $(".customer-notes-list ul").prepend("<li id='no-notes'>No Notes</li>");
   }
 });

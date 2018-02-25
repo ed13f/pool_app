@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
     end
 
   	def new
-    	@user = User.new
+      if session[:business_id] || session[:user_id]
+        root_redirect_path
+      else
+    	  @user = User.new
+      end  
   	end
 
   	def create

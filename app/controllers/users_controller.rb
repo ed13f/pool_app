@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       		UserMailer.welcome_email(@user).deliver
       		redirect_to user_path(@user)
     	  else
-      		flash[:notice] = @user.errors.full_messages
+      		flash[:notice] = "Enter Required Feilds(*)"
           redirect_to '/users/new'
     	  end
   	end
@@ -49,8 +49,8 @@ class UsersController < ApplicationController
   	  if @user.update_attributes(user_params)
         redirect_to action:'show', :id => @user.id
       else
-        flash[:notice] = "Fill in all required fields"
-        redirect_to '/users/new'
+        flash[:notice] = "Enter Required Feilds(*)"
+        redirect_to '/users/' + @user.id.to_s + '/edit'
       end
   	end
 

@@ -35,7 +35,7 @@ class RepairsController < ApplicationController
           RepairMailer.repair_open(@repair).deliver
           redirect_to repair_path(@repair)
       	else
-          flash[:notice] = @repair.errors.full_messages
+          flash[:notice] = "Enter Required Fields(*)"
           redirect_to "/customers/repairs/" + repair_params[:customer_id].to_s
       	end
     end
@@ -64,7 +64,7 @@ class RepairsController < ApplicationController
         if @repair.update_attributes(repair_params)
           redirect_to @repair
         else
-          flash[:notice] = @repair.errors.full_messages
+          flash[:notice] = "Enter Required Fields(*)"
           redirect_to "/repairs/" + @repair.id.to_s + "/edit"
         end
   	end

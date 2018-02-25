@@ -8,19 +8,19 @@
       <%= link_to "Delete", {controller: :users, action: :destroy, id: params[:id]}, data: {confirm: "Are your sure? This will permanently delete the employee. Make sure all employee customers have been reassigned before deleting "}, method: :delete, :class =>"trash-button" %>
     <% end %>  
   </header>
-  <section>
+  <section class="relative">
     <% if flash[:notice] %>
-      <article class="flash">
+      <article class="flash user-flash">
         <p><%= flash[:notice] %></p>
       </article>  
     <% end %>
     <article class="new-user-form">
       <%= form_for(@user) do |f| %>
-        <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
-        <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
-        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-        <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <%= f.text_field :first_name, :placeholder => "First Name*", :autocomplete => :off %>
+        <%= f.text_field :last_name, :placeholder => "Last Name*", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number*", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email*", :autocomplete => :off %>
+        <%= f.password_field :password, :placeholder => "Password (Only Enter to Update)", :autocomplete => :off %>
         <% if session[:business_id] %>
           <div class="admin-input">
               <%= f.label "Made User an Admin?" %>

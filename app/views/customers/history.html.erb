@@ -1,54 +1,62 @@
 <main>
   <header class="history-header-section">
      <div class="header-full-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
+    <%= image_tag("Pool-Water-Desktop-8x10.jpg",class: "header-full-background")  %>
     <h1 class="history-header"><%= @customer.full_name%>'s History</h1>
-    <div class="history-views">
+    <nav class="history-views">
       <a class="repair-switch active-switch" id="history-visit-switch">Visit History</a>
       <a class="repair-switch" id="history-repair-switch">Repair History</a>
       <%= link_to 'Back',{ controller: "customers", action: "show", id: params[:id]}, :class => "history-back-link" %>
-    </div>
-  </header>
+    </nav>
   </header>
   <section id="history-visit-section">
     <table class="history-visit-table">
-      <% if @visit_history[0] %>
         <thead class="history-visit-thead">
           <tr>
-            <th>Serviced At</th>
+            <th>Serviced</th>
             <th>Vacuum</th>
-            <th>Filters</th>
-            <th>View More</th>
+            <th>Skimmer</th>
+            <th>Brush</th>
+            <th class="small-hide">Net Leafs</th>
+            <th class="medium-hide">Clean Filter</th>
+            <th class="large-hide">Scrub Tile</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody class="history-visit-tbody">
+          <% if @visit_history[0] %>
           <% @visit_history.each do |visit| %>
             <tr>
               <td><%= visit.eastern_standard_time %></td>
-              <td><%= visit.vacuum %></td>
-              <td><%= visit.clean_filters %></td>
+              <td><%= visit.vacuum ? raw("&#10004;") : raw("&#x2716;") %></td>
+              <td><%= visit.skimmer_basket ? raw("&#10004;") : raw("&#x2716;") %></td>
+              <td><%= visit.brush ? raw("&#10004;") : raw("&#x2716;") %></td>
+              <td class="small-hide"><%= visit.leaf_net ? raw("&#10004;") : raw("&#x2716;") %></td>
+              <td class="medium-hide"><%= visit.clean_filters ? raw("&#10004;") : raw("&#x2716;")  %></td>
+              <td class="large-hide"><%= visit.clean_tile ? raw("&#10004;") : raw("&#x2716;") %></td>
               <td><%= link_to "Visit", controller: "visits", action: "show", id: visit.id %></td>
             </tr>
           <% end %>
-        </tbody>
       <% else %>
         <tr>
-        <th>This Customer Has No Visits</th>
+        <td class="no-visit">This Customer Has No Visits</td>
         </tr>
       <% end %>
+      </tbody>
     </table>
   </section>
   <section id="history-repair-section">
     <table class="history-repair-table">
-      <% if @repair_history[0] %>
+      
         <thead class="history-repair-thead">
           <tr>
-            <th>Serviced At</th>
+            <th>Serviced</th>
             <th>Description</th>
             <th>View More</th>
           </tr>
         </thead>
         <tbody class="history-repair-tbody">
+          <% if @repair_history[0] %>
           <% @repair_history.each do |repair| %>
             <tr>
               <td><%= repair.eastern_standard_time %></td>
@@ -56,12 +64,13 @@
               <td><%= link_to "Repair", controller: "repairs", action: "show", id: repair.id %></td>
             </tr>
           <% end %>
-        </tbody>
+      
       <% else%>
         <tr>
-          <th>This Customer Has No Repairs</th>
+          <td>This Customer Has No Repairs</td>
         </tr>
       <% end %>
+      </tbody>
     </table>
   </section>
 </main>

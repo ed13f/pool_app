@@ -4,27 +4,26 @@
     <div class="header-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1 class="repair-show-header">Repair Details</h1>
-    <article class="repair-show-header-section">
-      <%= link_to 'Back', :back %>
+    <nav class="repair-show-header-section">
       <% if @repair.complete == false %>
-      <%= link_to "Edit Repair", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
-      <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket" %>
+      <%= link_to "Edit", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
+      <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket", data: {confirm: "Are You Sure?"} %>
       <% end %>
-    </article>
+    </nav>
   </header>
   <section class="repair-show-info">
     <article>
       <h2 class="repair-info-header-section">Details</h2>
-      <article class="repair-show-grid">
-        <div class="repair-info-col-left">
+      <article class="repair-show-grid repair-show-info-padding">
+        <section class="repair-info-col-left">
           <div class="repair-info-center">
             <h3>Customer:</h3>
-            <p><%= @repair.customer.first_name %></p>
+            <p><%= @repair.customer.full_name %></p>
             <h3>Created By:</h3>
             <p><%= @repair.user.full_name%></p>
           </div>
-        </div>
-        <div class="repair-info-col-right">
+        </section>
+        <section class="repair-info-col-right">
           <div class="repair-info-center">
             <h3>Status: </h3>
             <p><%= @repair.complete ? "Complete": "Incomplete" %></p>
@@ -36,11 +35,11 @@
               <p><%= @repair.print_date %></p>
             <% end %>
           </div>
-        </div>
+        </section>
       </article>
       <article>
-        <div>
-          <h2 class="repair-description">Description: </h2>
+        <div class="repair-description-container">
+          <h3 class="repair-description">Description: </h3>
           <p><%= @repair.description %></p>
         </div>
       </article>
@@ -65,6 +64,11 @@
       <header>
         <h2 class="repair-sub-header">Add Photo</h2>
       </header>
+      <% if flash[:notice] %>
+        <article class="flash repairs-image-flash">
+          <p class="notice"><%= flash[:notice] %></p>
+        </article>  
+      <% end %>
       <article class="repair-img-form">
         <%= form_for(@image) do |f| %>
           <div class="repair-img-input">

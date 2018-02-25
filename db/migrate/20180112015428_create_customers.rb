@@ -17,12 +17,12 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       		t.integer :user_id, null: false
       		t.boolean :weekly_complete, :default => false
       		t.string :weekly_visit_str, :default => ""
-      		t.boolean :monday
-          t.boolean :tuesday
-          t.boolean :wednesday
-          t.boolean :thursday
-          t.boolean :friday
-          t.boolean :receive_emails
+      		t.boolean :monday, :default => false
+          t.boolean :tuesday, :default => false
+          t.boolean :wednesday, :default => false
+          t.boolean :thursday, :default => false
+          t.boolean :friday, :default => false
+          t.boolean :receive_emails, :default => false
       		t.timestamps
       		t.timestamps
     	end

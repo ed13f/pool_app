@@ -4,15 +4,15 @@
         <div class="header-filter-container"></div>
         <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
         <h1 class="visit-show-header">Visit Details: <%= @visit.customer.full_name %></h1>
-        <h2 class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %>
-        <article class="visit-show-links">
+        <p class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %></p>
+        <nav class="visit-show-links">
             <%= link_to "Back", :back %>
-        </article>
+        </nav>
     </header>
       <section class="visit-show-details-section">
           <article class="chemistry-article">
             <header>
-                <h3 class="show-subheader">Chemistry Readings</h3>
+                <h2 class="show-subheader">Chemistry Readings</h2>
             </header>
             <article class="visit-show-flex">
                 <div class="visit-show-col-left">
@@ -29,7 +29,7 @@
           </article>
           <article class="duties-preformed-article-section">
             <header>
-                <h3 class="show-subheader">Duties Preformed</h3>
+                <h2 class="show-subheader">Duties Preformed</h2>
             </header>
             <article class="visit-show-flex">
                 <div class="visit-show-col-left">

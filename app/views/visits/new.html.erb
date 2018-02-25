@@ -5,38 +5,36 @@
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1>Complete Visit</h1>
   </header>
-  <% if flash[:notice] %>
-    <ul>
-      <% flash[:notice].each do |message| %>
-        <li><%= message%></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <article>
+  <section class="relative">
+    <% if flash[:notice] %>
+      <article class="flash visit-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
+    <% end %>
     <%= form_for(@visit) do |f| %>
       <%= field_set_tag "Chemistry Readings", class: "new-visit-chemistry" do %>
         <div class="chem-flex">
           <div class="chem-column-left">
             <div class="complete-visit-chem-inputs">
-              <%= f.label :chlorine %>
+              <%= f.label :chlorine, "Chlorine:"%>
               <%= f.number_field :chlorine, :placeholder => " Level"  %><br>
             </div>
             <div class="complete-visit-chem-inputs">
-              <%= f.label :ph %>
+              <%= f.label :ph, "Ph*:" %>
               <%= f.number_field :ph, :placeholder => " Level" %><br>
             </div>
             <div class="complete-visit-chem-inputs">
-              <%= f.label :alkalinity %>
+              <%= f.label :alkalinity, "Alkalinity*:" %>
               <%= f.number_field :alkalinity, :placeholder => " Level"  %>
             </div>
           </div>
           <div class="chem-column-right">
             <div class="complete-visit-chem-inputs">
-              <%= f.label :stabilizer %>
+              <%= f.label :stabilizer, "Stabilizer:" %>
               <%= f.number_field :stabilizer, :placeholder => " Level"  %>
             </div>
             <div class="complete-visit-chem-inputs">
-              <%= f.label :salt  %>
+              <%= f.label :salt, "Salt:" %>
               <%= f.number_field :salt, :placeholder => " Level"  %>
             </div>
           </div>
@@ -108,5 +106,5 @@
         <%= link_to 'Cancel', controller: "users", action: "show", id: @customer.user.id %>
       </div>
     <% end %>
-  </article>
+  </section>
 </main>

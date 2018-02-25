@@ -4,49 +4,44 @@
     <div class="header-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1 class="user-show-header-user"><%= @customer.full_name %></h1>
-    <article class="customer-show-address">
-      <p><span><%= @customer.short_address %></span></p>
+    <article>
+      <p class="customer-show-address"><span><%= @customer.short_address %></span></p>
     </article>
-    <article class="customer-links">
+    <nav class="customer-links">
       <%= link_to "Edit", controller: "customers", action: "edit", id: params[:id] %>
       <%= link_to "History", controller: "customers", action: "history", id: @customer.id %>
       <%= link_to "Create Repair", controller: "repairs", action: "new", id: @customer.id %>
-    </article>
+    </nav>
   </header>
   <section class="customer-show-section">
-    <h2 class="add-note-header">Details</h2>
+    <header>
+      <h2 class="add-note-header">Details</h2>
+    </header>  
     <article class="user-display-info">
-      <div class="user-info-left">
-        <h2 class="customer-show-label">Gate Code:</h2>
-        <p class="customer-show-info"> <%= @customer.gate_code %></p>
-        <h2 class="customer-show-label">Phone:</h2>
+      <section class="user-info-left">
+        <h3 class="customer-show-label">Gate Code:</h3>
+        <p class="customer-show-info"> <%= @customer.gate_code == "" ? "N/A" :  @customer.gate_code %></p>
+        <h3 class="customer-show-label">Phone:</h3>
         <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone_format %></a></p>
-        <h2 class="customer-show-label">Email:</h2>
+        <h3 class="customer-show-label">Email:</h3>
         <p class="customer-show-info"><a href="mailto:<%= @customer.email %>?subject=Pool Care"> <%= @customer.email %></a></p>
-        <h2 class="customer-show-label">Days:</h2>
-        <p class="customer-show-info"> <%= @customer.print_days %></p>
-      </div>
-      <div class="user-info-right">
+        <h3 class="customer-show-label">Days:</h3>
+        <p class="customer-show-info"> <%= @customer.print_days == "" ? "N/A" : @customer.print_days %></p>
+      </section>
+      <section class="user-info-right">
         <h2 class="customer-show-label">Filter:</h2>
-        <p class="customer-show-info"> <%= @customer.filter_type %></p>
+        <p class="customer-show-info"> <%= @customer.filter_type == "" ? "N/A" : @customer.filter_type %></p>
         <h2 class="customer-show-label">Pump:</h2>
-        <p class="customer-show-info"><%= @customer.pump_type %></p>
+        <p class="customer-show-info"><%= @customer.pump_type == "" ? "N/A" : @customer.pump_type %></p>
         <h2 class="customer-show-label">Notifications:</h2>
         <p class="customer-show-info"><%= @customer.receive_emails ? "Approved" : "Denied"%></p>
-        <h2 class="customer-show-label">Serviced By</h2>
+        <h2 class="customer-show-label">Serviced By:</h2>
         <p class="customer-show-info"><%= @customer.user.full_name %></p>
-      </div>
+      </section>
     </article>
     <article class="customer-display-notes">
       <header>
         <h2 class="note-header">Notes:</h2>
-        <% if flash[:notice] %>
-          <ul>
-            <% flash[:notice].each do |message| %>
-              <li><%= message%></li>
-            <% end %>
-          </ul>
-        <% end %>
       </header>
       <article class="customer-notes-list">
         <ul>
@@ -55,7 +50,7 @@
             <li id="note-<%= note.id %>"><%= link_to "X", note, method: :delete, remote: true, data: {confirm: "Are Your Sure?"} %> <%= note.description %></li>
           <% end %>
         <% else %>
-        <li id="no-notes">Customer Has No Notes.</li>
+        <li id="no-notes">No Notes</li>
         <% end %>
         </ul>
       </article>
@@ -63,11 +58,16 @@
   </section>
   <section class="notes-section">
     <header>
-        <h2 class="add-note-header">Add Notes</h2>
-      </header>
+      <h2 class="add-note-header">Add Notes</h2>
+    </header>
+    <% if flash[:notice] %>
+      <article class="flash notes-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
+    <% end %>
     <%= form_for @note, :html => { :class => "new-note-form" }, remote: true  do |f| %>
       <div class="new-note-input">
-        <%= f.text_area :description, :placeholder => "Description" %>
+        <%= f.text_area :description, :placeholder => "Description*" %>
         <%= f.hidden_field :customer_id, :value => params[:id] %>
       </div>
       <div class="customer-notes-container">

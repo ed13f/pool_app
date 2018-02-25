@@ -1,9 +1,8 @@
-<%= @business.business_name %>'s weekly Report
+<%= @business.business_name %> weekly Report
 ===============================================
  
 Unfinihsed Pools
 <%= @unfinished_pools.each do |pool| %>
-   <%= pool.full_address%> beloning to <%= pool.user.first_name %>
+   <%= pool.user.full_name %>: <%= pool.full_name%> at <%= pool.full_address%>
 <% end %>
  
-Thanks for joining and have a great day!

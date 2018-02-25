@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20180122183903) do
   enable_extension "plpgsql"
 
   create_table "businesses", force: :cascade do |t|
-    t.string "owners_first_name"
-    t.string "owners_last_name"
-    t.string "business_name"
+    t.string "owners_first_name", null: false
+    t.string "owners_last_name", null: false
+    t.string "business_name", null: false
     t.string "phone", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -43,12 +43,12 @@ ActiveRecord::Schema.define(version: 20180122183903) do
     t.integer "user_id", null: false
     t.boolean "weekly_complete", default: false
     t.string "weekly_visit_str", default: ""
-    t.boolean "monday"
-    t.boolean "tuesday"
-    t.boolean "wednesday"
-    t.boolean "thursday"
-    t.boolean "friday"
-    t.boolean "receive_emails"
+    t.boolean "monday", default: false
+    t.boolean "tuesday", default: false
+    t.boolean "wednesday", default: false
+    t.boolean "thursday", default: false
+    t.boolean "friday", default: false
+    t.boolean "receive_emails", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
@@ -96,11 +96,11 @@ ActiveRecord::Schema.define(version: 20180122183903) do
   end
 
   create_table "resets", force: :cascade do |t|
-    t.string "email"
-    t.string "temp_pass"
-    t.string "person_id_num"
+    t.string "email", null: false
+    t.string "temp_pass", null: false
+    t.string "person_id_num", null: false
     t.string "password_digest"
-    t.string "reset_type"
+    t.string "reset_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -127,23 +127,23 @@ ActiveRecord::Schema.define(version: 20180122183903) do
     t.integer "user_id", null: false
     t.integer "customer_id", null: false
     t.integer "chlorine"
-    t.integer "ph"
-    t.integer "alkalinity"
+    t.integer "ph", null: false
+    t.integer "alkalinity", null: false
     t.integer "stabilizer"
     t.integer "salt"
-    t.boolean "clean_tile"
-    t.boolean "leaf_net"
-    t.boolean "vacuum"
-    t.boolean "brush"
-    t.boolean "skimmer_basket"
-    t.boolean "pump_basket"
-    t.boolean "clean_filters"
-    t.boolean "new_filters"
-    t.boolean "add_chlorine"
-    t.boolean "add_acid"
-    t.boolean "add_bicarb"
-    t.boolean "add_stabilizer"
-    t.boolean "add_chlorine_tab"
+    t.boolean "clean_tile", default: false
+    t.boolean "leaf_net", default: false
+    t.boolean "vacuum", default: false
+    t.boolean "brush", default: false
+    t.boolean "skimmer_basket", default: false
+    t.boolean "pump_basket", default: false
+    t.boolean "clean_filters", default: false
+    t.boolean "new_filters", default: false
+    t.boolean "add_chlorine", default: false
+    t.boolean "add_acid", default: false
+    t.boolean "add_bicarb", default: false
+    t.boolean "add_stabilizer", default: false
+    t.boolean "add_chlorine_tab", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

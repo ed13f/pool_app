@@ -3,17 +3,15 @@
     <div class="header-full-filter-container"></div>
     <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
     <h1 class="user-show-header"><%= @user.first_name %>'s Route</h1>
+    <%= link_to "Add Customer", {:controller => "customers", :action=> "new"}, :method => :get, :class => "users-new-customer" %>
   </header>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
-  <section class="profile-views">
+  <nav class="profile-views">
     <a class="switch active-switch" id="map-switch">Map</a>
     <a class="switch" id="master-switch">Master</a>
     <a class="switch" id="incomplete-switch">Incomplete</a>
     <a class="switch" id="complete-switch">Complete</a>
     <%= link_to "Edit", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
-  </section>
+  </nav>
   <section id="master-sheet">
     <article>
       <table class="user-show-table">
@@ -30,8 +28,8 @@
             <% @pools.each do |pool| %>
               <tr>
                 <td><%= link_to pool.full_name, customer_path(pool) %></td>
-                <td class="user-large-days"><%= pool.street_address%></td>
-                <td><a href="tel:<%= pool.phone %>"><%= pool.phone%></a></td>
+                <td class="user-large-days"><%= pool.address_street_city %></td>
+                <td><a href="tel:<%= pool.phone %>"><%= pool.phone %></a></td>
                 <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
               </tr>
             <% end %>
@@ -50,8 +48,8 @@
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
-            <th>Address</th>
-            <th class="user-large-days">Number</th>
+            <th class="user-large-days">Address</th>
+            <th>Phone</th>
             <th><%= session[:business_id] ? "Gate Code" : "Finish" %></th>
           </tr>
         </thead>
@@ -60,8 +58,8 @@
           <% @unfinished_route.each do |customer| %>
             <tr>
               <td><%= link_to customer.full_name, customer_path(customer) %></td>
-              <td><%= customer.street_address %></td>
-              <td class="user-large-days"><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+              <td class="user-large-days"><%= customer.address_street_city %></td>
+              <td><a href="tel:<%= customer.phone %>"><%= customer.phone %></a></td>
               <td><%= session[:business_id] ? customer.gate_code : (link_to "Complete", controller: "visits", action: "new", id: customer.id) %></td>
             </tr>
           <% end %>
@@ -80,8 +78,8 @@
         <thead class="user-show-thead">
           <tr>
             <th>Name</th>
-            <th>Address</th>
-            <th class="user-large-days">Phone</th>
+            <th class="user-large-days">Address</th>
+            <th>Phone</th>
             <th>Details</th>
           </tr>
         </thead>
@@ -90,8 +88,8 @@
             <% @finished_route.each do |customer| %>
               <tr>
                 <td><%= link_to customer.full_name, customer_path(customer) %></td>
-                <td><%= customer.street_address%></td>
-                <td class="user-large-days"><a href="tel:<%= customer.phone %>"><%= customer.phone%></a></td>
+                <td class="user-large-days"><%= customer.address_street_city %></td>
+                <td><a href="tel:<%= customer.phone %>"><%= customer.phone %></a></td>
                 <td><%= link_to "Show Visit", controller: "visits", action: "show", id: customer.visits.last.id %></td>
               </tr>
             <% end %>

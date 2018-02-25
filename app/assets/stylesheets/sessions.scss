@@ -23,7 +23,7 @@
     padding: 0 2%;
     width: 93%;
     font-family: 'Kanit', sans-serif;
-    border-radius:5px
+    border-radius:3px
 }
 .session-email-reset{
 width:93%;
@@ -44,7 +44,7 @@ width:93%;
     text-align: center;
     text-decoration: none;
     color: black;
-    margin:2.1rem 2% 0 1%;
+    margin:2.1rem 1% 0 1%;
     padding:0 2%;
     font-family: 'Kanit', sans-serif;
 }
@@ -95,5 +95,8 @@ width:93%;
 .sign-in-header{
     font-size:3rem;
     margin:0;
+}
+.main-session-container{
+    margin:15vh 0;
 }
 

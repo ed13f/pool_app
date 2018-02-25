@@ -20,12 +20,13 @@ class CustomersController < ApplicationController
       @customer = Customer.new(customer_params)
       @customer.user_id = assign_user_id
       @customer.phone = customer_params[:phone].gsub(/[^\d]/, '')
+      binding.pry
       if @customer.save
 
         CustomerMailer.new_customer(@customer).deliver
         redirect_to customer_path(@customer)
       else
-        flash[:notice] = @customer.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to '/customers/new'
       end
   end
@@ -62,11 +63,10 @@ class CustomersController < ApplicationController
     args = customer_params
     args[:user_id] = assign_user_id
     args[:phone] = customer_params[:phone].gsub(/[^\d]/, '')
-    binding.pry
       if @customer.update_attributes(args)
         redirect_to action:'show', :id => @customer.id
       else
-        flash[:notice] = @customer.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to '/customers/' + @customer.id.to_s + "/edit"
       end
   end

@@ -24,7 +24,7 @@ class VisitsController < ApplicationController
         @visit.customer.save
         redirect_to @customer
     else
-        flash[:notice] = @visit.errors.full_messages
+        flash[:notice] = "Enter Required Feilds(*)"
         redirect_to "/customers/visits/" + @customer.id.to_s
     end
 	end

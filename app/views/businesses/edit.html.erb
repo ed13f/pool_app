@@ -5,22 +5,20 @@
     <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1>Edit Business</h1>
   </header>
-  <section>
+  <section class="relative">
     <article class="new-business-form">
       <% if flash[:notice] %>
-        <ul>
-          <% flash[:notice].each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+        <article class="flash businesses-edit-flash">
+          <p class="notice"><%= flash[:notice] %></p>
+        </article>  
       <% end %>
       <%= form_for(@business) do |f| %>
-        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
-        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>
-        <%= f.text_field :business_name, :placeholder => "Business Name", :autocomplete => :off %>
-        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-        <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name*", :autocomplete => :off %>
+        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name*", :autocomplete => :off %>
+        <%= f.text_field :business_name, :placeholder => "Business Name*", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number*", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email*", :autocomplete => :off %>
+        <%= f.text_field :password, :placeholder => "Password (Only Enter to Update)", :autocomplete => :off %>
         <div class="new-business-options edit-business-options-width">
           <%= f.submit "Update" %>
           <%= link_to 'Cancel', controller: "businesses", action: "show", id: params[:id] %>
