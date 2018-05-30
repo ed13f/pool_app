@@ -36,7 +36,7 @@ class RepairsController < ApplicationController
           redirect_to repair_path(@repair)
       	else
           flash[:notice] = "Enter Required Fields(*)"
-          redirect_to "/customers/repairs/" + repair_params[:customer_id].to_s
+          redirect_to "/customers/" + repair_params[:customer_id].to_s + "/repairs"
       	end
     end
 

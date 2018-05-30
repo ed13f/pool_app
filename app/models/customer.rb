@@ -50,7 +50,7 @@ class Customer < ApplicationRecord
 
     def address_street_city
       self.street_address + ", " + self.city
-    end 
+    end
 
     def days_list
     list = []
@@ -67,7 +67,7 @@ class Customer < ApplicationRecord
       list.push("Thursday")
     end
     if self.friday
-      list.push("Saturday")
+      list.push("Friday")
     end
     list
   end

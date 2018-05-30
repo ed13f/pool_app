@@ -29,7 +29,7 @@
             <p><%= @repair.complete ? "Complete": "Incomplete" %></p>
             <% if @repair.complete %>
               <h3>Date Finished: </h3>
-              <p><%= @repair.updated_at %></p>
+              <p><%= @repair.print_updated_date %></p>
             <% else %>
               <h3>Date Opened: </h3>
               <p><%= @repair.print_date %></p>
@@ -67,7 +67,7 @@
       <% if flash[:notice] %>
         <article class="flash repairs-image-flash">
           <p class="notice"><%= flash[:notice] %></p>
-        </article>  
+        </article>
       <% end %>
       <article class="repair-img-form">
         <%= form_for(@image) do |f| %>

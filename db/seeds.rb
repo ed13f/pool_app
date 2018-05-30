@@ -21,7 +21,7 @@ end
   Customer.create({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    phone: Faker::PhoneNumber.phone_number,
+    phone: rand(10 ** 10),
     email: Faker::Internet.free_email,
     street_address: Faker::Address.street_address,
     city: Faker::Address.city,
@@ -42,21 +42,21 @@ end
     receive_emails: [true, false].sample,
   })
 end
-5.times do
-  Note.create({
-    customer_id: [1, 2, 3, 4, 5].sample,
-    description: Faker::ChuckNorris.fact
-  })
-end
-20.times do
-  Repair.create({
-    customer_id: [1, 2, 3, 4, 5].sample,
-    user_id: 1,
-    title: "The motor is making a loud noise.",
-    description: Faker::ChuckNorris.fact,
-    complete: [true, false].sample
-  })
-end
+# 5.times do
+#   Note.create({
+#     customer_id: [1, 2, 3, 4, 5].sample,
+#     description: Faker::ChuckNorris.fact
+#   })
+# end
+# 20.times do
+#   Repair.create({
+#     customer_id: [1, 2, 3, 4, 5].sample,
+#     user_id: 1,
+#     title: "The motor is making a loud noise.",
+#     description: Faker::ChuckNorris.fact,
+#     complete: [true, false].sample
+#   })
+# end
 20.times do
   Visit.create({
     user_id: 1,

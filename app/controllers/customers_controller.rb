@@ -20,7 +20,6 @@ class CustomersController < ApplicationController
       @customer = Customer.new(customer_params)
       @customer.user_id = assign_user_id
       @customer.phone = customer_params[:phone].gsub(/[^\d]/, '')
-      binding.pry
       if @customer.save
 
         CustomerMailer.new_customer(@customer).deliver

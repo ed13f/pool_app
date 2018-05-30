@@ -25,7 +25,7 @@ class VisitsController < ApplicationController
         redirect_to @customer
     else
         flash[:notice] = "Enter Required Feilds(*)"
-        redirect_to "/customers/visits/" + @customer.id.to_s
+        redirect_to "/customers/" + @customer.id.to_s + "/visits"
     end
 	end
 

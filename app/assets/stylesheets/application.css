@@ -395,7 +395,7 @@ fieldset {
     }
  }
 /*@media screen and (min-width: 1150px) {
-  .history-visit-thead th, 
+  .history-visit-thead th,
   .history-visit-tbody td {
     width: 20rem !important;
   }
@@ -408,7 +408,7 @@ fieldset {
   #map{
     height: 84vh;
   }
-} 
+}
 @media screen and (max-height: 450px) and (orientation: landscape) {
   .repair-tbody,
   .user-show-tbody{
@@ -521,7 +521,7 @@ fieldset {
     font-size: 2.5rem;
   }
   .visit-show-links a{
-    font-size:2rem;
+    font-size:1.5rem;
     padding: 0 1rem;
   }
   .show-subheader{
@@ -535,8 +535,8 @@ fieldset {
     padding:0;
   }
   .repair-img-zoom-container{
-    max-width: 49%; 
-    display: inline-block; 
+    max-width: 49%;
+    display: inline-block;
   }
   .customer-show-info{
     font-size:2rem;
@@ -555,12 +555,12 @@ fieldset {
   .history-header{
     font-size:3rem;
   }
-  
+
   .history-visit-table, .history-repair-table{
     font-size:2rem;
   }
 
-  .history-visit-thead th, 
+  .history-visit-thead th,
   .history-visit-tbody td{
     width: 20rem;
   }
@@ -585,7 +585,7 @@ fieldset {
   .repair-show-header-section form input,
   .repair-show-header-section a{
     font-size: 1.5rem;
-  } 
+  }
   .new-note-input textarea{
     height: 2.8rem;
     line-height:2.6rem;
@@ -660,13 +660,13 @@ fieldset {
   .business-customer-sub-header{
     font-size: 2.5rem;
   }
-  .business-customers-list a, 
-  .business-employee-section a, 
+  .business-customers-list a,
+  .business-employee-section a,
   .business-repairs-section a{
     font-size: 2rem;
   }
-  .business-customers-list li, 
-  .business-employee-section li, 
+  .business-customers-list li,
+  .business-employee-section li,
   .business-repairs-section li{
     line-height: 1rem;
   }
@@ -678,8 +678,8 @@ fieldset {
   .business-right-container{
     height:61vh;
   }
-  .business-customers-list li, 
-  .business-employee-section li, 
+  .business-customers-list li,
+  .business-employee-section li,
   .business-repairs-section li{
         padding: 0.5rem 0;
   }
@@ -688,7 +688,7 @@ fieldset {
   .business-customers-list{
     height: 52vh !important;
   }
-  .biz-customer-list, 
+  .biz-customer-list,
   .business-right-container{
     height: 57vh;
   }
@@ -696,7 +696,7 @@ fieldset {
   .business-employee-list{
     height: 20.5vh !important;
   }
-  
+
 }
 @media screen and (min-width: 560px) {
   .new-session-form,
@@ -826,7 +826,7 @@ fieldset {
   }
   .customer-show-address{
     font-size:2.25rem;
-    line-height:0.5rem;
+    line-height:0.85rem;
   }
 }
 @media screen and (min-width: 465px) {

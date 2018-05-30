@@ -12,9 +12,19 @@ function getDirections(dest){
   var directionsService = new google.maps.DirectionsService();
 
 
-  function calcRoute() {
-    var origin      = new google.maps.LatLng(userLatitude, userLongitude);
+  // function calcRoute(dest) {
+    // userLatitude
+    // userLongitude
+    var origin      = new google.maps.LatLng(26.381699, -80.084005);
     var destination = new google.maps.LatLng(dest.latitude, dest.longitude);
+    console.log("userlat")
+    console.log(userLatitude)
+    console.log("userlong")
+    console.log(userLongitude)
+    console.log("destlat")
+    console.log(dest.latitude)
+    console.log("destlong")
+    console.log(dest.longitude)
     var request = {
         origin:      origin,
         destination: destination,
@@ -23,11 +33,13 @@ function getDirections(dest){
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
+      } else{
+        console.log(status);
       }
     });
-  }
+  // }
 
-  calcRoute();
+  // calcRoute();
 
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'directions'}}, function(){
@@ -41,35 +53,35 @@ function getDirections(dest){
   });
 }
 
-function getCustomerDirections(dest){
-  console.log("restful")
-  var directionsDisplay;
-  var directionsService = new google.maps.DirectionsService();
-  var map;
+// function getCustomerDirections(dest){
+//   console.log("restful")
+//   var directionsDisplay;
+//   var directionsService = new google.maps.DirectionsService();
+//   var map;
 
-  function initialize() {
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    var mapOptions = {
-      zoom:7
-    }
-    map = new google.maps.Map(document.getElementById('directions'), mapOptions);
-    directionsDisplay.setMap(map);
-  }
+//   function initialize() {
+//     directionsDisplay = new google.maps.DirectionsRenderer();
+//     var mapOptions = {
+//       zoom:7
+//     }
+//     map = new google.maps.Map(document.getElementById('directions'), mapOptions);
+//     directionsDisplay.setMap(map);
+//   }
 
-  function calcRoute() {
-    var origin      = new google.maps.LatLng(userLatitude, userLongitude);
-    var destination = new google.maps.LatLng(26.5631695, -80.1044279);
-    var request = {
-        origin:      origin,
-        destination: destination,
-        travelMode:  google.maps.TravelMode.DRIVING
-    };
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(response);
-      }
-    });
-  }
+//   function calcRoute() {
+//     var origin      = new google.maps.LatLng(userLatitude, userLongitude);
+//     var destination = new google.maps.LatLng(26.5631695, -80.1044279);
+//     var request = {
+//         origin:      origin,
+//         destination: destination,
+//         travelMode:  google.maps.TravelMode.DRIVING
+//     };
+//     directionsService.route(request, function(response, status) {
+//       if (status == google.maps.DirectionsStatus.OK) {
+//         directionsDisplay.setDirections(response);
+//       }
+//     });
+//   }
 
-  calcRoute();
-}
+//   calcRoute();
+// }
