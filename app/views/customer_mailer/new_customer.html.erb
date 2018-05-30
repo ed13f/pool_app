@@ -6,11 +6,11 @@
   <body>
     <h1>Welcome, <%= @customer.first_name %>!</h1>
     <p>
-      Thank you for the opportunity to work with you and your pool. You pool service provider, <%= @customer.user.first_name %>, will service your pool on a weekly basis.<br>
+      Thank you for the opportunity to work with you and your pool. All of us at <%= @customer.user.business.business_name %> are excited to get started. Your pool service provider, <%= @customer.user.full_name %>, will service your pool on a weekly basis.<br>
     </p>
     <p>
-      If you have any questions about the serive plan react out to <%= @customer.user.business.owners_first_name %> at <%= @customer.user.business.phone %>
+      If you have any questions about the service plan, react out to <%= @customer.user.first_name %> at <%= @customer.user.phone_format %>
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thank you again for joining!</p>
   </body>
 </html>

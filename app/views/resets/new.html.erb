@@ -1,16 +1,25 @@
 <main>
-  <header>
-    <h1 class="forgot-password-header">Request Password Change</h1>
+  <header class="forgot-password-header">
+    <div class="header-full-filter-container"></div>
+    <%= image_tag("Pool-Water-Desktop-8x10.jpg",class: "header-full-background")  %>
+    <h1>Password Change</h1>
   </header>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
-  <article class="forgot-form">
+  <section id="rest-password-container" class="message-container">
+    <h2>Your Request Has Been Submitted</h2>
+    <p>You should recieve an email with directins to reset your password if your email is in our records.</p>
+    <p>If you do not receive the email within 24 hours please try again.</p>
+  </section>
+  <section class="forgot-form relative">
+    <% if flash[:notice] %>
+      <article class="flash resets-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
+    <% end %>
     <%= form_for @reset, remote: true do |f| %>
-      <%= f.text_field :email, :placeholder => "Enter Your Email Address", :autocomplete => :off %>
+      <%= f.text_field :email, :placeholder => "Enter Your Email Address*", :autocomplete => :off, :class =>"session-email-reset" %>
       <div class="sesion-type reset-type">
         <div class="sesion-type-title">
-        <%= label_tag "Type of account?" %>
+        <%= label_tag "Account Type?" %>
         </div>
         <div class="sesion-type-options">
           <%= label :reset_type, 'User' %>
@@ -20,14 +29,9 @@
         </div>
       </div>
       <div class="forgot-pass-submit">
-        <%= submit_tag 'Reset Password ' %>
+        <%= submit_tag 'Reset' %>
         <%= link_to 'Cancel', :controller => "sessions", :action => "index" %>
       </div>
     <% end %>
-  </article>
-  <article id="rest-password-container" class="message-container">
-    <h1>Your Request Has Been Submitted</h1>
-    <p>You should recieve an email with directins to reset your password if your email is in our records.</p>
-    <p>If you do not receive the email within 24 hours please try again.</p>
-  </article>
+  </section>  
 </main>

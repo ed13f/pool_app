@@ -1,33 +1,31 @@
 <main>
-  <header>
-    <h1 class="new-user-header">Register New User</h1>
+  <header class="new-user-header">
+    <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <h1>Register User</h1>
   </header>
-  <section>
+  <section class="relative">
     <% if flash[:notice] %>
-      <ul>
-        <% flash[:notice].each do |message| %>
-          <li><%= message%></li>
-        <% end %>
-      </ul>
+      <article class="flash user-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
     <% end %>
     <article class="new-user-form">
       <%= form_for(@user) do |f| %>
-        <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => :off %>
+        <%= f.text_field :first_name, :placeholder => "First Name*", :autocomplete => :off %>
 
-        <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => :off %>
+        <%= f.text_field :last_name, :placeholder => "Last Name*", :autocomplete => :off %>
 
-        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number*", :autocomplete => :off %>
 
-        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email*", :autocomplete => :off %>
 
-        <%= f.password_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <%= f.password_field :password, :placeholder => "Password*", :autocomplete => :off %>
         <% if session[:business_id] %>
           <div class="admin-input">
-
-              <%= f.label "Made User an Admin?" %>
-
+              <%= f.label "User Admin" %>
               <%= f.check_box :admin %>
-
           </div>
         <% end %>
         <div class="new-user-submit">

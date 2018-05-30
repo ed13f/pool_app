@@ -7,11 +7,11 @@ class CustomersController < ApplicationController
       if session[:user_id]
         @logged_in_user = User.find_by_id(session[:user_id])
           if @logged_in_user.admin
-            @employees = @logged_in_user.business.users
+            @employees = @logged_in_user.business.users.order(:last_name)
             @user_admin = @logged_in_user.admin
           end
       elsif session[:business_id]
-        @employees = Business.find_by_id(session[:business_id]).users
+        @employees = Business.find_by_id(session[:business_id]).users.order(:last_name)
       end
   end
 
@@ -19,11 +19,13 @@ class CustomersController < ApplicationController
       user_or_business_logged_in
       @customer = Customer.new(customer_params)
       @customer.user_id = assign_user_id
+      @customer.phone = customer_params[:phone].gsub(/[^\d]/, '')
       if @customer.save
+
         CustomerMailer.new_customer(@customer).deliver
         redirect_to customer_path(@customer)
       else
-        flash[:notice] = @customer.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to '/customers/new'
       end
   end
@@ -57,11 +59,13 @@ class CustomersController < ApplicationController
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
     customer_allow_user_business_or_admin
-    @customer.user_id = assign_user_id
-      if @customer.update_attributes(customer_params)
+    args = customer_params
+    args[:user_id] = assign_user_id
+    args[:phone] = customer_params[:phone].gsub(/[^\d]/, '')
+      if @customer.update_attributes(args)
         redirect_to action:'show', :id => @customer.id
       else
-        flash[:notice] = @customer.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to '/customers/' + @customer.id.to_s + "/edit"
       end
   end
@@ -74,6 +78,14 @@ class CustomersController < ApplicationController
       @visit_history = @customer.visits
       @repair_history = @customer.repairs
     end
+  end
+
+  def destroy
+    @customer = Customer.find_by_id(params[:id])
+    @logged_in_user = User.find_by_id(session[:user_id])
+    customer_allow_user_business_or_admin
+    @customer.destroy
+    redirect_to "/"
   end
 
   private

@@ -1,38 +1,44 @@
 <main>
-  <header>
+  <header class="repair-show-main-header">
+    <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
     <h1 class="repair-show-header">Repair Details</h1>
-
+    <nav class="repair-show-header-section">
+      <% if @repair.complete == false %>
+      <%= link_to "Edit", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
+      <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket", data: {confirm: "Are You Sure?"} %>
+      <% end %>
+    </nav>
   </header>
-  <section class="repair-show-header-section">
-    <%= link_to 'Back', :back %>
-    <% if @repair.complete == false %>
-    <%= link_to "Edit Repair", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
-    <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket" %>
-    <% end %>
-  </section>
   <section class="repair-show-info">
     <article>
-      <article class="repair-show-grid">
-        <div class="repair-info-col-left">
-          <h3>Customer Name:</h3>
-          <p><%= @repair.customer.first_name %></p>
-          <h3>Created By:</h3>
-          <p><%= @repair.user.full_name%></p>
-        </div>
-        <div class="repair-info-col-right">
-          <h3>Completion Status: </h3>
-          <p><%= @repair.complete %></p>
-          <% if @repair.complete %>
-            <h3>Date Finished: </h3>
-            <p><%= @repair.updated_at %></p>
-          <% else %>
-            <h3>Date Opened: </h3>
-            <p><%= @repair.created_at %></p>
-          <% end %>
-        </div>
+      <h2 class="repair-info-header-section">Details</h2>
+      <article class="repair-show-grid repair-show-info-padding">
+        <section class="repair-info-col-left">
+          <div class="repair-info-center">
+            <h3>Customer:</h3>
+            <p><%= @repair.customer.full_name %></p>
+            <h3>Created By:</h3>
+            <p><%= @repair.user.full_name%></p>
+          </div>
+        </section>
+        <section class="repair-info-col-right">
+          <div class="repair-info-center">
+            <h3>Status: </h3>
+            <p><%= @repair.complete ? "Complete": "Incomplete" %></p>
+            <% if @repair.complete %>
+              <h3>Date Finished: </h3>
+              <p><%= @repair.print_updated_date %></p>
+            <% else %>
+              <h3>Date Opened: </h3>
+              <p><%= @repair.print_date %></p>
+            <% end %>
+          </div>
+        </section>
       </article>
       <article>
-        <div>
+        <div class="repair-description-container">
           <h3 class="repair-description">Description: </h3>
           <p><%= @repair.description %></p>
         </div>
@@ -45,7 +51,9 @@
         </header>
         <article class="repair-img-display">
           <% @repair.images.each do |image| %>
-            <%= image_tag(image.photo.url, :class => "repair-img") %>
+            <div class="repair-img-zoom-container">
+              <%= image_tag(image.photo.url, :class => "repair-img") %>
+            </div>
           <% end %>
         </article>
       </article>
@@ -56,10 +64,14 @@
       <header>
         <h2 class="repair-sub-header">Add Photo</h2>
       </header>
+      <% if flash[:notice] %>
+        <article class="flash repairs-image-flash">
+          <p class="notice"><%= flash[:notice] %></p>
+        </article>
+      <% end %>
       <article class="repair-img-form">
         <%= form_for(@image) do |f| %>
           <div class="repair-img-input">
-            <%= f.label :photo, "Photo: "%>
             <%= f.file_field :photo %>
           </div>
             <%= f.hidden_field :repair_id, :value => params[:id] %>

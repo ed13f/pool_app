@@ -1,15 +1,18 @@
 <main>
     <header class="visit-show-main-header">
+        <div class="center-column"></div>
+        <div class="header-filter-container"></div>
+        <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
         <h1 class="visit-show-header">Visit Details: <%= @visit.customer.full_name %></h1>
-        <h2 class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %>
-    </header>
-        <section class="visit-show-links">
+        <p class="visit-show-date">Date Visited: <%= @visit.eastern_standard_time %></p>
+        <nav class="visit-show-links">
             <%= link_to "Back", :back %>
-        </section>
+        </nav>
+    </header>
       <section class="visit-show-details-section">
           <article class="chemistry-article">
             <header>
-                <h3 class="show-subheader">Chemistry Readings</h3>
+                <h2 class="show-subheader">Chemistry Readings</h2>
             </header>
             <article class="visit-show-flex">
                 <div class="visit-show-col-left">
@@ -26,7 +29,7 @@
           </article>
           <article class="duties-preformed-article-section">
             <header>
-                <h3 class="show-subheader">Duties Preformed</h3>
+                <h2 class="show-subheader">Duties Preformed</h2>
             </header>
             <article class="visit-show-flex">
                 <div class="visit-show-col-left">
@@ -44,7 +47,7 @@
                     <p>Add Acid: <span class="duty-dis"><%= @visit.add_acid ? raw("&#10004") : raw("&#x2716;") %></span></p>
                     <p>Add Bicarb: <span class="duty-dis"><%= @visit.add_bicarb ? raw("&#10004") : raw("&#x2716;") %></span></p>
                     <p>Add Stabilizer: <span class="duty-dis"><%= @visit.add_stabilizer ? raw("&#10004") : raw("&#x2716;") %></span></p>
-                    <p>Add Chlorine Tab: <span class="duty-dis"><%= @visit.add_chlorine_tab ? raw("&#10004") : raw("&#x2716;") %></span></p>
+                    <p>Chlorine Tab: <span class="duty-dis"><%= @visit.add_chlorine_tab ? raw("&#10004") : raw("&#x2716;") %></span></p>
                 </div>
             </article>
           </article>

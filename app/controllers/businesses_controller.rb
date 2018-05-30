@@ -19,7 +19,7 @@ class BusinessesController < ApplicationController
         session[:business_id] = @business.id
         redirect_to business_path(@business)
       else
-        flash[:notice] = @business.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to '/businesses/new'
       end
     else
@@ -32,9 +32,9 @@ class BusinessesController < ApplicationController
     @logged_in_user = User.find_by_id(session[:user_id])
     allow_business_and_admin_access
     if @business
-      @employees = @business.users
-      @customers = @business.customers
-      @repairs = @business.repairs
+      @employees = @business.users.where(:active_employee => true).order(:last_name)
+      @customers = @business.customers.order(:last_name)
+      @repairs = @business.repairs.where(:complete => false).order(:created_at)
     end
   end
 
@@ -52,7 +52,7 @@ class BusinessesController < ApplicationController
         if @business.update_attributes(business_params)
           redirect_to @business
         else
-          flash[:notice] = @business.errors.full_messages
+          flash[:notice] = "Enter Required Fields(*)"
           redirect_to '/businesses/' + @business.id.to_s + '/edit'
         end
     else
@@ -69,9 +69,11 @@ class BusinessesController < ApplicationController
       @unfinished_pools = select_pools_completed_status(false)
       BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
       reset_pools
-      respond_to do |format|
-        format.js
-      end
+      flash[:notice] = "Reset Complete"
+        redirect_to "/businesses/" + @business.id.to_s
+      # respond_to do |format|
+      #   format.js { render partial: "successful_visit_reset" }
+      # end
     end
   end
 

@@ -1,6 +1,6 @@
 module RepairsHelper
  def pool_completion_select(status)
-  @session.repairs.where(complete: status)
+  @session.repairs.where(complete: status).order(updated_at: :desc)
  end
 
   def find_repairs_customer

@@ -24,15 +24,14 @@ class VisitsController < ApplicationController
         @visit.customer.save
         redirect_to @customer
     else
-        flash[:notice] = @visit.errors.full_messages
-        redirect_to "/customers/visits/" + @customer.id.to_s
+        flash[:notice] = "Enter Required Feilds(*)"
+        redirect_to "/customers/" + @customer.id.to_s + "/visits"
     end
 	end
 
   	def show
       @visit = Visit.find_by_id(params[:id])
       @visit ? @customer = @visit.customer : nil
-      binding.pry
       @logged_in_user = User.find_by_id(session[:user_id])
         customer_allow_user_business_or_admin
   	end

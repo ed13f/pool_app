@@ -1,14 +1,21 @@
 <main>
   <header>
+    <div class="header-full-filter-container"></div>
+    <%= image_tag("Pool-Water-Desktop-8x10.jpg",class: "header-full-background")  %>
     <h1 class="reset-password-header">Reset Password</h1>
   </header>
-  <article class="reset-password-form">
-    <%= form_for @reset, :url => url_for(:controller => 'resets', :action => 'update', :id => @user.id)  do |f| %>
-    <%= f.text_field :temp_pass, :placeholder => "Temperary Password", :autocomplete => :off %>
-
-    <%= f.text_field :password_digest, :placeholder => "New Password", :autocomplete => :off %>
-
-    <%= submit_tag 'Reset Password' %>
+  <section class="reset-password-form relative">
+    <% if flash[:notice] %>
+      <article class="flash reset-edit-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
     <% end %>
-  </article>
+    <%= form_for @reset, :url => url_for(:controller => 'resets', :action => 'update', :id => @user.id)  do |f| %>
+    <%= f.text_field :temp_pass, :placeholder => "Temperary Password*", :autocomplete => :off, :class => "reset-edit-input" %>
+
+    <%= f.text_field :password_digest, :placeholder => "New Password*", :autocomplete => :off, :class => "reset-edit-input" %>
+
+    <%= submit_tag 'Reset' %>
+    <% end %>
+  </section>
 </main>

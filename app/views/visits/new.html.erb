@@ -1,33 +1,40 @@
 <main>
-  <header>
-    <h1 class="new-visit-header">Complete Visit</h1>
+  <header class="new-visit-header">
+    <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <h1>Complete Visit</h1>
   </header>
-  <% if flash[:notice] %>
-    <ul>
-      <% flash[:notice].each do |message| %>
-        <li><%= message%></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <article>
+  <section class="relative">
+    <% if flash[:notice] %>
+      <article class="flash visit-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
+    <% end %>
     <%= form_for(@visit) do |f| %>
       <%= field_set_tag "Chemistry Readings", class: "new-visit-chemistry" do %>
         <div class="chem-flex">
           <div class="chem-column-left">
-            <%= f.label :chlorine %>
-            <%= f.number_field :chlorine, :placeholder => " Level"  %><br>
-            <%= f.label :ph %>
-            <%= f.number_field :ph, :placeholder => " Level" %><br>
-            <%= f.label :alkalinity %>
-            <%= f.number_field :alkalinity, :placeholder => " Level"  %>
+            <div class="complete-visit-chem-inputs">
+              <%= f.label :chlorine, "Chlorine:"%>
+              <%= f.number_field :chlorine, :placeholder => " Level"  %><br>
+            </div>
+            <div class="complete-visit-chem-inputs">
+              <%= f.label :ph, "Ph*:" %>
+              <%= f.number_field :ph, :placeholder => " Level" %><br>
+            </div>
+            <div class="complete-visit-chem-inputs">
+              <%= f.label :alkalinity, "Alkalinity*:" %>
+              <%= f.number_field :alkalinity, :placeholder => " Level"  %>
+            </div>
           </div>
           <div class="chem-column-right">
-            <div>
-              <%= f.label :stabilizer %>
+            <div class="complete-visit-chem-inputs">
+              <%= f.label :stabilizer, "Stabilizer:" %>
               <%= f.number_field :stabilizer, :placeholder => " Level"  %>
             </div>
-            <div>
-              <%= f.label :salt  %>
+            <div class="complete-visit-chem-inputs">
+              <%= f.label :salt, "Salt:" %>
               <%= f.number_field :salt, :placeholder => " Level"  %>
             </div>
           </div>
@@ -36,42 +43,68 @@
       <%= field_set_tag "Duties", class: "new-visit-duties" do %>
         <div class="duties-flex">
           <div class="duties-left">
-            <%= f.label :clean_tile %>
-            <%= f.check_box :clean_tile  %><br>
-            <%= f.label :leaf_net %>
-            <%= f.check_box :leaf_net %><br>
-            <%= f.label :vacuum %>
-            <%= f.check_box :vacuum %><br>
-            <%= f.label :brush %>
-            <%= f.check_box :brush %><br>
-            <%= f.label :skimmer_basket, "Skimmer" %>
-            <%= f.check_box :skimmer_basket %><br>
-            <%= f.label :pump_basket %>
-            <%= f.check_box :pump_basket %><br>
-            <%= f.label :clean_filters %>
-            <%= f.check_box :clean_filters %><br>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :clean_tile %>
+              <%= f.check_box :clean_tile  %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :leaf_net %>
+              <%= f.check_box :leaf_net %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :vacuum %>
+              <%= f.check_box :vacuum %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :brush %>
+              <%= f.check_box :brush %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :skimmer_basket, "Skimmer" %>
+              <%= f.check_box :skimmer_basket %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :pump_basket %>
+              <%= f.check_box :pump_basket %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :clean_filters %>
+              <%= f.check_box :clean_filters %><br>
+            </div>
           </div>
           <div class="duties-right">
-            <%= f.label :new_filters %>
-            <%= f.check_box :new_filters %><br>
-            <%= f.label :add_chlorine, "Chlorine" %>
-            <%= f.check_box :add_chlorine %><br>
-            <%= f.label :add_acid, "Acid" %>
-            <%= f.check_box :add_acid %><br>
-            <%= f.label :add_bicarb, "Bicarb" %>
-            <%= f.check_box :add_bicarb %><br>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :new_filters %>
+              <%= f.check_box :new_filters %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :add_chlorine, "Chlorine" %>
+              <%= f.check_box :add_chlorine %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :add_acid, "Acid" %>
+              <%= f.check_box :add_acid %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
+              <%= f.label :add_bicarb, "Bicarb" %>
+              <%= f.check_box :add_bicarb %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
             <%= f.label :add_stabilizer, "Stabilizer" %>
             <%= f.check_box :add_stabilizer %><br>
+            </div>
+            <div class="complete-visit-duties-inputs">
             <%= f.label :add_chlorine_tab, "Chlorine Tab" %>
             <%= f.check_box :add_chlorine_tab %><br>
+            </div>
             <%= f.hidden_field :customer_id, :value => params[:id] %>
           </div>
         </div>
       <% end %>
       <div class="visit-options">
-        <%= f.submit 'Complete Visit', :class => 'submit-visit' %>
+        <%= f.submit 'Complete', :class => 'submit-visit' %>
         <%= link_to 'Cancel', controller: "users", action: "show", id: @customer.user.id %>
       </div>
     <% end %>
-  </article>
+  </section>
 </main>

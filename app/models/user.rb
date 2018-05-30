@@ -7,7 +7,12 @@ class User < ApplicationRecord
     has_many :repairs, through: :business, source: :repairs
     has_secure_password
 
+    validates :first_name, :presence => true
+    validates :last_name, :presence => true
+    validates :phone, :presence => true
     validates :email, :presence => true
+    validates :password_digest, :presence => true
+    validates :business_id, :presence => true
 
   	def full_name
     	self.first_name + " " + self.last_name
@@ -20,5 +25,5 @@ class User < ApplicationRecord
       #   customer.days.days_list.count < 0
       # end
       # scheduled_days
-    end
+    end 
 end

@@ -9,6 +9,7 @@ class Business < ApplicationRecord
 	validates :business_name, :presence => true
 	validates :phone, :presence => true
 	validates :email, :presence => true
+	validates :password_digest, :presence => true
 
 	def number_of_customers
 		self.customers.count
@@ -23,4 +24,16 @@ class Business < ApplicationRecord
 			number_of_customers / number_of_employees
 		end
 	end
+
+	def repairs_status_alphabetical_sort(status)
+    	self.repairs.where(complete: status).order(:last_name)
+	end 
+
+	def customer_alphabetical_sort
+	    self.customers.order(:last_name)
+	end  
+
+	def display_customer_name_by_last
+		self.last_name + ", " + self.first_name
+	end	
 end

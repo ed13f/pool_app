@@ -25,6 +25,7 @@ var watchId;
 
 $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
+        setTimeout(function() { google.maps.event.trigger(map, 'resize') }, 600);
 		function coordErrors(err){
 			console.warn('ERROR(' + err.code + '): ' + err.message);
 		}
@@ -32,7 +33,8 @@ $( document ).ready(function() {
 		 var options = {
 		  enableHighAccuracy: true,
 		  timeout: 5000,
-		  maximumAge: 0
+		  maximumAge: 0,
+		  style:[]
 		};
 
 		function coordinates(response){
@@ -118,6 +120,40 @@ $( document ).ready(function() {
 				$("#history-visit-switch").removeClass("active-switch");
 				$("#history-repair-section").css("display", "inline-block");
 				$("#history-visit-section").css("display", "none");
+		})
+		// $(".repair-img-zoom-container").on("click", function(){
+		// 	console.log("hiii")
+		// 	$(this).addClass("repair-image-enlarge-container");
+		// 	$(this).find("img").addClass("repair-image-enlarge")
+		// })
+		// Business jquery
+		$("#bix-customer-button").on("click", function(){
+			$("#bix-customer-button").addClass("active-switch");
+			$("#bix-repair-button").removeClass("active-switch");
+			$("#bix-employee-button").removeClass("active-switch");
+			$(".business-right-container").css("display", "none")
+			$(".biz-customer-list").css("display", "block")
+		})
+		$("#bix-repair-button").on("click", function(){
+			$("#bix-repair-button").addClass("active-switch");
+			$("#bix-customer-button").removeClass("active-switch");
+			$("#bix-employee-button").removeClass("active-switch");
+			$(".business-right-container").css("display", "block")
+			$(".biz-customer-list").css("display", "none")
+
+			$(".business-repairs-section").css("display", "block")
+			$(".business-employee-section").css("display", "none")
+		})
+		$("#bix-employee-button").on("click", function(){
+			$("#bix-employee-button").addClass("active-switch");
+			$("#bix-customer-button").removeClass("active-switch");
+			$("#bix-repair-button").removeClass("active-switch");
+			$(".business-right-container").css("display", "block")
+			$(".biz-customer-list").css("display", "none")
+
+			$(".business-employee-section").css("display", "initial")
+			$(".business-repairs-section").css("display", "none")
+
 		})
 	});
 })

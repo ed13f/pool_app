@@ -1,7 +1,6 @@
 module CustomersHelper
   def user_or_business_logged_in
     if session[:business_id] || session[:user_id]
-      puts "passsssssssssssss"
     else
       flash[:notice] = "Not Authorized To View This Page"
       root_redirect_path

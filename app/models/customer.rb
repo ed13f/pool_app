@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
 	belongs_to :user
-  has_many :visits
-  has_many :repairs
-  has_many :notes
+  has_many :visits, dependent: :destroy
+  has_many :repairs, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_many :days, dependent: :destroy
   has_one :business, through: :user, source: :business
   accepts_nested_attributes_for :days, allow_destroy: true, reject_if: :all_blank
@@ -17,6 +17,10 @@ class Customer < ApplicationRecord
     validates :last_name, :presence => true
     validates :phone, :presence => true
     validates :email, :presence => true
+    validates :street_address, :presence => true
+    validates :city, :presence => true
+    validates :state, :presence => true
+    validates :zip_code, :presence => true
 
   	def full_name
     	self.first_name + " " + self.last_name
@@ -40,6 +44,14 @@ class Customer < ApplicationRecord
     	self.street_address + " " + self.city + ", " + self.state + " " + self.zip_code
   	end
 
+    def short_address
+      self.street_address + " " + self.city + ", " + self.state
+    end
+
+    def address_street_city
+      self.street_address + ", " + self.city
+    end
+
     def days_list
     list = []
     if self.monday
@@ -55,7 +67,7 @@ class Customer < ApplicationRecord
       list.push("Thursday")
     end
     if self.friday
-      list.push("Saturday")
+      list.push("Friday")
     end
     list
   end

@@ -10,7 +10,7 @@ class NotesController < ApplicationController
           format.js { render partial: "create_note" }
         end
 	    else
-        flash[:notice] = @note.errors.full_messages
+        flash[:notice] = "Enter Required Fields(*)"
         redirect_to "/customers/" + @customer.id.to_s
 	    end
     end

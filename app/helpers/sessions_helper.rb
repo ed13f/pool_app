@@ -13,12 +13,19 @@ module SessionsHelper
   	end
 
     def authenticate_signin(person, object_type, session_type)
+      # binding.pry
       person = object_type.find_by(email: params[:email])
-      if person && person.authenticate(params[:password])
+      if person.class == User && person.active_employee == false
+        flash[:notice] = "Employee is no longer active"
+        redirect_to '/sessions/new' 
+      elsif params[:email] == "" || params[:password] == ""
+        flash[:notice] = "Enter Required Feilds(*)"
+        redirect_to '/sessions/new' 
+      elsif person && person.authenticate(params[:password])
         session[session_type] = person.id
         redirect_to person
       else
-        flash[:notice] = "No User with those Credentials"
+        flash[:notice] = "Users Not Found"
         redirect_to '/sessions/new'
       end
     end

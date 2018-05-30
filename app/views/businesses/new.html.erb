@@ -1,23 +1,24 @@
 <main>
-  <header>
-    <h1 class="new-business-header">New Business</h1>
+  <header class="new-business-header">
+    <div class="center-column"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <h1>New Business</h1>
   </header>
-  <section>
+  <section class="relative">
     <% if flash[:notice] %>
-      <ul>
-      <% flash[:notice].each do |message| %>
-        <li><%= message%></li>
-      <% end %>
-    </ul>
+      <article class="flash businesses-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </article>  
     <% end %>
     <article class="new-business-form">
       <%= form_for(@business) do |f| %>
-        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name", :autocomplete => :off %>
-        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name", :autocomplete => :off %>
-        <%= f.text_field :business_name, :placeholder => "Business Name", :autocomplete => :off %>
-        <%= f.text_field :phone, :placeholder => "Phone Number", :autocomplete => :off %>
-        <%= f.text_field :email, :placeholder => "Email", :autocomplete => :off %>
-        <%= f.text_field :password, :placeholder => "Password", :autocomplete => :off %>
+        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name*", :autocomplete => :off %>
+        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name*", :autocomplete => :off %>
+        <%= f.text_field :business_name, :placeholder => "Business Name*", :autocomplete => :off %>
+        <%= f.text_field :phone, :placeholder => "Phone Number*", :autocomplete => :off %>
+        <%= f.text_field :email, :placeholder => "Email*", :autocomplete => :off %>
+        <%= f.text_field :password, :placeholder => "Password*", :autocomplete => :off %>
         <div class="new-business-options">
           <%= f.submit "Create" %>
           <%= link_to 'Cancel', :back %>
