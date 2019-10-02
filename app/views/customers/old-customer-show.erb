@@ -1,0 +1,87 @@
+<header class="customer-profile-header template-header">
+  <div class="header-wrapper wrapper max">
+    <h1><%= @customer.first_name + ' ' + @customer.last_name%></h1>
+    <div class="page-options">
+      <div class="options-nav">
+        <a class="switch details-switch mobile" id="details-switch">Details</a>
+        <a class="switch history-switch active-switch" id="history-switch">History</a>
+        <a class="switch repair-switch" id="repair-switch">Repairs</a>
+        
+      </div>
+      <div class="search-form form">
+        <%= form_tag(user_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-2">
+    <section id="visit-list" class="wrapper-right pool-lists history-list active-list">
+      <%= render :partial => 'visits/visit_card_list', :locals => { :history => @visit_history }  %>
+    </section>
+    <section class="wrapper-right pool-lists repairs-list">
+      <%= render :partial => 'repairs/repair-card-list', :locals => { :repairs => @repairs }  %>
+    </section>
+    <section class="wrapper-right pool-lists details-list">
+      <%= render :partial => 'customer_details', :locals => { :customer => @customer }  %>
+    </section>
+  </div>
+  <div class="col col-right flex-1 desktop">
+    <div class="customer-info wrapper-left">
+      <div class="flex">
+        <h2 class="flex-1">Customer Info</h2>
+        <div class="settings col flex">
+        <div class="icon-wrapper flex">
+          <i class="fa fa-gear customer"></i>
+        </div>
+        <div class="settings-drop-down flex flex-column">
+          <%= link_to "<i class='fa fa-wrench'></i>&nbsp;Create Repair".html_safe, controller: "repairs", action: "new", remote: true, :id => @customer.id %>
+          <%= link_to "<i class='fa fa-edit'></i>&nbsp;Edit".html_safe, controller: "customers", action: "edit", id: @customer.id, remote: true %>
+          <%= link_to "<i class='fa fa-edit'></i>&nbsp;Visit".html_safe, controller: "visits", action: "new", id: @customer.id, remote: true %>
+        </div>
+      </div> 
+    </div>
+        <address><%= @customer.address_street_city %></address>
+        <div>Gate Code: <%= @customer.gate_code %></div>
+        <div><a href="tel:<%= @customer.phone %>"> <%= @customer.phone_format %> <i class="fa fa-paper-plane"></i></div>
+        <div><a href="mailto:<%= @customer.email %>"><%= @customer.email %> <i class="fa fa-paper-plane"></i></a></div>
+        <div><%= @customer.receive_emails %></div>
+        <div>Filter: <%= @customer.filter_type %></div>
+        <div>Pump: <%= @customer.pump_type %></div>
+        <div>Pump: <%= @customer.print_days %></div>
+  </div>
+    <div class="col flex-1 wrapper">
+      Notes:
+        <ul>
+          <% if @customer.notes[0] %>
+            <% @customer.notes.each do |note| %>
+              <li id="note-<%= note.id %>">-&nbsp;<%= note.description %> <%= link_to "<i class='fa fa-gear'></i>".html_safe, note, method: :edit %></li>
+            <% end %>
+          <% else %>
+          <li id="no-notes">No Notes</li>
+          <% end %>
+          </ul>
+          <div class="notes-form form">
+        <%= form_for @note ? @note : Note.new, :html => { :class => "new-note-form" }, remote: true  do |f| %>
+            <%= f.text_field :description, :placeholder => "Description*" %>
+            <%= f.hidden_field :customer_id, :value => @customer.id %>
+            <%= f.submit "Submit" %>
+        <% end %>
+      </div>
+    </div> 
+  </div>
+</div>
+<aside id="customer-edit-form" class="wrapper form-slider">  
+<%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+<aside id="visit-form" class="wrapper form-slider">  
+<%= render :partial => 'visits/visit_form', :locals => { :visit=> Visit.new, :user=> Customer.new, :customer=> User.new }  %>
+</aside>
+
+

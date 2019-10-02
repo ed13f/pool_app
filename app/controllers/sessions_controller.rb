@@ -5,10 +5,11 @@ class SessionsController < ApplicationController
     end
 
   	def new
+      # binding.pry
       if session[:business_id] || session[:user_id]
         root_redirect_path
       else
-    	  @user = User.new
+        @session = User.new
       end  
   	end
 

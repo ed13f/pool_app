@@ -1,78 +1,54 @@
-<main>
-  <header class="customer-show-main-header">
-    <div class="center-column"></div>
-    <div class="header-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
-    <h1 class="user-show-header-user"><%= @customer.full_name %></h1>
-    <article>
-      <p class="customer-show-address"><span><%= @customer.short_address %></span></p>
-    </article>
-    <nav class="customer-links">
-      <%= link_to "Edit", controller: "customers", action: "edit", id: params[:id] %>
-      <%= link_to "History", controller: "customers", action: "history", id: @customer.id %>
-      <%= link_to "Create Repair", controller: "repairs", action: "new", id: @customer.id %>
-    </nav>
-  </header>
-  <section class="customer-show-section">
-    <header>
-      <h2 class="add-note-header">Details</h2>
-    </header>  
-    <article class="user-display-info">
-      <section class="user-info-left">
-        <h3 class="customer-show-label">Gate Code:</h3>
-        <p class="customer-show-info"> <%= @customer.gate_code == "" ? "N/A" :  @customer.gate_code %></p>
-        <h3 class="customer-show-label">Phone:</h3>
-        <p class="customer-show-info"><a href="tel:<%= @customer.phone %>"><%= @customer.phone_format %></a></p>
-        <h3 class="customer-show-label">Email:</h3>
-        <p class="customer-show-info"><a href="mailto:<%= @customer.email %>?subject=Pool Care"> <%= @customer.email %></a></p>
-        <h3 class="customer-show-label">Days:</h3>
-        <p class="customer-show-info"> <%= @customer.print_days == "" ? "N/A" : @customer.print_days %></p>
-      </section>
-      <section class="user-info-right">
-        <h2 class="customer-show-label">Filter:</h2>
-        <p class="customer-show-info"> <%= @customer.filter_type == "" ? "N/A" : @customer.filter_type %></p>
-        <h2 class="customer-show-label">Pump:</h2>
-        <p class="customer-show-info"><%= @customer.pump_type == "" ? "N/A" : @customer.pump_type %></p>
-        <h2 class="customer-show-label">Notifications:</h2>
-        <p class="customer-show-info"><%= @customer.receive_emails ? "Approved" : "Denied"%></p>
-        <h2 class="customer-show-label">Serviced By:</h2>
-        <p class="customer-show-info"><%= @customer.user.full_name %></p>
-      </section>
-    </article>
-    <article class="customer-display-notes">
-      <header>
-        <h2 class="note-header">Notes:</h2>
-      </header>
-      <article class="customer-notes-list">
-        <ul>
-        <% if @notes[0] %>
-          <% @notes.each do |note| %>
-            <li id="note-<%= note.id %>"><%= link_to "X", note, method: :delete, remote: true, data: {confirm: "Are Your Sure?"} %> <%= note.description %></li>
+<script>
+localStorage.setItem("customer_repairs", JSON.stringify(<%= raw@repairs.to_json %>));
+</script>
+<header class="user-profile-header template-header">
+  <div class="header-wrapper wrapper max">
+    <h1><%= @customer.first_name + ' ' + @customer.last_name%></h1>
+    <div class="page-options">
+      <div class="options-nav">
+        
+        <a class="switch history-switch active-switch" id="history-switch">History</a>
+        <a class="switch details-switch mobile" id="details-switch">Details</a>
+        <a class="switch repair-switch" id="repair-switch">Repairs</a>
+      </div>
+      <div class="search-form form desktop">
+        <%= form_tag(user_path, :method => 'get', remote: true) do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...', class: "search" %>
+          <%= button_tag(type: "submit") do %>
+            <span><i class='fa fa-search customer'></i></span>
           <% end %>
-        <% else %>
-        <li id="no-notes">No Notes</li>
         <% end %>
-        </ul>
-      </article>
-    </article>
-  </section>
-  <section class="notes-section">
-    <header>
-      <h2 class="add-note-header">Add Notes</h2>
-    </header>
-    <% if flash[:notice] %>
-      <article class="flash notes-flash">
-        <p class="notice"><%= flash[:notice] %></p>
-      </article>  
-    <% end %>
-    <%= form_for @note, :html => { :class => "new-note-form" }, remote: true  do |f| %>
-      <div class="new-note-input">
-        <%= f.text_area :description, :placeholder => "Description*" %>
-        <%= f.hidden_field :customer_id, :value => params[:id] %>
       </div>
-      <div class="customer-notes-container">
-        <%= f.submit "Submit", :class =>"note-submit" %>
-      </div>
-    <% end %>
-  </section>
-</main>
+      
+    </div> 
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-2">
+    <section class="wrapper-right max pool-lists history-list active-list">
+      <%= render :partial => 'visits/visit_card_list', :locals => { :history => @visit_history }  %>
+    </section>
+    <section class="wrapper-right max pool-lists repairs-list">
+      <%= render :partial => 'repairs/repair-card-list', :locals => { :repairs => @repairs }  %>
+    </section>
+    <section class="wrapper-right max pool-lists details-list mobile">
+      <%= render :partial => 'customers/customer_details', :locals => { :customer => @customer }  %>
+    </section>
+  </div>
+  <div class="col col-right flex-1 desktop">
+    <section class="wrapper max details-sidebar">
+      <%= render :partial => 'customers/customer_sidebar_details', :locals => { :customer => @customer }  %>
+      <%= render :partial => 'notes/notes_display', :locals => { :customer => @customer }  %>
+    </section>
+  </div>
+</div>
+<aside id="customer-edit-form" class="wrapper form-slider">  
+<%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+<aside id="visit-form" class="wrapper form-slider">  
+<%= render :partial => 'visits/visit_form', :locals => { :visit=> Visit.new, :user=> Customer.new, :customer=> User.new }  %>
+</aside>
+

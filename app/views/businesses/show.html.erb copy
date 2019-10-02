@@ -1,0 +1,70 @@
+  <header class="biz-header-section">
+    <div class="biz-show-grey-overlay"></div>
+    <div class="header-filter-container"></div>
+    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
+    <article class="biz-header-left">
+      <h1 class="business-header"><%=  @business.business_name %></h1>
+      <p class="business-sub-header"><%= Date.today.to_s(:long) %></p>
+    </article>
+    <aside class="biz-options">
+      <%= form_tag(controller: "businesses", action: "reset_weekely_visit", remote: true, data: {confirm: "Are your sure? This will reset all routes for the week."} ) do %>
+        <%= hidden_field_tag "id", @business.id %>
+        <%= submit_tag("Reset All Visits", data: { confirm: 'Are you sure you want to reset all pools' }) %>
+      <% end %>
+      <% if session[:business_id] %>
+        <%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
+      <% end %>
+    </aside>
+    <nav class="business-button-section">
+      <button id="bix-customer-button" class="active-switch">Customers</button>
+      <button id="bix-repair-button">Open Repairs</button>
+      <button id="bix-employee-button">Employees</button>
+    </nav>
+  </header>
+  <section>
+    <div class="col col-left">
+      <%= render :partial => 'customer-card-list', :locals => { :pools => @customers }  %>
+    </div>
+    <div class="col col-left">
+      <%= render :partial => 'customer-card-list', :locals => { :pools => @customers }  %>
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+ <!--  <% if flash[:notice] %>
+      <aside class="flash businesses-flash">
+        <p class="notice"><%= flash[:notice] %></p>
+      </aside>  
+    <% end %>
+  <section class="business-lists-container">
+    <section class="biz-customer-list">
+      <header class="biz-show-section-head-flex">
+        <h2 class="business-customer-sub-header">Customers: <%= @customers.count %> </h2>
+          <%= link_to "+", {:controller => "customers", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
+      </header>
+      <%= render :partial => 'customer-card-list', :locals => { :pools => @customers }  %>
+    </section>
+    <section class="business-right-container">
+      <article class="business-repairs-section">
+        <header>
+          <h2 class="business-employees-sub-header">Open Repairs: <%= @repairs.count %></h2>
+        </header>
+        <%= render :partial => 'customer-card-list', :locals => { :pools => @customers }  %>
+      </article>
+      <article class="business-employee-section">
+        <header class="biz-show-section-head-flex">
+          <h2 class="business-employees-sub-header">Employees: <%= @employees.count %></h2>
+          <%= link_to "+", {:controller => "users", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
+        </header>
+        <%= render :partial => 'customer-card-list', :locals => { :pools => @customers }  %>
+      </article>
+    </section>
+  </section> -->

@@ -1,71 +1,43 @@
-<main class="body-background-color">
-  <header class="repair-main-header">
-    <div class="header-full-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
+<script>
+localStorage.setItem("repairsOpenRepairs", JSON.stringify(<%= raw@open_repairs.to_json %>));
+localStorage.setItem("repairsAll", JSON.stringify(<%= raw@repairs.to_json %>));
+</script>
+<header class="user-profile-header template-header">
+  <div class="header-wrapper wrapper max">
     <h1>Repairs</h1>
-    <nav class="open-switch">
-      <button id="open-repair-switch" class="active-repair-tab">Open Repairs</button>
-      <button id="repair-history-switch">Repair History</button>
-    </nav>
-  </header>
-  <section id="open-repairs">
-    <article>
-      <table class="repair-table" cellspacing="0">
-        <thead class="repair-thead">
-          <tr>
-            <th>Name</th>
-            <th>Header</th>
-            <th class="repair-small-hide">Creator</th>
-            <th>Complete</th>
-          </tr>
-        </thead>
-        <tbody class="repair-tbody">
-          <% if @open_repairs[0] %>
-            <% @open_repairs.each do |repair| %>
-              <tr id="repair-entry-<%= repair.id %>">
-                <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
-                <td><%= link_to repair.title,repair_path(repair) %></td>
-                <td class="repair-small-hide"><%= repair.user.first_name %></td>
-                <td><%= button_to "Finish", { controller: "repairs", action: "complete", id: repair.id }, :class=> "repair-complete-form", remote: true, data: {confirm: "Are Your Sure?"} %></td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr class="table-empty-container">
-              <td class="table-empty">No Open Repairs</td>
-            </tr>
+    <div class="page-options">
+      <div class="options-nav">
+        <a class="switch master-switch active-switch" id="master-switch">Master</a>
+        <a class="switch repair-switch mobile" id="repair-switch">Unfinished</a>
+      </div>
+      <div class="search-form form desktop">
+        <%= form_tag(:controller => "businesses", :action => "show", :method => 'get', :id => 1) do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...', class: "search" %>
+          <%= button_tag(type: "submit") do %>
+            <span><i class='fa fa-search customer'></i></span>
           <% end %>
-        </tbody>
-      </table>
-    </article>
-  </section>
-  <section id="finished-repairs">
-    <article>
-      <table class="repair-table" cellspacing="0">
-        <thead class="repair-thead">
-          <tr>
-            <th>Name</th>
-            <th>Header</th>
-            <th class="repair-small-hide">Creator</th>
-            <th>Completed</th>
-          </tr>
-        </thead>
-        <tbody class="repair-tbody">
-          <% if @finished_repairs[0] %>
-            <% @finished_repairs.each do |repair| %>
-              <tr>
-                <td><%= link_to repair.customer.full_name, controller: "customers", action: "show", id: repair.customer.id %></td>
-                <td><%= link_to repair.title,repair_path(repair) %></td>
-                <td class="repair-small-hide"><%= repair.user.first_name %></td>
-                <td><%= repair.print_updated_date %></td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr>
-              <td class="table-empty">You Have No Repais Completed</td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </article>
-  </section>
-</main>
+        <% end %>
+      </div>
+    </div> 
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-2">
+    <section class="wrapper-right max pool-lists repairs-list active-list repairs-all">
+      <%= render :partial => 'repairs/repair-card-list', :locals => { :repairs => @repairs }  %>
+    </section>
+    <section class="wrapper-right max pool-lists repairs-list repairs-open-repairs mobile">
+      <%= render :partial => 'repairs/repair-card-list', :locals => { :repairs => @open_repairs }  %>
+    </section>
+  </div>
+  <div class="col col-right flex-1 desktop">
+    <h2 class="wrapper">Unfinished Repairs</h2>
+    <section class="wrapper max pool-lists repairs-list repairs-open-repairs">
+      <%= render :partial => 'repairs/repair-card-list', :locals => { :repairs => @open_repairs }  %>
+    </section>
+  </div>
+</div>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+

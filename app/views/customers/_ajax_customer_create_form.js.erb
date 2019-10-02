@@ -1,0 +1,5 @@
+$( document ).ready(function() {
+	console.log("create")
+	$('.customers.card-list .list').prepend("<%= escape_javascript(render :partial => 'customers/customer-card-individual', :locals => { :customer => customer })  %>")
+	$('#customer-edit-form').removeClass('active');
+});

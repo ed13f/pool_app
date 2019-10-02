@@ -1,0 +1,59 @@
+<% content_for :body_class, 'businesses-show' %>
+<header class="biz-header-section wrapper max template-header">
+  <div class="biz-header-left">
+      <h1 class="business-header"><%=  @business.business_name %>&nbsp;</h1>
+      <%= link_to "<i class='fa fa-edit'></i>".html_safe, controller: "businesses", action: "edit", id: @business.id %>
+    </div>
+  </div>
+  <div class="biz-header-right">
+    <div class="search-form form">
+        <%= form_tag(business_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
+          <%= submit_tag "Search", :name => nil %>
+      <% end %>
+  </div>
+</header>
+<section class="control-panel wrapper max">
+  <div class="col col-left">
+    <div class="grid-row">
+      <div class="grid-header">
+        <h2>Customers</h2>
+        <div class="settings">
+        <%= link_to "<i class='fa fa-plus' aria-hidden='true'></i>".html_safe, controller: "customers", action: "new", remote: true %>
+        </div>
+      </div>
+      
+    <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @customers }  %>
+    </div>
+  </div>
+  <div class="col col-right">
+    
+    <div class="grid-row row-top">
+      <div class="grid-header">
+        <h2>Repairs</h2>
+        <div class="settings">
+        <%= link_to "<i class='fa fa-plus' aria-hidden='true'></i>".html_safe, controller: "businesses", action: "edit", id: @business.id %>
+        </div>
+      </div>
+      <%= render :partial => 'repair-card-list', :locals => { :repairs => @repairs }  %>
+    </div>
+    <div class="grid-row row-bottom">
+      <div class="grid-header">
+        <h2>Employees</h2>
+        <div class="settings">
+        <%= link_to "<i class='fa fa-plus' aria-hidden='true'></i>".html_safe, controller: "users", action: "new", remote: true %>
+        </div>
+      </div>
+      <%= render :partial => 'users/user-card-list', :locals => { :users => @employees }  %>
+    </div>
+  </div>
+</section>
+<aside id="customer-edit-form" class="wrapper form-slider"> 
+  <%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="user-form" class="wrapper form-slider">  
+  <%= render :partial => 'users/user_form', :locals => { :user => User.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>

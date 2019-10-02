@@ -40,8 +40,10 @@ gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem "paperclip", "~> 5.0.0"
+gem 'client_side_validations'
 
 gem 'jquery-rails'
+gem 'jquery-validation-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'faker'

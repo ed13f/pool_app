@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+	$('.visits.card-list .list').prepend("<%= escape_javascript(render :partial => 'visits/visit_card_individual', :locals => { :visit => visit })  %>")
+	$('#visit-form').removeClass('active');
+});

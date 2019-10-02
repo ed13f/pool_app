@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
   include UsersHelper
+    def index
+      @pools = @user.customers.search(params[:search])
+    end
   	def new
       @logged_in_user = User.find_by_id(session[:user_id])
       user_allow_business_and_admin
-    	  @user = User.new
+    	@user = User.new
+      respond_to do |format|
+        format.js { render partial: "users/ajax_show_form", locals: {user: @user} }
+      end
   	end
 
   	def create
@@ -11,35 +17,49 @@ class UsersController < ApplicationController
       user_allow_business_and_admin
     	  @user = User.new(user_params)
         @user.business_id = assign_business_id
+        @user.phone = user_params[:phone].gsub(/[^\d]/, '')
     	  if @user.save
-      		UserMailer.welcome_email(@user).deliver
-      		redirect_to user_path(@user)
+      		# UserMailer.welcome_email(@user).deliver
+      		respond_to do |format|
+            format.js { render partial: "users/ajax_create_form", locals: {user: @user} }
+          end
     	  else
-      		flash[:notice] = "Enter Required Feilds(*)"
-          redirect_to '/users/new'
+          @errors = @user.errors.messages.keys
+          @errors = {user: @errors}
+          respond_to do |format|
+            format.js { render partial: "application/ajax_error_handling", locals: {errors: @errors} }
+          end
     	  end
   	end
 
   	def show
     	@user = User.find_by_id(params[:id])
       @logged_in_user = User.find_by_id(session[:user_id])
+      @note = Note.new
       user_allow_user_business_and_admin
       if @user
-        @pools = @user.customers
-        @finished_route = select_finished_route
-        @unfinished_route = select_unfinished_route
-      end
-        @hash = Gmaps4rails.build_markers(@pools) do |customer, marker|
-          marker.lat customer.latitude
-          marker.lng customer.longitude
-          marker.infowindow render_to_string(:partial => "/customers/map_customer_info.html.erb", :locals => { :object => customer})
+        # @pools = @user.customers
+        @pools = customer_search(params[:search], @user.customers)
+        @todays_route = customer_search(params[:search], todays_route)
+        @sidebar_todays_route = todays_route
+        
+        if(!params[:search].nil? && !params[:button].nil?)
+          respond_to do |format|
+            format.html {render or redirect_to wherever you need it}
+            format.js { render partial: "users/search_result", locals: {user: @user} }
+          end
         end
+        
+      end
     end
 
   	def edit
     	@user = User.find_by_id(params[:id])
       @logged_in_user = User.find_by_id(session[:user_id])
       user_allow_user_business_and_admin
+      respond_to do |format|
+        format.js { render partial: "users/ajax_show_form", locals: {user: @user} }
+      end
   	end
 
   	def update
@@ -47,10 +67,14 @@ class UsersController < ApplicationController
       @logged_in_user = User.find_by_id(session[:user_id])
       user_allow_user_business_and_admin
   	  if @user.update_attributes(user_params)
-        redirect_to action:'show', :id => @user.id
+        respond_to do |format|
+          format.js { render partial: "users/ajax_update_form", locals: {user: @user} }
+        end
       else
         flash[:notice] = "Enter Required Feilds(*)"
-        redirect_to '/users/' + @user.id.to_s + '/edit'
+        respond_to do |format|
+          format.js { render partial: "users/ajax_update_form", locals: {user: @user} }
+        end
       end
   	end
 

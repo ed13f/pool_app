@@ -1,0 +1,77 @@
+$( document ).ready(function() {
+	$('.error').removeClass('error');
+	var errors = <%= raw@errors.to_json %>;
+	var objectType = Object.keys(errors)[0];
+	for (i = 0; i < errors[objectType].length; i++) { 
+		var error = errors[objectType][i];
+		switch (error) {
+		  case "user":
+		    var input = $("#" + objectType + "_user_id");
+		    var message = "Requires Input*"
+		    break;
+		  case "first_name":
+		  	var input = $("#" + objectType + "_first_name");
+		  	var message = "Requires Input*"
+		    break;
+		  case "last_name":
+		    var input = $("#" + objectType + "_last_name");
+		    var message = "Requires Input*"
+		    break;
+		  case "phone":
+		    var input = $("#" + objectType + "_phone");
+		    var message = "Requires Valid Number*"
+		    break;
+		  case "email":
+		    var input = $("#" + objectType + "_email");
+		    var message = "Requires Valid email*"
+		    break;
+		  case "street_address":
+		    var input = $("#" + objectType + "_street_address");
+		    var message = "Requires Input*"
+		    break;
+		  case "city":
+		    var input = $("#" + objectType + "_city");
+		    var message = "Requires Input*"
+		    break;
+		  case "zip_code":
+		    var input = $("#" + objectType + "_zip_code");
+		    var message = "Requires 5 Digits*"
+		    break; 
+		  case "days":
+		    var input = $(".service-day legend");
+		    input.addClass("error");
+		    break;
+		  case "password":
+		    var input = $("#" + objectType + "_password");
+		    var message = "Requires Input*"
+		    input.addClass("error");
+		    break;
+		  case "title":
+		    var input = $("#" + objectType + "_title");
+		    var message = "Requires Input*"
+		    input.addClass("error");
+		    break;
+		  case "description":
+		  // debugger
+		  	if(objectType == "repair"){
+		  		var input = $("#" + objectType + "_description");
+		    	var message = "Requires Input*"
+		    	input.addClass("error");
+		  	} else if(objectType == "note"){
+		  		var customerID = Object.values(errors)[1];
+		  		var input = $("input[value='" + customerID +"']").siblings(".description-input")
+		  		// var input = $("#" + objectType + "_description");
+		  		var message = "Requires Input*"
+		    	input.addClass("error");
+
+		  	}
+		    break;          
+		}
+		// debugger
+		input.addClass("error");
+		input.val("");
+		var label = input.siblings("label").addClass("error");
+		label.addClass("active-input");
+		input.attr('placeholder', message);
+	}
+});

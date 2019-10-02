@@ -1,0 +1,21 @@
+<div class="row flex notes-widget">
+	<div class="col flex-1">
+	  <strong>Notes:</strong>
+	    <ul>
+	      <% if customer.notes[0] %>
+	        <% customer.notes.each do |note| %>
+	        <%= render :partial => 'notes/note_item', :locals => { :note => note }  %>
+	        <% end %>
+	      <% else %>
+	      <!-- <li classf="no-notes">Add a note to this customers file</li> -->
+	      <% end %>
+	      </ul>
+	      <div class="notes-form form form-wrapper">
+	    <%= form_for @note ? @note : Note.new, :html => { :class => "flex",:id => nil }, remote: true  do |f| %>
+	        <%= f.text_field :description, :placeholder => "Enter A Note*", :class => "description-input", :id => nil %>
+	        <%= f.hidden_field :customer_id, :value => customer.id, :id => nil %>
+	        <%= f.submit "Submit" %>
+	    <% end %>
+	  </div>
+	</div>
+</div>

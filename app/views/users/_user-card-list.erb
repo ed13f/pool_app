@@ -1,0 +1,13 @@
+<section class="users card-list">
+    <div class="list">
+      <% if  !users.nil? %>
+            <%  users.each do |user| %>
+            <%= render :partial => 'users/user-card-individual', :locals => { :user => user }  %>
+            <% end %>
+          <% else %>
+            <tr>
+              <td class="table-empty">No Pools Completed on Today's Route.</td>
+            </tr>
+          <% end %>
+    </div>
+  </section>

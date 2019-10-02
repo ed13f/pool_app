@@ -1,0 +1,32 @@
+<article id="user-card-<%= user.id %>" class="card flex flex-column user-card-<%= user.id %>">
+  <header class="row flex flex-1">
+    <div class="heading col flex-1">
+      <h2><%= link_to user.full_name, controller: "users", action: "show", id: user.id %></h2>
+    </div>
+    <div class="settings col flex">
+      <div class="icon-wrapper flex">
+        <%= link_to "<i class='fa fa-gear'></i>".html_safe, controller: "users", action: "edit", id: user.id, remote: true %>
+      </div>
+      
+      <div class="settings-drop-down flex flex-column">
+      </div>
+    </div> 
+  </header>
+  <div class="row flex">
+    <div class="col flex-1 tablet-flex">
+      <div class="col flex-1">
+        <p>
+          <a href="tel:+1<%= user.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= display_phone_number(user.phone) %></a>
+        </p>
+      </div>
+      <div class="col email flex-1"> 
+        <p>
+          <a href="mailto:<%= user.email %>"><i class="fa fa-envelope"></i>&nbsp;<%= user.email %></a>
+        </p>
+      </div>
+    </div>
+    <div class="col mob-right">
+      <p>Pools: <%= user.customers.count %></p>
+    </div>
+  </div>
+</article>

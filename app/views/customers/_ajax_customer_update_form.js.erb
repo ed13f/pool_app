@@ -1,0 +1,5 @@
+$( document ).ready(function() {
+	console.log("updated")
+	$('.customer-card-<%= customer.id%>').replaceWith("<%= escape_javascript(render :partial => 'customers/customer-card-individual', :locals => { :customer => customer })  %>")
+	$('#customer-edit-form').removeClass('active');
+});

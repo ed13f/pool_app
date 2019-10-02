@@ -1,0 +1,13 @@
+<section class="repairs card-list">
+    <div class="list">
+      <% if  !repairs.nil? %>
+            <%  repairs.each do |repair| %>
+              <%= render :partial => 'repairs/repair-card-individual', :locals => { :repair => repair }  %>
+            <% end %>
+          <% else %>
+            <tr>
+              <td class="table-empty">No Pools Completed on Today's Route.</td>
+            </tr>
+          <% end %>
+    </div>
+  </section>

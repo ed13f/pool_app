@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+	$('.repairs.card-list .list').prepend("<%= escape_javascript(render :partial => 'repair-card-individual', :locals => { :repair => repair, :customer => customer })  %>")
+	$('#repair-form').removeClass('active');
+});

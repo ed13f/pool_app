@@ -1,0 +1,5 @@
+$( document ).ready(function() {
+	$('#customer-edit-form, #repair-form, #user-form, #visit-form').removeClass('active');
+	$('#business-form').html("<%= escape_javascript(render :partial => 'businesses/business_form', :locals => { :business => business })  %>")
+	$('#business-form').addClass('active');
+});

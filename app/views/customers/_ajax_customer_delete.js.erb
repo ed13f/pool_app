@@ -1,0 +1,7 @@
+$( document ).ready(function() {
+	console.log("delete")
+	var selector = '#customer-card-<%= customer.id %>';
+	// debugger
+	$(selector).remove(selector);
+	$('#customer-edit-form').removeClass('active');
+});

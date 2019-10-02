@@ -1,0 +1,52 @@
+<header class="flex">
+  <h2 class="header-text"><%=  user.persisted? ? "Edit" : "Add" %> Employee</h2>
+  <% if(user.id) %>
+  <div class="delete-wrapper">
+    <%= link_to "Delete", {controller: :users, action: :destroy, id: user.id}, data: {confirm: "Are Your Sure? This Will Permanently Delete The Customer."}, method: :delete, :class =>"trash-button" %>
+  </div>
+  <% end %>
+</header>
+<section class="form-wrapper">
+  <%= form_for(user, remote:true, :id => user.id) do |f| %>
+    <%= field_set_tag "Employee Info", class: "customer-info" do %>
+      <div class="name flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :first_name, 'First Name*', :class =>  user.first_name ? 'active-input' : ''  %>
+          <%= f.text_field :first_name, :autocomplete => :off, :class =>"" %>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :last_name, 'Last Name*', :class =>  user.last_name ? 'active-input' : '' %>
+          <%= f.text_field :last_name, :autocomplete => :off, :class =>"" %>
+        </div>
+      </div>
+      <div class="contact flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :phone, 'Phone Number*', :class =>  user.last_name ? 'active-input' : '' %>
+          <%= f.text_field :phone, :autocomplete => :off, :class =>"", :value => display_phone_number(f.object.phone) %>
+        </div>
+        <div class="input-wrapper flex-1">
+            <%= f.label :email, 'Email*', :class =>  user.last_name ? 'active-input' : '' %>
+          <%= f.text_field :email, :autocomplete => :off, :class =>"" %>
+        </div>
+      </div>
+      <div class="contact flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :password, 'Password*', :class =>  user.last_name ? 'active-input' : '' %>
+        <%= f.password_field :password, :autocomplete => :off %>
+      </div>
+      </div>
+        <% if session[:business_id] %>
+        <div class="checkbox">
+          <%= f.check_box :admin, :class => "checkbox-custom" %>
+          <%= f.label :admin, "Make Employee an Admin", :class =>"input-wrapper checkbox-custom-label" %>
+          
+        </div>
+        <% end %>
+    <% end %>
+    </div>    
+    <div class="submit">
+      <%= f.submit 'Update', :class => 'customer-new-submit' %>
+      <button id="cancel-button" class="cancel" type="button">Cancel</button>
+    </div>
+  <% end %>
+</section>

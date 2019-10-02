@@ -1,41 +1,17 @@
-<main>
-	<header>
-		<div class="header-full-filter-container"></div>
-    	<%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
-		<h1 class="new-session-header">Pool Service Pro</h1>
-	</header>
-	<section class="main-session-container">
-		<article class="new-session-form relative">
-	  		<h2 class="sign-in-header">Sign In</h2>
-	  		<% if flash[:notice] %>
-		      <article class="flash">
-		        <p class="notice"><%= flash[:notice] %></p>
-		      </article>  
-		    <% end %>
-			<%= form_tag :action => :create, local: true do |f| %>
-			  <div class="session-email">
-			    <%= text_field_tag 'email', nil, placeholder: "Email*", :autocomplete => :off %>
-			  </div>
-			  <div class="session-password">
-			  	<%= link_to "Forgot Password?", {controller: "resets", action: "new"}, class: "forgot-password" %>
-			    <%= password_field_tag :password, nil, :placeholder => "Password*", :autocomplete => :off %>
-			  </div>
-			  <div class="sesion-type">
-		    	<div class="sesion-type-title">
-			    <%= label_tag "Type of account?" %>
-			    </div>
-			    <div class="sesion-type-options">
-				    <%= label_tag "user" %>
-				    <%= radio_button_tag 'type', 'user', true %>
-				    <%= label_tag "business" %>
-				    <%= radio_button_tag 'type', 'business' %>
-				  </div>
-			  </div>
-			  <div class="new-session-submit">
-			    <%= submit_tag 'Login' %>
-			    <%= link_to 'Register', {:controller => "businesses", :action=> "new"}, :method => :get %>
-			  </div>
-			<% end %>
-		</article>
-	</section>
-</main>
+<div class="login-background-wrapper">
+	<%= image_tag("Pool-Water.jpg",class: "login-background")  %>
+	<div class="background-screen"></div>
+</div>
+<header class="wrapper-max">
+	<h1 class="">Pool Service Pro</h1>
+</header>
+<section class="session-form wrapper-max">
+	<article class=" form-wrapper">
+  		<h2 class="">Sign In</h2>
+  		<%= render :partial => 'sessions/sessions_form', :locals => { :session => @session }  %>
+
+
+
+
+	</article>
+</section>

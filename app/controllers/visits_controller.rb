@@ -3,29 +3,38 @@ class VisitsController < ApplicationController
 	def new
     @customer = Customer.find_by_id(params[:id])
     @logged_in_user = User.find_by_id(session[:user_id])
-    allow_only_user_and_admin
-    	   @visit = Visit.new
+    # allow_only_user_and_admin
+    @visit = Visit.new
+    respond_to do |format|
+      format.js { render partial: "visits/ajax_show_form", locals: {visit: @visit, customer: @customer } }
+    end
   end
 
 	def create
-    session[:user_id] ? @customer = Customer.find_by_id(visit_params[:customer_id]) : nil
-    @logged_in_user = User.find_by_id(session[:user_id])
-    allow_only_user_and_admin
+    # session[:user_id] ? @customer = Customer.find_by_id(visit_params[:customer_id]) : nil
+    @customer = Customer.find_by_id(visit_params[:customer_id])
+    # @logged_in_user = User.find_by_id(session[:user_id])
+    # allow_only_user_and_admin
     @visit = Visit.new(visit_params)
-    @visit.user_id = session[:user_id]
+    # @visit.user_id = session[:user_id]
+    @visit.user_id = @customer.user.id
     customer = @visit.customer
     if @visit.save
-        customer.receive_emails ? VisitMailer.visit_complete(@visit).deliver : nil
+        # customer.receive_emails ? VisitMailer.visit_complete(@visit).deliver : nil
         # end
-        customer.weekly_visit_str += Time.now.strftime("%A") + " "
+        # customer.weekly_visit_str += Time.now.strftime("%A") + " "
         if customer.days_list.count == customer.days_visited_list.count
           @visit.customer.weekly_complete = true
         end
         @visit.customer.save
-        redirect_to @customer
+        respond_to do |format|
+          format.js { render partial: "visits/ajax_create_form", locals: {visit: @visit, customer: @customer } }
+        end
     else
         flash[:notice] = "Enter Required Feilds(*)"
-        redirect_to "/customers/" + @customer.id.to_s + "/visits"
+        respond_to do |format|
+          format.js { render partial: "visits/ajax_create_form", locals: {visit: @visit, customer: @customer } }
+        end
     end
 	end
 

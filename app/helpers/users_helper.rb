@@ -35,6 +35,20 @@ module UsersHelper
       end
     end
 
+    # def todays_route
+    #   @finished_route = @user.customers.select do |customer|
+    #       customer.days_list.include?(Time.now.strftime("%A"))
+    #     end
+    # end
+    def todays_route
+      day = Time.now.strftime("%A").downcase
+      days = ['monday','tuesday', 'wednesday', 'thursday', 'friday']
+      if(days.include?(day))
+        @todays_route = @user.customers.where(day => true)
+      end
+      
+    end
+
     def select_finished_route
       @finished_route = @user.customers.select do |customer|
           customer.days_list.include?(Time.now.strftime("%A")) && customer.days_visited_list.include?(Time.now.strftime("%A"))
@@ -46,6 +60,17 @@ module UsersHelper
           customer.days_list.include?(Time.now.strftime("%A")) && customer.weekly_complete == false && !customer.days_visited_list.include?(Time.now.strftime("%A"))
         end
     end
+    def customer_search(search, pools)
+      if  !pools.nil?
+        if search
+          # @pools = self.customers
+          pools.where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+        else
+          # binding.pry
+          pools
+        end
+      end 
+  end
 
 
 

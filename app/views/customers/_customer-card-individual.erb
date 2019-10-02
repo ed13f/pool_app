@@ -1,0 +1,53 @@
+<article id="" class="card flex flex-column customer-card-<%= customer.id %>">
+  <header class="row flex flex-1">
+    <div class="heading col flex-1">
+      <h2><%= link_to customer.full_name, controller: "customers", action: "show", id: customer.id %></h2>
+    </div>
+    <div class="settings col flex">
+      <div class="icon-wrapper flex">
+        <div class="more-info"><i class="fa fa-chevron-down"></i>
+        </div> 
+        <i class="fa fa-gear customer"></i>
+      </div>
+      <div class="settings-drop-down flex flex-column">
+        <%= link_to "<i class='fa fa-wrench'></i>&nbsp;Repair".html_safe, controller: "repairs", action: "new", remote: true, :id => customer.id %>
+        <%= link_to "<i class='fa fa-edit'></i>&nbsp;Edit".html_safe, controller: "customers", action: "edit", id: customer.id, remote: true %>
+        <%= link_to "<i class='fa fa-bar-chart'></i>&nbsp;Visit".html_safe, controller: "visits", action: "new", id: customer.id, remote: true %>
+      </div>
+    </div> 
+  </header>
+  <div class="row">
+    <div class="col">
+      <p><a href="<%= customer.google_maps_direction_link %>" target="_blank"><i class="fa fa-home"></i>&nbsp;<%= customer.full_address %></a></p>
+    </div>
+  </div>
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+        <p><a href="tel:+1<%= customer.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= display_phone_number(customer.phone) %></a></p>
+    </div>
+    <div class="col flex-1">
+        <p><a href="mailto:<%= customer.email %>"><i class="fa fa-envelope"></i>&nbsp;<%= customer.email %> </a></p>
+    </div>
+  </div>
+  <div class="more-section flex-column">
+
+
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+      <p><i class='fa fa-calendar no-hover' aria-hidden='true'></i>&nbsp;<%= customer.print_days %></p>
+    </div> 
+    <div class="col flex-1">
+      <p><strong>Gate Code:</strong> <%= customer.gate_code %></p>
+    </div>
+  </div>
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+      <p><strong>Filter:</strong> <%= customer.filter_type %></p>
+    </div> 
+    <div class="col flex-1">
+      <p><strong>Pump:</strong> <%= customer.pump_type %></p>
+    </div>
+  </div>
+    <%= render :partial => 'notes/notes_display', :locals => { :customer => customer }  %>
+  </div>
+</article>

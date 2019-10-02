@@ -1,0 +1,42 @@
+<article id="customer-card-<%= customer.id %>" class="card flex flex-column card-list">
+  <header class="row flex flex-1">
+    <div class="heading col flex-1">
+      <h2>Customer Details</h2>
+    </div> 
+  </header>
+  <div class="row">
+    <div class="col">
+      <p><%= customer.address_street_city %></p>
+    </div>
+  </div>
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+        <p><a href="tel:<%= customer.phone %>"> <%= customer.phone_format %> <i class="fa fa-paper-plane"></i></a></p>
+    </div>
+    <div class="col flex-1">
+        <p><a href="mailto:<%= customer.email %>"><%= customer.email %> <i class="fa fa-paper-plane"></i></a></p>
+    </div>
+  </div>
+  <div class="more-section flex-column">
+
+
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+      <p>Visit Day: <%= customer.print_days %></p>
+    </div> 
+    <div class="col flex-1">
+      <p>Gate Code: <%= customer.gate_code %></p>
+    </div>
+  </div>
+  <div class="row flex mob-col">
+    <div class="col flex-1">
+      <p>Filter: <%= customer.filter_type %></p>
+    </div> 
+    <div class="col flex-1">
+      <p>Pump: <%= customer.pump_type %></p>
+    </div>
+  </div>
+
+  <%= render :partial => 'notes/notes_display', :locals => { :customer => customer }  %>
+  </div>
+</article>

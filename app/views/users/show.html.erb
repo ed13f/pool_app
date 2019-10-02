@@ -1,106 +1,56 @@
-<main>
-  <header class="user-profile-header">
-    <div class="header-full-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-full-background")  %>
-    <h1 class="user-show-header"><%= @user.first_name %>'s Route</h1>
-    <%= link_to "Add Customer", {:controller => "customers", :action=> "new"}, :method => :get, :class => "users-new-customer" %>
-  </header>
-  <nav class="profile-views">
-    <a class="switch active-switch" id="map-switch">Map</a>
-    <a class="switch" id="master-switch">Master</a>
-    <a class="switch" id="incomplete-switch">Incomplete</a>
-    <a class="switch" id="complete-switch">Complete</a>
-    <%= link_to "Edit", {controller: "users", action: "edit"}, id: session[:user_id], :class => "user-show-edit-button" %>
-  </nav>
-  <section id="master-sheet">
-    <article>
-      <table class="user-show-table">
-        <thead class="user-show-thead">
-          <tr>
-            <th>Name</th>
-            <th class="user-large-days">Address</th>
-            <th>Phone</th>
-            <th>Day</th>
-          </tr>
-        </thead>
-        <tbody class="user-show-tbody">
-          <% if @pools[0] %>
-            <% @pools.each do |pool| %>
-              <tr>
-                <td><%= link_to pool.full_name, customer_path(pool) %></td>
-                <td class="user-large-days"><%= pool.address_street_city %></td>
-                <td><a href="tel:<%= pool.phone %>"><%= pool.phone %></a></td>
-                <td class='<%= pool.weekly_complete ? "green" : "red" %>'><%= pool.print_days%></td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr>
-              <td class="table-empty">You Have No Current Customers.</td>
-            </tr>
+<script>
+// localStorage.setItem("user", JSON.stringify(<%= raw@user.to_json %>));
+localStorage.setItem("userCustomers", JSON.stringify(<%= raw@pools.to_json %>));
+localStorage.setItem("userTodaysCustomers", JSON.stringify(<%= raw@todays_route.to_json %>));
+</script>
+
+<header class="user-profile-header template-header">
+  <div class="header-wrapper wrapper max">
+    <h1 class="pad-10"><%= @user.first_name %>'s Route</h1>
+    <div class="page-options pad-10">
+      <div class="options-nav">
+        <button class="switch master-switch active-switch" id="master-switch">Master</button>
+        <button class="switch todays-switch mobile" id="todays-switch">Todays</button>
+        <button class="switch map-switch" id="map-switch">Map</button>
+      </div>
+      <div class="search-form form desktop">
+        <%= form_tag(user_path, :method => 'get', remote: true) do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...', class: "search" %>
+          <%= button_tag(type: "submit") do %>
+            <span><i class='fa fa-search customer'></i></span>
           <% end %>
-        </tbody>
-      </table>
-    </article>
-  </section>
-  <section id="unfinished-pools">
-    <article>
-      <table class="user-show-table">
-        <thead class="user-show-thead">
-          <tr>
-            <th>Name</th>
-            <th class="user-large-days">Address</th>
-            <th>Phone</th>
-            <th><%= session[:business_id] ? "Gate Code" : "Finish" %></th>
-          </tr>
-        </thead>
-        <tbody class="user-show-tbody">
-          <% if @unfinished_route[0] %>
-          <% @unfinished_route.each do |customer| %>
-            <tr>
-              <td><%= link_to customer.full_name, customer_path(customer) %></td>
-              <td class="user-large-days"><%= customer.address_street_city %></td>
-              <td><a href="tel:<%= customer.phone %>"><%= customer.phone %></a></td>
-              <td><%= session[:business_id] ? customer.gate_code : (link_to "Complete", controller: "visits", action: "new", id: customer.id) %></td>
-            </tr>
-          <% end %>
-        <% else %>
-          <tr>
-            <td class="table-empty">No Unfinished Pools on Today's Route.</td>
-          </tr>
         <% end %>
-        </tbody>
-      </table>
-    </article>
-  </section>
-  <section id="finished-pools">
-    <article>
-      <table class="user-show-table">
-        <thead class="user-show-thead">
-          <tr>
-            <th>Name</th>
-            <th class="user-large-days">Address</th>
-            <th>Phone</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody class="user-show-tbody">
-          <% if @finished_route[0] %>
-            <% @finished_route.each do |customer| %>
-              <tr>
-                <td><%= link_to customer.full_name, customer_path(customer) %></td>
-                <td class="user-large-days"><%= customer.address_street_city %></td>
-                <td><a href="tel:<%= customer.phone %>"><%= customer.phone %></a></td>
-                <td><%= link_to "Show Visit", controller: "visits", action: "show", id: customer.visits.last.id %></td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr>
-              <td class="table-empty">No Pools Completed on Today's Route.</td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </article>
-  </section>
-  <%= render :partial => "user_route_map" %>
-</main>
+      </div>
+      
+    </div> 
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-2 wrapper-right">
+    <section class="max pool-lists master-pool-list  active-list user-customers pad-10">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @pools }  %>
+    </section>
+    <section class="wrapper-right max pool-lists todays-pool-list mobile user-todays-customers">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @todays_route }  %>
+    </section>
+    <section class="wrapper-right max pool-lists map-pool-list">
+      <%= render :partial => 'application/map', :locals => { :customers => @pools }  %>
+    </section>
+  </div>
+  <div class="col col-right flex-1 desktop">
+    <h2 class="wrapper">Todays Route</h2>
+    <section class="wrapper max pool-lists todays-pool-list active-list user-todays-customers">
+      <%= render :partial => 'customers/customer-card-list-sidebar', :locals => { :customers => @todays_route }  %>
+    </section>
+  </div>
+</div>
+<aside id="customer-edit-form" class="wrapper form-slider">  
+<%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+<aside id="visit-form" class="wrapper form-slider">  
+<%= render :partial => 'visits/visit_form', :locals => { :visit=> Visit.new, :user=> Customer.new, :customer=> User.new }  %>
+</aside>
+

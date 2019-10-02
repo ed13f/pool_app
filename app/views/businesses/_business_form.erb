@@ -1,0 +1,28 @@
+<header class="customer-form flex">
+  <h1 class="header-text">Business Form</h1>
+</header>
+<section class="form-wrapper">
+  <%= form_for(business, remote:true, :id => business.id) do |f| %>
+    <%= field_set_tag "Business Info", class: "customer-info" do %>
+    	<div class="businees-name flex row">
+        <%= f.text_field :business_name, :placeholder => "Business Name*", :autocomplete => :off, :class =>"flex-1" %>
+      </div>
+      <div class="name flex row">
+        <%= f.text_field :owners_first_name, :placeholder => "Owner's First Name*", :autocomplete => :off, :class =>"flex-1" %>
+        <%= f.text_field :owners_last_name, :placeholder => "Owner's Last Name*", :autocomplete => :off, :class =>"flex-1" %>
+      </div>
+      <div class="contact flex row">
+        <%= f.text_field :phone, :placeholder => "Phone Number*", :autocomplete => :off, :class =>"flex-1" %>
+        <%= f.text_field :email, :placeholder => "Email*", :autocomplete => :off, :class =>"flex-1" %>
+      </div>
+      <div class="contact flex row">
+        <%= f.password_field :password, :placeholder => "Password*", :autocomplete => :off %>
+      </div>
+    <% end %>
+    </div>    
+    <div class="submit">
+      <%= f.submit 'Update', :class => 'customer-new-submit' %>
+      <button id="cancel-button" class="cancel" type="button">Cancel</button>
+    </div>
+  <% end %>
+</section>

@@ -36,9 +36,9 @@ class ApplicationRecord < ActiveRecord::Base
   def phone_format
     phone_num = self.phone
     if phone_num.length == 11
-      formatted_phone_num = phone_num.insert(1, '(').insert(5, ')').insert(9, '-')
+      formatted_phone_num = phone_num.insert(1, '(').insert(5, ') ').insert(10, '-')
     elsif phone_num.length== 10
-      formatted_phone_num = phone_num.insert(0, '(').insert(4, ')').insert(8, '-')
+      formatted_phone_num = phone_num.insert(0, '(').insert(4, ') ').insert(9, '-')
     elsif phone_num.length == 7
       formatted_phone_num = phone_num.insert(3, '-')
     end  

@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+	$('.user-card-<%= user.id%>').replaceWith("<%= escape_javascript(render :partial => 'users/user-card-individual', :locals => { :user => user })  %>")
+	$('#user-form').removeClass('active');
+});

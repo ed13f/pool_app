@@ -1,0 +1,120 @@
+<header class="customer-form flex">
+  <h2 class="header-text"><%=  customer.persisted? ? "Edit" : "Add" %> Customer</h2>
+  <% if(customer.persisted?) %>
+  <div class="delete-wrapper">
+    <%= link_to "Delete", {controller: :customers, action: :destroy, id: customer.id}, data: {confirm: "Are Your Sure? This Will Permanently Delete The Customer."}, method: :delete, :class =>"trash-button", remote: true %>
+  </div>
+  <% end %>
+</header>
+<section class="form-wrapper">
+  <%= form_for(customer, remote:true, :id => customer.id) do |f| %>
+    <%= field_set_tag "Customer Info", class: "customer-info" do %>
+      <div class="name flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :first_name, 'First Name*', :class =>  customer.first_name ? 'active-input' : ''  %>
+          <%= f.text_field :first_name, :autocomplete => :off%>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :last_name, 'Last Name*', :class =>  customer.last_name ? 'active-input' : '' %>
+          <%= f.text_field :last_name, :autocomplete => :off, :class =>"" %>
+        </div>
+      </div>
+      <div class="address flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :street_address, 'Street*', :class =>  customer.street_address ? 'active-input' : '' %>
+          <%= f.text_field :street_address, :autocomplete => :off, :class =>"flex-1" %>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :city, 'City*', :class =>  customer.city ? 'active-input' : '' %>
+          <%= f.text_field :city, :autocomplete => :off, :class =>"flex-1" %>
+         </div> 
+        <%= f.select :state, options_for_select(["FL", "NY", "GA", "SC"], selected: f.object.state), :class =>"" %>
+      </div>
+      <div class="address flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :zip_code, 'Zip Code*', :class =>  customer.zip_code ? 'active-input' : '' %>
+          <%= f.text_field :zip_code, :autocomplete => :off, :class =>"flex-1" %>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :gate_code, 'Gate Code', :class => customer.gate_code && customer.gate_code != '' ? 'active-input' : '' %>
+          <%= f.text_field :gate_code, :autocomplete => :off, :class =>"flex-1" %>
+        </div>
+      </div>
+      <div class="contact flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :phone, 'Phone Number*', :class =>  customer.phone ? 'active-input' : '' %>
+          <%= f.text_field :phone, :autocomplete => :off, :class =>"flex-1", :type => "phone", :value => display_phone_number(f.object.phone) %>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :email, 'Email*', :class =>  customer.email ? 'active-input' : '' %>
+          <%= f.text_field :email, :autocomplete => :off, :class =>"flex-1" %>
+        </div>
+      </div>
+      <div class="equipment flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :filter_type, 'Filter Type', :class =>  customer.filter_type && customer.pump_type != ''? 'active-input' : '' %>
+          <%= f.text_field :filter_type, :autocomplete => :off %>
+        </div>
+        <div class="input-wrapper flex-1">
+          <%= f.label :pump_type, 'Pump Type', :class =>  customer.pump_type && customer.pump_type != ''? 'active-input' : '' %>
+          <%= f.text_field :pump_type, :autocomplete => :off %>
+        </div>
+      </div>
+      <div class="checkbox">
+          <%= f.check_box :receive_emails, :class => "checkbox-custom" %>
+          <%= f.label :receive_emails, "Receive Notifications", :class =>"input-wrapper checkbox-custom-label" %>
+          
+        </div>
+    <% end %>
+    <%= field_set_tag "Service Day*", class: "service-day" do %>
+      <div class="scheduling-days flex row">
+        <div class="day-input">
+          <%= f.check_box :monday, :class => "checkbox-custom" %>
+          <%= f.label :monday, "Monday", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="day-input">
+          <%= f.check_box :tuesday, :class => "checkbox-custom" %>
+          <%= f.label :tuesday, "Tuesday", :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+      <div class="scheduling-days flex row">
+        <div class="day-input">
+          <%= f.check_box :wednesday, :class => "checkbox-custom" %>
+          <%= f.label :wednesday, "Wednesday", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="day-input">
+          <%= f.check_box :thursday, :class => "checkbox-custom", :name => "day" %>
+          <%= f.label :thursday, "Thursday", :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+      <div class="flex row">
+        <div class="day-input">
+          <%= f.check_box :friday, :class => "checkbox-custom" %>
+          <%= f.label :friday, "Friday", :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+      <% if session[:user_id] %>
+          <% @user_admin = User.find(session[:user_id]).admin %>
+        <% end %>
+        <% if @user_admin || session[:business_id] %>
+        <% @employees = session[:user_id] ? User.find_by_id(session[:user_id]).business.users : Business.find_by_id(session[:business_id]).users  %>
+          <div class="flex employee-input-wrapper">
+            <%= f.label :user_id, "Employee*", :class => "flex-1" %>
+            <%= f.select :user_id, options_for_select(@employees.map{ |employee| [employee.display_customer_name_by_last + " - " + employee.customers.count.to_s, employee.id] }, selected: customer.user_id), :include_blank => "Choose Employee", :class => "flex-1" %>
+          </div>
+          <% else %>
+            <%= f.hidden_field :user_id, :value => customer.user_id %>
+        <% end %>
+      <% end %>
+    </div>    
+    <div class="submit">
+      <%= f.submit 'Update', :class => 'customer-new-submit' %>
+      <button id="cancel-button" class="cancel" type="button">Cancel</button>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,74 @@
+<article class="card flex flex-column history-list">
+    <header class="row flex flex-1">
+      <div class="heading col flex-1">
+        <h2><%= visit.created_at.strftime("%m/%d/%Y - %I:%M%p ") %></h2>
+      </div>
+      <div class="settings flex">
+        <div class="icon-wrapper flex">
+          <div class="more-info"><i class="fa fa-chevron-down"></i>
+          </div> 
+        </div>
+        
+        <div class="settings-drop-down flex flex-column">
+        </div>
+      </div> 
+    </header>
+    <div class="row flex">
+      <div class="phone col flex-1">
+        <p>Clean Tile: <%= display_true_false_value(visit.clean_tile) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Net Leafs: <%= display_true_false_value(visit.leaf_net) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Vacuum: <%= display_true_false_value(visit.vacuum) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Brush: <%= display_true_false_value(visit.brush) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Skimmer: <%= display_true_false_value(visit.skimmer_basket) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Pump <%= display_true_false_value(visit.pump_basket) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Filters: <%= display_true_false_value(visit.clean_filters) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>New Filters: <%= display_true_false_value(visit.new_filters) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Chlorine: <%= display_true_false_value(visit.add_chlorine) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Acid: <%= display_true_false_value(visit.add_acid) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Bicarb: <%= display_true_false_value(visit.add_bicarb) %></p>
+      </div>
+      <div class="phone col flex-1">
+        <p>Stabilizer: <%= display_true_false_value(visit.add_stabilizer) %></p>
+      </div>
+    </div>
+    <div class="more-section">
+      <h3>Chemical Levels</h3>
+      <div class="row flex">
+        <div class="col">
+          <p>Chlorine: <%= visit.chlorine %></p>
+        </div>
+        <div class="col">
+          <p>PH: <%= visit.ph %></p>
+        </div>
+        <div class="col">
+          <p>Alkalinity: <%= visit.alkalinity %></p>
+        </div>
+        <div class="col">
+          <p>Stabilizer: <%= visit.stabilizer %></p>
+        </div>
+        <div class="col">
+          <p>Salt: <%= visit.salt %></p>
+        </div>
+      </div>
+    </div>
+  </article>

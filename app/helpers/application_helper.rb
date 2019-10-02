@@ -37,4 +37,47 @@ module ApplicationHelper
       root_redirect_path
     end
   end
+
+  def customer_search(search, customers)
+      if  !customers.nil?
+        if search
+          # @pools = self.customers
+          customers.where("LOWER(customers.first_name) LIKE ?
+          OR LOWER(customers.last_name) LIKE ?
+          OR LOWER(customers.phone) LIKE ?
+          OR LOWER(customers.email) LIKE ?
+          OR LOWER(customers.street_address) LIKE ?
+          OR LOWER(customers.city) LIKE ?
+          OR LOWER(customers.state) LIKE ?
+          OR LOWER(customers.zip_code) LIKE ?
+          OR LOWER(customers.filter_type) LIKE ?
+          OR LOWER(customers.pump_type) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
+        else
+          # binding.pry
+          customers
+        end
+      end 
+  end
+  def repairs_search(search, repairs)
+      if  !repairs.nil?
+        if search
+          # @pools = self.customers
+          repairs.where("LOWER(repairs.title) LIKE ? OR LOWER(repairs.description) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+        else
+          # binding.pry
+          repairs
+        end
+      end 
+  end
+  def employees_search(search, employees)
+      if  !employees.nil?
+        if search
+          # @pools = self.customers
+          employees.where("LOWER(users.first_name) LIKE ? OR LOWER(users.last_name) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%")
+        else
+          # binding.pry
+          employees
+        end
+      end 
+  end
 end

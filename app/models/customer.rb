@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  attr_accessor :authenticity_token
 	belongs_to :user
   has_many :visits, dependent: :destroy
   has_many :repairs, dependent: :destroy
@@ -7,20 +8,20 @@ class Customer < ApplicationRecord
   has_one :business, through: :user, source: :business
   accepts_nested_attributes_for :days, allow_destroy: true, reject_if: :all_blank
 
-  	geocoded_by :full_address
-  	after_validation :geocode
+	geocoded_by :full_address
+	after_validation :geocode
 
-  	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-    validates :first_name, :presence => true
-    validates :last_name, :presence => true
-    validates :phone, :presence => true
-    validates :email, :presence => true
-    validates :street_address, :presence => true
-    validates :city, :presence => true
-    validates :state, :presence => true
-    validates :zip_code, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :phone, :presence => true, :length => { :minimum => 10, :maximum => 10 }
+  validates :email, :presence => true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  validates :street_address, :presence => true
+  validates :city, :presence => true
+  validates :state, :presence => true
+  validates :zip_code, :presence => true, :length => { :minimum => 5, :maximum => 5 }
 
   	def full_name
     	self.first_name + " " + self.last_name
@@ -64,10 +65,10 @@ class Customer < ApplicationRecord
       list.push("Wednesday")
     end
     if self.thursday
-      list.push("Thursday")
+      list.push("Saturday")
     end
     if self.friday
-      list.push("Friday")
+      list.push("Sunday")
     end
     list
   end
@@ -79,4 +80,9 @@ class Customer < ApplicationRecord
   def print_days
     day_string = self.days_list.join(" ")
   end
+  def google_maps_direction_link
+    street_address = self.street_address.split(' ').join('+')
+    city = self.city.split(' ').join('+')
+    return query = 'https://www.google.com/maps?saddr=My+Location&daddr=' + street_address + ',+' + city + ",+" + self.state + ",+" + self.zip_code
+  end  
 end

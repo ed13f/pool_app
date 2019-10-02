@@ -1,0 +1,11 @@
+<section class="customers card-list">
+    <div class="list">
+      <% if !customers.nil? && !customers.empty? %>
+            <%  customers.each do |customer| %>
+            <%= render :partial => 'customers/customer-card-individual', :locals => { :customer => customer }  %>
+            <% end %>
+          <% else %>
+              <h2 class="constant-no-results">No Customers Found.</h2>
+          <% end %>
+    </div>
+  </section>

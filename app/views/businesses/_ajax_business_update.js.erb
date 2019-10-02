@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+	$('h1.business-header').replaceWith("<h1 class='business-header'><%=  @business.business_name %>&nbsp;</h1>")
+	$('#business-form').removeClass('active');
+});

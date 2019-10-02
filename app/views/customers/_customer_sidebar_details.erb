@@ -1,0 +1,25 @@
+<div class="customer-info">
+  <div class="flex">
+    <h2 class="flex-1">Customer Info</h2>
+    <div class="settings col flex">
+	    <div class="icon-wrapper flex">
+	      <i class="fa fa-gear customer"></i>
+	    </div>
+	    <div class="settings-drop-down flex flex-column">
+	      <%= link_to "<i class='fa fa-wrench'></i>&nbsp;Repair".html_safe, controller: "repairs", action: "new", remote: true, :id => customer.id %>
+	      <%= link_to "<i class='fa fa-edit'></i>&nbsp;Edit".html_safe, controller: "customers", action: "edit", id: customer.id, remote: true %>
+	      <%= link_to "<i class='fa fa-bar-chart'></i>&nbsp;Visit".html_safe, controller: "visits", action: "new", id: customer.id, remote: true %>
+	    </div>
+	  </div> 
+	</div>
+    <address><a href="<%= customer.google_maps_direction_link %>" target="_blank"><i class="fa fa-home"></i>&nbsp;<%= customer.address_street_city %></a></address>
+    <div>Gate Code: <%= customer.gate_code %></div>
+    <div><a href="tel:<%= @customer.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= customer.phone %></i></div>
+    <div><a href="mailto:<%= @customer.email %>"><i class="fa fa-envelope"></i>&nbsp;<%= customer.email %></i></a></div>
+    <div><%= link_to ("<i class='fa fa-user'></i>&nbsp;" + customer.user.full_name).html_safe, controller: "users", action: "show", id: customer.user.id %></div>
+    <div><i class="fa fa-calendar"></i>&nbsp;<%= customer.print_days %></div>
+    <div><%= customer.receive_emails %></div>
+    <div>Filter: <%= customer.filter_type %></div>
+    <div>Pump: <%= customer.pump_type %></div>
+    
+</div>

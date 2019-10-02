@@ -1,0 +1,123 @@
+<header class="customer-form flex">
+  <h1 class="header-text">Visit Form</h1>
+</header>
+<section class="form-wrapper">
+  <% if flash[:notice] %>
+    <article class="flash customers-flash">
+      <p class="notice"><%= flash[:notice] %></p>
+    </article>  
+  <% end %>
+  <%= form_for(visit, remote:true) do |f| %>
+    <%= field_set_tag "Chemistry Readings", class: "customer-info" do %>
+      <div class="flex row">
+      	<div class="flex-1 flex">
+          <%= f.label :chlorine, "Chlorine:"%>
+          <%= f.number_field :chlorine, :placeholder => " Level"  %><br>
+        </div>
+        <div class="flex-1 flex">
+          <%= f.label :ph, "Ph*:" %>
+          <%= f.number_field :ph, :placeholder => " Level" %><br>
+        </div>
+      </div>
+
+      <div class="flex row">
+        <div class="flex-1 flex">
+          <%= f.label :alkalinity, "Alkalinity*:" %>
+          <%= f.number_field :alkalinity, :placeholder => " Level"  %>
+        </div>
+        <div class="flex-1 flex">
+          <%= f.label :stabilizer, "Stabilizer:" %>
+          <%= f.number_field :stabilizer, :placeholder => " Level"  %>
+        </div>
+      </div>
+    <% end %>
+
+
+    <%= field_set_tag "Duties", class: "customer-info" do %>
+      <div class="flex row">
+      	<div class="flex-1">
+          <%= f.check_box :clean_tile, :class => "checkbox-custom"  %>
+          <%= f.label :clean_tile, :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :leaf_net, :class => "checkbox-custom" %>
+          <%= f.label :leaf_net, :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+      <div class="flex row">
+        <div class="flex-1">
+          <%= f.check_box :vacuum, :class => "checkbox-custom" %>
+          <%= f.label :vacuum, :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :brush, :class => "checkbox-custom" %>
+          <%= f.label :brush, :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+
+      <div class="flex row">
+        <div class="flex-1">
+          <%= f.check_box :skimmer_basket, :class => "checkbox-custom" %>
+          <%= f.label :skimmer_basket, "Skimmer", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :pump_basket, :class => "checkbox-custom" %>
+          <%= f.label :pump_basket, :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+      <div class="flex row">
+        <div class="flex-1">
+          <%= f.check_box :clean_filters, :class => "checkbox-custom" %>
+          <%= f.label :clean_filters, :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :new_filters, :class => "checkbox-custom" %>
+          <%= f.label :new_filters, :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+
+      <div class="flex row">
+        <div class="flex-1">
+          <%= f.check_box :add_chlorine, :class => "checkbox-custom" %>
+          <%= f.label :add_chlorine, "Chlorine", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :add_acid, :class => "checkbox-custom" %>
+          <%= f.label :add_acid, "Acid", :class => "checkbox-custom-label" %>
+          
+        </div>
+      </div>
+
+
+      <div class="flex row">
+        <div class="flex-1">
+          <%= f.check_box :add_bicarb, :class => "checkbox-custom" %>
+          <%= f.label :add_bicarb, "Bicarb", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <div class="flex-1">
+          <%= f.check_box :add_stabilizer, :class => "checkbox-custom" %>
+          <%= f.label :add_stabilizer, "Stabilizer", :class => "checkbox-custom-label" %>
+          
+        </div>
+        <%= f.hidden_field :customer_id, :value => customer.id %>
+      </div>
+    <% end %>
+
+
+    </div>    
+    <div class="submit">
+      <%= f.submit 'Complete', :class => 'customer-new-submit' %>
+      <button id="cancel-button" class="cancel" type="button">Cancel</button>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+	$('#repair-card-<%= repair.id%>').replaceWith("<%= escape_javascript(render :partial => 'repairs/repair-card-individual', :locals => { :repair => repair, :customer => customer })  %>")
+	$('#repair-form').removeClass('active');
+});

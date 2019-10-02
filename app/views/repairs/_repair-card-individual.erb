@@ -1,0 +1,45 @@
+<article id="repair-card-<%= repair.id %>" class="card flex flex-column repair-card-<%= repair.id %>">
+  <header class="row flex flex-1">
+    <div class="heading col flex-1">
+      <h2><%= repair.title %></h2>
+    </div>
+    <div class="settings col flex">
+      <div class="icon-wrapper flex">
+        <div class="more-info"><i class="fa fa-chevron-down"></i>
+        </div> 
+        <%= link_to "<i class='fa fa-gear'></i>".html_safe, controller: "repairs", action: "edit", id: repair.id, remote: true %>
+      </div>
+      
+      <div class="settings-drop-down flex flex-column">
+      </div>
+    </div> 
+  </header>
+  <div class="row">
+    <div class="phone col">
+      <p>
+        <%= link_to ("<i class='fa fa-user'></i>&nbsp;" + repair.customer.full_name).html_safe, controller: "customers", action: "show", id: repair.customer.id %>
+        </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="email col">
+        <p><i class="fa fa-edit"></i>&nbsp;<%= repair.description %></p>
+    </div>
+  </div>
+  <div class="more-section flex-column">
+    <div class="row">
+    <div class="col">
+      <p><a href="<%= repair.customer.google_maps_direction_link %>" target="_blank"><i class="fa fa-home"></i>&nbsp;<%= repair.customer.address_street_city %></a></p>
+    </div>
+  </div>
+  <div class="row flex justify-content">
+    <div class="col">
+      <p><a href="tel:<%= repair.customer.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= repair.customer.phone %></a></p>
+    </div>
+    <div class="col">
+      <p>Gate Code: <%= repair.customer.gate_code %></p>
+    </div>
+  </div>
+
+  </div>
+</article>

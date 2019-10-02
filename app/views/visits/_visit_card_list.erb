@@ -1,0 +1,13 @@
+<section class="visits card-list">
+    <div class="list">
+      <% if  !history.nil? %>
+            <%  history.each do |visit| %>
+            <%= render :partial => 'visits/visit_card_individual', :locals => { :visit => visit }  %>
+            <% end %>
+          <% else %>
+            <tr>
+              <td class="table-empty">No Pools Completed on Today's Route.</td>
+            </tr>
+          <% end %>
+    </div>
+  </section>

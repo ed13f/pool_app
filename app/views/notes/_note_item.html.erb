@@ -1,1 +1,1 @@
-<li id="note-<%= note.id%>" class="ajax-note"><%= link_to "X", note, method: :delete, remote: true  %> <%= note.description %></li>
+<li class="note-<%= note.id %>">-&nbsp;<%= note.description %> <%= link_to "<i class='fa fa-trash'></i>".html_safe, note, method: :delete, remote: true  %></li>

@@ -1,0 +1,48 @@
+<header class="customer-form flex">
+  <h2 class="header-text"><%=  repair.persisted? ? "Edit" : "Add" %> Repair</h2>
+  <% if(repair.id) %>
+  <div class="delete-wrapper">
+    <%= link_to "Delete", {controller: :repairs, action: :destroy, id: repair.id}, data: {confirm: "Are Your Sure? This Will Permanently Delete The Customer."}, method: :delete, :class =>"trash-button" %>
+  </div>
+  <% end %>
+</header>
+<section class="form-wrapper">
+  <% if flash[:notice] %>
+    <article class="flash customers-flash">
+      <p class="notice"><%= flash[:notice] %></p>
+    </article>  
+  <% end %>
+  <%= form_for(repair, remote:true, :id => repair.id) do |f| %>
+  <% if customer.id %>
+  <%= f.hidden_field :customer_id, :value => customer.id %>
+  <% end %>
+ 	<%= field_set_tag "Repair Details", class: "repair-info" do %>
+      <div class="name header flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :title, 'Header*', :class =>  repair.title ? 'active-input' : ''  %>
+          <%= f.text_field :title, :autocomplete => :off %>
+        </div>
+      </div>
+      <div class="description flex row">
+        <div class="input-wrapper flex-1">
+          <%= f.label :description, 'Description*', :class =>  repair.description ? 'active-input' : ''  %>
+          <%= f.text_area :description, :autocomplete => :off %>
+        </div>
+      </div>
+      <% end %> 
+      <div class="photos row flex">
+            <div class="label">Photos</div>
+            <%= f.label :photo, "Click to Add Photo", :class =>""%><br>
+          <%= f.file_field :photo, :class =>"hide" %>
+      </div>
+ 
+    <div class="submit">
+      <%= f.submit 'Update', :class => 'repair-new-submit' %>
+      <button id="cancel-button" class="cancel" type="button">Cancel</button>
+    </div>
+  <% end %>
+</section>
+
+
+
+

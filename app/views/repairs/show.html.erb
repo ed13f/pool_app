@@ -1,85 +1,53 @@
-<main>
-  <header class="repair-show-main-header">
-    <div class="center-column"></div>
-    <div class="header-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
-    <h1 class="repair-show-header">Repair Details</h1>
-    <nav class="repair-show-header-section">
-      <% if @repair.complete == false %>
-      <%= link_to "Edit", {controller: "repairs", action: "edit", id: @repair.id }, id: "repair-edit-ajax" %>
-      <%= button_to "Close Ticket", { :method => "get", controller: "repairs", action: "complete", id: @repair.id }, remote: true, id: "close-ticket", data: {confirm: "Are You Sure?"} %>
-      <% end %>
-    </nav>
-  </header>
-  <section class="repair-show-info">
-    <article>
-      <h2 class="repair-info-header-section">Details</h2>
-      <article class="repair-show-grid repair-show-info-padding">
-        <section class="repair-info-col-left">
-          <div class="repair-info-center">
-            <h3>Customer:</h3>
-            <p><%= @repair.customer.full_name %></p>
-            <h3>Created By:</h3>
-            <p><%= @repair.user.full_name%></p>
-          </div>
-        </section>
-        <section class="repair-info-col-right">
-          <div class="repair-info-center">
-            <h3>Status: </h3>
-            <p><%= @repair.complete ? "Complete": "Incomplete" %></p>
-            <% if @repair.complete %>
-              <h3>Date Finished: </h3>
-              <p><%= @repair.print_updated_date %></p>
-            <% else %>
-              <h3>Date Opened: </h3>
-              <p><%= @repair.print_date %></p>
-            <% end %>
-          </div>
-        </section>
-      </article>
-      <article>
-        <div class="repair-description-container">
-          <h3 class="repair-description">Description: </h3>
-          <p><%= @repair.description %></p>
-        </div>
-      </article>
-    </article>
-    <% if @repair.images[0] %>
-      <article>
-        <header>
-          <h2 class="repair-sub-header">Photos of repair</h2>
-        </header>
-        <article class="repair-img-display">
-          <% @repair.images.each do |image| %>
-            <div class="repair-img-zoom-container">
-              <%= image_tag(image.photo.url, :class => "repair-img") %>
-            </div>
+<!-- <script>
+localStorage.setItem("RepairsOpenRepairs", JSON.stringify(<%= raw@open_repairs.to_json %>));
+localStorage.setItem("RepairsAll", JSON.stringify(<%= raw@repairs.to_json %>));
+</script>
+<header class="user-profile-header template-header">
+  <div class="header-wrapper wrapper max">
+    <h1><%= @user.first_name %>'s Repairs</h1>
+    <div class="page-options">
+      <div class="options-nav mobile">
+        <a class="switch master-switch active-switch" id="master-switch">Master</a>
+        <a class="switch repair-switch mobile" id="repair-switch">Open</a>
+      </div>
+      <div class="search-form form desktop">
+        <%= form_tag(user_path, :method => 'get', remote: true) do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...', class: "search" %>
+          <%= button_tag(type: "submit") do %>
+            <span><i class='fa fa-search customer'></i></span>
           <% end %>
-        </article>
-      </article>
-    <% end %>
-  </section>
-  <% if @repair.complete == false %>
-    <section class="repair-add-photo-section">
-      <header>
-        <h2 class="repair-sub-header">Add Photo</h2>
-      </header>
-      <% if flash[:notice] %>
-        <article class="flash repairs-image-flash">
-          <p class="notice"><%= flash[:notice] %></p>
-        </article>
-      <% end %>
-      <article class="repair-img-form">
-        <%= form_for(@image) do |f| %>
-          <div class="repair-img-input">
-            <%= f.file_field :photo %>
-          </div>
-            <%= f.hidden_field :repair_id, :value => params[:id] %>
-          <div class="repair-img-submit">
-            <%= f.submit %>
-          </div>
         <% end %>
-      </article>
+      </div>
+    </div> 
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-2">
+    <section class="wrapper-right max pool-lists master-pool-list  active-list">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @pools }  %>
     </section>
-  <% end %>
-</main>
+    <section class="wrapper-right max pool-lists todays-pool-list mobile">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @todays_route }  %>
+    </section>
+    <section class="wrapper-right max pool-lists map-pool-list">
+      <%= render :partial => 'application/map', :locals => { :customers => @pools }  %>
+    </section>
+  </div>
+  <div class="col col-right flex-1 desktop">
+    <h2 class="wrapper">Todays Route</h2>
+    <section class="wrapper max pool-lists todays-pool-list active-list">
+      <%= render :partial => 'customers/customer-card-list-sidebar', :locals => { :customers => @todays_route }  %>
+    </section>
+  </div>
+</div>
+<aside id="customer-edit-form" class="wrapper form-slider">  
+<%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+<aside id="visit-form" class="wrapper form-slider">  
+<%= render :partial => 'visits/visit_form', :locals => { :visit=> Visit.new, :user=> Customer.new, :customer=> User.new }  %>
+</aside>
+
+ -->

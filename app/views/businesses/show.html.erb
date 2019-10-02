@@ -1,84 +1,77 @@
-<main>
-  <header class="biz-header-section">
-    <div class="biz-show-grey-overlay"></div>
-    <div class="header-filter-container"></div>
-    <%= image_tag("Pool-Water.jpg",class: "header-background")  %>
-    <article class="biz-header-left">
-      <h1 class="business-header"><%=  @business.business_name %></h1>
-      <p class="business-sub-header"><%= Date.today.to_s(:long) %></p>
-    </article>
-    <aside class="biz-options">
-      <%= form_tag(controller: "businesses", action: "reset_weekely_visit", remote: true, data: {confirm: "Are your sure? This will reset all routes for the week."} ) do %>
-        <%= hidden_field_tag "id", @business.id %>
-        <%= submit_tag("Reset All Visits", data: { confirm: 'Are you sure you want to reset all pools' }) %>
-      <% end %>
-      <% if session[:business_id] %>
-        <%= link_to 'Edit', controller: "businesses", action: "edit", id: params[:id] %>
-      <% end %>
-    </aside>
-    <nav class="business-button-section">
-      <button id="bix-customer-button" class="active-switch">Customers</button>
-      <button id="bix-repair-button">Open Repairs</button>
-      <button id="bix-employee-button">Employees</button>
-    </nav>
-  </header>
-  <% if flash[:notice] %>
-      <aside class="flash businesses-flash">
-        <p class="notice"><%= flash[:notice] %></p>
-      </aside>  
-    <% end %>
-  <section class="business-lists-container">
-    <section class="biz-customer-list">
-      <header class="biz-show-section-head-flex">
-        <h2 class="business-customer-sub-header">Customers: <%= @customers.count %> </h2>
-          <%= link_to "+", {:controller => "customers", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
-      </header>
-      <article class="business-customers-list">
-        <ul>
-          <% if @customers.length > 0 %>
-            <% @customers.each do |customer| %>
-              <li class="customer-instance"><%= link_to customer.display_customer_name_by_last, controller: "customers", action: "show", id: customer.id %></li>
-            <% end %>
-          <% elsif %> 
-            <li class="add-customers-list">No Customers</li>
+<script>
+localStorage.setItem("businessCustomers", JSON.stringify(<%= raw@customers.to_json %>));
+localStorage.setItem("businessUsers", JSON.stringify(<%= raw@employees.to_json %>));
+</script>
+<header class="business-profile-header user-profile-header template-header">
+  <div class="header-wrapper wrapper max">
+    <div class="flex justify-content pad-10">
+      <div class="header flex justify-content">
+        <h1 class="business-header"><%=  @business.business_name %>&nbsp;</h1>
+      <%= link_to "<i class='fa fa-gear'></i>".html_safe, controller: "businesses", action: "edit", id: @business.id, remote:true %>
+      </div>
+      <div class="search-form form desktop">
+        <%= form_tag(user_path, :method => 'get', remote: true) do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...', class: "search" %>
+          <%= button_tag(type: "submit") do %>
+            <span><i class='fa fa-search customer'></i></span>
           <% end %>
-        </ul>
-      </article>
+        <% end %>
+      </div>
+    </div> 
+    <div class="page-options mobile pad-10">
+      <div class="options-nav">
+        <button class="switch employees-switch active-switch" id="employees-switch">Employees</button>
+        <button class="switch customers-switch mobile" id="customers-switch">Customers</button>
+      </div>
+      <div class="new-link-container">
+        <%= link_to "<i class='fa fa-user-plus' aria-hidden='true'></i>".html_safe, {controller: "customers", action: "new", remote: true}, class: "new-customer-link new-link" %>
+        <%= link_to "<i class='fa fa-user-plus' aria-hidden='true'></i>".html_safe, {controller: "users", action: "new", remote: true}, class: "new-employee-link new-link active-link" %>
+      </div>
+    </div>
+    <div class="flex desktop">
+      <div class="flex-1 flex justify-content wrapper-right pad-10">
+        <h2>Employees</h2>
+        <div class="settings">
+        <%= link_to "<i class='fa fa-user-plus pad-10' aria-hidden='true'></i>".html_safe, controller: "users", action: "new", remote: true %>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-content wrapper-left">
+        <h2>Customers</h2>
+        <div class="settings">
+        <%= link_to "<i class='fa fa-user-plus pad-10' aria-hidden='true'></i>".html_safe, controller: "customers", action: "new", remote: true %>
+        </div>
+      </div>
+    </div>  
+  </div>
+</header>
+<div class="dashboard-wrapper flex flex-1 wrapper-max">
+  <div class="col col-left flex-1 wrapper-right">
+    <section class="max pool-lists employees-list business-users active-list desktop-block pad-10">
+      <%= render :partial => 'users/user-card-list', :locals => { :users => @employees }  %>
     </section>
-    <section class="business-right-container">
-      <article class="business-repairs-section">
-        <header>
-          <h2 class="business-employees-sub-header">Open Repairs: <%= @repairs.count %></h2>
-        </header>
-        <article class="business-repair-list">
-          <ul>
-            <% if @repairs.length > 0 %>
-              <% @repairs.each do |repair| %>
-                <li class="repair-instance"><%= link_to repair.customer.display_customer_name_by_last, controller: "repairs", action: "show", id: repair.id %></li>
-              <% end %>
-            <% elsif %> 
-              <li class="add-customers-list">No Repairs</li>
-            <% end %>
-          </ul>
-        </article>
-      </article>
-      <article class="business-employee-section">
-        <header class="biz-show-section-head-flex">
-          <h2 class="business-employees-sub-header">Employees: <%= @employees.count %></h2>
-          <%= link_to "+", {:controller => "users", :action=> "new"}, :method => :get, :class => "biz-new-customer" %>
-        </header>
-        <article class="business-employee-list">
-          <ul>
-            <% if @employees.length > 0 %>
-              <% @employees.each do |employee| %>
-                <li class="employee-instance"><%= link_to employee.display_customer_name_by_last, controller: "users", action: "show", id: employee.id %></li>
-              <% end %>
-            <% elsif %> 
-              <li class="add-customers-list">No Employess</li>
-            <% end %>
-          </ul>
-        </article>
-      </article>
+    <section class="max pool-lists customers-list business-customers mobile-block">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @customers }  %>
     </section>
-  </section>
-</main>
+  </div>
+  <div class="col col-right flex-1 desktop wrapper-left">
+    <section class=" max pool-lists customers-list business-customers pad-10">
+      <%= render :partial => 'customers/customer-card-list', :locals => { :customers => @customers }  %>
+    </section>
+  </div>
+</div>
+<aside id="customer-edit-form" class="wrapper form-slider">  
+<%= render :partial => 'customers/customer_form', :locals => { :customer => Customer.new }  %>
+</aside>
+<aside id="repair-form" class="wrapper form-slider">  
+<%= render :partial => 'repairs/repair_form', :locals => { :repair=> Repair.new, :customer=> Customer.new }  %>
+</aside>
+<aside id="visit-form" class="wrapper form-slider">  
+<%= render :partial => 'visits/visit_form', :locals => { :visit=> Visit.new, :user=> Customer.new, :customer=> User.new }  %>
+</aside>
+<aside id="user-form" class="wrapper form-slider">  
+  <%= render :partial => 'users/user_form', :locals => { :user => User.new }  %>
+</aside>
+<aside id="business-form" class="wrapper form-slider">  
+  <%= render :partial => 'businesses/business_form', :locals => { :business => Business.new }  %>
+</aside>
+

@@ -1,6 +1,7 @@
 $( document ).ready(function() {
-  $("#no-notes").remove();
-  $(".new-note-input textarea").val("");
-  $(".customer-notes-list ul").prepend("<%= j render partial: 'note_item', locals: {note: @note} %>")
-  $(".flash").hide();
+  $(".no-notes").remove();
+  $(".description-input").val("");
+  $(".notes-widget ul").prepend("<%= j render partial: 'note_item', locals: {note: @note} %>");
+  $(".description-input").attr("placeholder", "Description*");
+  $(".description-input").removeClass("error");
 });

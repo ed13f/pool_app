@@ -1,0 +1,28 @@
+<section class="card-list">
+    <div class="list">
+      <% if  !customers.nil? %>
+            <%  customers.each do |customer| %>
+              <article class="card flex flex-column customer-card-<%= customer.id %>">
+                <header class="row flex flex-1">
+                  <div class="heading col flex-1">
+                    <h3 class="h2"><%= customer.full_name %></h3>
+                  </div>
+                  <div class="settings col flex">
+                    <div class="settings-drop-down flex flex-column">
+                    </div>
+                  </div> 
+                </header>
+                <div class="row">
+                  <div class="col">
+                    <p><%= customer.address_street_city %></p>
+                  </div>
+                </div>
+              </article>
+            <% end %>
+          <% else %>
+            <tr>
+              <td class="table-empty">No Pools Completed on Today's Route.</td>
+            </tr>
+          <% end %>
+    </div>
+  </section>
