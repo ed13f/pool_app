@@ -41,6 +41,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem "paperclip", "~> 5.0.0"
 gem 'client_side_validations'
+gem "bootstrap-sass", "2.3.1.0"
 
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
