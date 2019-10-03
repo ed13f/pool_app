@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 	include SessionsHelper
     def index
+      session[:business_id] = 1
       root_redirect_path
     end
 

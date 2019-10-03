@@ -83,6 +83,9 @@ body{
   .display{
     display:initial !important;
   }
+  .h3, h3{
+    font-size:22px;
+  }
   
   header{
     &.template-header{
@@ -182,6 +185,9 @@ body{
 }
 .justify-content{
   justify-content: space-between;
+}
+.flex-wrap{
+  flex-wrap:wrap;
 }
 .nav-container{
   display:flex;
@@ -606,10 +612,12 @@ aside.form-slider{
   }
   .icon-wrapper{
     justify-content: flex-end;
-
+    .more-info{
+      padding-right:10px;
+    }
     i{
       margin-top: 5px;
-      margin-left: 10px;
+      // margin-left: 10px;
       transition: transform 0.2s linear;
       &.active{
         transform: scale(-1);
@@ -688,8 +696,9 @@ select{
   position:relative;
   overflow: hidden;
   #map{
-    height:100%;
-    height: calc(100% - 35px);
+    // height:100%;
+    // height: calc(100% - 35px);
+    height: calc(100vh - 55px - 92px - 35px - 25px);
 
     // width:100%;
   }
@@ -788,6 +797,10 @@ select{
     margin: 0;
     list-style: none;
     padding: 0;
+    li{
+      line-height:1;
+      padding-bottom:15px;
+    }
   }
 }
 
@@ -1117,6 +1130,9 @@ select{
     h2{
       margin:10px 0;
     }
+    .first{
+      padding-right:10px;
+    }
   }
 }
 
@@ -1245,13 +1261,6 @@ select{
   }
 }
 .dashboard-wrapper{
-  // margin-top: 170px !important;
-  // overflow: scroll;
-  // height: calc(100vh - 200px);
-  // @media #{$mobile-device} {
-  //   overflow: auto;
-  //   height: auto;
-  // }
   &> .col> section{
     overflow: scroll;
     height: calc(100vh - 190px);
@@ -1259,7 +1268,42 @@ select{
       overflow: auto;
       height: auto;
     }
+    &.map-pool-list{
+      margin-right: -20px;
+      margin-left: 10px;
+      @media #{$mobile-device} {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+    & .customers{
+      // @media #{$mobile-device} {
+      //   width: calc(100% - 20px);
+      // }
+    }
   }
+  &> .col.col-right{
+    position:relative;
+
+    h2{
+      position:absolute;
+      // width: calc(100% - 40px);
+    }
+    .customer-info h2{
+      position: relative;
+    }
+    &> section{
+      &.pool-lists:not(.business-customers){
+        margin-top: 60px;
+        height: calc(100vh - 250px);
+
+      }
+    }
+  }
+
+
+
+  
   .col{
     .wrapper{
       // height: 60vh;
@@ -1286,6 +1330,7 @@ select{
     z-index: -1;
   }
   .background-screen{
+    display:none;
     position:absolute;
     height:100%;
     width:100%;
@@ -1306,8 +1351,10 @@ select{
     max-width: 500px;
     margin: 0 auto;
     background-color: lightgrey;
+    padding: 30px;
+    border-radius: 10px;
     // padding: 20px;
-    box-shadow:0px 0px 65px 65px lightgrey;
+    // box-shadow:0px 0px 65px 65px lightgrey;
   }
   h2{
     margin-top:0;

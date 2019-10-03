@@ -24,7 +24,7 @@ $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
         setTimeout(function() { google.maps.event.trigger(map, 'resize') }, 600);
 		//Gear Icon Show More Settings
-		$('body').on('click', '.fa-gear.customer, .fa-gear.repair', function(){
+		$('body').on('click', '.fa-gear.customer', function(){
 		 	var wrapper = $(this).closest('.icon-wrapper');
 		 	var dropDown = wrapper.siblings('.settings-drop-down');
 		 	if(dropDown.hasClass('active')){
@@ -91,6 +91,10 @@ $( document ).ready(function() {
 				else if(tab.hasClass('customers-switch')){
 					$('.customers-list').addClass('active-list');
 					$('.new-customer-link').addClass('active-link');
+				}else if(tab.hasClass('master-repairs-switch')){
+					$('.repairs-all').addClass('active-list');
+				}else if(tab.hasClass('repair-unfinished-switch')){
+					$('.repairs-open-repairs').addClass('active-list');
 				}
 			}
 		})

@@ -55,19 +55,19 @@
       <h3>Chemical Levels</h3>
       <div class="row flex">
         <div class="col">
-          <p>Chlorine: <%= visit.chlorine %></p>
+          <p>Chlorine: <%= visit.chlorine ? visit.chlorine : 'N/A'; %></p>
         </div>
         <div class="col">
-          <p>PH: <%= visit.ph %></p>
+          <p>PH: <%= visit.ph ? visit.ph : 'N/A'; %></p>
         </div>
         <div class="col">
-          <p>Alkalinity: <%= visit.alkalinity %></p>
+          <p>Alkalinity: <%= visit.alkalinity ? visit.alkalinity : 'N/A'; %></p>
         </div>
         <div class="col">
-          <p>Stabilizer: <%= visit.stabilizer %></p>
+          <p>Stabilizer: <%= visit.stabilizer ? visit.stabilizer : 'N/A'; %></p>
         </div>
         <div class="col">
-          <p>Salt: <%= visit.salt %></p>
+          <p>Salt: <%= visit.salt ? visit.salt : 'N/A'; %></p>
         </div>
       </div>
     </div>

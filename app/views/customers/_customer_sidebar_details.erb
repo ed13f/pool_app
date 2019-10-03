@@ -13,13 +13,20 @@
 	  </div> 
 	</div>
     <address><a href="<%= customer.google_maps_direction_link %>" target="_blank"><i class="fa fa-home"></i>&nbsp;<%= customer.address_street_city %></a></address>
-    <div>Gate Code: <%= customer.gate_code %></div>
-    <div><a href="tel:<%= @customer.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= customer.phone %></i></div>
-    <div><a href="mailto:<%= @customer.email %>"><i class="fa fa-envelope"></i>&nbsp;<%= customer.email %></i></a></div>
-    <div><%= link_to ("<i class='fa fa-user'></i>&nbsp;" + customer.user.full_name).html_safe, controller: "users", action: "show", id: customer.user.id %></div>
-    <div><i class="fa fa-calendar"></i>&nbsp;<%= customer.print_days %></div>
-    <div><%= customer.receive_emails %></div>
-    <div>Filter: <%= customer.filter_type %></div>
-    <div>Pump: <%= customer.pump_type %></div>
-    
+    <div class="flex justify-content flex-wrap">
+        <div class="first">Gate Code: <%= customer.gate_code %></div>
+        <div><a href="tel:<%= @customer.phone %>"><i class="fa fa-phone"></i>&nbsp;<%= customer.phone %></i></a></div>
+    </div> 
+    <div class="flex justify-content flex-wrap">      
+        <div class="first"><a href="mailto:<%= @customer.email %>"><i class="fa fa-envelope"></i>&nbsp;<%= customer.email %></i></a></div>
+        <div><%= link_to ("<i class='fa fa-user'></i>&nbsp;" + customer.user.full_name).html_safe, controller: "users", action: "show", id: customer.user.id %></div>
+    </div> 
+    <div class="flex justify-content flex-wrap">    
+        <div class="first"><i class="fa fa-calendar"></i>&nbsp;<%= customer.print_days %></div>
+        <div>Notifications: <%= customer.receive_emails %></div>
+    </div>
+    <div class="flex justify-content flex-wrap">     
+        <div class="first">Filter: <%= customer.filter_type %></div>
+        <div>Pump: <%= customer.pump_type %></div>
+    </div>    
 </div>
