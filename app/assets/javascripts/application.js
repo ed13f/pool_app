@@ -10,8 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require rails-ujs
+
 //= require turbolinks
 //= require underscore
 //= require bootstrap-sprockets
@@ -19,6 +18,8 @@
 //= require jquery.validate.additional-methods 
 //= require jquery.validate
 //= require rails.validations
+//= require jquery
+//= require rails-ujs
 
 $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
