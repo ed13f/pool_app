@@ -34,7 +34,7 @@ class ResetsController < ApplicationController
       @reset = Reset.new
       prepare_reset
     end
-    @reset_person ? ResetMailer.reset_password(@reset_person, @reset).deliver : nil
+    # @reset_person ? ResetMailer.reset_password(@reset_person, @reset).deliver : nil
     if @reset_person
       respond_to do |format|
         format.js { render partial: "reset_message" }

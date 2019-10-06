@@ -78,7 +78,7 @@ class BusinessesController < ApplicationController
     if @business
       @customers = @business.customers
       @unfinished_pools = select_pools_completed_status(false)
-      BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
+      # BusinessMailer.unfinished_pool_report(@business, @unfinished_pools).deliver
       reset_pools
       flash[:notice] = "Reset Complete"
         redirect_to "/businesses/" + @business.id.to_s
