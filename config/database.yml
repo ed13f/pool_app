@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: pool_application_production
-  username: pool_application
-  password: <%= ENV['POOL_APPLICATION_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL']%>
+  # username: pool_application
+  # password: <%= ENV['POOL_APPLICATION_DATABASE_PASSWORD'] %>
