@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_URL']%>
+  # database: pool_application_production
   # username: pool_application
   # password: <%= ENV['POOL_APPLICATION_DATABASE_PASSWORD'] %>

@@ -95,7 +95,7 @@ class RepairsController < ApplicationController
     @customer = find_repairs_customer
     @logged_in_user = User.find_by_id(session[:user_id])
     customer_allow_user_business_or_admin
-      RepairMailer.repair_complete(@repair).deliver
+      # RepairMailer.repair_complete(@repair).deliver
       @repair.complete = true
       @repair.save
       respond_to do |format|
