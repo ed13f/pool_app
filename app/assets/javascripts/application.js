@@ -19,13 +19,9 @@
 //= require jquery.validate
 //= require rails.validations
 //= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 
-
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap
-//= require_tree .
 
 $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
