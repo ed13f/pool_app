@@ -1,7 +1,6 @@
 class CustomersController < ApplicationController
   include ApplicationHelper
   include CustomersHelper
-  require 'Geocoder'
 	def new
     @customer = Customer.new
     user_or_business_logged_in
