@@ -21,6 +21,12 @@
 //= require jquery
 //= require rails-ujs
 
+
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require_tree .
+
 $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
         setTimeout(function() { google.maps.event.trigger(map, 'resize') }, 600);
