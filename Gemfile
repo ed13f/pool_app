@@ -37,8 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 
 gem 'underscore-rails'
-gem 'gmaps4rails'
-gem 'geocoder'
+# gem 'gmaps4rails'
+# gem 'geocoder'
 gem "paperclip", "~> 5.0.0"
 gem 'client_side_validations'
 

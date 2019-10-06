@@ -8,8 +8,8 @@ class Customer < ApplicationRecord
   has_one :business, through: :user, source: :business
   accepts_nested_attributes_for :days, allow_destroy: true, reject_if: :all_blank
 
-	geocoded_by :full_address
-	after_validation :geocode
+	# geocoded_by :full_address
+	# after_validation :geocode
 
 	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
