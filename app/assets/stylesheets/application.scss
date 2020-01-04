@@ -35,6 +35,9 @@ i:hover{
   }
   
 }
+button{
+  cursor: pointer !important;
+}
 // .error::placeholder{
 //   color:red !important;
 // }
@@ -1127,6 +1130,9 @@ select{
   .customer-info{
     padding-top:10px;
     padding-bottom:20px;
+    .address,.flex.justify-content{
+      margin:5px 0;
+    }
     h2{
       margin:10px 0;
     }

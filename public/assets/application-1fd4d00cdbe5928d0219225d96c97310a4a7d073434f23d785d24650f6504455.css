@@ -1,0 +1,2140 @@
+/*************************/
+/*Repiar Index*/
+/*************************/
+/* line 4, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/resets.scss */
+.reset-type {
+  margin-right: 0;
+}
+
+/* line 7, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/resets.scss */
+.reset-radio-button {
+  margin: 1% 0.5% !important;
+}
+
+/* line 10, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/resets.scss */
+#rest-password-container {
+  display: none;
+}
+
+/* line 13, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/resets.scss */
+.resets-flash {
+  max-width: 625px !important;
+  width: 100vw !important;
+  margin: -6rem auto !important;
+}
+
+/* line 18, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/resets.scss */
+.reset-edit-flash {
+  width: 100vw !important;
+  max-width: initial !important;
+  margin: -5rem auto !important;
+}
+/********************/
+/*User New*/
+/********************/
+/* line 5, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-chemistry {
+  margin: 1rem 2%;
+  padding: 0 2% 1rem;
+}
+
+/* line 9, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.chem-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* line 12, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-chemistry label {
+  width: 100px;
+  font-size: 1.4rem;
+  line-height: 3rem;
+  /*display:inline-block;*/
+}
+
+/* line 18, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-chemistry input {
+  font-size: 1.4rem;
+  width: 46px;
+  display: inline-block;
+  height: 20px;
+  padding: 0;
+  /*margin:5px;*/
+  text-align: center;
+  border-radius: 3px;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* line 29, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-chemistry legend,
+.new-visit-duties legend {
+  font-size: 2.75rem;
+}
+
+/* line 33, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.chem-column-left {
+  text-align: right;
+  /*padding: 0 3%;*/
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/* line 38, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.chem-column-right {
+  text-align: right;
+  padding: 0 3%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/* line 43, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-duties {
+  margin: 0 2%;
+  padding: 0 2%;
+}
+
+/* line 47, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.duties-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* line 50, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.duties-left input[type="checkbox"],
+.duties-right input[type="checkbox"] {
+  display: inline-block;
+  height: 1.5rem;
+  width: 2rem;
+  float: right;
+  margin: 8px 0 0 0;
+}
+
+/* line 58, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.duties-left,
+.duties-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 1% 5%;
+}
+
+/* line 63, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-duties label {
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+
+/* line 67, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-header {
+  padding: 0 0 3rem 0;
+  position: relative;
+  /* background-color: #8FC1E3;*/
+}
+
+/* line 72, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new-visit-header h1 {
+  font-size: 3.5rem;
+  margin: 0 2%;
+}
+
+/* line 76, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.complete-visit-chem-inputs {
+  margin: auto;
+  width: 12rem;
+}
+
+/* line 80, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.complete-visit-duties-inputs {
+  margin: auto;
+  width: 12rem;
+}
+
+/* line 84, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.new_visit {
+  max-width: 625px;
+  margin: auto;
+}
+
+/* line 88, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.submit-visit {
+  font-size: 40px;
+  margin: 5% 35%;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 30px;
+  background-color: grey;
+  border: 1px solid #666666;
+}
+
+/* line 99, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin: 3rem 10%;
+}
+
+/* line 104, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-options input {
+  /*margin:initial !important;*/
+  background-color: grey;
+  font-size: 2rem;
+  line-height: 2rem;
+  max-width: 500px;
+  padding: 0;
+  height: 3rem;
+  margin: 1rem 1% !important;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  border-radius: 3px;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* line 119, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-options a {
+  flex: 1;
+  line-height: 2.75rem;
+  background-color: grey;
+  font-size: 2rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 2.8rem;
+  border: 1px solid #666666;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  color: darkred;
+  margin: 10px 0;
+  /*padding: 1% 2%;*/
+  font-family: 'Kanit', sans-serif;
+}
+
+/* line 137, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-flash {
+  margin: -6rem auto !important;
+  width: 100vw !important;
+  max-width: initial !important;
+}
+
+/******************/
+/*Visit Show*/
+/******************/
+/* line 145, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-main-header {
+  margin: 0 0 2rem 0;
+  position: relative;
+}
+
+/* line 149, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-header {
+  margin: 0 2%;
+  font-size: 2.25rem;
+}
+
+/* line 153, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-date {
+  margin: 0 2%;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+}
+
+/* line 158, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+
+/* line 162, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-col-left,
+.visit-show-col-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0 5%;
+  font-size: 30px;
+}
+
+/* line 169, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-col-left p,
+.visit-show-col-right p {
+  margin: 3% 0;
+  font-size: 1.4rem;
+}
+
+/* line 175, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-details-section {
+  margin: 0 2%;
+  /*background-color: lightgrey;*/
+  padding: 0 2%;
+  border-radius: 10px;
+}
+
+/* line 181, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.show-subheader {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* line 185, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.chemistry-article {
+  max-width: 625px;
+  margin: auto;
+  /*margin:1% 0;*/
+}
+
+/* line 190, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.duties-preformed-article-section {
+  max-width: 625px;
+  margin: 4rem auto;
+}
+
+/* line 194, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.chem-dis,
+.duty-dis {
+  float: right;
+}
+
+/* line 198, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.green {
+  color: darkgreen;
+}
+
+/* line 201, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-links {
+  /*margin:0 2%;*/
+}
+
+/* line 204, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/visits.scss */
+.visit-show-links a {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: black;
+  margin: 3rem 0 0.5rem 2%;
+  background-color: grey;
+  padding: 0 1rem;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid #666666;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/*page elements*/
+/* line 33, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+a:hover:not(.no-hover),
+button:hover:not(.no-hover),
+i:hover:not(.no-hover) {
+  color: #66b3ff;
+}
+
+/* line 38, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+button {
+  cursor: pointer !important;
+}
+
+/* line 44, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+}
+@media screen and (max-width: 800px) {
+  /* line 46, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .desktop {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 801px) {
+  /* line 51, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .desktop-block {
+    display: block;
+  }
+}
+@media screen and (max-width: 849px) {
+  /* line 56, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .tablet-hide {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 801px) {
+  /* line 61, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .mobile {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 801px) {
+  /* line 66, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .mobile-block {
+    display: none !important;
+  }
+}
+/* line 71, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .pad-10 {
+  padding: 0 10px;
+}
+@media screen and (max-width: 800px) {
+  /* line 71, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .pad-10 {
+    padding: 0;
+  }
+}
+/* line 77, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .search-hide {
+  display: none !important;
+}
+/* line 80, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .search-display {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+/* line 83, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .hide {
+  display: none !important;
+}
+/* line 86, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .display {
+  display: initial !important;
+}
+/* line 89, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .h3, body h3 {
+  font-size: 22px;
+}
+/* line 94, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body header.template-header {
+  -webkit-box-shadow: 0 0px 7px 0px grey;
+          box-shadow: 0 0px 7px 0px grey;
+  top: 55px;
+  width: 100%;
+  background: #ffffff;
+  z-index: 1;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+}
+/* line 104, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body header h1 {
+  font-size: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 10px 0 0;
+}
+@media screen and (max-width: 749px) {
+  /* line 104, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body header h1 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 330px) {
+  /* line 104, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body header h1 {
+    font-size: 22px;
+  }
+}
+/* line 112, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body header h2 {
+  font-size: 26px;
+  margin: 0;
+}
+/* line 117, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body main {
+  position: relative;
+  min-height: calc(100vh - 80px);
+}
+/* line 125, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body button:focus {
+  outline: 0;
+}
+/* line 126, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body a {
+  color: #000000;
+  text-decoration: none;
+}
+/* line 130, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .wrapper {
+  padding: 0 20px;
+}
+@media screen and (max-width: 749px) {
+  /* line 130, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .wrapper {
+    padding: 0 20px;
+  }
+}
+/* line 134, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .wrapper-left {
+  padding-left: 20px;
+}
+@media screen and (max-width: 800px) {
+  /* line 134, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .wrapper-left {
+    padding: 0;
+  }
+}
+/* line 138, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .wrapper-right {
+  padding-right: 20px;
+}
+@media screen and (max-width: 800px) {
+  /* line 138, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .wrapper-right {
+    padding: 0;
+  }
+}
+/* line 143, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .max {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+/* line 147, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+body .wrapper-max {
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+}
+@media screen and (max-width: 749px) {
+  /* line 147, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  body .wrapper-max {
+    padding: 0 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+/* line 160, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* line 163, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.flex-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/* line 166, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.flex-2 {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 169, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .tablet-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media screen and (max-width: 749px) {
+  /* line 169, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .tablet-flex {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  /* line 177, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .mob-right {
+    position: absolute;
+    right: 0;
+  }
+}
+
+/* line 183, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.hide {
+  display: none;
+}
+
+/* line 186, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* line 189, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.justify-content {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* line 192, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+/* line 195, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: grey;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 55px;
+}
+@media screen and (max-width: 800px) {
+  /* line 195, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container {
+    display: block;
+  }
+}
+/* line 207, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  /* line 207, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper {
+    width: initial;
+    display: block;
+    background-color: grey;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+  }
+  /* line 217, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper.active {
+    height: 100px;
+  }
+  /* line 220, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper #nav-main {
+    margin: 0;
+  }
+  /* line 222, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper #nav-main li {
+    display: block;
+    padding: 0;
+  }
+  /* line 227, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper #nav-user {
+    margin: 0;
+    text-align: left !important;
+  }
+  /* line 230, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .nav-wrapper #nav-user li {
+    display: block;
+    padding: 0;
+  }
+}
+/* line 236, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper ul {
+  list-style: none;
+  margin: 10px 0;
+}
+/* line 239, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper ul li {
+  display: inline-block;
+  padding: 0 10px;
+}
+/* line 242, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+}
+/* line 249, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper #nav-main {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+/* line 253, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .nav-wrapper #nav-user {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: right;
+}
+/* line 259, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button {
+  position: relative;
+  display: initial;
+  width: 35px;
+  height: 55px;
+  z-index: 3;
+  background-color: grey;
+  color: #000000;
+  border: none;
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  /* line 259, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .nav-container .mob-nav-wrapper .mobile-menu-button {
+    display: initial;
+    padding: 0;
+  }
+}
+/* line 275, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button .mobile-menu-line {
+  background-color: #000000;
+  position: absolute;
+  right: 0;
+  width: 35px;
+  height: 4px;
+  margin: 10px 0;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+  -webkit-transform: 0deg;
+          transform: 0deg;
+}
+/* line 287, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button .mobile-menu-line#menu-line-1 {
+  top: 10px;
+  top: 5px;
+}
+/* line 291, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button .mobile-menu-line#menu-line-2 {
+  top: 20px;
+  top: 15px;
+}
+/* line 295, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button .mobile-menu-line#menu-line-3 {
+  top: 30px;
+  top: 25px;
+}
+/* line 301, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button.clicked .mobile-menu-line {
+  position: absolute;
+  right: 0;
+  top: 17px !important;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+/* line 306, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button.clicked .mobile-menu-line#menu-line-1 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+/* line 310, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button.clicked .mobile-menu-line#menu-line-2 {
+  opacity: 0;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+}
+/* line 314, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.nav-container .mob-nav-wrapper .mobile-menu-button.clicked .mobile-menu-line#menu-line-3 {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+/* line 323, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+footer {
+  background-color: lightgrey;
+  -webkit-box-shadow: 0 3px 8px 0px #000000;
+          box-shadow: 0 3px 8px 0px #000000;
+  text-align: center;
+  bottom: 0;
+  z-index: 10;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+  height: 25px;
+}
+/* line 334, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+footer.businesses-show {
+  position: fixed;
+  width: 100vw;
+}
+/* line 339, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+footer .copy-right p {
+  margin: 0;
+  font-size: 11px;
+  padding: 2.5px 0;
+}
+
+/* line 347, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider {
+  background: lightgrey;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  right: -460px;
+  max-width: 400px;
+  z-index: 10;
+  height: 100%;
+  -webkit-transition: right 1s;
+  transition: right 1s;
+  -webkit-box-shadow: 0 0px 7px 0px grey;
+          box-shadow: 0 0px 7px 0px grey;
+  width: calc(100% - 60px);
+}
+@media screen and (max-width: 749px) {
+  /* line 347, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  aside.form-slider {
+    width: calc(100% - 40px);
+  }
+}
+/* line 362, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider.active {
+  right: 0px;
+}
+/* line 365, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+/* line 368, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider header .delete-wrapper {
+  margin-top: 15px;
+}
+/* line 370, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider header .delete-wrapper a {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: darkred;
+  color: white;
+  margin: 0;
+  padding: 2px 10px;
+  text-decoration: none;
+}
+/* line 388, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .error {
+  color: red !important;
+}
+/* line 390, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .error + label {
+  color: red !important;
+}
+/* line 393, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .error::-webkit-input-placeholder {
+  color: red !important;
+}
+aside.form-slider .form-wrapper form .error:-ms-input-placeholder {
+  color: red !important;
+}
+aside.form-slider .form-wrapper form .error::-ms-input-placeholder {
+  color: red !important;
+}
+aside.form-slider .form-wrapper form .error::placeholder {
+  color: red !important;
+}
+/* line 397, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form input.error:not(select) {
+  border-bottom: 1px solid red !important;
+}
+/* line 403, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form input[type="submit"],
+aside.form-slider .form-wrapper form button.cancel {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: grey;
+  margin: 0;
+  padding: 2px 10px;
+}
+/* line 414, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form button.cancel {
+  color: darkred;
+  text-decoration: none;
+}
+/* line 418, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .submit {
+  text-align: center;
+  margin: 20px 0;
+}
+/* line 423, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox input {
+  opacity: 1 !important;
+  width: initial !important;
+}
+/* line 426, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox input + label {
+  opacity: 1 !important;
+}
+/* line 431, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox-custom {
+  display: none;
+}
+/* line 433, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox-custom + .checkbox-custom-label:before {
+  content: '';
+  background: #fff;
+  border-radius: 0;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  padding: 4px;
+  margin-right: 10px;
+}
+/* line 445, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox-custom:checked + .checkbox-custom-label:after {
+  content: "";
+  padding: 2px;
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  border: solid #000000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 6px;
+  left: 6px;
+}
+/* line 458, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .checkbox-custom-label {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin: 5px 0;
+  cursor: pointer;
+}
+/* line 465, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset,
+aside.form-slider .form-wrapper form .fieldset {
+  border: none;
+  padding: 0;
+  margin: 10px 0;
+}
+@media screen and (max-width: 749px) {
+  /* line 470, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  aside.form-slider .form-wrapper form fieldset.mobile-hide-legend legend,
+  aside.form-slider .form-wrapper form .fieldset.mobile-hide-legend legend {
+    display: none;
+  }
+}
+@media screen and (max-width: 749px) {
+  /* line 465, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  aside.form-slider .form-wrapper form fieldset,
+  aside.form-slider .form-wrapper form .fieldset {
+    margin: 0;
+  }
+}
+/* line 478, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset legend,
+aside.form-slider .form-wrapper form .fieldset legend {
+  font-size: 20px;
+  padding: 0;
+}
+@media screen and (max-width: 749px) {
+  /* line 478, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  aside.form-slider .form-wrapper form fieldset legend,
+  aside.form-slider .form-wrapper form .fieldset legend {
+    padding: 5px 0;
+  }
+}
+/* line 486, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .description .input-wrapper,
+aside.form-slider .form-wrapper form .fieldset .description .input-wrapper {
+  padding-top: 0;
+}
+/* line 490, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .description .input-wrapper label,
+aside.form-slider .form-wrapper form .fieldset .description .input-wrapper label {
+  top: 5px;
+  font-size: 16px;
+}
+/* line 494, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .description .input-wrapper textarea,
+aside.form-slider .form-wrapper form .fieldset .description .input-wrapper textarea {
+  margin-top: 30px;
+  line-height: 1.6;
+}
+/* line 502, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .row input:first-child,
+aside.form-slider .form-wrapper form .fieldset .row input:first-child {
+  margin-left: 0;
+}
+/* line 507, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset input,
+aside.form-slider .form-wrapper form fieldset textarea,
+aside.form-slider .form-wrapper form .fieldset input,
+aside.form-slider .form-wrapper form .fieldset textarea {
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  border: none;
+  margin: 0 5px;
+  padding: 0 5px;
+  width: 100%;
+  background: lightgrey;
+  resize: none;
+}
+/* line 522, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset input:checked + label, aside.form-slider .form-wrapper form fieldset input:checked,
+aside.form-slider .form-wrapper form fieldset textarea:checked + label,
+aside.form-slider .form-wrapper form fieldset textarea:checked,
+aside.form-slider .form-wrapper form .fieldset input:checked + label,
+aside.form-slider .form-wrapper form .fieldset input:checked,
+aside.form-slider .form-wrapper form .fieldset textarea:checked + label,
+aside.form-slider .form-wrapper form .fieldset textarea:checked {
+  opacity: 1;
+}
+/* line 526, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset input:focus,
+aside.form-slider .form-wrapper form fieldset textarea:focus,
+aside.form-slider .form-wrapper form .fieldset input:focus,
+aside.form-slider .form-wrapper form .fieldset textarea:focus {
+  outline: none;
+}
+/* line 528, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset input[type="checkbox"]:not(.show-checkbox),
+aside.form-slider .form-wrapper form fieldset textarea[type="checkbox"]:not(.show-checkbox),
+aside.form-slider .form-wrapper form .fieldset input[type="checkbox"]:not(.show-checkbox),
+aside.form-slider .form-wrapper form .fieldset textarea[type="checkbox"]:not(.show-checkbox) {
+  display: none;
+}
+/* line 532, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset input[type="text"], aside.form-slider .form-wrapper form fieldset input[type="phone"], aside.form-slider .form-wrapper form fieldset input[type="email"], aside.form-slider .form-wrapper form fieldset input[type="password"],
+aside.form-slider .form-wrapper form fieldset textarea[type="text"],
+aside.form-slider .form-wrapper form fieldset textarea[type="phone"],
+aside.form-slider .form-wrapper form fieldset textarea[type="email"],
+aside.form-slider .form-wrapper form fieldset textarea[type="password"],
+aside.form-slider .form-wrapper form .fieldset input[type="text"],
+aside.form-slider .form-wrapper form .fieldset input[type="phone"],
+aside.form-slider .form-wrapper form .fieldset input[type="email"],
+aside.form-slider .form-wrapper form .fieldset input[type="password"],
+aside.form-slider .form-wrapper form .fieldset textarea[type="text"],
+aside.form-slider .form-wrapper form .fieldset textarea[type="phone"],
+aside.form-slider .form-wrapper form .fieldset textarea[type="email"],
+aside.form-slider .form-wrapper form .fieldset textarea[type="password"] {
+  border-bottom: 1px solid #000000;
+  margin: 5px;
+}
+/* line 540, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset textarea,
+aside.form-slider .form-wrapper form .fieldset textarea {
+  margin: 0;
+  height: 150px;
+  width: calc(100% - 10px);
+  background-color: #eee;
+}
+/* line 553, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .scheduling-days .day-input,
+aside.form-slider .form-wrapper form .fieldset .scheduling-days .day-input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/* line 555, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .scheduling-days .day-input input:last-child,
+aside.form-slider .form-wrapper form .fieldset .scheduling-days .day-input input:last-child {
+  margin: 0 !important;
+}
+/* line 558, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form fieldset .scheduling-days .day-input input:first-child,
+aside.form-slider .form-wrapper form .fieldset .scheduling-days .day-input input:first-child {
+  margin-left: 0 !important;
+}
+/* line 564, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .input-wrapper {
+  padding: 17px 0 0;
+  margin-right: 10px;
+  position: relative;
+}
+/* line 568, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .input-wrapper label {
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute;
+  pointer-events: none;
+  top: 17px;
+  z-index: 2;
+  color: #666666;
+  -webkit-transition: top .25s, left .25s, font-size .25s;
+  transition: top .25s, left .25s, font-size .25s;
+}
+/* line 577, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .input-wrapper label.active-input {
+  top: 2px;
+  left: 0px;
+  font-size: 13px;
+}
+/* line 583, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .input-wrapper input {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* line 587, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .input-wrapper.checkbox-custom-label {
+  margin: 13px 0 0;
+  margin-left: 0;
+  padding: 0;
+}
+/* line 594, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+aside.form-slider .form-wrapper form .employee-input-wrapper label {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+/* line 603, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings {
+  font-size: 20px;
+  text-align: right;
+  padding: 28px 0 0;
+  padding: 0;
+  padding: 10px 0 0;
+  position: relative;
+}
+/* line 610, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-info .settings {
+  width: 60px;
+}
+/* line 612, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-info .settings .icon-wrapper {
+  width: 100%;
+}
+/* line 616, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .icon-wrapper {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/* line 618, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .icon-wrapper .more-info {
+  padding-right: 10px;
+}
+/* line 621, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .icon-wrapper i {
+  margin-top: 5px;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+/* line 625, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .icon-wrapper i.active {
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+/* line 630, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .settings-drop-down {
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  text-align: left;
+  top: 35px;
+  background-color: #ffffff;
+  padding: 0 10px;
+  width: 100%;
+  width: 60px;
+  margin: 0 3px;
+  -webkit-box-shadow: 0px 4px 3px #888888;
+          box-shadow: 0px 4px 3px #888888;
+}
+/* line 645, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.settings .settings-drop-down.active {
+  height: calc(100% + 35px);
+}
+
+/* line 650, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+select {
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 40%, #ffffff);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  border: 2px solid #ddd;
+  color: #555;
+  font-size: inherit;
+  margin: 5px 0 0;
+  overflow: hidden;
+  padding: 2px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* line 677, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.photos label {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: grey;
+  margin: 0;
+  padding: 2px 10px;
+  margin-top: 3px;
+}
+/* line 688, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.photos .label {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* line 694, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list {
+  height: 100%;
+  padding-right: 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+/* line 701, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list #map {
+  height: calc(100vh - 55px - 92px - 35px - 25px);
+}
+/* line 708, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key {
+  z-index: 2;
+  background-color: lightgrey;
+  height: 35px;
+}
+/* line 714, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key button:first-child .button-content {
+  border: none !important;
+}
+/* line 717, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button {
+  text-align: center;
+  border: none;
+  background-color: lightgrey;
+  font-size: 14px;
+  padding: 5px 0;
+}
+/* line 723, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button .button-content {
+  border-left: 1px solid grey;
+  font-weight: 700;
+}
+/* line 727, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.red {
+  color: red;
+  color: #4da6ff;
+}
+/* line 731, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.purple {
+  color: purple;
+  color: #80bfff;
+}
+/* line 735, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.orange {
+  color: orange;
+  color: #0059b3;
+}
+/* line 740, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.green {
+  color: green;
+  color: #00264d;
+}
+/* line 745, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.yellow {
+  color: yellow;
+  color: #0080ff;
+}
+/* line 750, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.grey {
+  color: #000000;
+}
+/* line 754, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.active {
+  background-color: grey;
+}
+/* line 756, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.map-pool-list .map-key .day-toggle-button.active + button .button-content {
+  border: none;
+}
+
+/* line 764, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.info-window h3 {
+  margin-bottom: 5px;
+}
+/* line 770, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.info-window .link-wrapper {
+  margin-top: 10px;
+}
+/* line 772, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.info-window .link-wrapper .col {
+  width: 48%;
+}
+/* line 775, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.info-window .link-wrapper .col a {
+  display: block;
+  background-color: grey;
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* line 788, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.notes-widget .notes-form {
+  margin: 10px 0;
+}
+/* line 790, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.notes-widget .notes-form input[type="text"] {
+  width: initial;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 10px;
+}
+/* line 795, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.notes-widget .notes-form .error::-webkit-input-placeholder {
+  color: red !important;
+}
+.notes-widget .notes-form .error:-ms-input-placeholder {
+  color: red !important;
+}
+.notes-widget .notes-form .error::-ms-input-placeholder {
+  color: red !important;
+}
+.notes-widget .notes-form .error::placeholder {
+  color: red !important;
+}
+/* line 799, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.notes-widget ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+/* line 803, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.notes-widget ul li {
+  line-height: 1;
+  padding-bottom: 15px;
+}
+
+/* line 815, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 20px;
+}
+/* line 818, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/* line 820, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-left h1 {
+  margin: 0;
+  display: inline-block;
+}
+/* line 824, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-left p {
+  margin: 0;
+}
+/* line 827, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-left a {
+  color: #000000;
+  font-size: 1.25em;
+  display: inline-block;
+}
+/* line 833, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15px 0 0;
+}
+/* line 836, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.biz-header-section .biz-header-right .search-form {
+  float: right;
+}
+
+/* line 841, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 843, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+/* line 846, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col .grid-header {
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 3;
+  -webkit-box-shadow: 0px 6px 5px -5px grey;
+          box-shadow: 0px 6px 5px -5px grey;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 857, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col .grid-header h2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0;
+}
+/* line 861, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col .grid-header .settings {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 10px 0 0;
+  text-align: right;
+}
+/* line 865, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col .grid-header .settings a {
+  color: #000000;
+  text-decoration: none;
+}
+/* line 868, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col .grid-header .settings a i {
+  font-size: 1.25em;
+}
+/* line 874, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-left {
+  padding-right: 15px;
+}
+/* line 876, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-left .grid-row {
+  position: relative;
+}
+/* line 878, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-left .grid-row .customer-card-list,
+.control-panel > .col.col-left .grid-row .card-list {
+  height: 76vh;
+  overflow: scroll;
+  background: lightgrey;
+  padding: 0 30px;
+}
+/* line 884, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-left .grid-row .customer-card-list .list,
+.control-panel > .col.col-left .grid-row .card-list .list {
+  margin-top: 90px;
+}
+/* line 886, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-left .grid-row .customer-card-list .list .customer-card,
+.control-panel > .col.col-left .grid-row .card-list .list .customer-card {
+  border-bottom: 1px solid #000000;
+}
+/* line 901, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-right {
+  padding-left: 15px;
+}
+/* line 903, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-right .grid-row {
+  position: relative;
+}
+/* line 905, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-right .grid-row .customer-card-list,
+.control-panel > .col.col-right .grid-row .card-list {
+  height: 38vh;
+  overflow: scroll;
+  background: lightgrey;
+  padding: 0 30px;
+}
+/* line 911, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-right .grid-row .customer-card-list .list,
+.control-panel > .col.col-right .grid-row .card-list .list {
+  margin-top: 90px;
+}
+/* line 913, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.control-panel > .col.col-right .grid-row .customer-card-list .list .customer-card,
+.control-panel > .col.col-right .grid-row .card-list .list .customer-card {
+  border-bottom: 1px solid #000000;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 801px) {
+  /* line 932, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .row.mob-col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media screen and (max-width: 749px) {
+  /* line 932, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .row.mob-col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+/* line 938, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list p {
+  margin: 5px 0;
+  line-height: 1.1;
+}
+@media screen and (max-width: 330px) {
+  /* line 938, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .card-list p {
+    font-size: 16px;
+  }
+}
+/* line 945, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card {
+  border-bottom: 1px solid #000000;
+  margin: 10px 20px;
+  font-size: 18px;
+  margin: 15px 0;
+  padding-bottom: 20px;
+  position: relative;
+  padding: 5px 0 30px;
+}
+/* line 953, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.history-list .card-list .list .card {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+/* line 957, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card:last-child {
+  border-bottom: none;
+}
+/* line 960, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card.no-border {
+  border: none;
+}
+/* line 969, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card .row .col ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+/* line 976, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card header {
+  padding: 0 0 10px;
+}
+/* line 979, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card header .heading h2, .card-list .list .card header .heading .h2 {
+  font-size: 25px;
+  margin: 20px 0 0;
+  margin: 0;
+}
+/* line 987, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card .more-section {
+  max-height: 0;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: max-height 0.35s ease-out;
+  transition: max-height 0.35s ease-out;
+  overflow: hidden;
+}
+/* line 998, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.card-list .list .card .more-section.active {
+  max-height: 100%;
+  max-height: 500px;
+  -webkit-transition: max-height 0.5s ease-in;
+  transition: max-height 0.5s ease-in;
+}
+
+/* line 1010, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.business-profile-header .header i {
+  margin-top: 28px;
+  font-size: 25px;
+}
+@media screen and (max-width: 749px) {
+  /* line 1010, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .business-profile-header .header i {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 330px) {
+  /* line 1010, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .business-profile-header .header i {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+}
+/* line 1023, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.business-profile-header .search-form {
+  padding-top: 25px;
+}
+
+/* line 1036, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.new-link-container a {
+  display: none;
+  font-size: 20px;
+  margin-top: 3px;
+}
+/* line 1041, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.new-link-container .active-link {
+  display: initial;
+}
+
+/* line 1052, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper {
+  background-color: #ffffff;
+}
+/* line 1054, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper h1 {
+  font-size: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0;
+}
+/* line 1060, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/* line 1064, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 275px;
+}
+/* line 1068, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav .switch {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #000000;
+  text-align: center;
+  padding: 5px 0;
+  border-right: 1px solid grey;
+  background: lightgrey;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  border: none;
+}
+/* line 1081, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav .switch:last-child {
+  border-right: none;
+}
+/* line 1084, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav .switch.active-switch {
+  background: grey;
+}
+/* line 1087, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav .switch:hover {
+  color: #000000 !important;
+}
+/* line 1091, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .header-wrapper .page-options .options-nav i {
+  border-right: none;
+  text-align: center;
+  padding: 5px 10px;
+}
+/* line 1099, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-profile-header .customer-info {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* line 1105, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.details-list p {
+  margin: 5px 0;
+  line-height: 1.1;
+  font-size: 18px;
+}
+
+/* line 1112, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.history-list .row {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/* line 1114, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.history-list .row .col {
+  min-width: 33%;
+  padding: 0 !important;
+}
+@media screen and (max-width: 749px) {
+  /* line 1114, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .history-list .row .col {
+    min-width: 50%;
+  }
+}
+/* line 1120, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.history-list .row .col p {
+  margin: 5px 0;
+  line-height: 1.1;
+  font-size: 18px;
+  padding: 0 20px 0 0;
+}
+
+/* line 1130, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.details-sidebar .customer-info {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+/* line 1133, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.details-sidebar .customer-info .address, .details-sidebar .customer-info .flex.justify-content {
+  margin: 5px 0;
+}
+/* line 1136, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.details-sidebar .customer-info h2 {
+  margin: 10px 0;
+}
+/* line 1139, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.details-sidebar .customer-info .first {
+  padding-right: 10px;
+}
+
+/* line 1151, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header {
+  position: fixed;
+  -webkit-box-shadow: 0 0px 7px 0px grey;
+          box-shadow: 0 0px 7px 0px grey;
+  top: 60px;
+  width: 100%;
+  background: #ffffff;
+  z-index: 2;
+}
+/* line 1159, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper {
+  background-color: #ffffff;
+}
+/* line 1167, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/* line 1171, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 275px;
+}
+@media screen and (max-width: 330px) {
+  /* line 1171, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .user-profile-header .header-wrapper .page-options .options-nav {
+    width: 230px;
+  }
+}
+/* line 1178, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav .switch {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-right: 1px solid grey;
+  background: lightgrey;
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  border: none;
+}
+/* line 1190, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav .switch:last-child {
+  border-right: none;
+}
+/* line 1193, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav .switch.active-switch {
+  background: grey;
+}
+/* line 1196, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav .switch:hover {
+  color: #000000;
+}
+/* line 1200, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.user-profile-header .header-wrapper .page-options .options-nav i {
+  border-right: none;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+/* line 1209, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.form {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  /* line 1209, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .form {
+    position: relative;
+    /* top: 19px; */
+    /* right: 20px; */
+    text-align: right;
+    margin-top: 12px;
+  }
+}
+/* line 1220, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.form form {
+  width: 100%;
+  text-align: right;
+}
+/* line 1224, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.form input[type="text"] {
+  background-color: lightgrey;
+  border: none;
+  font-family: 'Kanit', sans-serif;
+  width: 200px;
+  max-width: calc(100% - 95px);
+  font-size: 1rem;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+/* line 1233, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.customer-card .form input[type="text"] {
+  margin-right: 6px;
+}
+/* line 1237, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.form input[type="submit"],
+.form button[type="submit"] {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: grey;
+  margin: 0;
+  padding: 2px 10px;
+  border: 1px solid #000000;
+}
+
+/* line 1250, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.pool-lists {
+  display: none;
+}
+@media screen and (min-width: 749px) {
+  /* line 1254, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .col-right .pool-lists {
+    display: block !important;
+  }
+}
+/* line 1259, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.pool-lists.active-list {
+  display: block;
+}
+/* line 1263, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.pool-lists .users .col.email {
+  padding-top: 0.25px;
+}
+
+/* line 1270, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col > section {
+  overflow: scroll;
+  height: calc(100vh - 190px);
+}
+@media screen and (max-width: 800px) {
+  /* line 1270, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .dashboard-wrapper > .col > section {
+    overflow: auto;
+    height: auto;
+  }
+}
+/* line 1277, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col > section.map-pool-list {
+  margin-right: -20px;
+  margin-left: 10px;
+}
+@media screen and (max-width: 800px) {
+  /* line 1277, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+  .dashboard-wrapper > .col > section.map-pool-list {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+/* line 1291, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col.col-right {
+  position: relative;
+}
+/* line 1294, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col.col-right h2 {
+  position: absolute;
+}
+/* line 1298, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col.col-right .customer-info h2 {
+  position: relative;
+}
+/* line 1302, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper > .col.col-right > section.pool-lists:not(.business-customers) {
+  margin-top: 60px;
+  height: calc(100vh - 250px);
+}
+/* line 1321, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.dashboard-wrapper .col.col-right {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(211, 211, 211, 0.5)), to(rgba(211, 211, 211, 0)));
+  background: linear-gradient(to right, rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0));
+}
+
+/* line 1331, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.login-background-wrapper .login-background {
+  -o-object-fit: initial;
+     object-fit: initial;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+/* line 1338, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.login-background-wrapper .background-screen {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: lightgrey;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: lightgrey;
+  opacity: 0.85;
+  z-index: -1;
+}
+
+/* line 1354, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form {
+  padding-top: 100px !important;
+}
+/* line 1356, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form .form-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: lightgrey;
+  padding: 30px;
+  border-radius: 10px;
+}
+/* line 1365, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form h2 {
+  margin-top: 0;
+  font-size: 28px;
+}
+/* line 1370, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form .forgot-password-wrapper {
+  text-align: right;
+  margin-top: 20px;
+}
+/* line 1373, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form .forgot-password-wrapper .forgot-password {
+  color: black;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+/* line 1382, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form {
+  margin: 0;
+}
+/* line 1392, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/* line 1395, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-title {
+  font-size: 1.5rem;
+}
+/* line 1397, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-title .session-type-options {
+  font-size: 18px;
+  margin-right: 3%;
+}
+/* line 1401, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-title .session-type-options input {
+  height: 1.25rem;
+  margin-top: 0.75rem !important;
+  width: 1.25rem !important;
+}
+/* line 1406, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-title .session-type-options label {
+  margin: 0 0 0 0.3rem;
+}
+/* line 1411, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/* line 1414, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper {
+  padding: 17px 0 0;
+  margin-right: 10px;
+  position: relative;
+}
+/* line 1418, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper label {
+  color: #666666;
+  -webkit-transition: top .25s, left .25s, font-size .25s;
+  transition: top .25s, left .25s, font-size .25s;
+}
+/* line 1421, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper label:before {
+  content: '';
+  background: #fff;
+  border-radius: 0;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  padding: 4px;
+  margin-right: 10px;
+}
+/* line 1439, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper input {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* line 1443, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper .checkbox-custom {
+  display: none;
+}
+/* line 1445, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper .checkbox-custom:checked {
+  color: red;
+}
+/* line 1454, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper .checkbox-custom + .checkbox-custom-label:before {
+  content: '';
+  background: #fff;
+  border-radius: 0;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  padding: 4px;
+  margin-right: 10px;
+}
+/* line 1466, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper .checkbox-custom:checked + .checkbox-custom-label:after {
+  content: "";
+  padding: 2px;
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  border: solid #000000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 6px;
+  left: 6px;
+}
+/* line 1479, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-type-options .input-wrapper.checkbox-custom-label {
+  margin: 13px 0 0;
+  margin-left: 0;
+  padding: 0;
+}
+/* line 1488, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-password {
+  margin: 1rem 0;
+}
+/* line 1491, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-password input,
+.session-form form .session-email input {
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: transparent;
+}
+/* line 1503, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .session-email-reset {
+  width: 93%;
+}
+/* line 1506, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .new-session-submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 1510, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .new-session-submit a {
+  border: 1px solid #666666;
+  background-color: grey;
+  font-size: 18px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin: 0 0 0 15px;
+  padding: 0 2%;
+  font-family: 'Kanit', sans-serif;
+}
+/* line 1525, /Users/enricodesantis/www/pool_app/app/assets/stylesheets/application.scss */
+.session-form form .new-session-submit input {
+  border-color: #4d4d4d;
+  background-color: grey;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  border-radius: 3px;
+  border: 1px solid #666666;
+  font-family: 'Kanit', sans-serif;
+}
