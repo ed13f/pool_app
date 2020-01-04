@@ -18,9 +18,6 @@
 //= require underscore
 //= require bootstrap-sprockets
 
-//= require jquery.validate.additional-methods 
-//= require jquery.validate
-//= require rails.validations
 
 $( document ).ready(function() {
 	$(document).on('turbolinks:load', function() {
