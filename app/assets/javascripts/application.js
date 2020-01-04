@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require bootstrap
 //= require turbolinks
+//= require_tree .
 //= require underscore
 //= require bootstrap-sprockets
-//= require_tree .
+
 //= require jquery.validate.additional-methods 
 //= require jquery.validate
 //= require rails.validations
