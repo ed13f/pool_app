@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <% session[:business_id] = 1 %>
+    <%if(session[:user_id] || session[:business_id])%>
     <nav class="nav-container">
       <div class="mob-nav-wrapper mobile flex wrapper-max">
         <button value="mobile-menu-icon" name="mobile-menu-icon" type="mobile-menu-icon" class="mobile-menu-button" tabindex="-1">
@@ -22,7 +22,11 @@
           <div id="menu-line-2" class="mobile-menu-line"></div>
           <div id="menu-line-3" class="mobile-menu-line"></div>
         </button>
-        <%if(session[:user_id] || session[:business_id])%>
+        
+
+
+
+
           <div class="search-form form flex-1">
 
           <%= form_tag(:controller => "businesses", :action => "show", :method => 'get', :id => 1) do %>
@@ -32,7 +36,9 @@
             <% end %>
           <% end %>
         </div>
-      <% end%>
+
+
+      
       </div>  
       <div class="nav-wrapper">
         <ul id="nav-main" class="wrapper">
@@ -75,6 +81,7 @@
         </ul>
       <div>
     </nav>
+    <% end%>
     <main class="flex flex-column">
     <%= yield %>
   </main>

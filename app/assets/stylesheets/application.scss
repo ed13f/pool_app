@@ -35,8 +35,17 @@ i:hover{
   }
   
 }
+input {
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-border-radius:0px;
+}
 button{
   cursor: pointer !important;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius:0px;
+  margin: 0
 }
 // .error::placeholder{
 //   color:red !important;
