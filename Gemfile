@@ -44,7 +44,7 @@ gem 'client_side_validations'
 
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'autoprefixer-rails'
 gem 'faker'
 
